@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>§5 · Agent Behavior and Configuration</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #EEF0F1;
+    --surface: #F9FAFA;
+    --ink: #1B222C;
+    --ink-soft: #4B5560;
+    --ink-faint: #7C8891;
+    --rule: #D6DAD9;
+    --rule-strong: #B9C0BF;
+    --accent: #21519A;
+    --accent-soft: #E4EAF3;
+    --amber: #A85A22;
+    --amber-soft: #F3E5D7;
+    --tag-bg: #DCE4EE;
+    --tag-ink: #21519A;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #13171C;
+      --surface: #1A1F26;
+      --ink: #E7E9EA;
+      --ink-soft: #ABB3BA;
+      --ink-faint: #7C858D;
+      --rule: #2B3138;
+      --rule-strong: #3A424B;
+      --accent: #7CA3DE;
+      --accent-soft: #202B3B;
+      --amber: #E0A876;
+      --amber-soft: #332419;
+      --tag-bg: #223047;
+      --tag-ink: #9DC0EE;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #13171C;
+    --surface: #1A1F26;
+    --ink: #E7E9EA;
+    --ink-soft: #ABB3BA;
+    --ink-faint: #7C858D;
+    --rule: #2B3138;
+    --rule-strong: #3A424B;
+    --accent: #7CA3DE;
+    --accent-soft: #202B3B;
+    --amber: #E0A876;
+    --amber-soft: #332419;
+    --tag-bg: #223047;
+    --tag-ink: #9DC0EE;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+  }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 3.5rem 1.5rem 6rem;
+  }
+
+  .mockup-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.02em;
+    color: var(--ink-faint);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 0.3rem 0.6rem;
+    margin-bottom: 2.25rem;
+  }
+  .mockup-badge .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--amber);
+    flex-shrink: 0;
+  }
+
+  .pipeline {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 2.5rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+  }
+  .pipeline .stage {
+    padding: 0.28rem 0.65rem;
+    border-radius: 3px;
+    color: var(--ink-faint);
+    border: 1px solid transparent;
+  }
+  .pipeline .stage.active {
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-color: var(--accent);
+    font-weight: 500;
+  }
+  .pipeline .stage.control {
+    margin-left: 0.5rem;
+    border: 1px dashed var(--rule-strong);
+    color: var(--ink-faint);
+  }
+  .pipeline .arrow {
+    color: var(--ink-faint);
+  }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-size: 2.6rem;
+    line-height: 1.12;
+    margin: 0 0 1.1rem;
+    letter-spacing: -0.01em;
+  }
+  h1 .num {
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--accent);
+    font-weight: 400;
+    margin-right: 0.15em;
+  }
+
+  .page-meta {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 0.85rem;
+    color: var(--ink-faint);
+    margin: -0.4rem 0 1.6rem;
+  }
+
+  /* narrative-not-yet-drafted note, distinct from a real "deck" quote */
+  .deck-pending {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 0.94rem;
+    color: var(--ink-faint);
+    line-height: 1.55;
+    max-width: 46ch;
+    margin: 0 0 3rem;
+    padding-left: 0.85rem;
+    border-left: 2px solid var(--rule-strong);
+  }
+
+  .beats {
+    border-top: 1px solid var(--rule-strong);
+  }
+
+  details.beat {
+    border-bottom: 1px solid var(--rule);
+  }
+
+  details.beat summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.35rem 0;
+    -webkit-tap-highlight-color: transparent;
+  }
+  details.beat summary::-webkit-details-marker { display: none; }
+
+  .beat-label {
+    display: flex;
+    align-items: baseline;
+    gap: 0.85rem;
+  }
+
+  .beat-kicker {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--amber);
+    text-transform: lowercase;
+    white-space: nowrap;
+    padding-top: 0.15rem;
+  }
+
+  .beat-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 1.28rem;
+    color: var(--ink);
+  }
+
+  .chev {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    color: var(--ink-faint);
+    transition: transform 0.2s ease;
+    margin-top: 0.3rem;
+  }
+  details.beat[open] .chev { transform: rotate(45deg); }
+
+  .beat-body {
+    padding: 0 0 1.75rem;
+    max-width: 62ch;
+    color: var(--ink-soft);
+  }
+  .beat-body p { margin: 0; }
+  .beat-body .pending {
+    font-style: italic;
+    color: var(--ink-faint);
+  }
+
+  /* --- concept-grouping tier: plain ordered list, position carries rank --- */
+  .concept-section {
+    margin-top: 2.5rem;
+  }
+
+  .concept-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--ink-faint);
+    margin-bottom: 0.4rem;
+  }
+  .concept-eyebrow strong {
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+
+  .concept-list {
+    border-top: 1px solid var(--rule);
+  }
+
+  .concept-row {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .concept-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 1.05rem;
+    color: var(--ink);
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+  .concept-title .arrow {
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--ink-faint);
+    font-size: 0.85rem;
+  }
+  .concept-row:hover .concept-title { color: var(--accent); }
+  .concept-row:hover .concept-title .arrow { color: var(--accent); }
+
+  .concept-meta {
+    margin-top: 0.3rem;
+    font-size: 0.82rem;
+    color: var(--ink-faint);
+    line-height: 1.45;
+  }
+
+  .concept-footnote {
+    margin-top: 1rem;
+    font-size: 0.82rem;
+    color: var(--ink-faint);
+    font-style: italic;
+  }
+
+  /* --- landscape card --- */
+  .landscape {
+    margin-top: 2rem;
+    border: 1px solid var(--rule-strong);
+    border-radius: 4px;
+    padding: 1.6rem 1.75rem;
+    background: var(--surface);
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+  }
+  .landscape:hover { border-color: var(--accent); }
+
+  .landscape-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--ink-faint);
+    margin-bottom: 0.5rem;
+  }
+
+  .landscape-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .landscape-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 1.35rem;
+  }
+
+  .landscape-arrow {
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--accent);
+    font-size: 1.2rem;
+  }
+
+  .landscape-stats {
+    margin-top: 0.9rem;
+    display: flex;
+    gap: 1.4rem;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+  .landscape-stats strong {
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .toast {
+    position: fixed;
+    left: 50%;
+    bottom: 2rem;
+    transform: translate(-50%, 12px);
+    background: var(--ink);
+    color: var(--bg);
+    font-size: 0.85rem;
+    padding: 0.7rem 1.1rem;
+    border-radius: 4px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    max-width: 90vw;
+    text-align: center;
+  }
+  .toast.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+
+  footer.note {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.82rem;
+    color: var(--ink-faint);
+  }
+  footer.note p { margin: 0 0 0.9rem; }
+  footer.note p:last-child { margin-bottom: 0; }
+
+  @media (max-width: 520px) {
+    h1 { font-size: 2.1rem; }
+    .beat-label { gap: 0.6rem; }
+    .beat-kicker { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="mockup-badge">
+    <span class="dot"></span>
+    structure mockup — narrative page template, section §5 (v2.10 content), concept-grouping tier populated + ordered
+  </div>
+
+  <nav class="pipeline" aria-label="Taxonomy stage">
+    <span class="stage active">Build</span>
+    <span class="arrow">→</span>
+    <span class="stage">Connect</span>
+    <span class="arrow">→</span>
+    <span class="stage">Run</span>
+    <span class="stage control">Control</span>
+  </nav>
+
+  <h1><span class="num">§5</span>Agent Behavior and Configuration</h1>
+  <p class="page-meta">Sep 07, 2026, 1 min read</p>
+  <p class="deck-pending">Narrative (What / Why / When / How / Where) not yet drafted for this section — the five beats below are placeholders. The concept pages further down are ahead of the narrative, since those come straight from the taxonomy doc's existing list.</p>
+
+  <div class="beats">
+
+    <details class="beat" open>
+      <summary>
+        <span class="beat-label">
+          <span class="beat-kicker">what</span>
+          <span class="beat-title">What is agent behavior and configuration</span>
+        </span>
+        <svg class="chev" viewBox="0 0 18 18" fill="none"><path d="M9 2v14M2 9h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </summary>
+      <div class="beat-body"><p class="pending">(not yet drafted)</p></div>
+    </details>
+
+    <details class="beat">
+      <summary>
+        <span class="beat-label">
+          <span class="beat-kicker">why</span>
+          <span class="beat-title">Why configure agent behavior explicitly</span>
+        </span>
+        <svg class="chev" viewBox="0 0 18 18" fill="none"><path d="M9 2v14M2 9h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </summary>
+      <div class="beat-body"><p class="pending">(not yet drafted)</p></div>
+    </details>
+
+    <details class="beat">
+      <summary>
+        <span class="beat-label">
+          <span class="beat-kicker">when</span>
+          <span class="beat-title">When to apply which configuration lever</span>
+        </span>
+        <svg class="chev" viewBox="0 0 18 18" fill="none"><path d="M9 2v14M2 9h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </summary>
+      <div class="beat-body"><p class="pending">(not yet drafted)</p></div>
+    </details>
+
+    <details class="beat">
+      <summary>
+        <span class="beat-label">
+          <span class="beat-kicker">how</span>
+          <span class="beat-title">How agent behavior is configured</span>
+        </span>
+        <svg class="chev" viewBox="0 0 18 18" fill="none"><path d="M9 2v14M2 9h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </summary>
+      <div class="beat-body"><p class="pending">(not yet drafted)</p></div>
+    </details>
+
+    <details class="beat">
+      <summary>
+        <span class="beat-label">
+          <span class="beat-kicker">where</span>
+          <span class="beat-title">Where agent behavior and configuration is heading</span>
+        </span>
+        <svg class="chev" viewBox="0 0 18 18" fill="none"><path d="M9 2v14M2 9h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </summary>
+      <div class="beat-body"><p class="pending">(not yet drafted)</p></div>
+    </details>
+
+  </div>
+
+  <div class="concept-section">
+    <div class="concept-eyebrow">concept pages · <strong>6</strong> of 15 written so far, in reading order</div>
+    <div class="concept-list">
+
+      <a class="concept-row navcard" href="#" data-name="Model selection">
+        <span class="concept-title">Model selection <span class="arrow">→</span></span>
+        <span class="concept-meta">Model routing — implemented in Connect</span>
+      </a>
+
+      <a class="concept-row navcard" href="#" data-name="Policies">
+        <span class="concept-title">Policies <span class="arrow">→</span></span>
+        <span class="concept-meta">Behavioral · Model / tool scope — links to the Control hub</span>
+      </a>
+
+      <a class="concept-row navcard" href="#" data-name="Guardrails">
+        <span class="concept-title">Guardrails <span class="arrow">→</span></span>
+        <span class="concept-meta">Enforced at runtime — tools in the Landscape below</span>
+      </a>
+
+      <a class="concept-row navcard" href="#" data-name="Reasoning strategies">
+        <span class="concept-title">Reasoning strategies <span class="arrow">→</span></span>
+        <span class="concept-meta">Chain-of-Thought, ReAct, Tree-of-Thought, Self-consistency</span>
+      </a>
+
+      <a class="concept-row navcard" href="#" data-name="Temperature / sampling">
+        <span class="concept-title">Temperature / sampling <span class="arrow">→</span></span>
+        <span class="concept-meta">Single concept, no children</span>
+      </a>
+
+      <a class="concept-row navcard" href="#" data-name="Standing context files">
+        <span class="concept-title">Standing context files <span class="arrow">→</span></span>
+        <span class="concept-meta">AGENTS.md · CLAUDE.md · .cursorrules</span>
+      </a>
+
+    </div>
+    <p class="concept-footnote">Nine more (Instructions, Tool definitions, Structured outputs, Planning strategies, Agent personas, Reasoning effort level, Behavioral constraints, Termination / stopping conditions, Hooks / lifecycle triggers) don't have pages yet — they simply aren't shown, rather than appearing as empty placeholders. Order follows the taxonomy doc's own sequence (v2.10): high-level and high-leverage first, niche later. The six here appear in their correct order relative to each other — not that adjacent rows are neighbors in the full priority sequence: Guardrails (rank 5) sits directly above Reasoning strategies (rank 7) here, but Structured outputs (rank 6) actually falls between them and just isn't shown yet.</p>
+  </div>
+
+  <a class="landscape navcard" href="#" data-name="Behavior and Configuration Landscape">
+    <div class="landscape-eyebrow">reference catalog</div>
+    <div class="landscape-title-row">
+      <span class="landscape-title">Behavior and Configuration Landscape</span>
+      <span class="landscape-arrow">→</span>
+    </div>
+    <div class="landscape-stats">
+      <span><strong>3</strong> tools catalogued</span>
+      <span><strong>3</strong> open source</span>
+    </div>
+  </a>
+
+  <footer class="note">
+    <p>This page demonstrates the populated version of the concept-grouping tier — the counterpart to the §1 Agent Harnesses mockup, which has none. Rows here mix both grains the taxonomy doc gives them: a bundle with children rendered as one page (Policies, Reasoning strategies, Standing context files) and a standalone leaf with no children getting its own page too (Model selection, Guardrails, Temperature / sampling) — including Temperature / sampling specifically, which the site plan previously used as the example of something that should <em>not</em> get its own page, before that call was reversed.</p>
+    <p>Concept-grouping pages render as a plain ordered list rather than a card grid, and are shown in reading-priority order — high-level and high-leverage first, niche later — per the taxonomy doc's own bullet sequence (v2.10). Position conveys relative order, not absolute rank: since the list is normally incomplete (see below), adjacent rows aren't necessarily neighbors in the section's full priority sequence, just correctly ordered relative to each other. No rank numbers are shown. The list is deliberately quieter than the Landscape card below it: no border, no box, just title and a one-line description. The six shown here are meant to be read as "written so far," not "all that exist" — pages accumulate as content is authored, and the other nine simply don't appear yet rather than showing as empty rows.</p>
+    <p>Content reflects the taxonomy's current §5 entry (v2.10); its own five narrative beats are genuinely undrafted, shown here as-is rather than invented for the mockup. All links are placeholders for pages not built in this mockup.</p>
+  </footer>
+
+</div>
+
+<div class="toast" id="toast">placeholder</div>
+
+<script>
+  document.querySelectorAll('.navcard').forEach(function(el) {
+    el.addEventListener('click', function(e) {
+      e.preventDefault();
+      var toast = document.getElementById('toast');
+      toast.textContent = 'In the live site, this opens ' + el.getAttribute('data-name') + ' →';
+      toast.classList.add('show');
+      clearTimeout(window._toastTimer);
+      window._toastTimer = setTimeout(function() {
+        toast.classList.remove('show');
+      }, 2400);
+    });
+  });
+</script>
+
+</body>
+</html>

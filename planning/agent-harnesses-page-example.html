@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>§1 · Agent Harnesses</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #EEF0F1;
+    --surface: #F9FAFA;
+    --ink: #1B222C;
+    --ink-soft: #4B5560;
+    --ink-faint: #7C8891;
+    --rule: #D6DAD9;
+    --rule-strong: #B9C0BF;
+    --accent: #21519A;
+    --accent-soft: #E4EAF3;
+    --amber: #A85A22;
+    --amber-soft: #F3E5D7;
+    --tag-bg: #DCE4EE;
+    --tag-ink: #21519A;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #13171C;
+      --surface: #1A1F26;
+      --ink: #E7E9EA;
+      --ink-soft: #ABB3BA;
+      --ink-faint: #7C858D;
+      --rule: #2B3138;
+      --rule-strong: #3A424B;
+      --accent: #7CA3DE;
+      --accent-soft: #202B3B;
+      --amber: #E0A876;
+      --amber-soft: #332419;
+      --tag-bg: #223047;
+      --tag-ink: #9DC0EE;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #13171C;
+    --surface: #1A1F26;
+    --ink: #E7E9EA;
+    --ink-soft: #ABB3BA;
+    --ink-faint: #7C858D;
+    --rule: #2B3138;
+    --rule-strong: #3A424B;
+    --accent: #7CA3DE;
+    --accent-soft: #202B3B;
+    --amber: #E0A876;
+    --amber-soft: #332419;
+    --tag-bg: #223047;
+    --tag-ink: #9DC0EE;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+  }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 3.5rem 1.5rem 6rem;
+  }
+
+  .mockup-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.02em;
+    color: var(--ink-faint);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 0.3rem 0.6rem;
+    margin-bottom: 2.25rem;
+  }
+  .mockup-badge .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--amber);
+    flex-shrink: 0;
+  }
+
+  .pipeline {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 2.5rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+  }
+  .pipeline .stage {
+    padding: 0.28rem 0.65rem;
+    border-radius: 3px;
+    color: var(--ink-faint);
+    border: 1px solid transparent;
+  }
+  .pipeline .stage.active {
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-color: var(--accent);
+    font-weight: 500;
+  }
+  .pipeline .stage.control {
+    margin-left: 0.5rem;
+    border: 1px dashed var(--rule-strong);
+    color: var(--ink-faint);
+  }
+  .pipeline .arrow {
+    color: var(--ink-faint);
+  }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-size: 2.6rem;
+    line-height: 1.12;
+    margin: 0 0 1.1rem;
+    letter-spacing: -0.01em;
+  }
+  h1 .num {
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--accent);
+    font-weight: 400;
+    margin-right: 0.15em;
+  }
+
+  .page-meta {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 0.85rem;
+    color: var(--ink-faint);
+    margin: -0.4rem 0 1.6rem;
+  }
+
+  .deck {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.22rem;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    max-width: 34ch;
+    margin: 0 0 3rem;
+  }
+
+  .beats {
+    border-top: 1px solid var(--rule-strong);
+  }
+
+  details.beat {
+    border-bottom: 1px solid var(--rule);
+  }
+
+  details.beat summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.35rem 0;
+    -webkit-tap-highlight-color: transparent;
+  }
+  details.beat summary::-webkit-details-marker { display: none; }
+
+  .beat-label {
+    display: flex;
+    align-items: baseline;
+    gap: 0.85rem;
+  }
+
+  .beat-kicker {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--amber);
+    text-transform: lowercase;
+    white-space: nowrap;
+    padding-top: 0.15rem;
+  }
+
+  .beat-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 1.28rem;
+    color: var(--ink);
+  }
+
+  .chev {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    color: var(--ink-faint);
+    transition: transform 0.2s ease;
+    margin-top: 0.3rem;
+  }
+  details.beat[open] .chev { transform: rotate(45deg); }
+
+  .beat-body {
+    padding: 0 0 1.75rem;
+    max-width: 62ch;
+    color: var(--ink-soft);
+  }
+  .beat-body p { margin: 0 0 1rem; }
+  .beat-body p:last-child { margin-bottom: 0; }
+
+  .beat-body .xref {
+    color: var(--ink-faint);
+    font-size: 0.94rem;
+  }
+  .beat-body .xref a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-soft); }
+  .beat-body .xref a:hover { border-bottom-color: var(--accent); }
+
+  .tag {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    background: var(--tag-bg);
+    color: var(--tag-ink);
+    padding: 0.18rem 0.5rem;
+    border-radius: 3px;
+    margin-top: 0.9rem;
+  }
+
+  /* --- landscape card --- */
+  .landscape {
+    margin-top: 2.5rem;
+    border: 1px solid var(--rule-strong);
+    border-radius: 4px;
+    padding: 1.6rem 1.75rem;
+    background: var(--surface);
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+  }
+  .landscape:hover { border-color: var(--accent); }
+
+  .landscape-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--ink-faint);
+    margin-bottom: 0.5rem;
+  }
+
+  .landscape-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .landscape-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 1.35rem;
+  }
+
+  .landscape-arrow {
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--accent);
+    font-size: 1.2rem;
+  }
+
+  .landscape-stats {
+    margin-top: 0.9rem;
+    display: flex;
+    gap: 1.4rem;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+  .landscape-stats strong {
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .toast {
+    position: fixed;
+    left: 50%;
+    bottom: 2rem;
+    transform: translate(-50%, 12px);
+    background: var(--ink);
+    color: var(--bg);
+    font-size: 0.85rem;
+    padding: 0.7rem 1.1rem;
+    border-radius: 4px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    max-width: 90vw;
+    text-align: center;
+  }
+  .toast.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+
+  footer.note {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.82rem;
+    color: var(--ink-faint);
+  }
+
+  @media (max-width: 520px) {
+    h1 { font-size: 2.1rem; }
+    .deck { font-size: 1.08rem; }
+    .beat-label { gap: 0.6rem; }
+    .beat-kicker { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="mockup-badge">
+    <span class="dot"></span>
+    structure mockup — narrative page template, section §1 (v2.9 content)
+  </div>
+
+  <nav class="pipeline" aria-label="Taxonomy stage">
+    <span class="stage active">Build</span>
+    <span class="arrow">→</span>
+    <span class="stage">Connect</span>
+    <span class="arrow">→</span>
+    <span class="stage">Run</span>
+    <span class="stage control">Control</span>
+  </nav>
+
+  <h1><span class="num">§1</span>Agent Harnesses</h1>
+  <p class="page-meta">Sep 06, 2026, 2 min read</p>
+  <p class="deck">The wrapper around a model — the tool-calling loop, context and session management, safety rails, and the interface a person actually touches.</p>
+
+  <div class="beats">
+
+    <details class="beat" open>
+      <summary>
+        <span class="beat-label">
+          <span class="beat-kicker">what</span>
+          <span class="beat-title">What is an agent harness</span>
+        </span>
+        <svg class="chev" viewBox="0 0 18 18" fill="none"><path d="M9 2v14M2 9h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </summary>
+      <div class="beat-body">
+        <p>An agent harness is the wrapper around a model — the tool-calling loop, context and session management, safety rails, and the interface a person actually touches.</p>
+        <p class="xref">Distinct from an agent framework (<a href="#">§2 Agent Frameworks</a>): a framework is a library or toolkit for building your own harness, not a finished product itself.</p>
+      </div>
+    </details>
+
+    <details class="beat">
+      <summary>
+        <span class="beat-label">
+          <span class="beat-kicker">why</span>
+          <span class="beat-title">Why use an agent harness</span>
+        </span>
+        <svg class="chev" viewBox="0 0 18 18" fill="none"><path d="M9 2v14M2 9h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </summary>
+      <div class="beat-body">
+        <p>Building your own agent loop from a raw model API means re-solving problems most teams don't need to re-solve — tool-calling, context and session management, safety rails.</p>
+        <p>A harness gives you that plumbing for free, so effort goes into the task rather than the infrastructure around it.</p>
+      </div>
+    </details>
+
+    <details class="beat">
+      <summary>
+        <span class="beat-label">
+          <span class="beat-kicker">when</span>
+          <span class="beat-title">When to leverage an existing harness vs. building your own</span>
+        </span>
+        <svg class="chev" viewBox="0 0 18 18" fill="none"><path d="M9 2v14M2 9h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </summary>
+      <div class="beat-body">
+        <p>The real tradeoff is polish and support (commercial) versus model flexibility and inspectability (open source) — see the Harnesses Landscape below for the full split.</p>
+        <p>Vendor lock-in and continuity risk are part of that calculus too. Even established, widely-adopted harnesses can be discontinued or substantially changed with little notice — Windsurf's forced rebrand into Devin Desktop, and Gemini CLI's individual-tier shutdown in favor of Antigravity CLI, are both recent examples (see Legacy in the Landscape).</p>
+      </div>
+    </details>
+
+    <details class="beat">
+      <summary>
+        <span class="beat-label">
+          <span class="beat-kicker">how</span>
+          <span class="beat-title">How to use an agent harness</span>
+        </span>
+        <svg class="chev" viewBox="0 0 18 18" fill="none"><path d="M9 2v14M2 9h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </summary>
+      <div class="beat-body">
+        <p>Harnesses run as a CLI, embedded in an IDE, or hosted in the cloud — and increasingly, as either a single-agent chat or a fleet-management control plane.</p>
+        <p>A traditional harness runs one agent loop you converse with. An Agentic Development Environment (ADE) is a control plane for supervising multiple agents in parallel across a workflow. Most ADEs are a mode within a product that also functions as a traditional harness, not a separate product — Cursor, Devin Desktop, and Warp all serve both roles depending on mode.</p>
+        <p class="xref">Related to <a href="#">§3 Orchestration Patterns</a> — Multi-agent orchestration and Supervisor/worker patterns specifically. An ADE is the product-level, user-facing manifestation of those patterns.</p>
+        <span class="tag">ADE</span>
+      </div>
+    </details>
+
+    <details class="beat">
+      <summary>
+        <span class="beat-label">
+          <span class="beat-kicker">where</span>
+          <span class="beat-title">Where agent harnesses are heading</span>
+        </span>
+        <svg class="chev" viewBox="0 0 18 18" fill="none"><path d="M9 2v14M2 9h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </summary>
+      <div class="beat-body">
+        <p>2026 has seen a shift toward multi-agent fleet interfaces reshape what "harness" means, without necessarily changing the underlying company or product line.</p>
+        <p>ADE itself was coined by Warp with Warp 2.0 in June 2025, defined as a control plane for orchestrating multiple coding agents in parallel across the full SDLC. Cursor's Agents Window (Cursor 3, April 2026) and Devin Desktop's Agent Command Center are the same category.</p>
+      </div>
+    </details>
+
+  </div>
+
+  <a class="landscape" href="#" id="landscapeLink">
+    <div class="landscape-eyebrow">reference catalog</div>
+    <div class="landscape-title-row">
+      <span class="landscape-title">Harnesses Landscape</span>
+      <span class="landscape-arrow">→</span>
+    </div>
+    <div class="landscape-stats">
+      <span><strong>22</strong> harnesses catalogued</span>
+      <span><strong>9</strong> commercial</span>
+      <span><strong>10</strong> open source</span>
+      <span><strong>3</strong> legacy</span>
+    </div>
+  </a>
+
+  <footer class="note">
+    This page demonstrates the site's standard narrative-page template: five expandable beats (What / Why / When / How / Where), then concept-grouping pages where a section has them, then a linked catalog page. This section has none of the former — Agentic Development Environments was the one candidate, but it's a mode several existing harnesses share (Cursor, Devin Desktop, Warp) rather than a distinct concept, so it stayed folded into How and Where above instead of becoming its own page — so the page goes straight from the beats to the Landscape link, silently, with no placeholder marking the skip. Content reflects the taxonomy's current §1 entry (v2.9). The Landscape link and the §2/§3 cross-references are placeholders for pages not built in this mockup.
+  </footer>
+
+</div>
+
+<div class="toast" id="toast">In the live site, this opens a separate Harnesses Landscape page →</div>
+
+<script>
+  document.getElementById('landscapeLink').addEventListener('click', function(e) {
+    e.preventDefault();
+    var toast = document.getElementById('toast');
+    toast.classList.add('show');
+    clearTimeout(window._toastTimer);
+    window._toastTimer = setTimeout(function() {
+      toast.classList.remove('show');
+    }, 2400);
+  });
+</script>
+
+</body>
+</html>
