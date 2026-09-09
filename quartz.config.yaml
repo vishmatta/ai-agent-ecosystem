@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=./quartz/plugins/quartz-plugins.schema.json
 configuration:
-  pageTitle: Quartz 5
+  pageTitle: AI Agent Ecosystem
   pageTitleSuffix: ""
   enableSPA: true
   enablePopovers: true
@@ -158,6 +158,10 @@ plugins:
     layout:
       position: left
       priority: 50
+    options:
+      folderDefaultState: open
+      folderClickBehavior: collapse
+      useSavedState: true
   - source: "@quartz-community/graph"
     enabled: true
     layout:
@@ -283,6 +287,11 @@ plugins:
     layout:
       position: beforeBody
       priority: 25
+  - source: ./plugins/agent-ecosystem-stage-nav
+    enabled: true
+    layout:
+      position: beforeBody
+      priority: 1
 layout:
   groups:
     toolbar:
