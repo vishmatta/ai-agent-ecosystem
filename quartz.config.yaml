@@ -162,6 +162,24 @@ plugins:
       folderDefaultState: open
       folderClickBehavior: collapse
       useSavedState: true
+      sortFn: >-
+        (a, b) => {
+          const STAGE_ORDER = ["build", "connect", "run", "control"]
+          const ia = STAGE_ORDER.indexOf(a.slugSegment)
+          const ib = STAGE_ORDER.indexOf(b.slugSegment)
+          if (ia !== -1 || ib !== -1) {
+            if (ia === -1) return 1
+            if (ib === -1) return -1
+            return ia - ib
+          }
+          if ((!a.isFolder && !b.isFolder) || (a.isFolder && b.isFolder)) {
+            return (a.displayName || "").localeCompare(b.displayName || "", undefined, {
+              numeric: true,
+              sensitivity: "base",
+            })
+          }
+          return !a.isFolder && b.isFolder ? 1 : -1
+        }
   - source: "@quartz-community/graph"
     enabled: true
     layout:
