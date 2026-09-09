@@ -1,0 +1,34 @@
+{
+  "name": "agent-ecosystem-landscape-card",
+  "version": "1.0.0",
+  "description": "Prominent card linking to a section's Landscape catalog page(s).",
+  "type": "module",
+  "private": true,
+  "main": "./index.js",
+  "exports": {
+    ".": { "import": "./index.js" },
+    "./components": { "import": "./components/index.js" },
+    "./package.json": "./package.json"
+  },
+  "quartz": {
+    "name": "agent-ecosystem-landscape-card",
+    "displayName": "Landscape Card",
+    "description": "Renders Landscape catalog cards from frontmatter; omits itself when absent.",
+    "version": "1.0.0",
+    "quartzVersion": ">=5.0.0",
+    "category": "component",
+    "dependencies": [],
+    "defaultEnabled": true,
+    "defaultOptions": {},
+    "components": {
+      "LandscapeCard": {
+        "name": "agent-ecosystem-landscape-card",
+        "displayName": "Landscape Card",
+        "description": "Landscape catalog card.",
+        "version": "1.0.0",
+        "defaultPosition": "afterBody",
+        "defaultPriority": 20
+      }
+    }
+  }
+}

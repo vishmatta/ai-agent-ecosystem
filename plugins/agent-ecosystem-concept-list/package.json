@@ -1,0 +1,34 @@
+{
+  "name": "agent-ecosystem-concept-list",
+  "version": "1.0.0",
+  "description": "Ordered, empty-state-aware list of a section's concept-grouping pages.",
+  "type": "module",
+  "private": true,
+  "main": "./index.js",
+  "exports": {
+    ".": { "import": "./index.js" },
+    "./components": { "import": "./components/index.js" },
+    "./package.json": "./package.json"
+  },
+  "quartz": {
+    "name": "agent-ecosystem-concept-list",
+    "displayName": "Concept List",
+    "description": "Renders the concept-grouping tier from frontmatter; omits itself when absent.",
+    "version": "1.0.0",
+    "quartzVersion": ">=5.0.0",
+    "category": "component",
+    "dependencies": [],
+    "defaultEnabled": true,
+    "defaultOptions": {},
+    "components": {
+      "ConceptList": {
+        "name": "agent-ecosystem-concept-list",
+        "displayName": "Concept List",
+        "description": "Ordered concept-grouping list.",
+        "version": "1.0.0",
+        "defaultPosition": "afterBody",
+        "defaultPriority": 10
+      }
+    }
+  }
+}

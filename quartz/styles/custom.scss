@@ -1,3 +1,166 @@
 @use "./variables.scss" as *;
 
-// put your custom CSS here!
+/**
+ * AI Agent Ecosystem — shared design tokens and template styles.
+ *
+ * The palette is defined once in quartz.config.yaml (theme.colors) so that
+ * Quartz's own dark-mode toggle drives it natively; the --ae-* names below are
+ * aliases onto those variables, plus the handful of extra tokens the page
+ * mockups use that Quartz has no equivalent for.
+ *
+ * Component-scoped CSS (concept list, Landscape card) travels with its
+ * component in plugins/agent-ecosystem-template. What lives here is what is
+ * genuinely shared: tokens, the narrative beats, and the page-title block.
+ */
+
+:root {
+  --ae-display: var(--headerFont);
+  --ae-body: var(--bodyFont);
+  --ae-mono: var(--codeFont);
+
+  --ae-bg: var(--light);
+  --ae-ink: var(--dark);
+  --ae-ink-soft: var(--darkgray);
+  --ae-rule: var(--lightgray);
+  --ae-rule-strong: var(--gray);
+  --ae-accent: var(--secondary);
+  --ae-accent-soft: var(--highlight);
+  --ae-amber: var(--tertiary);
+
+  /* No Quartz counterpart — declared per theme. */
+  --ae-surface: #f9fafa;
+  --ae-ink-faint: #7c8891;
+  --ae-amber-soft: #f3e5d7;
+  --ae-tag-bg: #dce4ee;
+  --ae-tag-ink: #21519a;
+}
+
+:root[saved-theme="dark"] {
+  --ae-surface: #1a1f26;
+  --ae-ink-faint: #7c858d;
+  --ae-amber-soft: #332419;
+  --ae-tag-bg: #223047;
+  --ae-tag-ink: #9dc0ee;
+}
+
+/* --- page shell ------------------------------------------------------- */
+
+.ae-page {
+  font-family: var(--ae-body);
+}
+
+/* The deck sits under the title: a real pull-quote for a drafted section,
+   and a visibly different status note for one still awaiting narrative.
+   Keeping them distinct is deliberate — a placeholder must never read as
+   authored copy. */
+.deck {
+  font-family: var(--ae-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.22rem;
+  color: var(--ae-ink-soft);
+  line-height: 1.55;
+  max-width: 34ch;
+  margin: 0 0 3rem;
+}
+
+.deck-pending {
+  font-family: var(--ae-body);
+  font-size: 0.94rem;
+  color: var(--ae-ink-faint);
+  line-height: 1.55;
+  max-width: 46ch;
+  margin: 0 0 3rem;
+  padding-left: 0.85rem;
+  border-left: 2px solid var(--ae-rule-strong);
+}
+
+/* --- narrative beats (emitted by the template transformer) ------------- */
+
+.beats {
+  border-top: 1px solid var(--ae-rule-strong);
+  margin-top: 2rem;
+}
+
+details.beat {
+  border-bottom: 1px solid var(--ae-rule);
+}
+
+details.beat summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.35rem 0;
+  -webkit-tap-highlight-color: transparent;
+}
+details.beat summary::-webkit-details-marker { display: none; }
+details.beat summary::marker { content: ""; }
+
+.beat-label {
+  display: flex;
+  align-items: baseline;
+  gap: 0.85rem;
+}
+
+.beat-kicker {
+  font-family: var(--ae-mono);
+  font-size: 0.72rem;
+  color: var(--ae-amber);
+  text-transform: lowercase;
+  white-space: nowrap;
+  padding-top: 0.15rem;
+}
+
+.beat-title {
+  font-family: var(--ae-display);
+  font-weight: 500;
+  font-size: 1.28rem;
+  color: var(--ae-ink);
+}
+
+/* Quartz adds an anchor link to every heading; inside a beat summary the whole
+   row is already the click target, so the icon is noise. The anchor stays in
+   the DOM — deep links to a beat still resolve. */
+.beat-title a[role="anchor"] { display: none; }
+
+.chev {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  color: var(--ae-ink-faint);
+  transition: transform 0.2s ease;
+  margin-top: 0.3rem;
+}
+details.beat[open] .chev { transform: rotate(45deg); }
+
+.beat-body {
+  padding: 0 0 1.75rem;
+  max-width: 62ch;
+  color: var(--ae-ink-soft);
+}
+.beat-body > :first-child { margin-top: 0; }
+.beat-body > :last-child { margin-bottom: 0; }
+
+/* An undrafted beat: italic and faint, so its status is legible at a glance. */
+.beat-body em:only-child { color: var(--ae-ink-faint); }
+
+/* --- cross-cutting tag chip ------------------------------------------- */
+
+.ae-page .tag-chip {
+  display: inline-block;
+  font-family: var(--ae-mono);
+  font-size: 0.72rem;
+  background: var(--ae-tag-bg);
+  color: var(--ae-tag-ink);
+  padding: 0.18rem 0.5rem;
+  border-radius: 3px;
+  margin-top: 0.9rem;
+}
+
+@media (max-width: 520px) {
+  .beat-label { gap: 0.6rem; }
+  .beat-kicker { display: none; }
+}

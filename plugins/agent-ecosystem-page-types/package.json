@@ -1,0 +1,24 @@
+{
+  "name": "agent-ecosystem-page-types",
+  "version": "1.0.0",
+  "description": "Routes taxonomy pages to their own layout key based on the `type:` frontmatter field.",
+  "type": "module",
+  "private": true,
+  "main": "./index.js",
+  "exports": {
+    ".": { "import": "./index.js" },
+    "./package.json": "./package.json"
+  },
+  "quartz": {
+    "name": "agent-ecosystem-page-types",
+    "displayName": "Agent Ecosystem Page Types",
+    "description": "Frontmatter-driven page-type router for the taxonomy site.",
+    "version": "1.0.0",
+    "quartzVersion": ">=5.0.0",
+    "category": "pageType",
+    "dependencies": ["@quartz-community/content-page"],
+    "defaultOrder": 50,
+    "defaultEnabled": true,
+    "defaultOptions": {}
+  }
+}

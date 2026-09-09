@@ -1,0 +1,26 @@
+{
+  "name": "agent-ecosystem-template",
+  "version": "1.0.0",
+  "description": "Narrative-page template for the AI agent ecosystem site: What/Why/When/How/Where accordions, the ordered concept list, and Landscape cards.",
+  "type": "module",
+  "private": true,
+  "main": "./index.js",
+  "exports": {
+    ".": {
+      "import": "./index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "quartz": {
+    "name": "agent-ecosystem-template",
+    "displayName": "Agent Ecosystem Template",
+    "description": "Beats accordions, concept list, and Landscape cards for the taxonomy site.",
+    "version": "1.0.0",
+    "quartzVersion": ">=5.0.0",
+    "category": "transformer",
+    "dependencies": [],
+    "defaultOrder": 55,
+    "defaultEnabled": true,
+    "defaultOptions": {}
+  }
+}
