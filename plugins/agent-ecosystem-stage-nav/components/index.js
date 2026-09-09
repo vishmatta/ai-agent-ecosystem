@@ -1,4 +1,5 @@
 import { h } from "preact"
+import { resolveRelative } from "@quartz-community/utils"
 
 /**
  * StageNav — the site's top-level navigation (site plan §4).
@@ -11,6 +12,11 @@ import { h } from "preact"
  *
  * The active stage comes from the page's own slug, so nothing needs declaring
  * in frontmatter.
+ *
+ * Hrefs are resolved relative to the current page with the same helper Quartz's
+ * own breadcrumbs use. Absolute paths ("/build/") would break the moment the
+ * site is served from a subpath — a GitHub Pages project site, a preview
+ * deploy, or anything opened from the filesystem.
  */
 const STAGES = [
   { slug: "build", label: "Build" },
@@ -29,7 +35,15 @@ const StageNav = () => {
       const cls = ["stage", extraClass, isActive ? "active" : ""].filter(Boolean).join(" ")
       return h(
         "a",
-        { class: cls, href: `/${s}/`, "aria-current": isActive ? "page" : undefined },
+        {
+          class: cls,
+          href: resolveRelative(slug, `${s}/index`),
+          // The nav is rendered inside `.popover-hint`, so Quartz would otherwise
+          // attach a hover preview to every stage. Previews of a stage landing
+          // page add nothing and put a floating card over the nav itself.
+          "data-no-popover": "true",
+          "aria-current": isActive ? "page" : undefined,
+        },
         label,
       )
     }
