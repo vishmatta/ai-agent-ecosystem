@@ -3,6 +3,8 @@ name: Task
 about: A unit of work an agent can pick up with no other context
 ---
 
+<!-- If this can't start until another issue is done, make the first line: Blocked by #N -->
+
 ## Goal
 
 <!-- One or two sentences: what should be true when this is done. -->
