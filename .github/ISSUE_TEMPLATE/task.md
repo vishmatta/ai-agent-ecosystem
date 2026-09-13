@@ -3,7 +3,8 @@ name: Task
 about: A unit of work an agent can pick up with no other context
 ---
 
-<!-- If this can't start until another issue is done, make the first line: Blocked by #N -->
+<!-- If this can't start until another issue is done, make the first line: Blocked by #N
+     If it can't start until a date, make the first line: Not before YYYY-MM-DD -->
 
 ## Goal
 
