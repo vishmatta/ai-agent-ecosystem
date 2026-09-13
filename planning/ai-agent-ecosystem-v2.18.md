@@ -77,8 +77,6 @@
 - OpenCode (Anomaly)
 - OpenWorker (Andrew Ng)
 - Crush (Charm)
-- Mods (Charm)
-  - CLI utility for piping command output through an LLM (stdin → prompt → response); added MCP tool-calling support in v1.8.0, which is why it's included here rather than treated as a simple prompt-pipe — distinct from Crush (same company), which is the full interactive coding agent
 - Pi (Mario Zechner)
 - Hermes Agent (Nous Research)
   - Distinct from the Hermes model line — see §4 Models
@@ -95,8 +93,9 @@
 **Legacy / Decommissioned**
 - Windsurf (Cognition) — rebranded Devin Desktop, June 2, 2026
 - Cascade (Cognition) — Windsurf's original agent; replaced by Devin Local in the same rebrand
-- Continue (Continue Dev, Inc.) — acqui-hired by Cursor (Anysphere), announced mid-June 2026; final v2.0.0 release (VS Code extension, CLI, JetBrains plugin) shipped June 19, 2026, after which the GitHub repo went read-only — no further commits, issues, or PRs from the original team. Code remains Apache 2.0 and technically forkable, but this is a completed shutdown, not an ongoing product — more definitive than Windsurf's rebrand or Gemini CLI's tier-specific sunset, since there's no successor product carrying its name forward
+- Continue — acqui-hired by Cursor (Anysphere), announced mid-June 2026; final release (v2.0.0 — VS Code extension, CLI, JetBrains plugin) shipped June 19, 2026, with no product releases since. The GitHub repo isn't archived, but the only later commits are docs housekeeping (e.g. retiring the sign-in flow, July 2026). Code remains Apache 2.0 and technically forkable, but this is a completed shutdown, not an ongoing product — more definitive than Windsurf's rebrand or Gemini CLI's tier-specific sunset, since there's no successor product carrying its name forward
 - Gemini CLI (Google) — code remains Apache 2.0 licensed, but the service stopped serving free, Pro, and Ultra individual accounts June 18, 2026; enterprise Gemini Code Assist licenses are unaffected. Succeeded by Antigravity CLI above. Was never actually provider-agnostic (built specifically for Gemini models) — miscategorized under Open Source / Provider-agnostic when added; that column requires genuine multi-provider support, not just an open license
+- Mods (Charm) — CLI utility for piping command output through an LLM (stdin → prompt → response), with MCP tool-calling since v1.8.0. Sunset March 9, 2026, and its GitHub repo archived so Charm could focus on Crush; much of its functionality lives on in Crush's non-interactive mode (`crush run`), above. Code remains MIT licensed and forkable. Briefly listed under Open Source / Provider-agnostic (v2.15) before the sunset was caught
 
 ## 2. Agent Frameworks
 
@@ -1001,6 +1000,11 @@ No dedicated tooling — context handling is typically implementation-level engi
 - ~~Helicone AI Gateway's appearance in §15 Observability~~ — **Resolved:** not a naming slip, but a missing entry. Helicone is one company with two distinct product lines under the same brand: the original observability/logging tool (correctly in §15, now labeled plainly as "Helicone") and a separate AI Gateway product added later for routing/fallback (§6, "Helicone AI Gateway"). Both entries now cross-reference each other and are named to reflect the actual product each row describes.
 
 ## Changelog
+
+**v2.18 — 2026-09-13**
+- Moved Mods (Charm) from §1 Open Source / Provider-agnostic to Legacy / Decommissioned, reversing the v2.15 addition. Its README and GitHub repo, checked directly, show Charm sunset Mods and archived the repo on March 9, 2026 — six months before it was added here — in favor of Crush's non-interactive mode (`crush run`). v2.15's check read the changelog (v1.8.0's MCP support) but missed the sunset notice at the top of the README
+- Corrected Continue's Legacy entry against its GitHub repo: the repo isn't archived, and there have been docs-only commits since the final June 19, 2026 release (through July 2026), so "went read-only — no further commits, issues, or PRs" overstated it. Still Legacy, since there have been no product releases since June 19. The Cursor acqui-hire itself wasn't re-verified in this pass
+- Dropped the creator from Continue's entry, "Continue (Continue Dev, Inc.)" → "Continue": company and product share a name, so `Name (Creator)` omits the creator (same as Pinecone)
 
 **v2.17 — 2026-09-13**
 - Logged Sema4.ai Studio as a new Open Item rather than placing it in the doc body — captured so the product isn't lost, but its categorization is a genuine open question (no-code enterprise agent-builder, doesn't cleanly match §1 Harnesses or §2 Frameworks as either is currently defined), not something to force a decision on yet. Deliberately not resolved in this pass
