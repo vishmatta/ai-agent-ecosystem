@@ -36,7 +36,8 @@
 - Increasingly also single-agent chat vs. fleet management:
   - A traditional harness runs one agent loop you converse with
   - An Agentic Development Environment (ADE) is a control plane for supervising multiple agents in parallel across a workflow
-  - Most ADEs are a mode within a product that also functions as a traditional harness, not a separate product — Cursor, Devin Desktop, and Warp all serve both roles depending on mode
+  - Most ADEs are a mode within a product that also functions as a traditional harness, not a separate product — Cursor and Devin Desktop serve both roles depending on mode
+  - Warp is a notable exception to that pattern: its ADE capability has since spun out into Warp Factories, a genuinely separate, standalone product from Warp Terminal — by Warp's own account, "nobody at your company has to use warp terminal" to use it — see Harnesses Landscape below and §13 Agent Operations and Deployment, which Factories now resembles more closely than a terminal-embedded mode
   - → related to §3 Multi-agent orchestration and Supervisor/worker patterns; an ADE is the product-level, user-facing manifestation of those orchestration patterns
   - Tagged `ADE` — see Tags for cross-cutting filtering across sections
 
@@ -44,6 +45,7 @@
 - 2026 has seen a shift toward multi-agent fleet interfaces reshape what "harness" means, without necessarily changing the underlying company or product line
 - ADE itself was coined by Warp with Warp 2.0, June 2025, defined as a control plane for orchestrating multiple coding agents in parallel across the full SDLC
 - Cursor's Agents Window (Cursor 3, April 2026) and Devin Desktop's Agent Command Center are the same category
+- Warp's own ADE capability has since gone further, spinning out into Warp Factories — a standalone fleet-orchestration product, distinct from Warp Terminal, with its own evals/benchmarking and self-improvement loops built in. Worth watching as a possible leading indicator: ADE-as-a-mode may be starting to split into ADE-as-a-dedicated-product-category, at least for one vendor
 
 ### Harnesses Landscape → (separate page)
 
@@ -59,9 +61,17 @@
   - Formerly Windsurf — see Legacy below
   - Agent Command Center is Devin Desktop's fleet-management mode — has an ADE mode, see How to use an agent harness above
 - Amazon Q Developer
+  - IDE plugins and paid subscriptions reach full end-of-support April 30, 2027; new signups already blocked since May 15, 2026 — Kiro is AWS's named successor for IDE-based agentic coding (below). Stays here rather than Legacy below, since existing users retain active support through the transition window — not yet a completed sunset the way Windsurf and Gemini CLI's were when added there
 - Kiro (Amazon)
+  - Named successor to Amazon Q Developer's IDE plugins (above), which are being wound down through April 2027
 - Warp
-  - Coined the term "Agentic Development Environment" (ADE) with Warp 2.0, June 2025 — has an ADE mode, see How to use an agent harness above
+  - Coined the term "Agentic Development Environment" (ADE) with Warp 2.0, June 2025
+  - Now three distinct products under one company: Warp Terminal (the original harness), Warp Agent CLI (a standalone coding agent for any terminal), and Warp Factories (fleet orchestration across the SDLC — a separate product, not an ADE mode of the terminal)
+  - → Warp Factories also listed in §13 Agent Operations and Deployment Landscape, since it now fits that category more precisely than a harness ADE-mode
+- Zencoder
+  - Zenflow is Zencoder's multi-agent orchestration mode — coordinates multiple models through structured Plan → Implement → Test → Review workflows, including cross-model verification (e.g. one model writes, a different model reviews) — has an ADE mode, see How to use an agent harness above
+- Zed
+  - Rust-native, GPU-rendered code editor — the Zed AI service and collaboration backend are proprietary; the editor core is open source under the same brand (below)
 
 **Open Source / Provider-agnostic**
 - OpenCode (Anomaly)
@@ -76,11 +86,16 @@
   - Rust-powered, tool-dense fork of Pi
 - OpenHands (All Hands AI)
 - Goose (Block)
+- Zed
+  - GPL-3.0 editor core; self-hostable local models via Ollama from the UI. Commercial layer (Zed AI service, collaboration backend) under the same brand, above
+  - Supports the Agent Client Protocol (ACP, §8) as a host editor — external agents like Claude Agent, Codex, and OpenCode dock directly in, alongside its own native agent features
 
 **Legacy / Decommissioned**
 - Windsurf (Cognition) — rebranded Devin Desktop, June 2, 2026
 - Cascade (Cognition) — Windsurf's original agent; replaced by Devin Local in the same rebrand
+- Continue — acqui-hired by Cursor (Anysphere), announced mid-June 2026; final release (v2.0.0 — VS Code extension, CLI, JetBrains plugin) shipped June 19, 2026, with no product releases since. The GitHub repo isn't archived, but the only later commits are docs housekeeping (e.g. retiring the sign-in flow, July 2026). Code remains Apache 2.0 and technically forkable, but this is a completed shutdown, not an ongoing product — more definitive than Windsurf's rebrand or Gemini CLI's tier-specific sunset, since there's no successor product carrying its name forward
 - Gemini CLI (Google) — code remains Apache 2.0 licensed, but the service stopped serving free, Pro, and Ultra individual accounts June 18, 2026; enterprise Gemini Code Assist licenses are unaffected. Succeeded by Antigravity CLI above. Was never actually provider-agnostic (built specifically for Gemini models) — miscategorized under Open Source / Provider-agnostic when added; that column requires genuine multi-provider support, not just an open license
+- Mods (Charm) — CLI utility for piping command output through an LLM (stdin → prompt → response), with MCP tool-calling since v1.8.0. Sunset March 9, 2026, and its GitHub repo archived so Charm could focus on Crush; much of its functionality lives on in Crush's non-interactive mode (`crush run`), above. Code remains MIT licensed and forkable. Briefly listed under Open Source / Provider-agnostic (v2.15) before the sunset was caught
 
 ## 2. Agent Frameworks
 
@@ -459,6 +474,7 @@ No dedicated tooling — these patterns are typically implemented within an agen
   - Full name: Agent Client Protocol
   - Lets external agents run as first-class citizens inside a host editor
   - Example integrations: Codex, Claude Agent, OpenCode
+  - Zed is a notable host editor implementation — see §1 Harnesses Landscape
   - Not the same protocol as IBM's ACP — see Legacy below
 
 **Legacy / Decommissioned**
@@ -713,6 +729,9 @@ No dedicated tooling — context handling is typically implementation-level engi
 ### Operations and Deployment Landscape → (separate page)
 
 - Commercial / Proprietary
+  - Warp Factories
+    - Agent-native fleet orchestration across the SDLC — event-driven (issue, Slack, or schedule triggers), evals/benchmarking and self-improvement loops built in
+    - → also see §1 Harnesses Landscape — same company as Warp Terminal and Warp Agent CLI, but a separate product from either
   - Temporal
     - Hosted commercial layer via Temporal Cloud
   - Inngest
@@ -871,6 +890,9 @@ No dedicated tooling — context handling is typically implementation-level engi
   - Hallucination
   - Safety
 - Model benchmarking
+- Code review / PR quality
+  - AI-driven review of pull requests and code diffs — output-quality assurance for human- and agent-written code alike, distinct from the agent-trajectory evals above
+  - → tool list in Observability and Evaluation Landscape below
 - Evaluation methods
   - Deterministic (code-based)
     - → implemented via the Observability tools already listed above
@@ -924,6 +946,11 @@ No dedicated tooling — context handling is typically implementation-level engi
   - Ragas (ExplodingGradients)
   - DeepEval (Confident AI)
 
+**Code Review Tools**
+- Commercial / Proprietary
+  - Macroscope
+  - CodeRabbit
+
 **Benchmarks**
 - SWE-bench
 - GAIA
@@ -966,12 +993,39 @@ No dedicated tooling — context handling is typically implementation-level engi
   - **In scope, to be added:** Web Search tools (Exa, Tavily, Firecrawl, Brave Search API, Perplexity API) in §7; Structured outputs tooling (Instructor, Outlines, BAML) in §5/§7; OpenTelemetry GenAI semantic conventions in §15; expanded agent identity standards (SPIFFE/SPIRE, OAuth 2.1 for agents, Descope, Stytch) in §14; Reflection/critic and Plan-and-execute orchestration patterns in §3; agent-specific benchmarks (OSWorld, WebArena, BrowseComp) in §15. Rationale: these are already mainstream, load-bearing infrastructure agents commonly touch today, not emerging bets — omitting them would make the taxonomy read as incomplete on core use cases.
   - **Held for a later pass, marked as an actively-forming space rather than silently excluded:** Computer Use tools (Scrapybara, Hyperbrowser) — the category is still shifting alongside the underlying computer-use models; a protocol family for agentic payments/commerce (AP2, x402, Stripe agentic commerce) near §8; AG-UI as the agent↔user interaction protocol; programmatic/code-mode tool calling in §5/§7. Rationale: genuinely early/speculative, low adoption or no consensus yet — worth calling out explicitly as "the industry hasn't settled this yet," which is itself a useful signal to a reader (and potentially a pointer toward open problems/startup ideas), rather than a gap to hide.
   - Actual content/entries for the "in scope" items are not yet drafted — this resolves *whether*, not the entries themselves.
+- **Sema4.ai Studio — captured, placement not yet decided.** A no-code enterprise agent-building platform for business users: natural-language "Runbooks" instead of code, pre-built enterprise-app integrations (SharePoint, SAP, Snowflake) plus MCP, explicitly no-engineering-required. Verified real and current (GA product, enterprise customers, funded, active). Doesn't cleanly match either §1 Harnesses (developer-facing, coding-specific) or §2 Frameworks (code-based toolkits) as either is currently defined. Options on the table, none chosen yet: broaden §1's own definition to include no-code business-user builders; add under §2 anyway on the "still a toolkit for building agents" logic even though the toolkit is no-code; treat it as a genuine gap meriting its own new item or section (no-code/low-code enterprise agent platforms — Sema4.ai plus likely comparable tools); or judge it out of scope entirely, on the same grounds AI Transformation content was scoped out. Logged here so the product itself isn't lost while the placement question sits open.
 - ~~MCP is underbuilt relative to its actual weight~~ — **Resolved and built out.** §7 now has real substructure (Servers, Clients, Transports, Registries — MCP Registry/Smithery/Glama), and §14 has a dedicated MCP-specific attack surface (tool poisoning, tool-description injection, confused-deputy, rug-pull updates) as a sibling to Prompt-injection defenses, distinguished as protocol/supply-chain trust rather than content-level injection. Treated as mainstream/load-bearing rather than a speculative landscape gap, since MCP is the connective tissue of the whole Connect stage.
 - ~~Cloud AI Platforms (§6) placement~~ — **Resolved:** no single-stage home forced, same pattern as Control. Canonical content splits by actual capability (model access under §4 Models, deployment infrastructure under §12 Run, governance controls wherever the Control mapping already sends them), plus a lightweight hub page cross-linking the pieces together for a reader thinking in terms of the platform as one thing (e.g. "Bedrock"). See site-content-plan-v2.md §8 item 1 for the full decision; physical move into the doc structure not yet done.
 - ~~Verification: OpenWorker, Pi/Oh My Pi, and Andrew Ng's AI Engineering Skills Map~~ — **Verified, all correct.** OpenWorker's attribution to Andrew Ng confirmed (announced July 23, 2026 on his own account; README itself doesn't name him directly, only the `andrewyng` GitHub account and lineage from `aisuite`). Pi and Oh My Pi both have identifiable individual creators — Mario Zechner (`badlogic`) and `can1357` respectively — now named directly per the updated attribution convention (see Formatting rules) rather than left as "(open source community)". Andrew Ng's AI Engineering Skills Map confirmed as a real, dated source (launched Aug 14, 2026 via DeepLearning.AI's The Batch).
 - ~~Helicone AI Gateway's appearance in §15 Observability~~ — **Resolved:** not a naming slip, but a missing entry. Helicone is one company with two distinct product lines under the same brand: the original observability/logging tool (correctly in §15, now labeled plainly as "Helicone") and a separate AI Gateway product added later for routing/fallback (§6, "Helicone AI Gateway"). Both entries now cross-reference each other and are named to reflect the actual product each row describes.
 
 ## Changelog
+
+**v2.18 — 2026-09-13**
+- Moved Mods (Charm) from §1 Open Source / Provider-agnostic to Legacy / Decommissioned, reversing the v2.15 addition. Its README and GitHub repo, checked directly, show Charm sunset Mods and archived the repo on March 9, 2026 — six months before it was added here — in favor of Crush's non-interactive mode (`crush run`). v2.15's check read the changelog (v1.8.0's MCP support) but missed the sunset notice at the top of the README
+- Corrected Continue's Legacy entry against its GitHub repo: the repo isn't archived, and there have been docs-only commits since the final June 19, 2026 release (through July 2026), so "went read-only — no further commits, issues, or PRs" overstated it. Still Legacy, since there have been no product releases since June 19. The Cursor acqui-hire itself wasn't re-verified in this pass
+- Dropped the creator from Continue's entry, "Continue (Continue Dev, Inc.)" → "Continue": company and product share a name, so `Name (Creator)` omits the creator (same as Pinecone)
+
+**v2.17 — 2026-09-13**
+- Logged Sema4.ai Studio as a new Open Item rather than placing it in the doc body — captured so the product isn't lost, but its categorization is a genuine open question (no-code enterprise agent-builder, doesn't cleanly match §1 Harnesses or §2 Frameworks as either is currently defined), not something to force a decision on yet. Deliberately not resolved in this pass
+
+**v2.16 — 2026-09-13**
+- Added Zed to §1 Harnesses Landscape, dual-listed — GPL-3.0 editor core under Open Source/Provider-agnostic, proprietary Zed AI service/collaboration backend under Commercial/Proprietary, same brand — matching the existing LiteLLM/Portkey/Helicone dual-listing pattern. Also added a cross-reference note to §8's ACP entry: Zed is a notable host-editor implementation of the protocol (Claude Agent, Codex, and OpenCode dock directly into it), alongside its own native agent features
+- Added Continue (Continue Dev, Inc.) to §1 Legacy/Decommissioned — not a live addition despite being asked for as one. Checking current status before adding surfaced that Continue was acqui-hired by Cursor in mid-June 2026, shipped a final v2.0.0 release June 19, 2026, and its GitHub repo has been read-only since, with no further commits from the original team. Judged this a completed shutdown rather than an active Open Source entry — more definitive than Windsurf's rebrand or Gemini CLI's tier-specific sunset, since no successor product carries Continue's name forward
+- Did not add Sema4.ai Studio — a genuine scope question, not a stale-doc fix. It's a no-code enterprise agent-builder for business users (natural-language "Runbooks," pre-built enterprise-app integrations plus MCP), which doesn't match either §1 Harnesses (developer-facing, coding-specific) or §2 Frameworks (code-based toolkits) as currently defined. Flagged for a decision rather than force-fit into either
+
+**v2.15 — 2026-09-13**
+- Added Mods (Charm) to §1 Harnesses Landscape, Open Source/Provider-agnostic — a genuine reversal from an initial call. Charm's homepage describes Mods only as "a CLI interface to the world's best models," which read as a simple stdin-to-LLM pipe tool with no real agentic capability, and was initially judged out of scope on that basis. Checking the actual GitHub changelog before finalizing that call surfaced the real picture: v1.8.0 added MCP support (tool listing and calling via a connected MCP server, e.g. GitHub), on top of already-persisted multi-turn conversations and provider-agnostic model support. That's genuine tool-calling, not just prompt-piping — enough to qualify as a lightweight harness alongside Aider and Cline, just CLI-pipe-shaped rather than interactive-session-shaped. Verified the rest of Charm's current lineup (Bubble Tea, Huh, Lip Gloss, Wish, Glamour, Bubbles, Log, Harmonica, Gum, Glow, Skate) are general-purpose terminal UI/Go libraries with no agent-specific capability — correctly out of scope, no changes needed there. Crush's existing entry also re-verified against the current charm.land site and found still accurate as-is
+
+**v2.14 — 2026-09-13**
+- Corrected a factual claim in §1's fully-drafted narrative, caught by checking warp.dev directly rather than trusting the existing entry: the "How" beat asserted Warp's ADE capability was "a mode within a product... not a separate product," alongside Cursor and Devin Desktop. Warp's own FAQ now states "Factories is a separate product — nobody at your company has to use warp terminal," directly contradicting that claim. Removed Warp from that list, added an explanatory note on the split, and updated the "Where" beat to track this as a possible leading indicator (ADE-as-mode splitting into ADE-as-product for at least one vendor). Updated Warp's Harnesses Landscape entry to reflect its current three-product structure (Terminal, Agent CLI, Factories). Added Warp Factories as a new, separately-listed entry in §13 Agent Operations and Deployment Landscape — the first genuinely agent-native entry there, versus the existing general-purpose job-orchestration tools (Temporal, Inngest, Trigger.dev, BullMQ) — with reciprocal cross-references between §1 and §13, mirroring the existing Modal dual-listing pattern (§6/§12) for a product that genuinely serves two distinct categories at once. Cursor and Devin Desktop were not re-verified in this pass — only Warp's specific claim was checked and found stale
+
+**v2.13 — 2026-09-13**
+- Added "Code review / PR quality" as a new item under §15's Evaluation bucket — AI-driven review of pull requests and code diffs, distinct from agent-trajectory evaluation above it. Added a corresponding "Code Review Tools" Landscape sub-category with its first two entries: Macroscope and CodeRabbit, both verified (Macroscope: agentic PR reviewer, usage-based pricing, no OSS layer; CodeRabbit: $88M+ raised, founded 2023 by Harjot Gill, SaaS with an enterprise self-hosted deployment option that isn't a genuine open-source core, so it stays Commercial/Proprietary only, not dual-listed). This is a genuine scope edge case flagged rather than silently absorbed: both tools review code output rather than build/orchestrate/run/govern an agent directly, but were judged in-scope given how explicitly their own positioning ties to the rise of AI coding agents specifically
+- Added Zencoder to §1 Harnesses Landscape (Commercial/Proprietary), with Zenflow noted as its multi-agent orchestration/ADE mode — mirrors the existing Cursor/Devin Desktop/Warp pattern exactly (a fleet-orchestration mode folded into the parent product's entry, not a separate top-level listing)
+
+**v2.12 — 2026-09-13**
+- Added the announced Amazon Q Developer IDE plugin sunset to §1 Harnesses Landscape: full end-of-support April 30, 2027, new signups already blocked since May 15, 2026, Kiro named as the official successor for IDE-based agentic coding. Verified via AWS's own end-of-support announcement before adding. Kept Amazon Q Developer under Commercial/Proprietary rather than moving it to Legacy/Decommissioned — unlike Windsurf and Gemini CLI, which were only added to Legacy once their sunset had actually completed, Amazon Q Developer is still in an active transition window with existing users fully supported; revisit once the April 2027 date actually passes. Added a reciprocal cross-reference on the Kiro entry, mirroring the existing Devin Desktop/Windsurf and Antigravity/Gemini CLI pattern
 
 **v2.11 — 2026-09-08**
 - Dissolved §14's "Isolation and Infrastructure Security" bundle, redistributing its three items into §12 rather than leaving it as a Control-hub concept awaiting migration. Verified each item individually before moving anything, since a surface-level naming resemblance turned out to be misleading for one of the three: (1) Sandboxing had no content of its own beyond "→ see §12" — the taxonomy already treated it as the same concept as §12's existing Sandboxes topic, so it's fully absorbed with nothing new to add. (2) Isolation had no existing counterpart anywhere in §12 (Containers/VMs/Processes are the mechanisms; Isolation is the principle they serve) — added as a new item in §12's General Concepts. (3) Network restrictions was initially assumed mergeable with §12's existing Network access on the strength of the similar name, but on closer check neither the taxonomy nor any prior pass had actually asserted they're the same thing — Network access reads as a runtime capability, Network restrictions as the security policy constraining it. Kept as two separate items rather than merged, and cross-referenced them to each other for the first time, since no such link existed before. §14's "Isolation and Infrastructure Security" header is removed entirely — nothing left under it

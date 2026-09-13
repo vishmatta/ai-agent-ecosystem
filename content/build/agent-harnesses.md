@@ -7,10 +7,10 @@ landscapes:
   - title: Harnesses Landscape
     href: /build/agent-harnesses-landscape
     stats:
-      - { value: 22, label: harnesses catalogued }
-      - { value: 9, label: commercial }
-      - { value: 10, label: open source }
-      - { value: 3, label: legacy }
+      - { value: 26, label: harnesses catalogued }
+      - { value: 11, label: commercial }
+      - { value: 11, label: open source }
+      - { value: 5, label: legacy }
 deck: >-
   The wrapper around a model — the tool-calling loop, context and session management, safety rails, and the interface a person actually touches.
 ---
@@ -38,10 +38,14 @@ Vendor lock-in and continuity risk are part of that calculus too. Even establish
 
 Harnesses run as a CLI, embedded in an IDE, or hosted in the cloud — and increasingly, as either a single-agent chat or a fleet-management control plane.
 
-A traditional harness runs one agent loop you converse with. An Agentic Development Environment (ADE) is a control plane for supervising multiple agents in parallel across a workflow. Most ADEs are a mode within a product that also functions as a traditional harness, not a separate product — Cursor, Devin Desktop, and Warp all serve both roles depending on mode.
+A traditional harness runs one agent loop you converse with. An Agentic Development Environment (ADE) is a control plane for supervising multiple agents in parallel across a workflow. Most ADEs are a mode within a product that also functions as a traditional harness, not a separate product — Cursor and Devin Desktop serve both roles depending on mode.
+
+Warp is the notable exception: its ADE capability has spun out into Warp Factories, a standalone product separate from Warp Terminal, which now resembles §13 Agent Operations and Deployment more closely than a terminal-embedded mode.
 
 ### Where agent harnesses are heading
 
 2026 has seen a shift toward multi-agent fleet interfaces reshape what "harness" means, without necessarily changing the underlying company or product line.
 
 ADE itself was coined by Warp with Warp 2.0 in June 2025, defined as a control plane for orchestrating multiple coding agents in parallel across the full SDLC. Cursor's Agents Window (Cursor 3, April 2026) and Devin Desktop's Agent Command Center are the same category.
+
+Warp's own ADE capability has since gone further, spinning out into Warp Factories — a standalone fleet-orchestration product, distinct from Warp Terminal, with its own evals, benchmarking, and self-improvement loops built in. It may be a leading indicator: ADE-as-a-mode could be starting to split into ADE as a dedicated product category, at least for one vendor.
