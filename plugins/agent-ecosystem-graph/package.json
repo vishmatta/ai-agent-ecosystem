@@ -1,0 +1,34 @@
+{
+  "name": "agent-ecosystem-graph",
+  "version": "1.0.0",
+  "description": "Quartz's graph view, scoped to the current page's subtree: the page, every page beneath it, and their tags.",
+  "type": "module",
+  "private": true,
+  "main": "./index.js",
+  "exports": {
+    ".": { "import": "./index.js" },
+    "./components": { "import": "./components/index.js" },
+    "./package.json": "./package.json"
+  },
+  "quartz": {
+    "name": "agent-ecosystem-graph",
+    "displayName": "Graph (subtree)",
+    "description": "Wraps @quartz-community/graph with hierarchy edges and subtree node selection.",
+    "version": "1.0.0",
+    "quartzVersion": ">=5.0.0",
+    "category": "component",
+    "dependencies": [],
+    "defaultEnabled": true,
+    "defaultOptions": {},
+    "components": {
+      "Graph": {
+        "name": "agent-ecosystem-graph",
+        "displayName": "Graph (subtree)",
+        "description": "Graph view scoped to the current page's subtree.",
+        "version": "1.0.0",
+        "defaultPosition": "right",
+        "defaultPriority": 10
+      }
+    }
+  }
+}

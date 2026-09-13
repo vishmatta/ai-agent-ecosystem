@@ -181,7 +181,7 @@ plugins:
           return !a.isFolder && b.isFolder ? 1 : -1
         }
   - source: "@quartz-community/graph"
-    enabled: true
+    enabled: false
     layout:
       position: right
       priority: 10
@@ -310,6 +310,11 @@ plugins:
     layout:
       position: beforeBody
       priority: 1
+  - source: ./plugins/agent-ecosystem-graph
+    enabled: true
+    layout:
+      position: right
+      priority: 10
 layout:
   groups:
     toolbar:
@@ -326,8 +331,6 @@ layout:
     folder:
       exclude:
         - reader-mode
-      positions:
-        right: []
     tag:
       exclude:
         - reader-mode
