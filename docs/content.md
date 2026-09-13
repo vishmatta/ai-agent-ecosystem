@@ -25,13 +25,18 @@ explanatory note (plan §3).
 ## Where files go
 
 - Stages: `content/build/`, `content/connect/`, `content/run/`, `content/control/`.
-- A section's concept and Landscape pages live under
-  `content/<stage>/<section-slug>/`. The graph and breadcrumbs derive
-  hierarchy from folders, not links, so anything outside that path won't show
-  as the section's child.
+- A section is a folder, `content/<stage>/<section-slug>/`. Its narrative
+  page is `index.md` in that folder (served at `/<stage>/<section-slug>/`), and
+  its concept and Landscape pages sit beside it. The graph and breadcrumbs
+  derive hierarchy from folders, not links, so anything outside that folder
+  won't show as the section's child.
+- A single Landscape is `landscape.md`. A Landscape split by category has one
+  file per category, named with the category's slug, e.g.
+  `agent-frameworks/code-frameworks.md`.
 - Slugs are descriptive, never numbered (plan §4).
 - Links in page bodies: use full-path wikilinks, e.g.
-  `[[build/agent-frameworks|Agent Frameworks]]`. Quartz rewrites every body
+  `[[build/agent-frameworks/index|Agent Frameworks]]` for a section page, or
+  `[[build/agent-frameworks/code-frameworks|Code Frameworks]]`. Quartz rewrites every body
   link to a relative path, so the subpath is handled for you. A bare name like
   `[[landscape]]` can resolve to the wrong page once two files share that
   name; a full path can't.
@@ -48,7 +53,7 @@ split (plan §3).
 | Stage | Nav | § | Section | Slug | Concept tier | Landscape pages |
 |---|---|---|---|---|---|---|
 | build | 1 | 1 | Agent Harnesses | `agent-harnesses` (live) | never | 1 |
-| build | 2 | 2 | Agent Frameworks | TBD | never | 2: Code Frameworks, No-code / Low-code Builders |
+| build | 2 | 2 | Agent Frameworks | `agent-frameworks` (live) | never | 2: Code Frameworks, No-code / Low-code Builders |
 | build | 3 | 3 | Orchestration Patterns | `orchestration-patterns` | yes | none — no tooling exists |
 | build | 4 | 4 | Models | TBD | never | 1 |
 | build | 5 | 5 | Agent Behavior and Configuration | `agent-behavior` (live) | yes | 1 (Guardrails Tools) |
@@ -64,10 +69,8 @@ split (plan §3).
 | control | — | 14, 15 | _distributed — see the Control mapping below_ |  |  |  |
 
 Build and Run haven't had a reading-order pass yet, so they use taxonomy order
-(plan §10). Unsettled so far: the TBD slugs, file names for Landscape pages,
-and whether a section page is `<section>.md` or `<section>/index.md` once it
-has children. Those are GitHub issues. Don't create a TBD section until its
-slug is decided. The Explorer doesn't yet follow this order (see
+(plan §10). The TBD slugs are still unsettled (#5). Don't create a TBD
+section until its slug is decided. The Explorer doesn't yet follow this order (see
 `docs/plugins.md`).
 
 ## Control mapping (§14 and §15)
@@ -116,9 +119,7 @@ source) counts once in the total and once in each bucket, so the buckets can
 add up to more than the total.
 
 List only concept pages that exist, in the taxonomy's own bullet order.
-Position shows relative order, not rank (plan §3). The demo entries in
-`content/build/agent-behavior.md` and `content/build/agent-harnesses.md` point at pages that
-don't exist yet, so don't copy their hrefs.
+Position shows relative order, not rank (plan §3).
 
 ## Page bodies
 
@@ -134,7 +135,7 @@ children as content on that page.
 
 **Landscape:** three `##` buckets, always all present: Commercial / Proprietary,
 Open Source / Provider-agnostic, Legacy / Decommissioned. An empty bucket says
-so ("No commercial tools currently exist in this category"). Entries follow
+so ("No commercial tools are catalogued in this category yet"). Entries follow
 `Name (Creator)`, with notes as nested sub-bullets. Read the taxonomy's
 `## Formatting rules` before writing entries; it covers dual-listing,
 exceptions, and attribution.

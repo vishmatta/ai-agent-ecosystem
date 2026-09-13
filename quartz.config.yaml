@@ -160,7 +160,7 @@ plugins:
       priority: 50
     options:
       folderDefaultState: open
-      folderClickBehavior: collapse
+      folderClickBehavior: link
       useSavedState: true
       sortFn: >-
         (a, b) => {

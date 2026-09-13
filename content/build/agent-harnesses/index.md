@@ -5,10 +5,10 @@ tags:
   - ADE
 landscapes:
   - title: Harnesses Landscape
-    href: /build/agent-harnesses-landscape
+    href: /build/agent-harnesses/landscape
     stats:
-      - { value: 26, label: harnesses catalogued }
-      - { value: 11, label: commercial }
+      - { value: 27, label: harnesses catalogued }
+      - { value: 12, label: commercial }
       - { value: 11, label: open source }
       - { value: 5, label: legacy }
 deck: >-
@@ -20,7 +20,7 @@ deck: >-
 
 An agent harness is the wrapper around a model — the tool-calling loop, context and session management, safety rails, and the interface a person actually touches.
 
-Distinct from an agent framework (§2 Agent Frameworks): a framework is a library or toolkit for building your own harness, not a finished product itself.
+Distinct from an agent framework ([[build/agent-frameworks/index|Agent Frameworks]]): a framework is a library or toolkit for building your own harness, not a finished product itself.
 
 ### Why use an agent harness
 
