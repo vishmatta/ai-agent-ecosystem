@@ -11,7 +11,7 @@
 - A tool with a self-hostable open-source core and a hosted commercial layer under the same brand name is listed under both columns, with a sub-bullet noting the relationship. A separately branded commercial layer (e.g. Milvus → Zilliz Cloud) is listed as its own distinct entry instead.
 - Each section carries its own Legacy / Decommissioned callout where relevant, rather than one global list, so a gap reads as "never in scope," not "did I forget this."
 - Entries with an unverified attribution are flagged `(unconfirmed)` rather than guessed.
-- All fifteen sections follow a standard five-part `###` sub-header shape: **What** (definition, plus cross-references to concepts a reader might confuse it with), **Why** (the problem this category solves), **When** (decision criteria for reaching for it, including relevant risk factors), **How** (how it's used in practice), **Where** (which direction the category is heading) — followed by a `### <Section> Landscape` sub-header holding the Commercial/Open Source/Legacy product lists (see site-content-plan-v2.md §3 for the site-level rationale). Narrative content is drafted only where the section has been worked through in full (currently §1); elsewhere the five headers stand as placeholders marked *(not yet drafted)*, with existing concept material sitting between the headers and the Landscape link — a Landscape header can also carry an honest "no dedicated tooling" note rather than a product list, where that's genuinely true (e.g. Orchestration Patterns, Context). This is the default shape, not a loose per-section improvisation; deviate only when a section genuinely doesn't fit one of the five beats.
+- All fifteen sections follow a standard five-part `###` sub-header shape: **What** (definition, plus cross-references to concepts a reader might confuse it with), **Why** (the problem this category solves), **When** (decision criteria for reaching for it, including relevant risk factors), **How** (how it's used in practice), **Where** (which direction the category is heading) — followed by a `### <Section> Landscape` sub-header holding the Commercial/Open Source/Legacy product lists (see site-content-plan-v2.md §3 for the site-level rationale). Narrative content is drafted only where the section has been worked through in full (currently §1 and §2); elsewhere the five headers stand as placeholders marked *(not yet drafted)*, with existing concept material sitting between the headers and the Landscape link — a Landscape header can also carry an honest "no dedicated tooling" note rather than a product list, where that's genuinely true (e.g. Orchestration Patterns, Context). This is the default shape, not a loose per-section improvisation; deviate only when a section genuinely doesn't fit one of the five beats.
 
 ---
 
@@ -72,6 +72,9 @@
   - Zenflow is Zencoder's multi-agent orchestration mode — coordinates multiple models through structured Plan → Implement → Test → Review workflows, including cross-model verification (e.g. one model writes, a different model reviews) — has an ADE mode, see How to use an agent harness above
 - Zed
   - Rust-native, GPU-rendered code editor — the Zed AI service and collaboration backend are proprietary; the editor core is open source under the same brand (below)
+- Perplexity Computer
+  - General-purpose agent worker rather than a coding tool: breaks a goal into subtasks and runs them through sub-agents on models from several providers, choosing a model per subtask. Launched February 25, 2026
+  - Also sold as Personal Computer, which runs on a dedicated local Mac or Windows machine, and Portable Computer, a fully local edition built with NVIDIA
 
 **Open Source / Provider-agnostic**
 - OpenCode (Anomaly)
@@ -100,40 +103,77 @@
 ## 2. Agent Frameworks
 
 ### What is an agent framework
-*(not yet drafted)*
+- A toolkit for building your own agent rather than a finished agent product: it supplies the tool-calling loop, tool definitions, state, and multi-agent primitives, and you assemble them into something you ship
+- Comes in two forms: code frameworks (libraries and SDKs a developer programs against) and no-code / low-code builders (visual or natural-language tools for assembling agents without writing the loop)
+- → distinct from an agent harness (§1): a harness is the finished wrapper you use; a framework is what you would build one with. The line can blur — the Claude Agent SDK is Claude Code's own harness, exposed as a library
 
 ### Why use an agent framework
-*(not yet drafted)*
+- An agent embedded in your own product or workflow means owning its loop: which tools it can call, what it remembers, when a person has to approve. A framework supplies that loop instead of re-implementing it from a raw model API
+- Frameworks package the recurring hard parts: tool schemas, validated structured output, persisting and resuming state, handing work between agents, and tracing hooks
 
 ### When to use a framework vs. a harness
-*(not yet drafted)*
+- A harness fits when the task is your own (coding, research) and a finished product already does it; a framework fits when the agent is part of something you are building for other people
+- Choosing among code frameworks usually comes down to four criteria: language (Python, TypeScript, .NET, Java, Go — few frameworks cover more than two); model commitment (a model vendor's own SDK is thinnest on that vendor's models, while provider-agnostic frameworks trade some of that for portability); how much state the agent keeps (a simple tool loop vs. durable, checkpointed graphs that pause for human input and resume); and cloud alignment (each hyperscaler's framework deploys most directly to its own managed runtime — see §13 Agent Operations and Deployment)
+- No-code / low-code builders fit when the people defining the agent aren't engineers, or the work is mostly integration glue between existing systems; they run out of room as agent logic grows complex
+- Continuity risk applies here too: Microsoft folded AutoGen and Semantic Kernel into Microsoft Agent Framework, and Flowise wound down entirely in 2026 — see Legacy below for both
 
 ### How agent frameworks are used
-*(not yet drafted)*
+- Common shapes: one agent in a tool-calling loop; an explicit graph or state machine with checkpoints between steps; teams of role-based agents with assigned goals; event-driven workflows that react to typed events
+- → related to §3 Orchestration Patterns: frameworks are where those patterns are implemented
+- In production, a framework is usually paired with a managed runtime to host the agent (§13), a gateway for model access (§6 Model Routers, Gateways and Proxies), and an observability layer (§15)
 
 ### Where agent frameworks are heading
-*(not yet drafted)*
+- Consolidation: Microsoft Agent Framework 1.0 (April 2026) replaced AutoGen and Semantic Kernel. AutoGen now continues only as a community-managed codebase in maintenance mode, and AG2 carries its classic agent classes forward
+- Model vendors' SDKs are absorbing harness features — the Claude Agent SDK ships Claude Code's file tools, permissions, subagents, and hooks as a library
+- Open-source frameworks increasingly come with a hosted commercial layer for deployment and observability — LangSmith Deployment for LangGraph, Mastra Platform for Mastra
+- Low-code builders are under pressure from coding agents: Flowise's maintainers cited developers moving complex work to coding agents when they wound it down
 
 ### Frameworks Landscape → (separate page)
 
-**Frameworks**
-- OpenAI Agents SDK
-- Claude Agent SDK (Anthropic)
-- LangChain
-- LangGraph (LangChain)
-- CrewAI
-- Google ADK
-- Microsoft Agent Framework
-- LlamaIndex
-- PydanticAI
-- smolagents (Hugging Face)
-- Mastra
-- Vercel AI SDK
-- DSPy (Stanford)
+**Code Frameworks**
+- Commercial / Proprietary
+  - Claude Agent SDK (Anthropic)
+    - The harness behind Claude Code, exposed as a library: file tools, shell execution, permissions, subagents, hooks, and in-process MCP servers
+    - The SDK is MIT-licensed, but it's built for Claude models only, so it doesn't qualify as provider-agnostic — the same test applied to Gemini CLI in §1's Legacy list
+  - Mastra
+    - Hosted commercial layer (Mastra Platform: deployment, observability, hosted Studio) under the same brand
+- Open Source / Provider-agnostic
+  - OpenAI Agents SDK
+  - LangChain
+  - LangGraph (LangChain)
+    - Graph orchestration with checkpointed, resumable state. Its commercial deployment layer is separately branded — see LangSmith Deployment in §13
+  - CrewAI
+  - Google ADK
+  - Microsoft Agent Framework
+    - Successor to AutoGen and Semantic Kernel (see Legacy below); Python and .NET
+  - LlamaIndex
+    - LlamaIndex Workflows is its event-driven orchestration layer
+  - PydanticAI
+  - smolagents (Hugging Face)
+  - Mastra
+    - Self-hostable open-source core; enterprise features and the hosted layer are commercial, under the same brand, above
+  - Vercel AI SDK
+  - DSPy (Stanford)
+  - Haystack (deepset)
+  - AG2
+    - Community-driven continuation of the AutoGen codebase; the classic `autogen` classes now live on as AG2 Classic — see AutoGen in Legacy below
+- Legacy / Decommissioned
+  - AutoGen (Microsoft) — superseded by Microsoft Agent Framework, the direct successor built by the same team; shipped as MAF 1.0, April 3, 2026. The repo is now in maintenance mode and community-managed, and AG2 above continues its codebase
+  - Semantic Kernel (Microsoft) — likewise superseded by Microsoft Agent Framework, same team, same April 2026 release; SK continues to receive critical bug/security fixes only, with new feature development happening in MAF
 
-**Legacy / Decommissioned**
-- AutoGen (Microsoft) — superseded by Microsoft Agent Framework, the direct successor built by the same team; shipped as MAF 1.0, April 3, 2026
-- Semantic Kernel (Microsoft) — likewise superseded by Microsoft Agent Framework, same team, same April 2026 release; SK continues to receive critical bug/security fixes only, with new feature development happening in MAF
+**No-code / Low-code Builders**
+- Commercial / Proprietary
+  - Agentforce (Salesforce)
+    - Agents built on Salesforce's CRM data, flows, and business logic, with prebuilt templates for sales, service, marketing, and commerce
+  - Sema4.ai Studio
+    - Natural-language "Runbooks" instead of code; prebuilt enterprise-app integrations (SharePoint, SAP, Snowflake) plus MCP
+  - n8n
+    - Visual workflow automation with AI agent steps. Self-hostable, but source-available under its Sustainable Use License rather than open source, so it's listed here only
+- Open Source / Provider-agnostic
+  - Langflow
+    - Visual builder for agents and LLM workflows; MIT-licensed
+- Legacy / Decommissioned
+  - Flowise — visual drag-and-drop builder for LLM apps and agents, wound down in 2026: code freeze July 29, repo archived August 13, end of life August 31. Code remains Apache 2.0 and forkable
 
 ## 3. Orchestration Patterns
 
@@ -309,6 +349,8 @@ No dedicated tooling — these patterns are typically implemented within an agen
 - Scaleway
 - Baseten
 - Lambda
+- Workers AI (Cloudflare)
+  - Serverless inference on Cloudflare's edge network. The same company's agent hosting, Cloudflare Agents, is listed in §13
 
 **Model Serving**
 - Commercial / Proprietary
@@ -322,8 +364,10 @@ No dedicated tooling — these patterns are typically implemented within an agen
 
 **Cloud AI Platforms**
 - AWS Bedrock
-- Google Vertex AI
-- Microsoft Azure AI Foundry
+- Google Gemini Enterprise Agent Platform
+  - Formerly Google Vertex AI; rebranded April 22, 2026, with existing Vertex AI services continuing under the new name. Its managed agent runtime, Agent Engine, is listed in §13
+- Microsoft Foundry
+  - Formerly Azure AI Foundry; renamed November 2025
 - Oracle AI Agent Studio
 - Databricks Mosaic AI
 - Snowflake Cortex
@@ -738,6 +782,14 @@ No dedicated tooling — context handling is typically implementation-level engi
     - Hosted commercial layer under the same brand
   - Trigger.dev
     - Hosted commercial layer under the same brand
+  - Amazon Bedrock AgentCore
+    - Managed runtime for deploying and operating agents on AWS, built with any framework
+  - Agent Engine (Google)
+    - Managed agent runtime within Gemini Enterprise Agent Platform (formerly Vertex AI Agent Engine) — see §6 Cloud AI Platforms
+  - Cloudflare Agents
+    - Stateful agents hosted on Cloudflare's global network. The SDK is open source (MIT) but runs only on Cloudflare, so it isn't listed under Open Source. The same company's edge inference, Workers AI, is listed in §6
+  - LangSmith Deployment (LangChain)
+    - Hosting for long-running, stateful agents; formerly LangGraph Platform, renamed October 2025. The separately branded commercial deployment layer for LangGraph (§2); LangSmith's observability product is listed in §15
 - Open Source / Provider-agnostic
   - Temporal
     - Self-hostable core; commercial layer via Temporal Cloud
@@ -927,6 +979,8 @@ No dedicated tooling — context handling is typically implementation-level engi
     - Distinct product from Helicone AI Gateway (§6) — same company, two separate product lines under one brand: this entry is the original observability/logging product; the Gateway is a separate routing/fallback product added later
   - Arize AX
     - Commercial platform under a separate brand name, built on Arize Phoenix
+  - Fiddler AI
+    - Positions itself as a control plane across agents built on any framework — telemetry, evaluation, monitoring, and policy enforcement in one layer
 - Open Source / Provider-agnostic
   - Langfuse
     - Self-hostable core; commercial layer under the same brand
@@ -993,13 +1047,26 @@ No dedicated tooling — context handling is typically implementation-level engi
   - **In scope, to be added:** Web Search tools (Exa, Tavily, Firecrawl, Brave Search API, Perplexity API) in §7; Structured outputs tooling (Instructor, Outlines, BAML) in §5/§7; OpenTelemetry GenAI semantic conventions in §15; expanded agent identity standards (SPIFFE/SPIRE, OAuth 2.1 for agents, Descope, Stytch) in §14; Reflection/critic and Plan-and-execute orchestration patterns in §3; agent-specific benchmarks (OSWorld, WebArena, BrowseComp) in §15. Rationale: these are already mainstream, load-bearing infrastructure agents commonly touch today, not emerging bets — omitting them would make the taxonomy read as incomplete on core use cases.
   - **Held for a later pass, marked as an actively-forming space rather than silently excluded:** Computer Use tools (Scrapybara, Hyperbrowser) — the category is still shifting alongside the underlying computer-use models; a protocol family for agentic payments/commerce (AP2, x402, Stripe agentic commerce) near §8; AG-UI as the agent↔user interaction protocol; programmatic/code-mode tool calling in §5/§7. Rationale: genuinely early/speculative, low adoption or no consensus yet — worth calling out explicitly as "the industry hasn't settled this yet," which is itself a useful signal to a reader (and potentially a pointer toward open problems/startup ideas), rather than a gap to hide.
   - Actual content/entries for the "in scope" items are not yet drafted — this resolves *whether*, not the entries themselves.
-- **Sema4.ai Studio — captured, placement not yet decided.** A no-code enterprise agent-building platform for business users: natural-language "Runbooks" instead of code, pre-built enterprise-app integrations (SharePoint, SAP, Snowflake) plus MCP, explicitly no-engineering-required. Verified real and current (GA product, enterprise customers, funded, active). Doesn't cleanly match either §1 Harnesses (developer-facing, coding-specific) or §2 Frameworks (code-based toolkits) as either is currently defined. Options on the table, none chosen yet: broaden §1's own definition to include no-code business-user builders; add under §2 anyway on the "still a toolkit for building agents" logic even though the toolkit is no-code; treat it as a genuine gap meriting its own new item or section (no-code/low-code enterprise agent platforms — Sema4.ai plus likely comparable tools); or judge it out of scope entirely, on the same grounds AI Transformation content was scoped out. Logged here so the product itself isn't lost while the placement question sits open.
+- ~~Sema4.ai Studio — placement~~ — **Resolved (v2.19): a second §2 Landscape category, No-code / Low-code Builders, alongside Code Frameworks.** These products build agents rather than being an agent someone uses, which is a framework's job without the code — so §2 fits, and §1 keeps its narrower meaning. The category landed with more than Sema4.ai in it: Agentforce, n8n, and Langflow, plus Flowise in its Legacy list. §2's What beat now names both forms.
+- **LlamaCloud / LlamaParse — captured, placement not yet decided.** LlamaIndex's separately branded commercial service for document parsing, OCR, and extraction, feeding LlamaIndex pipelines. No section's Landscape covers document ingestion or parsing: §11 has Vector Databases, Knowledge Graphs, and Semantic Layer Tools only. Options: a new §11 Document Parsing category (LlamaParse plus comparable tools), or out of scope as data-preparation tooling. Logged so it isn't lost; not placed anywhere yet.
 - ~~MCP is underbuilt relative to its actual weight~~ — **Resolved and built out.** §7 now has real substructure (Servers, Clients, Transports, Registries — MCP Registry/Smithery/Glama), and §14 has a dedicated MCP-specific attack surface (tool poisoning, tool-description injection, confused-deputy, rug-pull updates) as a sibling to Prompt-injection defenses, distinguished as protocol/supply-chain trust rather than content-level injection. Treated as mainstream/load-bearing rather than a speculative landscape gap, since MCP is the connective tissue of the whole Connect stage.
 - ~~Cloud AI Platforms (§6) placement~~ — **Resolved:** no single-stage home forced, same pattern as Control. Canonical content splits by actual capability (model access under §4 Models, deployment infrastructure under §12 Run, governance controls wherever the Control mapping already sends them), plus a lightweight hub page cross-linking the pieces together for a reader thinking in terms of the platform as one thing (e.g. "Bedrock"). See site-content-plan-v2.md §8 item 1 for the full decision; physical move into the doc structure not yet done.
 - ~~Verification: OpenWorker, Pi/Oh My Pi, and Andrew Ng's AI Engineering Skills Map~~ — **Verified, all correct.** OpenWorker's attribution to Andrew Ng confirmed (announced July 23, 2026 on his own account; README itself doesn't name him directly, only the `andrewyng` GitHub account and lineage from `aisuite`). Pi and Oh My Pi both have identifiable individual creators — Mario Zechner (`badlogic`) and `can1357` respectively — now named directly per the updated attribution convention (see Formatting rules) rather than left as "(open source community)". Andrew Ng's AI Engineering Skills Map confirmed as a real, dated source (launched Aug 14, 2026 via DeepLearning.AI's The Batch).
 - ~~Helicone AI Gateway's appearance in §15 Observability~~ — **Resolved:** not a naming slip, but a missing entry. Helicone is one company with two distinct product lines under the same brand: the original observability/logging tool (correctly in §15, now labeled plainly as "Helicone") and a separate AI Gateway product added later for routing/fallback (§6, "Helicone AI Gateway"). Both entries now cross-reference each other and are named to reflect the actual product each row describes.
 
 ## Changelog
+
+**v2.19 — 2026-09-13**
+- Folded in a harness/framework landscape research pass ("Agent Harnesses & Frameworks — Full Landscape (2026)", 31 products). Every product was checked against its GitHub repo, license, and the vendor's own announcements before placing it. The source doc's descriptions come from vendor and review blogs, so entries here are rewritten as neutral identification, not its "moat"/"best use case" copy
+- Drafted §2's five narrative beats, the second section drafted in full after §1. The source doc's decision guide became neutral selection criteria in the When beat (language, model commitment, how much state the agent keeps, cloud alignment) rather than a "use this product" table
+- Restructured §2's Landscape into two product categories, each with Commercial / Open Source / Legacy buckets: Code Frameworks and a new No-code / Low-code Builders category. This resolves the Sema4.ai Studio open item (see Open Items). The flat list couldn't carry the Commercial/Open Source axis every Landscape needs
+- Code Frameworks: moved Claude Agent SDK to Commercial / Proprietary — MIT-licensed, but Claude-models-only, so it fails the provider-agnostic test Gemini CLI's entry set. Dual-listed Mastra (hosted Mastra Platform, same brand). Added AG2 and Haystack (deepset). Noted LlamaIndex Workflows under LlamaIndex, LangGraph's separately branded deployment layer, and AutoGen's maintenance-mode status (per its README)
+- No-code / Low-code Builders: Agentforce (Salesforce), Sema4.ai Studio, and n8n under Commercial — n8n is source-available (Sustainable Use License), not open source, despite the source doc calling it open source. Langflow (MIT, active) under Open Source, added beyond the source doc so the bucket isn't misleadingly empty. Flowise under Legacy: its repo was archived August 13, 2026 and it reached end of life August 31, after the source doc listed it as live
+- §1: added Perplexity Computer (Commercial) — a general-purpose agent worker fits §1's What definition, and §1 already lists non-coding agents (OpenWorker, Hermes Agent)
+- §6: Google Vertex AI → Google Gemini Enterprise Agent Platform (rebranded April 22, 2026); Microsoft Azure AI Foundry → Microsoft Foundry (renamed November 2025). Added Workers AI (Cloudflare) to Inference Providers
+- §13: added managed agent hosting — Amazon Bedrock AgentCore, Agent Engine (Google), Cloudflare Agents, LangSmith Deployment (formerly LangGraph Platform)
+- §15: added Fiddler AI to Observability Tools
+- Left out: Operator (OpenAI) — shut down August 31, 2025, and ChatGPT agent, which absorbed it, was removed in August 2026; computer-use tools are held for a later pass anyway (Open Items). LlamaCloud / LlamaParse — no document-parsing category exists; logged in Open Items. LangSmith, Vercel AI Gateway, and LiteLLM were already listed
 
 **v2.18 — 2026-09-13**
 - Moved Mods (Charm) from §1 Open Source / Provider-agnostic to Legacy / Decommissioned, reversing the v2.15 addition. Its README and GitHub repo, checked directly, show Charm sunset Mods and archived the repo on March 9, 2026 — six months before it was added here — in favor of Crush's non-interactive mode (`crush run`). v2.15's check read the changelog (v1.8.0's MCP support) but missed the sunset notice at the top of the README

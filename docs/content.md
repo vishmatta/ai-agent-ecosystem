@@ -48,7 +48,7 @@ split (plan §3).
 | Stage | Nav | § | Section | Slug | Concept tier | Landscape pages |
 |---|---|---|---|---|---|---|
 | build | 1 | 1 | Agent Harnesses | `agent-harnesses` (live) | never | 1 |
-| build | 2 | 2 | Agent Frameworks | TBD | never | 1 |
+| build | 2 | 2 | Agent Frameworks | TBD | never | 2: Code Frameworks, No-code / Low-code Builders |
 | build | 3 | 3 | Orchestration Patterns | `orchestration-patterns` | yes | none — no tooling exists |
 | build | 4 | 4 | Models | TBD | never | 1 |
 | build | 5 | 5 | Agent Behavior and Configuration | `agent-behavior` (live) | yes | 1 (Guardrails Tools) |
