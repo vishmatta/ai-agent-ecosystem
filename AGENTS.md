@@ -31,7 +31,8 @@ npx quartz build --serve --port 8081 --wsPort 3002
 ## Workflow — several agents work in this repo in parallel
 
 1. **Work comes from GitHub Issues.** If you weren't given one, take the
-   lowest-numbered open issue without the `in-progress` or `needs-decision` label.
+   lowest-numbered open issue without the `in-progress` or `needs-decision` label,
+   skipping any whose body says `Blocked by #N` while #N is still open.
 2. **Claim it** before starting: `gh issue edit <n> --add-label in-progress`.
 3. **Branch from `origin/main`**: `git fetch origin && git switch -c <n>-<short-slug> origin/main`.
 4. **One issue per PR.** Something else you notice becomes a new issue, not scope
