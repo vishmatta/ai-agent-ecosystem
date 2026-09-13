@@ -7,7 +7,7 @@ configuration:
   analytics:
     provider: plausible
   locale: en-US
-  baseUrl: ai-agent-ecosystem.example.com
+  baseUrl: vishmatta.github.io/ai-agent-ecosystem
   ignorePatterns:
     - private
     - templates

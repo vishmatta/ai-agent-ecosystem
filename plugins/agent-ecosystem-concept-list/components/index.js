@@ -1,4 +1,5 @@
 import { h } from "preact"
+import { resolveRelative } from "@quartz-community/utils"
 
 const isNonEmptyArray = (v) => Array.isArray(v) && v.length > 0
 
@@ -9,6 +10,10 @@ const isNonEmptyArray = (v) => Array.isArray(v) && v.length > 0
  * box. Order is the author's (it mirrors the taxonomy doc's own bullet
  * sequence); position conveys relative order among the items shown, never
  * absolute rank, since the list is normally incomplete.
+ *
+ * frontmatter hrefs are authored as site-root paths for readability, but
+ * rendered relative to the current page — same reasoning as StageNav:
+ * absolute paths break under GitHub Pages' subpath.
  *
  * frontmatter:
  *   concepts:
@@ -21,6 +26,9 @@ const ConceptList = () => {
   const Component = ({ fileData }) => {
     const concepts = fileData?.frontmatter?.concepts
     if (!isNonEmptyArray(concepts)) return null
+
+    const slug = fileData?.slug ?? ""
+    const hrefFor = (href) => (href ? resolveRelative(slug, href) : "#")
 
     const total = fileData.frontmatter.conceptsTotal
     const eyebrow =
@@ -38,7 +46,7 @@ const ConceptList = () => {
         "div",
         { class: "concept-list" },
         concepts.map((c) =>
-          h("a", { class: "concept-row", href: c.href ?? "#" }, [
+          h("a", { class: "concept-row", href: hrefFor(c.href) }, [
             h("span", { class: "concept-title" }, [
               c.title,
               h("span", { class: "arrow" }, "→"),

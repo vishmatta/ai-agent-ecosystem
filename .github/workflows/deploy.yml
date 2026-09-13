@@ -1,0 +1,79 @@
+# Deploy to GitHub Pages on every push to main.
+#
+# Separate from build-check.yml on purpose: this workflow only runs on push to
+# main, never on pull requests, so it can't be added as a required status
+# check for the protect-main ruleset — a check that never runs on a PR would
+# block every merge forever. build-check.yml is what PRs wait on; this is what
+# ships the result once a PR lands.
+#
+# Requires the repo's Pages source to be set to "GitHub Actions" under
+# Settings → Pages — a one-time setting change, not something this workflow
+# can do for itself.
+
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Queue deploys rather than cancel one mid-flight — a cancelled deploy can
+# leave Pages serving a half-uploaded site.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v7
+        with:
+          # Full history: Quartz dates each page from git.
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .node-version
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      # Same build-then-verify sequence as the PR build check, so a broken
+      # build (including the exit-0 failures Quartz can produce) never
+      # reaches the deploy step.
+      - name: Build the Quartz site
+        run: |
+          set -o pipefail
+          npx quartz build 2>&1 | tee quartz-build.log
+
+      - name: Verify the build output
+        run: node .github/scripts/verify-build.mjs quartz-build.log public
+
+      - name: Upload build output
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,4 +1,5 @@
 import { h } from "preact"
+import { resolveRelative } from "@quartz-community/utils"
 
 const isNonEmptyArray = (v) => Array.isArray(v) && v.length > 0
 
@@ -8,6 +9,10 @@ const isNonEmptyArray = (v) => Array.isArray(v) && v.length > 0
  * The most visually weighted element on the page. One card per Landscape page
  * for the section, so a section whose Landscape splits by product category
  * renders one card per category.
+ *
+ * frontmatter hrefs are authored as site-root paths for readability, but
+ * rendered relative to the current page — same reasoning as StageNav:
+ * absolute paths break under GitHub Pages' subpath.
  *
  * frontmatter:
  *   landscapes:
@@ -22,11 +27,14 @@ const LandscapeCard = () => {
     const landscapes = fileData?.frontmatter?.landscapes
     if (!isNonEmptyArray(landscapes)) return null
 
+    const slug = fileData?.slug ?? ""
+    const hrefFor = (href) => (href ? resolveRelative(slug, href) : "#")
+
     return h(
       "div",
       { class: "landscape-group" },
       landscapes.map((l) =>
-        h("a", { class: "landscape", href: l.href ?? "#" }, [
+        h("a", { class: "landscape", href: hrefFor(l.href) }, [
           h("div", { class: "landscape-eyebrow" }, "reference catalog"),
           h("div", { class: "landscape-title-row" }, [
             h("span", { class: "landscape-title" }, l.title),
