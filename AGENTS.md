@@ -46,13 +46,20 @@ npx quartz build --serve --port 8081 --wsPort 3002
    spec leaves open: comment on the issue with the options and your
    recommendation, add `needs-decision`, and stop.
 
+Without write access to this repo (working from a fork), claim an issue by
+commenting on it instead. Open the PR from your fork, and leave labels and
+merging to the maintainer.
+
 Issue template: `.github/ISSUE_TEMPLATE/task.md` — issues should be
 self-contained enough that no other context is needed.
 
 ## Rules that are easy to break
 
-- Commit as `65240766+vishmatta@users.noreply.github.com` (already set in this
-  repo's git config). Never a personal email: `main` can't be rewritten.
+- Commit as the person you're working for: the git identity already configured
+  on their machine. Never set or override `user.name`, `user.email`, or
+  `--author` to anyone else, the repo owner included. If no identity is
+  configured, stop and ask. Use a GitHub no-reply email rather than a personal
+  one, since the repo is public and `main` can't be rewritten.
 - Never rename the `quartz-build-check` job — the branch ruleset matches it by
   name. Never make `deploy.yml` a required check; it doesn't run on PRs.
 - Links rendered by components must be relative (`resolveRelative` from
