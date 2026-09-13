@@ -20,7 +20,7 @@ deck: >-
 
 An agent harness is the wrapper around a model — the tool-calling loop, context and session management, safety rails, and the interface a person actually touches.
 
-Distinct from an agent framework ([[agent-frameworks|§2 Agent Frameworks]]): a framework is a library or toolkit for building your own harness, not a finished product itself.
+Distinct from an agent framework (§2 Agent Frameworks): a framework is a library or toolkit for building your own harness, not a finished product itself.
 
 ### Why use an agent harness
 
