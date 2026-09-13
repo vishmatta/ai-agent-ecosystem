@@ -9,5 +9,6 @@
   `preview_list` is your own worktree.
 - Sessions run in git worktrees under `.claude/worktrees/`, with `main` checked
   out in the main folder, so a worktree can't `git switch main`. Branch from
-  `origin/main`, and run `gh pr merge --delete-branch` from outside the
-  worktree, or it tries to switch to `main`.
+  `origin/main`, and run
+  `gh pr merge <n> -R vishmatta/ai-agent-ecosystem --squash --delete-branch`
+  from outside the worktree, or it tries to switch to `main`.
