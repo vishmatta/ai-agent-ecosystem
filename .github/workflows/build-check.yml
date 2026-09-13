@@ -1,0 +1,58 @@
+# Build check for pull requests into main.
+#
+# The safety net for changes made through pull requests: it builds the Quartz
+# site from a clean checkout exactly as a deploy would, and fails if the build
+# fails. Its job name, `quartz-build-check`, is the status check the
+# `protect-main` ruleset requires — renaming the job silently disconnects it
+# from the ruleset, so treat that name as permanent.
+#
+# This workflow only verifies. It never deploys; deploying to GitHub Pages
+# belongs in its own workflow, triggered on push to main.
+
+name: Build check
+
+on:
+  pull_request:
+    branches: [main]
+
+# Read-only: this job builds and inspects, and never writes to the repo.
+permissions:
+  contents: read
+
+# A new push to the same pull request supersedes the run in progress.
+concurrency:
+  group: build-check-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  quartz-build-check:
+    name: quartz-build-check
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v7
+        with:
+          # Full history: Quartz dates each page from git, so this builds the
+          # same thing a deploy would.
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .node-version
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Quartz exits 0 on some real failures, so the log is kept for the next
+      # step to inspect. pipefail makes a non-zero exit from the build itself
+      # fail this step despite the pipe into tee.
+      - name: Build the Quartz site
+        run: |
+          set -o pipefail
+          npx quartz build 2>&1 | tee quartz-build.log
+
+      - name: Verify the build output
+        run: node .github/scripts/verify-build.mjs quartz-build.log public
