@@ -8,9 +8,10 @@
  * aliases onto those variables, plus the handful of extra tokens the page
  * mockups use that Quartz has no equivalent for.
  *
- * Component-scoped CSS (concept list, Landscape card) travels with its
- * component in plugins/agent-ecosystem-template. What lives here is what is
- * genuinely shared: tokens, the narrative beats, and the page-title block.
+ * Component-scoped CSS (concept list, Landscape card, stage nav) travels with
+ * its component as Component.css in plugins/agent-ecosystem-*. What lives here
+ * is what is genuinely shared: tokens, the narrative beats, and the page-title
+ * block.
  */
 
 :root {

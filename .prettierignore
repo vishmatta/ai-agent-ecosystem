@@ -1,3 +1,9 @@
 public
 node_modules
 .quartz-cache
+
+# Agent docs stay unpadded: prettier aligns markdown tables with spaces, which
+# inflates the context every agent session loads.
+AGENTS.md
+CLAUDE.md
+docs/

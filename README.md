@@ -1,7 +1,10 @@
 # ai-agent-ecosystem
 
 A working map of the AI agent ecosystem — how agents are built, connected, run,
-and governed — published as a [Quartz](https://quartz.jzhao.xyz) site.
+and governed — published as a [Quartz](https://quartz.jzhao.xyz) site at
+<https://vishmatta.github.io/ai-agent-ecosystem/>.
+
+Working on the repo (people or coding agents): start with [AGENTS.md](AGENTS.md).
 
 ## License
 
