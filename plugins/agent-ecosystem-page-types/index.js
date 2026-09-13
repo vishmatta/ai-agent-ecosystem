@@ -15,12 +15,17 @@ import { ContentBody } from "@quartz-community/content-page"
  *
  * `home` is deliberately excluded — it keeps the default `content` layout
  * until the home page itself is written (site plan §9).
+ *
+ * Priority 20 beats Quartz's folder page (priority 10, and it wins ties). A
+ * section page with children lives at `<section>/index.md`, which the folder
+ * page would otherwise claim — adding a child-page listing and a Properties
+ * panel. Stage pages carry no `type:`, so they stay folder pages.
  */
 const TAXONOMY_TYPES = ["narrative", "concept", "landscape", "how-to"]
 
 export default () => ({
   name: "AgentEcosystemTaxonomyPage",
-  priority: 10,
+  priority: 20,
   match: ({ fileData }) => TAXONOMY_TYPES.includes(fileData?.frontmatter?.type),
   layout: "taxonomy",
   body: ContentBody,

@@ -60,7 +60,7 @@ When the owner supplies a new `planning/ai-agent-ecosystem-v*.md`:
    commit.
 3. Bump the live version pointers in `planning/site-content-plan-v2.md` (the
    header, the §4 Tags note, §8 item 4). Leave historical citations.
-4. Re-port every changed section that has a live page (today: §1 and §5),
+4. Re-port every changed section that has a live page (today: §1, §2 and §5),
    covering its beats and its Landscape stats (see `docs/content.md`).
 5. Check new `→` cross-references against the site plan's §7 inventory.
 6. Add a changelog entry to each planning doc you touched.

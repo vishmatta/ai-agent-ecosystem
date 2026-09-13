@@ -10,7 +10,7 @@ runtime as plain ESM. It has no TypeScript or JSX, so components use preact's
 
 | Plugin | Kind | What it does |
 |---|---|---|
-| `agent-ecosystem-page-types` | page type | Claims pages whose `type:` is narrative, concept, landscape, or how-to, and gives them the `taxonomy` layout (configured under `layout.byPageType.taxonomy`). `home` keeps the default layout. |
+| `agent-ecosystem-page-types` | page type | Claims pages whose `type:` is narrative, concept, landscape, or how-to, and gives them the `taxonomy` layout (configured under `layout.byPageType.taxonomy`). Priority 20 puts it above Quartz's folder page, so a section's `index.md` renders as a taxonomy page instead of a folder listing. `home` keeps the default layout. |
 | `agent-ecosystem-template` | transformer | Wraps the What/Why/When/How/Where `h3` beats in `<details>` accordions and adds an `ae-page--<type>` class. |
 | `agent-ecosystem-deck` | component, beforeBody | Renders `deck` or `deckPending` under the title. |
 | `agent-ecosystem-stage-nav` | component, beforeBody | Build → Connect → Run pipeline, with Control set apart. `verify-build.mjs` fails any page other than 404 without it. |
@@ -37,6 +37,7 @@ restart the dev server. Component CSS travels with the component as
   ships the site without the plugin. `verify-build.mjs` catches this; run it.
 - **`layout.byPageType.<type>.exclude` matches the full plugin source**, e.g.
   `@quartz-community/note-properties`, not the bare name.
+- **Explorer folder names must stay links** (`folderClickBehavior: link`). Section pages are folder `index.md` files, so with `collapse` the Explorer can't open them.
 - **Explorer order comes from the `sortFn` source string** in the Explorer's
   options, and the Explorer ignores `folderDefaultState: open`. Today `sortFn`
   orders the four stages only. Inside a stage, everything sorts
