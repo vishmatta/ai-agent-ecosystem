@@ -88,34 +88,79 @@ function selectNodes(current, data, edges, depth) {
   return selected
 }
 
+const PATCH_MARKER = "/*agent-ecosystem-graph*/"
+
 // The upstream script's node-selection block, verbatim. It is replaced whole.
 const SELECTION_START = "var ru=new Set;if(Vu>=0)"
 const SELECTION_END = "for(var k=0;k<hu.length;k++)ru.add(hu[k])}"
-const PATCH_MARKER = "/*agent-ecosystem-graph*/"
+
+// Further fixes, each an exact-match replacement of a verbatim fragment of the
+// upstream script. Identifiers like U, Tu, qe, P and Me are that minified
+// script's own: U is a node's graphics object, Tu its drawn radius, o the PIXI
+// namespace, qe the label updater, P the current zoom transform, Me the
+// configured opacityScale.
+const PATCHES = [
+  {
+    // Stock nodes answer to hover only on their drawn dot, 3–4px across and
+    // still drifting while the layout settles, so hovering a node rarely
+    // registers. Give each an invisible hover radius larger than the dot.
+    why: "node hover target",
+    find: 'U.eventMode="static",U.cursor="pointer",U.label=ie,',
+    replace:
+      'U.eventMode="static",U.cursor="pointer",U.label=ie,' +
+      "U.hitArea=new o.Circle(0,0,Math.max(Tu+6,10)),",
+  },
+  {
+    // Stock labels only reset when a pointerleave fires, and fast pointer
+    // movement skips it — so a label passed over on the way in stays stuck on
+    // screen while the node actually hovered shows nothing. Make every label's
+    // visibility a pure function of what is hovered right now and the zoom
+    // level (the same fade-in-with-zoom curve the zoom handler already uses).
+    why: "hover label visibility",
+    find:
+      "function qe(){for(var i=1/qu,l=i*1.1,F=0;F<L.length;F++){var A=L[F];" +
+      "_u===A.simulationData.id?(A.label.alpha=1,A.label.scale.set(l)):A.label.scale.set(i)}}",
+    replace:
+      "function qe(){for(var i=1/qu,l=i*1.1,__aeBase=Math.max((P.k*Me-1)/3.75,0),F=0;F<L.length;F++){var A=L[F];" +
+      "_u===A.simulationData.id?(A.label.alpha=1,A.label.scale.set(l)):(A.label.alpha=__aeBase,A.label.scale.set(i))}}",
+  },
+]
+
+// Fail the build loudly rather than silently shipping a partly-stock graph.
+function upstreamChanged(what) {
+  return new Error(
+    `[agent-ecosystem-graph] ${what} no longer matches @quartz-community/graph's ` +
+      "script exactly once — the upstream package has changed. Re-derive the " +
+      "fragment from the package's dist before upgrading.",
+  )
+}
+
+function applyPatch(script, { why, find, replace }) {
+  const at = script.indexOf(find)
+  if (at === -1 || script.indexOf(find, at + 1) !== -1) throw upstreamChanged(`Patch "${why}"`)
+  return script.slice(0, at) + replace + script.slice(at + find.length)
+}
 
 const Graph = (opts) => {
   const component = UpstreamGraph(opts)
-  const script = component.afterDOMLoaded
+  let script = component.afterDOMLoaded
   if (script.includes(PATCH_MARKER)) return component
 
   const a = script.indexOf(SELECTION_START)
   const b = a === -1 ? -1 : script.indexOf(SELECTION_END, a)
-  if (a === -1 || b === -1) {
-    // Fail the build loudly rather than silently shipping the stock graph.
-    throw new Error(
-      "[agent-ecosystem-graph] Could not find the node-selection block in " +
-        "@quartz-community/graph's script — the upstream package has changed. " +
-        "Re-derive SELECTION_START/SELECTION_END from its dist before upgrading.",
-    )
-  }
+  if (a === -1 || b === -1) throw upstreamChanged("The node-selection block")
 
   // `d` is the upstream script's graph container. Recording what was selected
   // on it makes the graph inspectable — the canvas itself can't be queried.
-  component.afterDOMLoaded =
+  script =
     script.slice(0, a) +
     `${PATCH_MARKER}var ru=(${selectNodes.toString()})(m,eu,tu,Vu);` +
     `d.dataset.graphNodes=Array.from(ru).join(",");` +
     script.slice(b + SELECTION_END.length)
+
+  for (const patch of PATCHES) script = applyPatch(script, patch)
+
+  component.afterDOMLoaded = script
   return component
 }
 
