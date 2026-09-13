@@ -111,6 +111,10 @@ landscapes: # narrative pages; omit for sections with no tooling
       - { value: 22, label: harnesses catalogued }
 ```
 
+In `stats`, a product listed in two buckets (e.g. Zed, commercial and open
+source) counts once in the total and once in each bucket, so the buckets can
+add up to more than the total.
+
 List only concept pages that exist, in the taxonomy's own bullet order.
 Position shows relative order, not rank (plan §3). The demo entries in
 `content/build/agent-behavior.md` and `content/build/agent-harnesses.md` point at pages that
@@ -139,7 +143,9 @@ exceptions, and attribution.
 budgets: stage intros ~60–80 words, Control hub framing ~200–300 (plan §2).
 
 **Cross-references (→):** many targets move or split in the Control migration.
-Check the inventory in plan §7 before writing one.
+Check the inventory in plan §7 before writing one. A section with no page yet
+is named in plain text (e.g. "§13 Agent Operations and Deployment"), not
+linked. A link to a missing page ships as a 404.
 
 **Dates:** each page shows its own last git commit date and read time
 automatically, so an edit shows the old date until it's committed.

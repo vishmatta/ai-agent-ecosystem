@@ -26,6 +26,8 @@ npx quartz build         # output in public/ (there is no `npm run build`)
 # Dev server. Other agents may hold the default ports; pick free ones:
 npx quartz build --serve --port 8081 --wsPort 3002
 # Add --baseDir ai-agent-ecosystem to reproduce the Pages subpath locally.
+# gh picks the `upstream` remote (Quartz) if a clone has one. Name the repo:
+gh issue list -R vishmatta/ai-agent-ecosystem
 ```
 
 ## Workflow — several agents work in this repo in parallel
@@ -34,7 +36,8 @@ npx quartz build --serve --port 8081 --wsPort 3002
    lowest-numbered open issue without the `in-progress` or `needs-decision` label,
    skipping any whose body says `Blocked by #N` while #N is still open, or
    `Not before YYYY-MM-DD` while that date is still ahead.
-2. **Claim it** before starting: `gh issue edit <n> --add-label in-progress`.
+2. **Claim it** before starting:
+   `gh issue edit <n> -R vishmatta/ai-agent-ecosystem --add-label in-progress`.
 3. **Branch from `origin/main`**: `git fetch origin && git switch -c <n>-<short-slug> origin/main`.
 4. **One issue per PR.** Something else you notice becomes a new issue, not scope
    creep. Rebase on `origin/main` before pushing if you touched a shared file
@@ -76,6 +79,8 @@ self-contained enough that no other context is needed.
 
 | If your task touches… | Read first |
 |---|---|
+| anything (once per session, before your first commit) | `docs/practices.md` |
+| a new taxonomy version in `planning/` | `docs/practices.md` → Taxonomy version bump |
 | `content/**` — pages, frontmatter, sections | `docs/content.md` |
 | `plugins/**`, `quartz.config.yaml`, styles | `docs/plugins.md` |
 | `.github/**` | the header comment of the file you're changing |
