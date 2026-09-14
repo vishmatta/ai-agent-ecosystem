@@ -148,6 +148,49 @@ details.beat[open] .chev { transform: rotate(45deg); }
 /* An undrafted beat: italic and faint, so its status is legible at a glance. */
 .beat-body em:only-child { color: var(--ae-ink-faint); }
 
+/* --- Landscape Legacy bucket (emitted by the template transformer) ---- */
+
+details.legacy-bucket {
+  margin-top: 2.5rem;
+  border-top: 1px solid var(--ae-rule);
+  padding-top: 0.9rem;
+}
+
+details.legacy-bucket summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  -webkit-tap-highlight-color: transparent;
+}
+details.legacy-bucket summary::-webkit-details-marker { display: none; }
+details.legacy-bucket summary::marker { content: ""; }
+
+.legacy-bucket-title {
+  font-family: var(--ae-display);
+  font-weight: 500;
+  font-size: 1.05rem;
+  color: var(--ae-ink-faint);
+}
+.legacy-bucket-title a[role="anchor"] { display: none; }
+
+details.legacy-bucket .chev {
+  width: 15px;
+  height: 15px;
+  margin-top: 0.2rem;
+}
+details.legacy-bucket[open] .chev { transform: rotate(45deg); }
+
+.legacy-bucket-body {
+  padding-top: 0.9rem;
+  color: var(--ae-ink-faint);
+  font-size: 0.94rem;
+}
+.legacy-bucket-body > :first-child { margin-top: 0; }
+.legacy-bucket-body > :last-child { margin-bottom: 0; }
+
 /* --- cross-cutting tag chip ------------------------------------------- */
 
 .ae-page .tag-chip {
