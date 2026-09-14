@@ -1,7 +1,7 @@
 ---
 title: Build
 deckPending: >-
-  Stage intro not yet written — site plan §2 budgets roughly 60–80 words here.
+  Stage intro not yet written. Site plan §2 budgets roughly 60–80 words here.
   The sections below are live.
 ---
 

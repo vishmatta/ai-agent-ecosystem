@@ -8,13 +8,13 @@ type: landscape
 - Claude Code (Anthropic)
 - Codex (OpenAI)
 - Cursor (Anysphere)
-  - Since Cursor 3 (April 2026), an agent-fleet workspace rather than an IDE with AI. Has an ADE mode — see How on [[build/agent-harnesses/index|Agent Harnesses]]
+  - Since Cursor 3 (April 2026), an agent-fleet workspace rather than an IDE with AI. Has an ADE mode (see How on [[build/agent-harnesses/index|Agent Harnesses]])
 - Antigravity (Google)
   - Antigravity CLI is the terminal counterpart, sharing the desktop app's agent harness. It succeeded Gemini CLI for individual users (see Legacy)
 - GitHub Copilot
 - Devin / Devin Desktop (Cognition)
   - Formerly Windsurf (see Legacy)
-  - Agent Command Center is its fleet-management mode — an ADE mode
+  - Agent Command Center is its fleet-management mode, an ADE mode
 - Amazon Q Developer
   - IDE plugins and paid subscriptions reach end of support April 30, 2027, and new signups have been blocked since May 15, 2026. Kiro is the named successor
   - Listed here rather than in Legacy until the sunset completes; existing users are still supported
@@ -22,9 +22,9 @@ type: landscape
   - Named successor to Amazon Q Developer's IDE plugins
 - Warp
   - Coined "Agentic Development Environment" (ADE) with Warp 2.0, June 2025
-  - Now three products: Warp Terminal (the original harness), Warp Agent CLI (a standalone coding agent for any terminal), and Warp Factories (fleet orchestration across the SDLC — a separate product, listed under §13 Agent Operations and Deployment)
+  - Now three products: Warp Terminal (the original harness), Warp Agent CLI (a standalone coding agent for any terminal), and Warp Factories (fleet orchestration across the SDLC; a separate product, listed under §13 Agent Operations and Deployment)
 - Zencoder
-  - Zenflow is its multi-agent orchestration mode: Plan → Implement → Test → Review workflows, with one model checking another's work — an ADE mode
+  - Zenflow is its multi-agent orchestration mode: Plan → Implement → Test → Review workflows, with one model checking another's work. An ADE mode
 - Zed
   - Rust-native, GPU-rendered code editor. The Zed AI service and collaboration backend are proprietary; the editor core is open source (see Open Source)
 - Perplexity Computer

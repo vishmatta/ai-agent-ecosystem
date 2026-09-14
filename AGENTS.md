@@ -24,7 +24,7 @@ https://vishmatta.github.io/ai-agent-ecosystem/ — every merge to `main` deploy
 npm ci                   # once per checkout — each git worktree needs its own
 npx quartz build         # output in public/ (there is no `npm run build`)
 # What CI runs. Run it before every PR — Quartz can exit 0 on a broken build:
-(set -o pipefail; npx quartz build 2>&1 | tee quartz-build.log) && node .github/scripts/verify-build.mjs quartz-build.log public
+node .github/scripts/check-content-style.mjs content && (set -o pipefail; npx quartz build 2>&1 | tee quartz-build.log) && node .github/scripts/verify-build.mjs quartz-build.log public
 # Dev server. Other agents may hold the default ports; pick free ones:
 npx quartz build --serve --port 8081 --wsPort 3002
 # Add --baseDir ai-agent-ecosystem to reproduce the Pages subpath locally.
@@ -84,7 +84,7 @@ self-contained enough that no other context is needed.
 | anything (once per session, before your first commit) | `docs/practices.md` |
 | changing the taxonomy | `docs/practices.md` → Changing the taxonomy |
 | `planning/research/` — adding or reviewing research | `planning/research/README.md` |
-| `content/**` — pages, frontmatter, sections | `docs/content.md` |
+| `content/**` — pages, frontmatter, sections | `docs/content.md`, and `docs/style.md` for anything you write |
 | `plugins/**`, `quartz.config.yaml`, styles | `docs/plugins.md` |
 | `.github/**` | the header comment of the file you're changing |
 | one section's taxonomy content | that section's file in `planning/taxonomy/`, plus its `README.md` → Formatting rules for entries |

@@ -140,8 +140,8 @@ so ("No commercial tools are catalogued in this category yet"). Entries follow
 Formatting rules (`planning/taxonomy/README.md`) before writing entries; they cover dual-listing,
 exceptions, and attribution.
 
-**Voice:** neutral reference style everywhere except the home page. Word
-budgets: stage intros ~60–80 words, Control hub framing ~200–300 (plan §2).
+**Voice, punctuation, and links:** `docs/style.md`. Its CI rules (no em dashes)
+fail the build check.
 
 **Cross-references (→):** many targets move or split in the Control migration.
 Check the inventory in plan §7 before writing one. A section with no page yet

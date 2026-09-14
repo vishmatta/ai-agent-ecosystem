@@ -8,7 +8,7 @@ landscapes:
       - { value: 3, label: tools catalogued }
       - { value: 3, label: open source }
 deckPending: >-
-  Narrative (What / Why / When / How / Where) not yet drafted for this section — the five beats below are placeholders.
+  Narrative (What / Why / When / How / Where) not yet drafted for this section. The five beats below are placeholders.
 ---
 
 
