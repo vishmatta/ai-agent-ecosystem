@@ -76,8 +76,8 @@ split (plan §3).
 page comes from its pipeline run (#50).
 
 Build and Run haven't had a reading-order pass yet, so they use taxonomy order
-(plan §10). The Explorer doesn't yet follow this order (see
-`docs/plugins.md`).
+(plan §10). The Explorer's `sortFn` in `quartz.config.yaml` repeats this
+order: change both together (`docs/plugins.md`).
 
 **Slug rule.** Descriptive, never numbered (plan §4). Keep enough words to be
 unambiguous across the site, and drop a trailing generic noun (Configuration,
