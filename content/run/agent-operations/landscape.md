@@ -11,13 +11,14 @@ type: landscape
 - [Temporal](https://temporal.io/cloud)
   - Hosted commercial layer, Temporal Cloud, under the same brand as the open-source core (see Open Source)
 - [Inngest](https://www.inngest.com/)
-  - Hosted commercial layer under the same brand as the open-source core (see Open Source)
+  - Hosted service. The server is also self-hostable under the Server Side Public License, which converts to Apache 2.0 over time: source-available, not open source
 - [Trigger.dev](https://trigger.dev/)
   - Hosted commercial layer under the same brand as the open-source core (see Open Source)
 - [Amazon Bedrock AgentCore](https://aws.amazon.com/bedrock/agentcore/)
   - Managed runtime for deploying and operating agents on AWS, built with any framework
-- [Agent Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime) (Google)
-  - Managed agent runtime within Gemini Enterprise Agent Platform (formerly Vertex AI Agent Engine). See Cloud AI Platforms in §6 Model Infrastructure
+- [Agent Runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime) (Google)
+  - Managed agent runtime within Gemini Enterprise Agent Platform. See Cloud AI Platforms in §6 Model Infrastructure
+  - Formerly Vertex AI Agent Engine, then Agent Engine. The API resource keeps the name `ReasoningEngine`
 - [Cloudflare Agents](https://agents.cloudflare.com/)
   - Stateful agents hosted on Cloudflare's global network. The SDK is open source (MIT) but runs only on Cloudflare, so it isn't listed under Open Source
   - The same company's edge inference, Workers AI, is listed in §6 Model Infrastructure
@@ -29,8 +30,6 @@ type: landscape
 
 - [Temporal](https://github.com/temporalio/temporal)
   - Self-hostable core, with a commercial layer, Temporal Cloud (see Commercial)
-- [Inngest](https://github.com/inngest/inngest)
-  - Self-hostable core, with a commercial layer under the same brand (see Commercial)
 - [Trigger.dev](https://github.com/triggerdotdev/trigger.dev)
   - Self-hostable core, with a commercial layer under the same brand (see Commercial)
 - [BullMQ](https://bullmq.io/) (Taskforce.sh)
