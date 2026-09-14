@@ -34,21 +34,28 @@
 
 **Sandboxes**
 - Commercial / Proprietary
-  - Modal
+  - [Modal](https://modal.com/products/sandboxes)
     - → also see §6 Inference Providers (same product, dual capability)
-  - E2B
+  - [E2B](https://e2b.dev/)
     - Hosted commercial layer under the same brand
-  - Daytona
-    - Hosted commercial layer under the same brand
+  - [Daytona](https://www.daytona.io/)
+    - Hosted commercial service; its former open-source core is listed under Legacy
 - Open Source / Provider-agnostic
-  - E2B
+  - [E2B](https://github.com/e2b-dev/runtime)
     - Self-hostable core; commercial layer under the same brand
-  - Daytona
-    - Self-hostable core; commercial layer under the same brand
-  - Firecracker (AWS)
-  - gVisor (Google)
+  - [Firecracker](https://firecracker-microvm.github.io/) (AWS)
+  - [gVisor](https://gvisor.dev/) (Google)
+- Legacy / Decommissioned
+  - [Daytona](https://github.com/daytonaio/daytona)
+    - Open-source repository no longer maintained: in June 2026 core development moved to a private codebase. The code remains available under its last license, as is
 
 ## Changelog
+
+**2026-09-14**
+- Linked every Landscape entry to its official page, `[Name](url) (Creator)`, for the site's catalog port (#73). A dual-listed product links its hosted service from Commercial and its repository from Open Source, as §1 does for Zed. No entries moved
+- Found while linking, left for the owner (#73): Daytona's open-source repository says it is no longer maintained. As of June 2026 core development moved to a private codebase, and the repository stays public under its last license, as is. Its Open Source entry and "self-hostable core" note are unchanged pending that call
+- Applied the owner's decision on #73: Daytona's open-source listing moved to Legacy / Decommissioned, linking its unmaintained repository; its hosted service stays under Commercial
+- Checked while linking: E2B's self-hostable code now lives in `e2b-dev/runtime` (formerly `e2b-dev/infra`); its README describes the single-machine package as for evaluation, with production self-hosting as a dedicated deployment in the customer's cloud
 
 **2026-09-13**
 - Split out of `ai-agent-ecosystem-v2.19.md` unchanged, when the taxonomy became one file per section. Earlier history is in [changelog.md](changelog.md).
