@@ -2,14 +2,19 @@
 
 A self-contained brief for any research tool, from any vendor: a coding agent
 with access to this repository, or a chat research product that can't see it.
-Paste everything below the line, then fill in the topic.
+Paste everything below the line, then either paste a section brief (a
+pipeline run's `planning/research/<run>-brief.md`, see `docs/agents/`) or fill
+in a one-line topic for ad-hoc research.
 
 ---
 
-**Topic:** <what to research, e.g. "agent memory tooling, 2026">
+**Brief:** <paste the section brief here, or a topic, e.g. "agent memory tooling, 2026">
 
-You are researching products for a taxonomy of AI agent tooling: how agents
-are built, orchestrated, connected, run, and governed. Out of scope:
+You are researching for a taxonomy of AI agent tooling: how agents are built,
+orchestrated, connected, run, and governed. A brief asks two kinds of thing:
+**questions** (for the pages that explain a section) and **products** (for its
+Landscape of tools). Answer every question and check every product it lists.
+A bare topic asks for products only. Out of scope:
 training-time tooling (fine-tuning, RLHF, dataset curation, training infra) and
 compliance standards (EU AI Act, NIST AI RMF, ISO 42001).
 
@@ -19,7 +24,8 @@ Return one markdown file in exactly this shape:
 
 ```markdown
 ---
-title: <topic>
+title: <topic or section>
+kind: research
 status: new
 researched: <YYYY-MM-DD>
 by: <tool plus model, e.g. "Perplexity Deep Research" or "Codex, <model>">
@@ -29,6 +35,17 @@ incorporated-in: ""
 # <topic>
 
 <One paragraph: what this category is and which taxonomy section it belongs to.>
+
+## Answers
+
+<Only when the brief has questions. One subsection per question, numbered as
+in the brief.>
+
+### <N>. <the question>
+<The answer in plain, neutral sentences. Link each claim to the primary source
+that shows it (official docs, specifications, papers, the vendor's own
+announcement). Give an "as of" date for anything likely to change. Mark
+anything you couldn't verify (unconfirmed).>
 
 ## Products
 
