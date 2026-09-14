@@ -64,3 +64,6 @@ When the owner supplies a new `planning/ai-agent-ecosystem-v*.md`:
    covering its beats and its Landscape stats (see `docs/content.md`).
 5. Check new `→` cross-references against the site plan's §7 inventory.
 6. Add a changelog entry to each planning doc you touched.
+7. If sections or Landscape categories were added, renamed, or split, update
+   the list in `planning/research/PROMPT.md`. Chat research tools only see
+   that copy.
