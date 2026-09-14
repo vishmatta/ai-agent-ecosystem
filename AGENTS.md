@@ -90,7 +90,7 @@ self-contained enough that no other context is needed.
 | `content/**` — pages, frontmatter, sections | `docs/content.md`, and `docs/style.md` for anything you write |
 | `plugins/**`, `quartz.config.yaml`, styles | `docs/plugins.md` |
 | `.github/**` | the header comment of the file you're changing |
-| one section's taxonomy content | that section's file in `planning/taxonomy/`, plus its `README.md` → Formatting rules for entries |
+| one section's taxonomy content | that section's file in `planning/taxonomy/`, plus `CONTRIBUTING.md` for entry formatting rules |
 | page visual design | `planning/agent-harnesses-page-example.html`, `planning/agent-behavior-page-example.html` |
 | why a site decision was made | `planning/site-content-plan-v2.md`, via the index in `docs/content.md` |
 

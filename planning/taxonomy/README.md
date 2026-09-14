@@ -42,11 +42,13 @@ record. To change the taxonomy, follow "Changing the taxonomy" in
 
 ## Formatting rules
 
+Classification and entry conventions (the `Name (Creator)` discipline,
+attribution exceptions, dual-listing, Legacy timing, and the rest) live in
+`/CONTRIBUTING.md`, the repo's single published copy. Read that before
+writing or editing entries.
+
+Two rules stay here because they're internal document structure, not part
+of the classification method itself:
+
 - Numbering flows in one continuous sequence through Build → Connect → Run → Control — no duplicate section numbers between legend and body.
-- Every product/tool is listed as `Name (Creator)`, with the name linked to the product's official page: `[Antigravity](https://antigravity.google/) (Google)`. Prefer the product's own page over the company homepage; a Legacy entry links to its shutdown or rebrand notice, or its archived repository. The site's Landscape pages use the same URL, so the link lives here first. Creator is omitted when its name is already contained in the product name (e.g. "Google ADK" — Google is already there, "Pinecone" the company and product share a name). For solo or small-team open-source projects, the actual creator's name or handle is used even without a company behind it (e.g. "Aider (Paul Gauthier)", "Oh My Pi (can1357)") — `Name (open source community)` is reserved for projects with no single identifiable creator or maintainer of record.
-- Two exceptions to `Name (Creator)`: §4 Models uses `Company → Model line` notation, since the section is a company-to-flagship mapping rather than individual product attribution (the arrow here is unrelated to the cross-reference arrow used elsewhere). Benchmarks (§15) are listed by name only, without attribution, since academic benchmarks typically have multiple co-authoring institutions rather than a single corporate creator.
-- No inline notes, dates, or explanations. Anything beyond bare identification is a nested sub-bullet underneath the entry — including cross-references (→).
-- A tool with a self-hostable open-source core and a hosted commercial layer under the same brand name is listed under both columns, with a sub-bullet noting the relationship. A separately branded commercial layer (e.g. Milvus → Zilliz Cloud) is listed as its own distinct entry instead.
-- Each section carries its own Legacy / Decommissioned callout where relevant, rather than one global list, so a gap reads as "never in scope," not "did I forget this."
-- Entries with an unverified attribution are flagged `(unconfirmed)` rather than guessed.
 - All fifteen sections follow a standard five-part `###` sub-header shape: **What** (definition, plus cross-references to concepts a reader might confuse it with), **Why** (the problem this category solves), **When** (decision criteria for reaching for it, including relevant risk factors), **How** (how it's used in practice), **Where** (which direction the category is heading) — followed by a `### <Section> Landscape` sub-header holding the Commercial/Open Source/Legacy product lists (see site-content-plan-v2.md §3 for the site-level rationale). Narrative content is drafted only where the section has been worked through in full (currently §1 and §2); elsewhere the five headers stand as placeholders marked *(not yet drafted)*, with existing concept material sitting between the headers and the Landscape link — a Landscape header can also carry an honest "no dedicated tooling" note rather than a product list, where that's genuinely true (e.g. Orchestration Patterns, Context). This is the default shape, not a loose per-section improvisation; deviate only when a section genuinely doesn't fit one of the five beats.

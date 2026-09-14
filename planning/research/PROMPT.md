@@ -116,9 +116,9 @@ Landscape.
 
 ## If you can work in the repository
 
-- Read `planning/taxonomy/README.md` (its Formatting rules), and the file in
-  `planning/taxonomy/` for each section you propose placements in. Where it differs from this brief, it wins. Note products it
-  already lists rather than proposing them again.
+- Read `CONTRIBUTING.md`, and the file in `planning/taxonomy/` for each
+  section you propose placements in. Where it differs from this brief, it
+  wins. Note products it already lists rather than proposing them again.
 - Save the file as `planning/research/YYYY-MM-DD-<topic-slug>.md`, adding
   `-<tool>` before `.md` if another tool may research the same topic. Write
   nothing else in the repository.

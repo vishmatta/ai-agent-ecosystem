@@ -4,8 +4,7 @@ Turn the consolidated research into the section's taxonomy file: the
 authoritative structure and entries the copywriter writes from.
 
 **Read:** `<run>-consolidated.md`; the section's `planning/taxonomy/` file;
-`planning/taxonomy/README.md` → Formatting rules; `docs/practices.md` →
-Changing the taxonomy.
+`CONTRIBUTING.md`; `docs/practices.md` → Changing the taxonomy.
 
 **Write:** the section's taxonomy file, following "Changing the taxonomy":
 
@@ -26,7 +25,7 @@ the end of the consolidated doc for the owner to post.
 **Rules**
 - Structure changes (a new category, a moved item, a split) are proposals in
   the summary, not edits, until the owner approves.
-- Entries follow the Formatting rules exactly: `Name (Creator)`, the
+- Entries follow `CONTRIBUTING.md` exactly: `Name (Creator)`, the
   open-source-and-provider-agnostic test, Legacy only after a completed
   shutdown, dual-listing.
 - If the section's Landscape categories change, update the map in
