@@ -12,7 +12,8 @@ https://vishmatta.github.io/ai-agent-ecosystem/ — every merge to `main` deploy
 | `plugins/agent-ecosystem-*/` | This site's own Quartz plugins: page template, components, graph. |
 | `quartz.config.yaml` | Site config: plugins, layout, theme, Explorer order. |
 | `quartz/styles/custom.scss` | Design tokens and shared template styles. |
-| `planning/` | The spec: taxonomy, site plan, PRD, two HTML mockups. Read on demand — see below. |
+| `planning/` | The spec: site plan, PRD, two HTML mockups. Read on demand — see below. |
+| `planning/taxonomy/` | The taxonomy, one file per section. Authoritative for structure and entries; the site owns the prose. |
 | `planning/research/` | Research notes awaiting review, or kept as a record. Unverified input, never spec. |
 | `.github/` | `build-check.yml` (required PR check), `deploy.yml` (Pages deploy), `scripts/verify-build.mjs`. |
 | rest of `quartz/`, `quartz.config.default.yaml`, `Dockerfile`, `CODE_OF_CONDUCT.md` | Vendored upstream Quartz. Don't read or edit. |
@@ -81,19 +82,19 @@ self-contained enough that no other context is needed.
 | If your task touches… | Read first |
 |---|---|
 | anything (once per session, before your first commit) | `docs/practices.md` |
-| a new taxonomy version in `planning/` | `docs/practices.md` → Taxonomy version bump |
+| changing the taxonomy | `docs/practices.md` → Changing the taxonomy |
 | `planning/research/` — adding or reviewing research | `planning/research/README.md` |
 | `content/**` — pages, frontmatter, sections | `docs/content.md` |
 | `plugins/**`, `quartz.config.yaml`, styles | `docs/plugins.md` |
 | `.github/**` | the header comment of the file you're changing |
-| one section's taxonomy content | only that `## N.` section of `planning/ai-agent-ecosystem-v*.md` (highest version) |
+| one section's taxonomy content | that section's file in `planning/taxonomy/`, plus its `README.md` → Formatting rules for entries |
 | page visual design | `planning/agent-harnesses-page-example.html`, `planning/agent-behavior-page-example.html` |
 | why a site decision was made | `planning/site-content-plan-v2.md`, via the index in `docs/content.md` |
 
-The planning docs are the authority on decisions, but they total ~130 KB. Read
-by section: `grep -n '^## ' <file>`, then read only the lines you need. Skip
-each `## Changelog` (history, ~40% of the bytes). The site plan's "Next step"
-and "Open questions" are historical; current work is in GitHub Issues.
+The planning docs are the authority on decisions. Read only what you need:
+one taxonomy file, and the site plan by section (`grep -n '^## ' <file>`).
+Skip every `## Changelog`; it's history. The site plan's "Next step" and
+"Open questions" are historical; current work is in GitHub Issues.
 
 ## Keep these docs true
 

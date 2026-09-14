@@ -74,7 +74,7 @@ incorporated-in: ""
 - **Don't invent.** If you can't find a primary source, mark the item
   (unconfirmed) or leave it out.
 
-## Taxonomy sections (as of taxonomy v2.19)
+## Taxonomy sections (as of 2026-09-13)
 
 Landscape categories are in parentheses. A section without them has one flat
 Landscape.
@@ -99,9 +99,8 @@ Landscape.
 
 ## If you can work in the repository
 
-- Read `planning/ai-agent-ecosystem-v*.md` (highest version): its
-  `## Formatting rules`, and the Landscape of each section you propose
-  placements in. Where it differs from this brief, it wins. Note products it
+- Read `planning/taxonomy/README.md` (its Formatting rules), and the file in
+  `planning/taxonomy/` for each section you propose placements in. Where it differs from this brief, it wins. Note products it
   already lists rather than proposing them again.
 - Save the file as `planning/research/YYYY-MM-DD-<topic-slug>.md`, adding
   `-<tool>` before `.md` if another tool may research the same topic. Write

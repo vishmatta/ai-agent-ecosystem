@@ -101,7 +101,7 @@ title: Agent Behavior and Configuration # required
 type: narrative # narrative | concept | landscape | home | how-to (omit on stage pages)
 deck: >- # drafted narrative: one-sentence line under the title
 deckPending: >- # undrafted: status note, rendered visibly differently. Use one or the other.
-tags: [ADE] # only tags from the taxonomy's "## Tags" list
+tags: [ADE] # only tags from planning/taxonomy/tags.md
 concepts: # narrative pages; omit until at least one concept page exists
   - title: Model selection
     note: Model routing — implemented in Connect # one line on its children, or "Single concept, no children"
@@ -137,7 +137,7 @@ children as content on that page.
 Open Source / Provider-agnostic, Legacy / Decommissioned. An empty bucket says
 so ("No commercial tools are catalogued in this category yet"). Entries follow
 `Name (Creator)`, with notes as nested sub-bullets. Read the taxonomy's
-`## Formatting rules` before writing entries; it covers dual-listing,
+Formatting rules (`planning/taxonomy/README.md`) before writing entries; they cover dual-listing,
 exceptions, and attribution.
 
 **Voice:** neutral reference style everywhere except the home page. Word
@@ -166,4 +166,4 @@ automatically, so an edit shows the old date until it's committed.
 | Home page and how-to page | plan §9 |
 | Deferred/unspecified details | plan §10 |
 | V1 scope vs later | `planning/site-prd.md` §6 |
-| Entry conventions, Landscape gap entries | taxonomy `## Formatting rules`, `## Open items` |
+| Entry conventions, Landscape gap entries | `planning/taxonomy/README.md` → Formatting rules; `planning/taxonomy/open-items.md` |
