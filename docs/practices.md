@@ -96,8 +96,9 @@ The taxonomy is `planning/taxonomy/`, one file per section. For any change:
 3. Add a dated entry to each changed file's `## Changelog`, saying what changed
    and why (what was corrected, left out, or verified). One heading per date:
    if today already has one, add to it.
-4. Re-port every changed section that has a live page (today: §1, §2 and §5),
-   covering its beats and its Landscape stats (see `docs/content.md`).
+4. Re-port every changed section that has a live page (the registry's
+   `(live)` rows in `docs/content.md`), covering its beat headings and text
+   and its Landscape stats.
 5. Check new `→` cross-references against the site plan's §7 inventory.
 6. If sections or Landscape categories were added, renamed, or split, update
    the section map in `planning/taxonomy/README.md` and the list in

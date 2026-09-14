@@ -26,8 +26,8 @@ that breaks them can't merge; the rest are for writers and reviewers.
 - En dashes are fine for ranges (60–80), and so is "60 to 80".
 - Dates in prose: "June 19, 2026". Use month and year when the day isn't known.
 - Product names are spelled the way the taxonomy spells them.
-- Name a section that has no page yet in plain text ("§13 Agent Operations and
-  Deployment"). Link it once the page exists (see `docs/content.md`).
+- Name a section that has no page yet in plain text ("§15 Observability and
+  Evaluation"). Link it once the page exists (see `docs/content.md`).
 - *Owner to add: further mechanical rules. Each one that needs no judgment
   should also become a CI rule.*
 

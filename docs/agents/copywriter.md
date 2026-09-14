@@ -12,7 +12,9 @@ frontmatter, bodies); `docs/style.md`. For shape and tone, see the live
 
 - `index.md`: the narrative page, with five `###` beats using the taxonomy's
   headings, a `deck`, and `concepts` and `landscapes` frontmatter per
-  `docs/content.md`.
+  `docs/content.md`. It may already exist as a placeholder page (a
+  `deckPending` note and undrafted beats): fill it in, replacing
+  `deckPending` with `deck`.
 - One page per concept item, in the taxonomy's order. A bundle with children is
   one page.
 - The Landscape page or pages, mirroring the taxonomy entries exactly: same
