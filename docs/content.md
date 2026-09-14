@@ -59,7 +59,7 @@ split (plan §3).
 | build | 5 | 5 | Agent Behavior and Configuration | `agent-behavior` (live) | yes | 1 (Guardrails Tools) |
 | connect | 1 | 6 | Model Infrastructure | `model-infrastructure` | never | 4: Inference Providers, Model Serving, Model Routers/Gateways/Proxies, Local Inference |
 | connect | 1a | — | Cloud AI Platforms hub | `cloud-ai-platforms` | — | cross-links only (plan §8.1) |
-| connect | 2 | 7 | Tools and Environment Interfaces | `tools-and-environments` | yes | 4: MCP Registries, Browser Automation, Voice/Multimodal Tools, Generative UI Tools |
+| connect | 2 | 7 | Tools and Environment Interfaces | `tools-and-environments` | yes | 6: MCP Registries, Browser Automation, Voice/Multimodal Tools, Generative UI Tools, plus Secrets Management Tools and Prompt-Injection Defense Tools from §14 (#36) |
 | connect | 3 | 9 | Context | `context` | yes | none — no tooling exists |
 | connect | 4 | 10 | Memory | `memory` | yes | 1 |
 | connect | 5 | 11 | Knowledge and Retrieval | `knowledge-and-retrieval` | yes | 3: Vector Databases, Knowledge Graphs, Semantic Layer Tools |
@@ -85,20 +85,24 @@ Control is a hub, not a stage (plan §5). Each item gets one canonical page in
 the stage that governs it. The hub links out to those pages and never copies
 them.
 
-- **→ Build:** Prompt and instruction governance (sits with Agent Behavior).
-  Guardrails and the Behavioral / Model-tool scope policies are already in Build.
-- **→ Connect:** Access and Authorization (except Agent identity), Secrets
-  management and credential delegation, Prompt-injection defenses, and the
-  MCP-specific attack surface. Each brings its own Landscape tools.
-- **→ Run:** Rate limiting, and Resource / budget limits. Isolation and Network
+- **→ Build, §5 Agent Behavior:** Prompt and instruction governance.
+  Guardrails and the Behavioral / Model-tool scope policies are already there.
+- **→ Connect, §7 Tools and Environment Interfaces:** Access and Authorization
+  (except Agent identity), Secrets management and credential delegation,
+  Prompt-injection defenses, and the MCP-specific attack surface (next to
+  prompt-injection defenses). Each brings its own Landscape tools, so §7 gains
+  Secrets Management Tools and Prompt-Injection Defense Tools pages.
+- **→ Run, §13 Agent Operations:** Rate limiting, and Resource / budget limits,
+  alongside §13's planning-level "Budget / token limits". Isolation and Network
   restrictions already moved into §12 in the taxonomy.
 - **Stays on the Control hub:** Data Governance, Agent identity (and its
   tools), Audit logs, Human Oversight, the **Policies hub** (Policy instructions
   and Policy enforcement), and all of §15 kept together.
 
-The plan fixes the _stage_ for each moved item, not the section within it.
-Picking the section is a `needs-decision` call. "Policies hub" must keep that
-exact title so it never collides with Build's "Policies" page.
+The plan (§5) fixed each item's stage; the owner picked the sections (#36).
+Items move in their target section's pipeline run, not all at once. "Policies
+hub" must keep that exact title so it never collides with Build's "Policies"
+page.
 
 ## Frontmatter
 
