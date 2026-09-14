@@ -92,7 +92,7 @@ The taxonomy is `planning/taxonomy/`, one file per section. For any change:
 1. If the owner supplies edited text, diff it against the committed file and
    commit it unchanged first. Corrections go in a later commit.
 2. Edit only the section files the change needs. Entries follow
-   `planning/taxonomy/README.md` → Formatting rules.
+   `CONTRIBUTING.md`.
 3. Add a dated entry to each changed file's `## Changelog`, saying what changed
    and why (what was corrected, left out, or verified). One heading per date:
    if today already has one, add to it.

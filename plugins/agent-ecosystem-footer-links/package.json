@@ -1,0 +1,34 @@
+{
+  "name": "agent-ecosystem-footer-links",
+  "version": "1.0.0",
+  "description": "Low-emphasis internal footer links (how-we-classify, and future how-to page) that the vendor Footer plugin can't render as relative paths.",
+  "type": "module",
+  "private": true,
+  "main": "./index.js",
+  "exports": {
+    ".": { "import": "./index.js" },
+    "./components": { "import": "./components/index.js" },
+    "./package.json": "./package.json"
+  },
+  "quartz": {
+    "name": "agent-ecosystem-footer-links",
+    "displayName": "Footer Links",
+    "description": "Site-internal footer links, resolved relative to the current page.",
+    "version": "1.0.0",
+    "quartzVersion": ">=5.0.0",
+    "category": "component",
+    "dependencies": [],
+    "defaultEnabled": true,
+    "defaultOptions": {},
+    "components": {
+      "FooterLinks": {
+        "name": "agent-ecosystem-footer-links",
+        "displayName": "Footer Links",
+        "description": "Internal links in the footer, e.g. how-we-classify.",
+        "version": "1.0.0",
+        "defaultPosition": "footer",
+        "defaultPriority": 55
+      }
+    }
+  }
+}

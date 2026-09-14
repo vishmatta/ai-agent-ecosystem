@@ -251,6 +251,11 @@ plugins:
     layout:
       position: footer
       priority: 50
+  - source: ./plugins/agent-ecosystem-footer-links
+    enabled: true
+    layout:
+      position: footer
+      priority: 55
   - source: "@quartz-community/recent-notes"
     enabled: false
   - source: "@quartz-community/spacer"

@@ -154,9 +154,8 @@ Open Source / Provider-agnostic, Legacy / Decommissioned. An empty bucket says
 so ("No commercial tools are catalogued in this category yet"). Entries follow
 `[Name](url) (Creator)`, the name linked to the official page the taxonomy
 entry carries (`docs/style.md` → Links and sources), with notes as nested
-sub-bullets. Read the taxonomy's
-Formatting rules (`planning/taxonomy/README.md`) before writing entries; they cover dual-listing,
-exceptions, and attribution.
+sub-bullets. Read `CONTRIBUTING.md` before writing entries; it covers
+dual-listing, exceptions, and attribution.
 
 **Voice, punctuation, and links:** `docs/style.md`. Its CI rules (no em dashes)
 fail the build check.
@@ -184,4 +183,4 @@ automatically, so an edit shows the old date until it's committed.
 | Home page and how-to page | plan §9 |
 | Deferred/unspecified details | plan §10 |
 | V1 scope vs later | `planning/site-prd.md` §6 |
-| Entry conventions, Landscape gap entries | `planning/taxonomy/README.md` → Formatting rules; `planning/taxonomy/open-items.md` |
+| Entry conventions, Landscape gap entries | `CONTRIBUTING.md`; `planning/taxonomy/open-items.md` |
