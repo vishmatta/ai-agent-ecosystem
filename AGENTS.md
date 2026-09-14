@@ -13,6 +13,7 @@ https://vishmatta.github.io/ai-agent-ecosystem/ — every merge to `main` deploy
 | `quartz.config.yaml` | Site config: plugins, layout, theme, Explorer order. |
 | `quartz/styles/custom.scss` | Design tokens and shared template styles. |
 | `planning/` | The spec: taxonomy, site plan, PRD, two HTML mockups. Read on demand — see below. |
+| `planning/research/` | Research notes awaiting review, or kept as a record. Unverified input, never spec. |
 | `.github/` | `build-check.yml` (required PR check), `deploy.yml` (Pages deploy), `scripts/verify-build.mjs`. |
 | rest of `quartz/`, `quartz.config.default.yaml`, `Dockerfile`, `CODE_OF_CONDUCT.md` | Vendored upstream Quartz. Don't read or edit. |
 
@@ -81,6 +82,7 @@ self-contained enough that no other context is needed.
 |---|---|
 | anything (once per session, before your first commit) | `docs/practices.md` |
 | a new taxonomy version in `planning/` | `docs/practices.md` → Taxonomy version bump |
+| `planning/research/` — adding or reviewing research | `planning/research/README.md` |
 | `content/**` — pages, frontmatter, sections | `docs/content.md` |
 | `plugins/**`, `quartz.config.yaml`, styles | `docs/plugins.md` |
 | `.github/**` | the header comment of the file you're changing |

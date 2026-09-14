@@ -1,3 +1,19 @@
+---
+title: Agent Harnesses & Frameworks — Full Landscape (2026)
+status: incorporated
+researched: 2026-09-13
+by: supplied by the repo owner
+incorporated-in: taxonomy v2.19 (#28); site pages (#30)
+review-notes: >-
+  Corrected before use: Flowise was archived and reached end of life on
+  2026-08-31, so it went to Legacy; n8n is source-available (Sustainable Use
+  License), not open source; Claude Agent SDK is Claude-models-only, so it went
+  to Commercial; Vertex AI is now Gemini Enterprise Agent Platform, and Azure AI
+  Foundry is now Microsoft Foundry. Left out: Operator (shut down 2025) and
+  LlamaCloud / LlamaParse (no category; logged in the taxonomy's Open Items).
+  Entries were rewritten as neutral identification rather than copied.
+---
+
 # Agent Harnesses & Frameworks — Full Landscape (2026)
 
 An **agent harness** is the operational runtime that wraps around an LLM to manage tool execution, memory, safety, context persistence, sandboxed execution, and recovery from failure — turning a stateless model into a production-ready agent. This is distinct from a **framework** (reusable building blocks like tool definitions and loop patterns), though many products serve as both ([Fiddler AI](https://www.fiddler.ai/blog/what-is-an-agent-harness)).
