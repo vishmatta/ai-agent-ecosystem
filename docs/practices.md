@@ -83,7 +83,8 @@ git history and PRs already hold those.
 - Refer to a page that doesn't exist yet in plain text, not a link. A wikilink
   to a missing page ships as a 404.
 - These official sites refuse `curl`, so check their links in a browser:
-  openai.com, devin.ai, perplexity.ai, sema4.ai, developer.meta.com.
+  openai.com, devin.ai, perplexity.ai, sema4.ai, developer.meta.com,
+  atscale.com.
 
 ### Changing the taxonomy
 

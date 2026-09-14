@@ -34,48 +34,53 @@
 
 **Vector Databases**
 - Commercial / Proprietary
-  - Pinecone
-  - Weaviate
+  - [Pinecone](https://www.pinecone.io/)
+  - [Weaviate](https://weaviate.io/deployment/shared)
     - Hosted commercial layer under the same brand
-  - Qdrant
+  - [Qdrant](https://qdrant.tech/cloud/)
     - Hosted commercial layer under the same brand
-  - Chroma
+  - [Chroma](https://www.trychroma.com/)
     - Hosted commercial layer under the same brand
-  - Zilliz Cloud
+  - [Zilliz Cloud](https://zilliz.com/cloud)
     - Hosted layer for Milvus, under a separate brand name
 - Open Source / Provider-agnostic
-  - Weaviate
+  - [Weaviate](https://github.com/weaviate/weaviate)
     - Self-hostable core; commercial layer under the same brand
-  - Qdrant
+  - [Qdrant](https://github.com/qdrant/qdrant)
     - Self-hostable core; commercial layer under the same brand
-  - Chroma
+  - [Chroma](https://github.com/chroma-core/chroma)
     - Self-hostable core; commercial layer under the same brand
-  - Milvus (Zilliz)
+  - [Milvus](https://milvus.io/) (Zilliz)
     - Hosted commercially as Zilliz Cloud, under a separate brand name
-  - pgvector (Andrew Kane)
+  - [pgvector](https://github.com/pgvector/pgvector) (Andrew Kane)
 
 **Knowledge Graphs**
 - Commercial / Proprietary
-  - Neo4j Aura
+  - [Neo4j Aura](https://neo4j.com/product/auradb/)
     - Hosted layer for Neo4j, under a separate brand name
 - Open Source / Provider-agnostic
-  - Neo4j
+  - [Neo4j](https://github.com/neo4j/neo4j)
     - Hosted commercially as Neo4j Aura, under a separate brand name
 
 **Semantic Layer Tools**
 - Commercial / Proprietary
-  - dbt Semantic Layer (dbt Labs)
+  - [dbt Semantic Layer](https://www.getdbt.com/product/semantic-layer) (dbt Labs)
     - Hosted commercial layer via dbt Cloud
-  - AtScale
-  - Cube
+  - [AtScale](https://www.atscale.com/)
+  - [Cube](https://cube.dev/)
     - Hosted commercial layer under the same brand
 - Open Source / Provider-agnostic
-  - dbt Semantic Layer (dbt Labs)
-    - Self-hostable core via dbt Core; commercial layer via dbt Cloud
-  - Cube
+  - [dbt Semantic Layer](https://github.com/dbt-labs/metricflow) (dbt Labs)
+    - Self-hostable core via dbt Core and MetricFlow; commercial layer via dbt Cloud
+  - [Cube](https://github.com/cube-js/cube)
     - Self-hostable core; commercial layer under the same brand
 
 ## Changelog
+
+**2026-09-14**
+- Linked every Landscape entry to its official page, `[Name](url) (Creator)`, for the site's catalog port (#72). A dual-listed product links its hosted service from Commercial and its repository from Open Source. dbt Semantic Layer's open-source listing links MetricFlow, the Apache 2.0 engine behind it. No entries moved
+- Found while linking, left for the owner (#72): Fivetran completed its merger with dbt Labs on June 1, 2026, and the combined company is "initially operating as Fivetran + dbt Labs" ([announcement](https://www.getdbt.com/blog/fivetran-dbt-labs-complete-merger-to-create-the-data-infrastructure-for-trusted-ai-agents)). The "(dbt Labs)" attribution is unchanged pending that call
+- Checked while linking: Weaviate's core stays BSD-3-Clause, but since August 2026 some features live in a separately licensed `wl/` directory, switched on by an environment variable. dbt Core's repository is now `dbt-labs/dbt`, whose main branch is the Apache 2.0 dbt v2.0 rewrite in Rust. Neither changes a placement
 
 **2026-09-13**
 - Split out of `ai-agent-ecosystem-v2.19.md` unchanged, when the taxonomy became one file per section. Earlier history is in [changelog.md](changelog.md).
