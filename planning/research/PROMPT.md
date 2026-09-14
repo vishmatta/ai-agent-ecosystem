@@ -36,7 +36,7 @@ incorporated-in: ""
 - **What it is:** one neutral sentence on what it does.
 - **Proposed placement:** §<N> <section> → <Landscape category, if the section has them> → <bucket>
 - **License and status:** <license; active, archived, or sunset (with date)>
-- **Primary source:** <URL of the vendor's own page, docs, or repository>
+- **Primary source:** <URL of the product's own page, docs, or repository; it becomes the entry's link>
 - **Confidence:** confirmed, or (unconfirmed) with what you couldn't verify
 
 ## Doesn't fit

@@ -30,50 +30,51 @@
 
 **Code Frameworks**
 - Commercial / Proprietary
-  - Claude Agent SDK (Anthropic)
+  - [Claude Agent SDK](https://code.claude.com/docs/en/agent-sdk/overview) (Anthropic)
     - The harness behind Claude Code, exposed as a library: file tools, shell execution, permissions, subagents, hooks, and in-process MCP servers
     - The SDK is MIT-licensed, but it's built for Claude models only, so it doesn't qualify as provider-agnostic — the same test applied to Gemini CLI in §1's Legacy list
-  - Mastra
+  - [Mastra](https://mastra.ai/docs/mastra-platform/overview)
     - Hosted commercial layer (Mastra Platform: deployment, observability, hosted Studio) under the same brand
 - Open Source / Provider-agnostic
-  - OpenAI Agents SDK
-  - LangChain
-  - LangGraph (LangChain)
+  - [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/)
+  - [LangChain](https://www.langchain.com/langchain)
+  - [LangGraph](https://www.langchain.com/langgraph) (LangChain)
     - Graph orchestration with checkpointed, resumable state. Its commercial deployment layer is separately branded — see LangSmith Deployment in §13
-  - CrewAI
-  - Google ADK
-  - Microsoft Agent Framework
+  - [CrewAI](https://crewai.com/)
+  - [Google ADK](https://adk.dev/)
+  - [Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/)
     - Successor to AutoGen and Semantic Kernel (see Legacy below); Python and .NET
-  - LlamaIndex
-    - LlamaIndex Workflows is its event-driven orchestration layer
-  - PydanticAI
-  - smolagents (Hugging Face)
-  - Mastra
+  - [LlamaIndex](https://developers.llamaindex.ai/python/framework/)
+    - [LlamaIndex Workflows](https://developers.llamaindex.ai/python/llamaagents/workflows/) is its event-driven orchestration layer
+  - [PydanticAI](https://pydantic.dev/pydantic-ai)
+  - [smolagents](https://huggingface.co/docs/smolagents) (Hugging Face)
+  - [Mastra](https://github.com/mastra-ai/mastra)
     - Self-hostable open-source core; enterprise features and the hosted layer are commercial, under the same brand, above
-  - Vercel AI SDK
-  - DSPy (Stanford)
-  - Haystack (deepset)
-  - AG2
+  - [Vercel AI SDK](https://ai-sdk.dev/)
+  - [DSPy](https://dspy.ai/) (Stanford)
+  - [Haystack](https://haystack.deepset.ai/) (deepset)
+  - [AG2](https://www.ag2.ai/)
     - Community-driven continuation of the AutoGen codebase; the classic `autogen` classes now live on as AG2 Classic — see AutoGen in Legacy below
 - Legacy / Decommissioned
-  - AutoGen (Microsoft) — superseded by Microsoft Agent Framework, the direct successor built by the same team; shipped as MAF 1.0, April 3, 2026. The repo is now in maintenance mode and community-managed, and AG2 above continues its codebase
-  - Semantic Kernel (Microsoft) — likewise superseded by Microsoft Agent Framework, same team, same April 2026 release; SK continues to receive critical bug/security fixes only, with new feature development happening in MAF
+  - [AutoGen](https://github.com/microsoft/autogen) (Microsoft) — superseded by Microsoft Agent Framework, the direct successor built by the same team; shipped as MAF 1.0, April 3, 2026. The repo is now in maintenance mode and community-managed, and AG2 above continues its codebase
+  - [Semantic Kernel](https://github.com/microsoft/semantic-kernel) (Microsoft) — likewise superseded by Microsoft Agent Framework, same team, same April 2026 release; SK continues to receive critical bug/security fixes only, with new feature development happening in MAF
 
 **No-code / Low-code Builders**
 - Commercial / Proprietary
-  - Agentforce (Salesforce)
+  - [Agentforce](https://www.salesforce.com/agentforce/) (Salesforce)
     - Agents built on Salesforce's CRM data, flows, and business logic, with prebuilt templates for sales, service, marketing, and commerce
-  - Sema4.ai Studio
+  - [Sema4.ai Studio](https://sema4.ai/products/studio/)
     - Natural-language "Runbooks" instead of code; prebuilt enterprise-app integrations (SharePoint, SAP, Snowflake) plus MCP
-  - n8n
+  - [n8n](https://n8n.io/)
     - Visual workflow automation with AI agent steps. Self-hostable, but source-available under its Sustainable Use License rather than open source, so it's listed here only
 - Open Source / Provider-agnostic
-  - Langflow
+  - [Langflow](https://www.langflow.org/)
     - Visual builder for agents and LLM workflows; MIT-licensed
 - Legacy / Decommissioned
-  - Flowise — visual drag-and-drop builder for LLM apps and agents, wound down in 2026: code freeze July 29, repo archived August 13, end of life August 31. Code remains Apache 2.0 and forkable
+  - [Flowise](https://github.com/FlowiseAI/Flowise/discussions/6727) — visual drag-and-drop builder for LLM apps and agents, wound down in 2026: code freeze July 29, repo archived August 13, end of life August 31. Code remains Apache 2.0 and forkable
 
 ## Changelog
 
 **2026-09-13**
+- Linked every Landscape entry to its official page, `[Name](url) (Creator)`; each URL was loaded and its title checked against the product. Dual-listed Mastra links to Mastra Platform under Commercial and to its repository under Open Source. Legacy entries link to the archived or maintenance-mode repository (AutoGen, Semantic Kernel) or the end-of-life announcement (Flowise)
 - Split out of `ai-agent-ecosystem-v2.19.md` unchanged, when the taxonomy became one file per section. Earlier history is in [changelog.md](changelog.md).

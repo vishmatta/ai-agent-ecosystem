@@ -58,11 +58,12 @@
 
 **Guardrails Tools**
 - Open Source / Provider-agnostic
-  - Guardrails AI
-  - NeMo Guardrails (NVIDIA)
-  - LlamaGuard (Meta)
+  - [Guardrails AI](https://guardrailsai.com/)
+  - [NeMo Guardrails](https://developer.nvidia.com/nemo-guardrails) (NVIDIA)
+  - [LlamaGuard](https://developer.meta.com/ai/docs/model-cards-and-prompt-formats/llama-guard-4/) (Meta)
 
 ## Changelog
 
 **2026-09-13**
+- Linked the three Guardrails Tools entries to their official pages; each URL was loaded and its title checked against the product
 - Split out of `ai-agent-ecosystem-v2.19.md` unchanged, when the taxonomy became one file per section. Earlier history is in [changelog.md](changelog.md).

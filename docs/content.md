@@ -136,7 +136,9 @@ children as content on that page.
 **Landscape:** three `##` buckets, always all present: Commercial / Proprietary,
 Open Source / Provider-agnostic, Legacy / Decommissioned. An empty bucket says
 so ("No commercial tools are catalogued in this category yet"). Entries follow
-`Name (Creator)`, with notes as nested sub-bullets. Read the taxonomy's
+`[Name](url) (Creator)`, the name linked to the official page the taxonomy
+entry carries (`docs/style.md` → Links and sources), with notes as nested
+sub-bullets. Read the taxonomy's
 Formatting rules (`planning/taxonomy/README.md`) before writing entries; they cover dual-listing,
 exceptions, and attribution.
 
