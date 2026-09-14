@@ -11,8 +11,9 @@ type: landscape
 
 - [Ollama](https://ollama.com/)
 - [llama.cpp](https://github.com/ggml-org/llama.cpp) (Georgi Gerganov)
+  - ggml.ai, its company, [was acquired by Hugging Face](https://ggml.ai/) in 2026
 - [MLX](https://github.com/ml-explore/mlx) (Apple)
-- [Jan](https://www.jan.ai/) (Menlo Research)
+- [Jan](https://www.jan.ai/)
 
 ## Legacy / Decommissioned
 

@@ -6,13 +6,15 @@ landscapes:
     href: /connect/model-infrastructure/inference-providers
     stats:
       - { value: 13, label: providers catalogued }
-      - { value: 13, label: commercial }
+      - { value: 12, label: commercial }
+      - { value: 1, label: legacy }
   - title: Model Serving
     href: /connect/model-infrastructure/model-serving
     stats:
       - { value: 6, label: tools catalogued }
       - { value: 1, label: commercial }
-      - { value: 5, label: open source }
+      - { value: 4, label: open source }
+      - { value: 1, label: legacy }
   - title: Model Routers, Gateways and Proxies
     href: /connect/model-infrastructure/routers-gateways-and-proxies
     stats:

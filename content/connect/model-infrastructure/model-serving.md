@@ -11,10 +11,11 @@ type: landscape
 
 - [vLLM](https://vllm.ai/) (UC Berkeley Sky Computing Lab)
 - [TensorRT-LLM](https://github.com/NVIDIA/TensorRT-LLM) (NVIDIA)
-- [Hugging Face TGI](https://github.com/huggingface/text-generation-inference)
 - [SGLang](https://www.sglang.io/) (LMSYS)
 - [llama.cpp server](https://github.com/ggml-org/llama.cpp/tree/master/tools/server) (Georgi Gerganov)
+  - ggml.ai, its company, [was acquired by Hugging Face](https://ggml.ai/) in 2026
 
 ## Legacy / Decommissioned
 
-No legacy or decommissioned model serving tools are catalogued in this category.
+- [Hugging Face TGI](https://github.com/huggingface/text-generation-inference)
+  - Repository archived after TGI entered maintenance mode. Its maintainers recommend vLLM, SGLang, llama.cpp, or MLX instead

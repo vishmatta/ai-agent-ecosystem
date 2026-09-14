@@ -24,16 +24,19 @@
   - [Groq](https://groq.com/)
   - [Modal](https://modal.com/products/inference)
     - → also see §12 Sandboxes (same product, dual capability)
-  - [Replicate](https://replicate.com/)
+  - [Replicate](https://replicate.com/) (Cloudflare)
+    - Part of Cloudflare since the acquisition announced November 2025; the same company's Workers AI is listed below
   - [DeepInfra](https://deepinfra.com/)
   - [Cerebras](https://www.cerebras.ai/)
   - [Hugging Face Inference](https://huggingface.co/docs/inference-providers/index)
   - [SambaNova](https://sambanova.ai/)
   - [Scaleway](https://www.scaleway.com/en/generative-apis/)
   - [Baseten](https://www.baseten.co/)
-  - [Lambda](https://lambda.ai/inference)
   - [Workers AI](https://developers.cloudflare.com/workers-ai/) (Cloudflare)
     - Serverless inference on Cloudflare's edge network. The same company's agent hosting, Cloudflare Agents, is listed in §13
+- Legacy / Decommissioned
+  - [Lambda](https://lambda.ai/inference)
+    - Inference API shut down September 25, 2025; Lambda still rents GPU instances
 
 **Model Serving**
 - Commercial / Proprietary
@@ -41,14 +44,17 @@
 - Open Source / Provider-agnostic
   - [vLLM](https://vllm.ai/) (UC Berkeley Sky Computing Lab)
   - [TensorRT-LLM](https://github.com/NVIDIA/TensorRT-LLM) (NVIDIA)
-  - [Hugging Face TGI](https://github.com/huggingface/text-generation-inference)
   - [SGLang](https://www.sglang.io/) (LMSYS)
   - [llama.cpp server](https://github.com/ggml-org/llama.cpp/tree/master/tools/server) (Georgi Gerganov)
+    - ggml.ai, its company, was acquired by Hugging Face in 2026
+- Legacy / Decommissioned
+  - [Hugging Face TGI](https://github.com/huggingface/text-generation-inference)
+    - Repository archived after TGI entered maintenance mode; its maintainers recommend vLLM, SGLang, llama.cpp, or MLX instead
 
 **Cloud AI Platforms**
 - [AWS Bedrock](https://aws.amazon.com/bedrock/)
 - [Google Gemini Enterprise Agent Platform](https://cloud.google.com/products/gemini-enterprise-agent-platform)
-  - Formerly Google Vertex AI; rebranded April 22, 2026, with existing Vertex AI services continuing under the new name. Its managed agent runtime, Agent Engine, is listed in §13
+  - Formerly Google Vertex AI; rebranded April 22, 2026, with existing Vertex AI services continuing under the new name. Its managed agent runtime, Agent Runtime (formerly Agent Engine), is listed in §13
 - [Microsoft Foundry](https://azure.microsoft.com/en-us/products/ai-foundry)
   - Formerly Azure AI Foundry; renamed November 2025
 - [Oracle AI Agent Studio](https://www.oracle.com/applications/dawn-of-ai-enterprise-agent-workforce/)
@@ -68,6 +74,7 @@
   - [Helicone AI Gateway](https://docs.helicone.ai/gateway/overview)
     - Hosted commercial layer under the same brand
     - → distinct product from Helicone's original observability tool; see §15
+    - Acquired by Mintlify with Helicone, March 2026; in maintenance mode, with customers encouraged to migrate
 - Open Source / Provider-agnostic
   - [LiteLLM](https://github.com/BerriAI/litellm) (BerriAI)
     - Self-hostable core; commercial layer under the same brand
@@ -76,6 +83,7 @@
   - [Helicone AI Gateway](https://github.com/Helicone/ai-gateway)
     - Self-hostable core; commercial layer under the same brand
     - → distinct product from Helicone's original observability tool; see §15
+    - Acquired by Mintlify with Helicone, March 2026; in maintenance mode, with customers encouraged to migrate
 
 **Local Inference**
 - Commercial / Proprietary
@@ -83,8 +91,9 @@
 - Open Source / Provider-agnostic
   - [Ollama](https://ollama.com/)
   - [llama.cpp](https://github.com/ggml-org/llama.cpp) (Georgi Gerganov)
+    - ggml.ai, its company, was acquired by Hugging Face in 2026
   - [MLX](https://github.com/ml-explore/mlx) (Apple)
-  - [Jan](https://www.jan.ai/) (Menlo Research)
+  - [Jan](https://www.jan.ai/)
 
 ## Changelog
 
@@ -92,6 +101,7 @@
 - Linked every Landscape entry to its official page, `[Name](url) (Creator)`, for the site's catalog port (#69), including the Cloud AI Platforms list for the hub (#77), which isn't published as a Landscape page. A dual-listed product links its hosted service from Commercial and its repository from Open Source. No entries moved
 - Bucketed Inference Providers under Commercial / Proprietary per the owner's decision on #67 (D5): each is a hosted, paid API service
 - Found while linking, left for the owner (#69): Lambda's Inference API was shut down on September 25, 2025 (announced by Lambda staff; lambda.ai/inference now says it "winds down"), so Lambda no longer sells inference; Hugging Face TGI's repository is archived and its README says it's in maintenance mode, recommending vLLM and SGLang; Cloudflare acquired Replicate ("Replicate is now officially part of Cloudflare", announced November 17, 2025); Hugging Face acquired ggml.ai, llama.cpp's company, in 2026; Jan's GitHub organization was renamed from menloresearch to janhq ("Jan"); Helicone, including its AI Gateway, is in maintenance mode after Mintlify's acquisition (March 2026; see #76). Entries unchanged pending those calls
+- Applied the owner's decisions on #69: Lambda and Hugging Face TGI moved to Legacy / Decommissioned, since both shutdowns have completed; Replicate is attributed to Cloudflare, with a note; llama.cpp and its server keep Georgi Gerganov as creator, with a note on ggml.ai's acquisition; Jan's creator is dropped, since its maker now shares its name; Helicone AI Gateway keeps both listings with a maintenance-mode note. The Cloud AI Platforms note now names Agent Runtime, matching §13
 - Checked while linking: Groq stays independent after a non-exclusive licensing agreement with NVIDIA (December 2025), and GroqCloud continues; LM Studio's homepage now leads with Bionic, its agent, while the LM Studio app is still offered; Databricks' AI page no longer uses the name "Mosaic AI", leading with Agent Bricks (for the hub, #77); the llama.cpp repository is now `ggml-org/llama.cpp`
 
 **2026-09-13**
