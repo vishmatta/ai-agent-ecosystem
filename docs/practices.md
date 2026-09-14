@@ -84,7 +84,7 @@ git history and PRs already hold those.
   to a missing page ships as a 404.
 - These official sites refuse `curl`, so check their links in a browser:
   openai.com, devin.ai, perplexity.ai, sema4.ai, developer.meta.com,
-  atscale.com.
+  atscale.com, hashicorp.com.
 
 ### Changing the taxonomy
 
