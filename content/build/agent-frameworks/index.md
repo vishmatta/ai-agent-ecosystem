@@ -55,7 +55,7 @@ Continuity risk applies here too. Microsoft folded AutoGen and Semantic Kernel i
 
 Common shapes are one agent in a tool-calling loop; an explicit graph or state machine with checkpoints between steps; teams of role-based agents with assigned goals; and event-driven workflows that react to typed events. Frameworks are where [[build/orchestration-patterns/index|Orchestration Patterns]] get implemented.
 
-In production, a framework is usually paired with a managed runtime to host the agent ([[run/agent-operations/index|Agent Operations and Deployment]]), a gateway for model access ([[connect/model-infrastructure/index|Model Infrastructure]]), and an observability layer (§15 Observability and Evaluation).
+In production, a framework is usually paired with a managed runtime to host the agent ([[run/agent-operations/index|Agent Operations and Deployment]]), a gateway for model access ([[connect/model-infrastructure/index|Model Infrastructure]]), and an observability layer ([[control/observability-and-evaluation/index|Observability and Evaluation]]).
 
 ### Where agent frameworks are heading
 

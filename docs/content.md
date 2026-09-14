@@ -54,28 +54,29 @@ Landscape pages split only by the product categories the taxonomy's Landscape
 already names. The Commercial / Open Source / Legacy axis is never a reason to
 split (plan §3).
 
-| Stage | Nav | § | Section | Slug | Concept tier | Landscape pages |
+| Stage | Nav | § | Section | Slug | Concept tier | Landscape pages (file slugs) |
 |---|---|---|---|---|---|---|
-| build | 1 | 1 | Agent Harnesses | `agent-harnesses` (live) | never | 1 |
-| build | 2 | 2 | Agent Frameworks | `agent-frameworks` (live) | never | 2: Code Frameworks, No-code / Low-code Builders |
+| build | 1 | 1 | Agent Harnesses | `agent-harnesses` (live) | never | 1: `landscape` |
+| build | 2 | 2 | Agent Frameworks | `agent-frameworks` (live) | never | 2: Code Frameworks `code-frameworks`, No-code / Low-code Builders `no-code-builders` |
 | build | 3 | 3 | Orchestration Patterns | `orchestration-patterns` (live) | yes | none — no tooling exists |
-| build | 4 | 4 | Models | `models` (live) | never | 1 |
-| build | 5 | 5 | Agent Behavior and Configuration | `agent-behavior` (live) | yes | 1 (Guardrails Tools) |
-| connect | 1 | 6 | Model Infrastructure | `model-infrastructure` (live) | never | 4: Inference Providers, Model Serving, Model Routers/Gateways/Proxies, Local Inference |
+| build | 4 | 4 | Models | `models` (live) | never | 1: `landscape` |
+| build | 5 | 5 | Agent Behavior and Configuration | `agent-behavior` (live) | yes | 1: `landscape` (Guardrails Tools) |
+| connect | 1 | 6 | Model Infrastructure | `model-infrastructure` (live) | never | 4: Inference Providers `inference-providers`, Model Serving `model-serving`, Model Routers, Gateways and Proxies `routers-gateways-and-proxies`, Local Inference `local-inference` |
 | connect | 1a | — | Cloud AI Platforms hub | `cloud-ai-platforms` | — | cross-links only (plan §8.1) |
-| connect | 2 | 7 | Tools and Environment Interfaces | `tools-and-environments` (live) | yes | 6: MCP Registries, Browser Automation, Voice/Multimodal Tools, Generative UI Tools, plus Secrets Management Tools and Prompt-Injection Defense Tools from §14 (#36) |
+| connect | 2 | 7 | Tools and Environment Interfaces | `tools-and-environments` (live) | yes | 6: MCP Registries `mcp-registries`, Browser Automation `browser-automation`, Voice / Multimodal Tools `voice-and-multimodal-tools`, Generative UI Tools `generative-ui-tools`, plus two from §14 (#36, #58): Secrets Management Tools `secrets-management-tools`, Prompt-Injection Defense Tools `prompt-injection-defense-tools` |
 | connect | 3 | 9 | Context | `context` (live) | yes | none — no tooling exists |
-| connect | 4 | 10 | Memory | `memory` | yes | 1 |
-| connect | 5 | 11 | Knowledge and Retrieval | `knowledge-and-retrieval` (live) | yes | 3: Vector Databases, Knowledge Graphs, Semantic Layer Tools |
-| connect | 6 | 8 | Agent Communication and Interoperability | `agent-communication` (live) | yes | 1 |
-| run | 1 | 12 | Runtime and Execution Infrastructure | `runtime-and-execution` (live) | yes | 1 (Sandboxes) |
-| run | 2 | 13 | Agent Operations and Deployment | `agent-operations` (live) | yes | 1 |
-| control | — | 14, 15 | _distributed — see the Control mapping below_ |  |  |  |
+| connect | 4 | 10 | Memory | `memory` | yes | 1: `landscape` |
+| connect | 5 | 11 | Knowledge and Retrieval | `knowledge-and-retrieval` (live) | yes | 3: Vector Databases `vector-databases`, Knowledge Graphs `knowledge-graphs`, Semantic Layer Tools `semantic-layer-tools` |
+| connect | 6 | 8 | Agent Communication and Interoperability | `agent-communication` (live) | yes | 1: `landscape` |
+| run | 1 | 12 | Runtime and Execution Infrastructure | `runtime-and-execution` (live) | yes | 1: `landscape` (Sandboxes) |
+| run | 2 | 13 | Agent Operations and Deployment | `agent-operations` (live) | yes | 1: `landscape` |
+| control | 1 | 14 | Security and Governance | `security-and-governance` (live) | yes | 1: Agent Identity Tools `agent-identity-tools` (§14's other two are §7's) |
+| control | 2 | 15 | Observability and Evaluation | `observability-and-evaluation` (live) | yes | 4: Observability Tools `observability-tools`, Evaluation Tools `evaluation-tools`, Code Review Tools `code-review-tools`, Benchmarks `benchmarks` |
 
 `(live)` means the section's narrative page exists, drafted or not. §10 Memory's
 page comes from its pipeline run (#50).
 
-Build and Run haven't had a reading-order pass yet, so they use taxonomy order
+Build, Run and Control haven't had a reading-order pass yet, so they use taxonomy order
 (plan §10). The Explorer's `sortFn` in `quartz.config.yaml` repeats this
 order, and the stage pages use it too: change the table and `sortFn` together
 (`docs/plugins.md`). CI fails a stage page whose list doesn't match this table,
@@ -100,13 +101,19 @@ them.
   (except Agent identity), Secrets management and credential delegation,
   Prompt-injection defenses, and the MCP-specific attack surface (next to
   prompt-injection defenses). Each brings its own Landscape tools, so §7 gains
-  Secrets Management Tools and Prompt-Injection Defense Tools pages.
+  Secrets Management Tools and Prompt-Injection Defense Tools pages. Those two
+  pages are published straight into §7 by its catalog port, never at a
+  Control URL (#58, D4); the concept items still move in §7's pipeline run.
 - **→ Run, §13 Agent Operations:** Rate limiting, and Resource / budget limits,
   alongside §13's planning-level "Budget / token limits". Isolation and Network
   restrictions already moved into §12 in the taxonomy.
-- **Stays on the Control hub:** Data Governance, Agent identity (and its
-  tools), Audit logs, Human Oversight, the **Policies hub** (Policy instructions
-  and Policy enforcement), and all of §15 kept together.
+- **Stays on the Control hub**, in two section folders under `control/` (#58,
+  D1), with `control/index.md` as the hub that links out:
+  - `control/security-and-governance/` (§14): Data Governance, Agent identity
+    (and its tools, `agent-identity-tools`), Audit logs, Human Oversight, and
+    the **Policies hub** (`policies-hub`: Policy instructions and Policy
+    enforcement).
+  - `control/observability-and-evaluation/` (§15): all of it, kept together.
 
 The plan (§5) fixed each item's stage; the owner picked the sections (#36).
 Items move in their target section's pipeline run, not all at once. "Policies
@@ -167,8 +174,8 @@ fail the build check.
 
 **Cross-references (→):** many targets move or split in the Control migration.
 Check the inventory in plan §7 before writing one. A section with no page yet
-is named in plain text (e.g. "§15 Observability and Evaluation"), not
-linked. A link to a missing page ships as a 404.
+is named in plain text (e.g. "§10 Memory", until its pipeline run publishes
+it), not linked. A link to a missing page ships as a 404.
 
 **Dates:** each page shows its own last git commit date and read time
 automatically, so an edit shows the old date until it's committed.
