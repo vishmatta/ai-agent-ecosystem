@@ -1,6 +1,6 @@
 # AI Agent Ecosystem Site — Product Requirements
 
-*This PRD deliberately doesn't restate what's already owned elsewhere: audience is `site-content-plan-v2.md` §1, page architecture and navigation are the rest of that doc, and content organization is `ai-agent-ecosystem-vX.X.md` itself. This document exists for the four things those two didn't have: goals, non-goals, success criteria, and a prioritized MVP.*
+*This PRD deliberately doesn't restate what's already owned elsewhere: audience is `site-content-plan-v2.md` §1, page architecture and navigation are the rest of that doc, and content organization is the taxonomy itself (`planning/taxonomy/`). This document exists for the four things those two didn't have: goals, non-goals, success criteria, and a prioritized MVP.*
 
 ## 1. Problem
 
@@ -63,7 +63,7 @@ One line, not re-derived: the author, first and primarily, learning the space in
 
 ## 8. References
 
-- `ai-agent-ecosystem-vX.X.md` — canonical taxonomy content and structure (always the current version; check the listing for the latest)
+- `planning/taxonomy/` — canonical taxonomy content and structure, one file per section
 - `site-content-plan-v2.md` — site architecture, page templates, navigation, and the full decision log
 
 ## Changelog

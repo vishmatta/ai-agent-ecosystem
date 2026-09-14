@@ -2,7 +2,7 @@
 
 Research notes waiting for review, and the record of where taxonomy changes
 came from. **Nothing here is authoritative.** The taxonomy
-(`planning/ai-agent-ecosystem-v*.md`) is. A research file is input to verify,
+(`planning/taxonomy/`) is. A research file is input to verify,
 never a source to cite or copy from, even after it's incorporated.
 
 ## Running research, with any tool
@@ -34,7 +34,7 @@ way to catch what one of them missed.
   status: new # new | in-review | incorporated | rejected
   researched: 2026-09-13
   by: <person, or tool plus model>
-  incorporated-in: "" # filled in by the reviewer, e.g. "taxonomy v2.19 (#28)"
+  incorporated-in: "" # filled in by the reviewer, e.g. "taxonomy §10 (#45)"
   ---
   ```
 
@@ -53,7 +53,7 @@ way to catch what one of them missed.
 2. Verify every item at its primary source: license and archived status on
    GitHub, and the vendor's own announcements for renames and shutdowns.
    Research goes stale fast; expect some of it to be wrong by review time.
-3. Put accepted items into the taxonomy with the version-bump checklist in
+3. Put accepted items into the taxonomy with "Changing the taxonomy" in
    `docs/practices.md`. In the taxonomy changelog, say what was corrected or
    left out, and why.
 4. Set `status: incorporated` or `rejected`, fill in `incorporated-in`, and add

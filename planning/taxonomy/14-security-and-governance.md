@@ -1,0 +1,105 @@
+## 14. Security and Governance
+
+### What is agent security and governance
+*(not yet drafted)*
+
+### Why agents need dedicated security and governance
+*(not yet drafted)*
+
+### When these controls apply
+*(not yet drafted)*
+
+### How agent security and governance is implemented
+*(not yet drafted)*
+
+### Where agent security and governance is heading
+*(not yet drafted)*
+
+**Access and Authorization**
+- Permissions
+- Agent identity
+  - → tool list in Security and Governance Landscape below
+- Authentication
+- Authorization
+- Capability-based access
+
+**Secrets management**
+- Credential delegation
+- → tool list in Security and Governance Landscape below
+
+**Data Governance**
+- Data classification
+- PII protection
+- Data-loss prevention
+- Data access controls
+- Data retention
+
+**Agent and Prompt Governance**
+- Prompt and instruction governance
+  - System instructions
+  - Agent instructions
+  - Prompt versioning
+  - Approval / review
+  - Prompt testing
+- Policies
+  - Conceptual home for what policies are, why they exist, and their two content types; the rules themselves live in §5
+  - Behavioral and Model/tool scope
+    - → see §5 Policies for the actual rule content (conduct vs. capability)
+  - Policy instructions
+    - Authoring, review, and approval before a policy ships — applies generically to any policy regardless of type
+    - Instruction hierarchy
+    - Provenance / change tracking
+  - Policy enforcement
+    - Runtime application of a policy once approved — applies generically to any policy regardless of type
+    - → runtime application of the Guardrails tooling listed in §5; canonical tool list lives there, not duplicated here
+- Prompt-injection defenses
+  - Content-level injection: untrusted text (web pages, emails, documents) manipulating model behavior
+  - → tool list in Security and Governance Landscape below
+- MCP-specific attack surface
+  - Distinct from content-level prompt injection above — this is protocol/supply-chain trust: the server or its tool descriptions themselves are the untrusted party, not the content flowing through them
+  - Tool poisoning
+  - Tool-description injection
+  - Confused-deputy problem
+  - Rug-pull updates
+    - A previously-approved server changing behavior after the fact
+
+**Human Oversight**
+- Approval Policies
+- Human-in-the-loop
+- Human oversight / Escalation
+
+**Audit and Resource Controls**
+- Audit logs
+- Rate limiting
+- Resource / budget limits
+  - → runtime enforcement counterpart to §13's planning-level allocation
+
+### Security and Governance Landscape → (separate page)
+
+**Agent Identity Tools**
+- Commercial / Proprietary
+  - WorkOS
+  - Auth0 (Okta)
+
+**Secrets Management Tools**
+- Commercial / Proprietary
+  - Doppler
+  - HashiCorp Vault
+    - Hosted commercial layer via HCP Vault
+  - Infisical
+    - Hosted commercial layer under the same brand
+- Open Source / Provider-agnostic
+  - HashiCorp Vault
+    - Self-hostable core; commercial layer via HCP Vault
+  - Infisical
+    - Self-hostable core; commercial layer under the same brand
+
+**Prompt-Injection Defense Tools**
+- Commercial / Proprietary
+  - Lakera
+  - CalypsoAI
+
+## Changelog
+
+**2026-09-13**
+- Split out of `ai-agent-ecosystem-v2.19.md` unchanged, when the taxonomy became one file per section. Earlier history is in [changelog.md](changelog.md).

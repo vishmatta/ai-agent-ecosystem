@@ -50,20 +50,19 @@ git history and PRs already hold those.
 - Refer to a page that doesn't exist yet in plain text, not a link. A wikilink
   to a missing page ships as a 404.
 
-### Taxonomy version bump
+### Changing the taxonomy
 
-When the owner supplies a new `planning/ai-agent-ecosystem-v*.md`:
+The taxonomy is `planning/taxonomy/`, one file per section. For any change:
 
-1. Diff it against the committed version.
-2. Commit it unchanged, deleting the old file in the same commit, so
-   `planning/` holds exactly one taxonomy file. Corrections go in a later
-   commit.
-3. Bump the live version pointers in `planning/site-content-plan-v2.md` (the
-   header, the §4 Tags note, §8 item 4). Leave historical citations.
+1. If the owner supplies edited text, diff it against the committed file and
+   commit it unchanged first. Corrections go in a later commit.
+2. Edit only the section files the change needs. Entries follow
+   `planning/taxonomy/README.md` → Formatting rules.
+3. Add a dated entry to each changed file's `## Changelog`, saying what changed
+   and why (what was corrected, left out, or verified).
 4. Re-port every changed section that has a live page (today: §1, §2 and §5),
    covering its beats and its Landscape stats (see `docs/content.md`).
 5. Check new `→` cross-references against the site plan's §7 inventory.
-6. Add a changelog entry to each planning doc you touched.
-7. If sections or Landscape categories were added, renamed, or split, update
-   the list in `planning/research/PROMPT.md`. Chat research tools only see
-   that copy.
+6. If sections or Landscape categories were added, renamed, or split, update
+   the section map in `planning/taxonomy/README.md` and the list in
+   `planning/research/PROMPT.md`. Chat research tools only see that copy.
