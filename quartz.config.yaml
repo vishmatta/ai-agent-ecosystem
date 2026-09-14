@@ -163,9 +163,20 @@ plugins:
       useSavedState: true
       sortFn: >-
         (a, b) => {
-          const STAGE_ORDER = ["build", "connect", "run", "control"]
-          const ia = STAGE_ORDER.indexOf(a.slugSegment)
-          const ib = STAGE_ORDER.indexOf(b.slugSegment)
+          /* Stages, then each stage's sections in the registry's Nav order
+             (docs/content.md). Full paths, so a page elsewhere that shares a
+             section's slug isn't reordered. Anything unlisted sorts after. */
+          const ORDER = [
+            "build", "connect", "run", "control",
+            "build/agent-harnesses", "build/agent-frameworks",
+            "build/orchestration-patterns", "build/models", "build/agent-behavior",
+            "connect/model-infrastructure", "connect/cloud-ai-platforms",
+            "connect/tools-and-environments", "connect/context", "connect/memory",
+            "connect/knowledge-and-retrieval", "connect/agent-communication",
+            "run/runtime-and-execution", "run/agent-operations",
+          ]
+          const ia = ORDER.indexOf(a.slugSegments.join("/"))
+          const ib = ORDER.indexOf(b.slugSegments.join("/"))
           if (ia !== -1 || ib !== -1) {
             if (ia === -1) return 1
             if (ib === -1) return -1

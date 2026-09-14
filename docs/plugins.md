@@ -39,10 +39,10 @@ restart the dev server. Component CSS travels with the component as
   `@quartz-community/note-properties`, not the bare name.
 - **Explorer folder names must stay links** (`folderClickBehavior: link`). Section pages are folder `index.md` files, so with `collapse` the Explorer can't open them.
 - **Explorer order comes from the `sortFn` source string** in the Explorer's
-  options, and the Explorer ignores `folderDefaultState: open`. Today `sortFn`
-  orders the four stages only. Inside a stage, everything sorts
-  alphabetically, so the registry's section order in `docs/content.md` isn't
-  implemented yet.
+  options, and the Explorer ignores `folderDefaultState: open`. `sortFn` lists
+  the stages and then every section's full path in the registry's Nav order
+  (`docs/content.md`). Add a new section's path there too, or it sorts after
+  the listed ones, alphabetically. Pages inside a section sort alphabetically.
 - **The graph patch matches upstream's minified script by exact string.** If an
   upgrade changes that script, the build fails with an explanation. Re-derive
   the fragments from the package's dist before upgrading.
