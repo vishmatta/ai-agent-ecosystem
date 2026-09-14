@@ -83,25 +83,27 @@
 
 **Secrets Management Tools**
 - Commercial / Proprietary
-  - Doppler
-  - HashiCorp Vault
+  - [Doppler](https://www.doppler.com/)
+  - [HashiCorp Vault](https://www.hashicorp.com/en/products/vault)
     - Hosted commercial layer via HCP Vault
-  - Infisical
+  - [Infisical](https://infisical.com/)
     - Hosted commercial layer under the same brand
 - Open Source / Provider-agnostic
-  - HashiCorp Vault
+  - [HashiCorp Vault](https://github.com/hashicorp/vault)
     - Self-hostable core; commercial layer via HCP Vault
-  - Infisical
+  - [Infisical](https://github.com/Infisical/infisical)
     - Self-hostable core; commercial layer under the same brand
 
 **Prompt-Injection Defense Tools**
 - Commercial / Proprietary
-  - Lakera
-  - CalypsoAI
+  - [Lakera](https://www.lakera.ai/)
+  - [CalypsoAI](https://www.f5.com/products/ai-guardrails)
 
 ## Changelog
 
 **2026-09-14**
+- Linked the Secrets Management Tools and Prompt-Injection Defense Tools entries to their official pages for §7's catalog port (#70), where both lists publish (#58, D4). No entries moved
+- Found while linking, left for the owner (#70): HashiCorp Vault is under the Business Source License since 1.15, with IBM as licensor, so its Open Source listing is source-available; Lakera is "a Check Point company"; F5 completed its acquisition of CalypsoAI on September 26, 2025, and calypsoai.com now redirects to F5 AI Guardrails. Entries unchanged pending those calls
 - Linked the Agent Identity Tools entries to their official pages, `[Name](url) (Creator)`, for the site's catalog port (#75): WorkOS to its Agent Auth docs (it has no product page for agent identity), Auth0 to Auth0 for AI Agents. No entries moved. Secrets Management Tools and Prompt-Injection Defense Tools are linked by §7's port (#70), since their pages publish under §7
 
 **2026-09-13**
