@@ -19,7 +19,8 @@ import { ContentBody } from "@quartz-community/content-page"
  * Priority 20 beats Quartz's folder page (priority 10, and it wins ties). A
  * section page with children lives at `<section>/index.md`, which the folder
  * page would otherwise claim — adding a child-page listing and a Properties
- * panel. Stage pages carry no `type:`, so they stay folder pages.
+ * panel. Stage pages carry no `type:`, so they stay folder listings, claimed
+ * by agent-ecosystem-stage-page for their order.
  */
 const TAXONOMY_TYPES = ["narrative", "concept", "landscape", "how-to"]
 

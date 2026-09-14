@@ -77,7 +77,9 @@ page comes from its pipeline run (#50).
 
 Build and Run haven't had a reading-order pass yet, so they use taxonomy order
 (plan §10). The Explorer's `sortFn` in `quartz.config.yaml` repeats this
-order: change both together (`docs/plugins.md`).
+order, and the stage pages use it too: change the table and `sortFn` together
+(`docs/plugins.md`). CI fails a stage page whose list doesn't match this table,
+and reads it by its row format (`| <stage> | … | \`<slug>\` |`).
 
 **Slug rule.** Descriptive, never numbered (plan §4). Keep enough words to be
 unambiguous across the site, and drop a trailing generic noun (Configuration,
