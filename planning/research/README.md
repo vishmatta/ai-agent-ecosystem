@@ -24,13 +24,16 @@ way to catch what one of them missed.
 ## What a file looks like
 
 - One topic per file, named `YYYY-MM-DD-<topic-slug>.md`, dated the day the
-  research was done. Lowercase and hyphens, no spaces. When several tools
+  research was done. A content-pipeline run's files share one prefix,
+  `YYYY-MM-DD-<section-slug>-`, followed by `brief`, the tool name,
+  `consolidated`, or `review` (`docs/agents/README.md`). Lowercase and hyphens, no spaces. When several tools
   research the same topic, add the tool: `2026-10-01-agent-memory-perplexity.md`.
 - Start with this frontmatter:
 
   ```yaml
   ---
   title: Agent memory tooling landscape
+  kind: research # brief | research | consolidated | review (pipeline files, docs/agents/)
   status: new # new | in-review | incorporated | rejected
   researched: 2026-09-13
   by: <person, or tool plus model>

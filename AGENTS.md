@@ -37,7 +37,8 @@ gh issue list -R vishmatta/ai-agent-ecosystem
 1. **Work comes from GitHub Issues.** If you weren't given one, take the
    lowest-numbered open issue without the `in-progress` or `needs-decision` label,
    skipping any whose body says `Blocked by #N` while #N is still open, or
-   `Not before YYYY-MM-DD` while that date is still ahead.
+   `Not before YYYY-MM-DD` while that date is still ahead. On a `pipeline`
+   issue, do only its next unchecked stage (`docs/agents/README.md`).
 2. **Claim it** before starting:
    `gh issue edit <n> -R vishmatta/ai-agent-ecosystem --add-label in-progress`.
 3. **Branch from `origin/main`**: `git fetch origin && git switch -c <n>-<short-slug> origin/main`.
@@ -56,7 +57,8 @@ Without write access to this repo (working from a fork), claim an issue by
 commenting on it instead. Open the PR from your fork, and leave labels and
 merging to the maintainer.
 
-Issue template: `.github/ISSUE_TEMPLATE/task.md` — issues should be
+Issue templates: `.github/ISSUE_TEMPLATE/task.md` for ordinary work, and
+`section.md` for a section's content-pipeline run. Issues should be
 self-contained enough that no other context is needed.
 
 ## Rules that are easy to break
@@ -84,6 +86,7 @@ self-contained enough that no other context is needed.
 | anything (once per session, before your first commit) | `docs/practices.md` |
 | changing the taxonomy | `docs/practices.md` → Changing the taxonomy |
 | `planning/research/` — adding or reviewing research | `planning/research/README.md` |
+| a `pipeline` issue (a section's content run) | `docs/agents/README.md`, then your stage's file |
 | `content/**` — pages, frontmatter, sections | `docs/content.md`, and `docs/style.md` for anything you write |
 | `plugins/**`, `quartz.config.yaml`, styles | `docs/plugins.md` |
 | `.github/**` | the header comment of the file you're changing |

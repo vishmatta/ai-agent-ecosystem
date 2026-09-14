@@ -1,5 +1,6 @@
 ---
 title: Agent Harnesses & Frameworks — Full Landscape (2026)
+kind: research
 status: incorporated
 researched: 2026-09-13
 by: supplied by the repo owner
