@@ -58,19 +58,22 @@ split (plan §3).
 |---|---|---|---|---|---|---|
 | build | 1 | 1 | Agent Harnesses | `agent-harnesses` (live) | never | 1 |
 | build | 2 | 2 | Agent Frameworks | `agent-frameworks` (live) | never | 2: Code Frameworks, No-code / Low-code Builders |
-| build | 3 | 3 | Orchestration Patterns | `orchestration-patterns` | yes | none — no tooling exists |
-| build | 4 | 4 | Models | `models` | never | 1 |
+| build | 3 | 3 | Orchestration Patterns | `orchestration-patterns` (live) | yes | none — no tooling exists |
+| build | 4 | 4 | Models | `models` (live) | never | 1 |
 | build | 5 | 5 | Agent Behavior and Configuration | `agent-behavior` (live) | yes | 1 (Guardrails Tools) |
-| connect | 1 | 6 | Model Infrastructure | `model-infrastructure` | never | 4: Inference Providers, Model Serving, Model Routers/Gateways/Proxies, Local Inference |
+| connect | 1 | 6 | Model Infrastructure | `model-infrastructure` (live) | never | 4: Inference Providers, Model Serving, Model Routers/Gateways/Proxies, Local Inference |
 | connect | 1a | — | Cloud AI Platforms hub | `cloud-ai-platforms` | — | cross-links only (plan §8.1) |
-| connect | 2 | 7 | Tools and Environment Interfaces | `tools-and-environments` | yes | 6: MCP Registries, Browser Automation, Voice/Multimodal Tools, Generative UI Tools, plus Secrets Management Tools and Prompt-Injection Defense Tools from §14 (#36) |
-| connect | 3 | 9 | Context | `context` | yes | none — no tooling exists |
+| connect | 2 | 7 | Tools and Environment Interfaces | `tools-and-environments` (live) | yes | 6: MCP Registries, Browser Automation, Voice/Multimodal Tools, Generative UI Tools, plus Secrets Management Tools and Prompt-Injection Defense Tools from §14 (#36) |
+| connect | 3 | 9 | Context | `context` (live) | yes | none — no tooling exists |
 | connect | 4 | 10 | Memory | `memory` | yes | 1 |
-| connect | 5 | 11 | Knowledge and Retrieval | `knowledge-and-retrieval` | yes | 3: Vector Databases, Knowledge Graphs, Semantic Layer Tools |
-| connect | 6 | 8 | Agent Communication and Interoperability | `agent-communication` | yes | 1 |
-| run | 1 | 12 | Runtime and Execution Infrastructure | `runtime-and-execution` | yes | 1 (Sandboxes) |
-| run | 2 | 13 | Agent Operations and Deployment | `agent-operations` | yes | 1 |
+| connect | 5 | 11 | Knowledge and Retrieval | `knowledge-and-retrieval` (live) | yes | 3: Vector Databases, Knowledge Graphs, Semantic Layer Tools |
+| connect | 6 | 8 | Agent Communication and Interoperability | `agent-communication` (live) | yes | 1 |
+| run | 1 | 12 | Runtime and Execution Infrastructure | `runtime-and-execution` (live) | yes | 1 (Sandboxes) |
+| run | 2 | 13 | Agent Operations and Deployment | `agent-operations` (live) | yes | 1 |
 | control | — | 14, 15 | _distributed — see the Control mapping below_ |  |  |  |
+
+`(live)` means the section's narrative page exists, drafted or not. §10 Memory's
+page comes from its pipeline run (#50).
 
 Build and Run haven't had a reading-order pass yet, so they use taxonomy order
 (plan §10). The Explorer doesn't yet follow this order (see
@@ -162,7 +165,7 @@ fail the build check.
 
 **Cross-references (→):** many targets move or split in the Control migration.
 Check the inventory in plan §7 before writing one. A section with no page yet
-is named in plain text (e.g. "§13 Agent Operations and Deployment"), not
+is named in plain text (e.g. "§15 Observability and Evaluation"), not
 linked. A link to a missing page ships as a 404.
 
 **Dates:** each page shows its own last git commit date and read time
