@@ -46,10 +46,16 @@ is in `planning/taxonomy/README.md`.
   Source, with a sub-bullet noting the relationship. A separately branded
   commercial layer (for example Milvus and Zilliz Cloud) is listed as its
   own distinct entry instead.
-- **Open Source / Provider-agnostic requires genuine multi-provider
-  support, not just an open license.** A tool built specifically for one
+- **Open Source / Provider-agnostic requires an open-source license and
+  genuine multi-provider support.** A tool built specifically for one
   provider's models does not belong in this column even if its code is
   open source; it belongs under Commercial / Proprietary instead.
+- **Source-available is not open source.** A self-hostable product under a
+  source-available license (for example the Business Source License, the
+  Server Side Public License, or the Elastic License) is listed under
+  Commercial / Proprietary only, with a sub-bullet naming its license. An
+  open-source core with a separately licensed enterprise directory stays
+  under Open Source, since the core itself is open.
 - Each section carries its own Legacy / Decommissioned callout where
   relevant, rather than one global list, so a gap reads as "never in
   scope," not "forgotten."
