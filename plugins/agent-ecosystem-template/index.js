@@ -5,14 +5,18 @@
  * component plugins in this same directory; Quartz resolves one component per
  * plugin entry, so each needs its own package.
  *
- * Two jobs, both driven entirely by frontmatter + body markdown so that
+ * Three jobs, all driven entirely by frontmatter + body markdown so that
  * authoring a new page never requires touching styles or markup:
  *
  *   1. Wraps the five narrative beats (What / Why / When / How / Where) in
  *      <details> accordions, matching the page mockups. Beats are detected by
  *      the leading word of an <h3>, so a section's "### <Name> Landscape"
  *      heading is left alone.
- *   2. Tags the page with `ae-page--<type>` from the `type:` frontmatter field,
+ *   2. On a `type: landscape` page, collapses the "Legacy / Decommissioned"
+ *      `##` bucket into a closed, visually secondary <details>. The other
+ *      buckets (Commercial / Proprietary, Open Source / Provider-agnostic)
+ *      are left as plain headings.
+ *   3. Tags the page with `ae-page--<type>` from the `type:` frontmatter field,
  *      giving every page type a CSS hook without per-page restyling.
  *
  * Pages with no `type:` are passed through untouched.
@@ -116,6 +120,54 @@ function collapseBeats(tree) {
   tree.children = out
 }
 
+/** True for the Landscape page's "## Legacy / Decommissioned" bucket heading. */
+function isLegacyHeading(node) {
+  if (node?.type !== "element" || node.tagName !== "h2") return false
+  return textOf(node).trim().toLowerCase().startsWith("legacy")
+}
+
+function buildLegacyBucket(heading, body) {
+  const properties = { className: ["legacy-bucket"] }
+  if (heading.properties?.id) properties.id = heading.properties.id
+
+  const summary = el("summary", {}, [
+    el("span", { className: ["legacy-bucket-title"] }, heading.children ?? []),
+    chevron(),
+  ])
+
+  return el("details", properties, [summary, el("div", { className: ["legacy-bucket-body"] }, body)])
+}
+
+/**
+ * Rewrites a Landscape page's "## Legacy / Decommissioned" heading and the
+ * content that follows it (up to the next h1/h2) into a closed <details>.
+ * The other `##` buckets on the page are left exactly where they were.
+ */
+function collapseLegacyBucket(tree) {
+  const out = []
+  let i = 0
+
+  while (i < tree.children.length) {
+    const node = tree.children[i]
+
+    if (!isLegacyHeading(node)) {
+      out.push(node)
+      i++
+      continue
+    }
+
+    const body = []
+    i++
+    while (i < tree.children.length && !/^h[12]$/.test(tree.children[i].tagName ?? "")) {
+      body.push(tree.children[i])
+      i++
+    }
+    out.push(buildLegacyBucket(node, body))
+  }
+
+  tree.children = out
+}
+
 export default () => ({
   name: "AgentEcosystemTemplate",
   htmlPlugins() {
@@ -125,6 +177,7 @@ export default () => ({
         if (!type || !TAXONOMY_TYPES.includes(type)) return
 
         if (type === "narrative") collapseBeats(tree)
+        if (type === "landscape") collapseLegacyBucket(tree)
 
         tree.children = [
           el("div", { className: ["ae-page", `ae-page--${type}`] }, tree.children),
