@@ -174,6 +174,7 @@ plugins:
             "connect/tools-and-environments", "connect/context", "connect/memory",
             "connect/knowledge-and-retrieval", "connect/agent-communication",
             "run/runtime-and-execution", "run/agent-operations",
+            "control/security-and-governance", "control/observability-and-evaluation",
           ]
           const ia = ORDER.indexOf(a.slugSegments.join("/"))
           const ib = ORDER.indexOf(b.slugSegments.join("/"))
