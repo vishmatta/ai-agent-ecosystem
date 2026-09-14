@@ -7,7 +7,8 @@ landscapes:
     stats:
       - { value: 5, label: sandboxes catalogued }
       - { value: 3, label: commercial }
-      - { value: 4, label: open source }
+      - { value: 3, label: open source }
+      - { value: 1, label: legacy }
 deckPending: >-
   Narrative (What / Why / When / How / Where) not yet drafted for this section. The five beats below are placeholders.
 ---
