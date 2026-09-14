@@ -2,7 +2,7 @@
 
 How the site's pages (`content/`) read. Every copywriter follows this, person
 or agent, whatever the vendor. Planning docs aren't covered. Rules marked
-**CI** are enforced by `.github/scripts/check-content-style.mjs`, so a page
+**CI** are enforced by `.github/scripts/check-content.mjs`, so a page
 that breaks them can't merge; the rest are for writers and reviewers.
 
 ## Voice
