@@ -1,8 +1,5 @@
 ---
 title: Run
-deckPending: >-
-  Stage intro not yet written. Site plan §2 budgets roughly 60–80 words here.
-  Sections for this stage have not been migrated yet.
 ---
 
-Where an agent actually executes and is operated: runtime and execution infrastructure, and the operations and deployment discipline around it.
+Run covers how an assembled, connected agent actually executes: the runtime and execution infrastructure it operates in, from sandboxing to compute, and the operations and deployment discipline that keeps it running, from rollout to monitoring to recovery. This is the stage where an agent stops being a configuration and becomes a live process handling real workloads, so the concerns here are about production reliability rather than the design decisions made earlier.
