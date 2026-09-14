@@ -301,6 +301,9 @@ plugins:
   - source: ./plugins/agent-ecosystem-page-types
     enabled: true
     order: 50
+  - source: ./plugins/agent-ecosystem-stage-page
+    enabled: true
+    order: 50
   - source: ./plugins/agent-ecosystem-template
     enabled: true
     order: 55

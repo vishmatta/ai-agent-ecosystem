@@ -10,7 +10,7 @@
  *                                           plugin, and ships the site without it
  *   - config pointing at a missing plugin → logs "✗ Failed to install plugin"
  *
- * So after the build this checks two things:
+ * So after the build this checks four things:
  *
  *   1. The build log contains none of Quartz's failure or warning markers.
  *      A clean build of this site logs none, so any that appear mean
@@ -24,6 +24,11 @@
  *      file, and must be relative: the site is served from a subpath, so an
  *      absolute link 404s. The 404 page is exempt; its links are absolute on
  *      purpose.
+ *   4. Each stage page lists its sections in the order of the registry table
+ *      in docs/content.md. The order comes from the Explorer's sortFn, via
+ *      plugins/agent-ecosystem-stage-page; if either drifts from the registry,
+ *      or the plugin stops claiming the stage pages, the list falls out of
+ *      order.
  *
  * Usage: node .github/scripts/verify-build.mjs <build-log> [output-dir]
  */
@@ -109,6 +114,39 @@ for (const file of pages) {
   }
 }
 
+// --- 4. stage page order ---------------------------------------------------
+
+// Each stage page lists its sections in the registry's order: the table in
+// docs/content.md → Section registry, whose rows are in Nav order. Sections
+// without a built page yet are skipped.
+const REGISTRY = "docs/content.md"
+const registryRows = fs.existsSync(REGISTRY)
+  ? fs.readFileSync(REGISTRY, "utf8").split("\n")
+      .map((line) => line.match(/^\| (build|connect|run|control) \|[^|]*\|[^|]*\|[^|]*\| `([a-z0-9-]+)`/))
+      .filter(Boolean)
+  : []
+if (registryRows.length === 0) fail(`No section rows found in ${REGISTRY} → Section registry.`)
+
+let stagesChecked = 0
+for (const stage of ["build", "connect", "run", "control"]) {
+  const stagePage = path.join(outDir, stage, "index.html")
+  if (!fs.existsSync(stagePage)) continue
+  const expected = registryRows
+    .filter(([, rowStage, slug]) => rowStage === stage && fs.existsSync(path.join(outDir, stage, slug, "index.html")))
+    .map(([, , slug]) => slug)
+  const html = fs.readFileSync(stagePage, "utf8")
+  const listed = [...html.matchAll(/class="section-li">[\s\S]*?<h3><a href="[^"]*?([a-z0-9-]+)\/"/g)]
+    .map(([, slug]) => slug)
+    .filter((slug) => expected.includes(slug))
+  stagesChecked++
+  if (listed.join(",") !== expected.join(",")) {
+    fail(
+      `${stage}/index.html lists sections as ${listed.join(", ") || "(none)"}; the registry order is ` +
+        `${expected.join(", ")}. Check the Explorer's sortFn (docs/plugins.md).`,
+    )
+  }
+}
+
 // --- report ---------------------------------------------------------------
 
 if (failures.length > 0) {
@@ -120,5 +158,5 @@ if (failures.length > 0) {
 
 console.log(
   `Build verification passed: ${pages.length} pages, stage navigation on every page, ` +
-    `${linksChecked} internal links resolved.`,
+    `${linksChecked} internal links resolved, ${stagesChecked} stage pages in registry order.`,
 )
