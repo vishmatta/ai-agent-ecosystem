@@ -1,6 +1,30 @@
 ---
 title: Model Infrastructure
 type: narrative
+landscapes:
+  - title: Inference Providers
+    href: /connect/model-infrastructure/inference-providers
+    stats:
+      - { value: 13, label: providers catalogued }
+      - { value: 13, label: commercial }
+  - title: Model Serving
+    href: /connect/model-infrastructure/model-serving
+    stats:
+      - { value: 6, label: tools catalogued }
+      - { value: 1, label: commercial }
+      - { value: 5, label: open source }
+  - title: Model Routers, Gateways and Proxies
+    href: /connect/model-infrastructure/routers-gateways-and-proxies
+    stats:
+      - { value: 6, label: gateways catalogued }
+      - { value: 6, label: commercial }
+      - { value: 3, label: open source }
+  - title: Local Inference
+    href: /connect/model-infrastructure/local-inference
+    stats:
+      - { value: 5, label: tools catalogued }
+      - { value: 1, label: commercial }
+      - { value: 4, label: open source }
 deckPending: >-
   Narrative (What / Why / When / How / Where) not yet drafted for this section. The five beats below are placeholders.
 ---

@@ -18,74 +18,81 @@
 ### Model Infrastructure Landscape → (separate page)
 
 **Inference Providers**
-- Fireworks AI
-- Together AI
-- Groq
-- Modal
-  - → also see §12 Sandboxes (same product, dual capability)
-- Replicate
-- DeepInfra
-- Cerebras
-- Hugging Face Inference
-- SambaNova
-- Scaleway
-- Baseten
-- Lambda
-- Workers AI (Cloudflare)
-  - Serverless inference on Cloudflare's edge network. The same company's agent hosting, Cloudflare Agents, is listed in §13
+- Commercial / Proprietary
+  - [Fireworks AI](https://fireworks.ai/)
+  - [Together AI](https://www.together.ai/)
+  - [Groq](https://groq.com/)
+  - [Modal](https://modal.com/products/inference)
+    - → also see §12 Sandboxes (same product, dual capability)
+  - [Replicate](https://replicate.com/)
+  - [DeepInfra](https://deepinfra.com/)
+  - [Cerebras](https://www.cerebras.ai/)
+  - [Hugging Face Inference](https://huggingface.co/docs/inference-providers/index)
+  - [SambaNova](https://sambanova.ai/)
+  - [Scaleway](https://www.scaleway.com/en/generative-apis/)
+  - [Baseten](https://www.baseten.co/)
+  - [Lambda](https://lambda.ai/inference)
+  - [Workers AI](https://developers.cloudflare.com/workers-ai/) (Cloudflare)
+    - Serverless inference on Cloudflare's edge network. The same company's agent hosting, Cloudflare Agents, is listed in §13
 
 **Model Serving**
 - Commercial / Proprietary
-  - NVIDIA NIM
+  - [NVIDIA NIM](https://www.nvidia.com/en-us/ai-data-science/products/nim-microservices/)
 - Open Source / Provider-agnostic
-  - vLLM (UC Berkeley Sky Computing Lab)
-  - TensorRT-LLM (NVIDIA)
-  - Hugging Face TGI
-  - SGLang (LMSYS)
-  - llama.cpp server (Georgi Gerganov)
+  - [vLLM](https://vllm.ai/) (UC Berkeley Sky Computing Lab)
+  - [TensorRT-LLM](https://github.com/NVIDIA/TensorRT-LLM) (NVIDIA)
+  - [Hugging Face TGI](https://github.com/huggingface/text-generation-inference)
+  - [SGLang](https://www.sglang.io/) (LMSYS)
+  - [llama.cpp server](https://github.com/ggml-org/llama.cpp/tree/master/tools/server) (Georgi Gerganov)
 
 **Cloud AI Platforms**
-- AWS Bedrock
-- Google Gemini Enterprise Agent Platform
+- [AWS Bedrock](https://aws.amazon.com/bedrock/)
+- [Google Gemini Enterprise Agent Platform](https://cloud.google.com/products/gemini-enterprise-agent-platform)
   - Formerly Google Vertex AI; rebranded April 22, 2026, with existing Vertex AI services continuing under the new name. Its managed agent runtime, Agent Engine, is listed in §13
-- Microsoft Foundry
+- [Microsoft Foundry](https://azure.microsoft.com/en-us/products/ai-foundry)
   - Formerly Azure AI Foundry; renamed November 2025
-- Oracle AI Agent Studio
-- Databricks Mosaic AI
-- Snowflake Cortex
+- [Oracle AI Agent Studio](https://www.oracle.com/applications/dawn-of-ai-enterprise-agent-workforce/)
+- [Databricks Mosaic AI](https://www.databricks.com/product/artificial-intelligence)
+- [Snowflake Cortex](https://www.snowflake.com/en/product/features/cortex/)
 - **Resolved:** these platforms span build, run, and governance capabilities, not just connectivity. Canonical content splits by actual capability (model access → §4 Models, deployment infrastructure → §12 Run, governance controls → wherever the Control mapping sends them), plus a lightweight hub page cross-linking the pieces for readers thinking of the platform as one thing. See Open Items and site-content-plan-v2.md §8 item 1.
 
 **Model Routers, Gateways and Proxies**
 - Commercial / Proprietary
-  - OpenRouter
-  - Vercel AI Gateway
-  - Nous Portal
-  - LiteLLM (BerriAI)
+  - [OpenRouter](https://openrouter.ai/)
+  - [Vercel AI Gateway](https://vercel.com/ai-gateway)
+  - [Nous Portal](https://portal.nousresearch.com/)
+  - [LiteLLM](https://www.litellm.ai/) (BerriAI)
     - Hosted commercial layer under the same brand
-  - Portkey
+  - [Portkey](https://portkey.ai/)
     - Hosted commercial layer under the same brand
-  - Helicone AI Gateway
+  - [Helicone AI Gateway](https://docs.helicone.ai/gateway/overview)
     - Hosted commercial layer under the same brand
     - → distinct product from Helicone's original observability tool; see §15
 - Open Source / Provider-agnostic
-  - LiteLLM (BerriAI)
+  - [LiteLLM](https://github.com/BerriAI/litellm) (BerriAI)
     - Self-hostable core; commercial layer under the same brand
-  - Portkey
+  - [Portkey](https://github.com/Portkey-AI/gateway)
     - Self-hostable core; commercial layer under the same brand
-  - Helicone AI Gateway
+  - [Helicone AI Gateway](https://github.com/Helicone/ai-gateway)
     - Self-hostable core; commercial layer under the same brand
     - → distinct product from Helicone's original observability tool; see §15
 
 **Local Inference**
 - Commercial / Proprietary
-  - LM Studio
+  - [LM Studio](https://lmstudio.ai/download)
 - Open Source / Provider-agnostic
-  - Ollama
-  - llama.cpp (Georgi Gerganov)
-  - MLX (Apple)
-  - Jan (Menlo Research)
+  - [Ollama](https://ollama.com/)
+  - [llama.cpp](https://github.com/ggml-org/llama.cpp) (Georgi Gerganov)
+  - [MLX](https://github.com/ml-explore/mlx) (Apple)
+  - [Jan](https://www.jan.ai/) (Menlo Research)
 
 ## Changelog
+
+**2026-09-14**
+- Linked every Landscape entry to its official page, `[Name](url) (Creator)`, for the site's catalog port (#69), including the Cloud AI Platforms list for the hub (#77), which isn't published as a Landscape page. A dual-listed product links its hosted service from Commercial and its repository from Open Source. No entries moved
+- Bucketed Inference Providers under Commercial / Proprietary per the owner's decision on #67 (D5): each is a hosted, paid API service
+- Found while linking, left for the owner (#69): Lambda's Inference API was shut down on September 25, 2025 (announced by Lambda staff; lambda.ai/inference now says it "winds down"), so Lambda no longer sells inference; Hugging Face TGI's repository is archived and its README says it's in maintenance mode, recommending vLLM and SGLang; Cloudflare acquired Replicate ("Replicate is now officially part of Cloudflare", announced November 17, 2025); Hugging Face acquired ggml.ai, llama.cpp's company, in 2026; Jan's GitHub organization was renamed from menloresearch to janhq ("Jan"); Helicone, including its AI Gateway, is in maintenance mode after Mintlify's acquisition (March 2026; see #76). Entries unchanged pending those calls
+- Checked while linking: Groq stays independent after a non-exclusive licensing agreement with NVIDIA (December 2025), and GroqCloud continues; LM Studio's homepage now leads with Bionic, its agent, while the LM Studio app is still offered; Databricks' AI page no longer uses the name "Mosaic AI", leading with Agent Bricks (for the hub, #77); the llama.cpp repository is now `ggml-org/llama.cpp`
 
 **2026-09-13**
 - Split out of `ai-agent-ecosystem-v2.19.md` unchanged, when the taxonomy became one file per section. Earlier history is in [changelog.md](changelog.md).
