@@ -46,10 +46,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # The mechanical rules in docs/style.md (e.g. no em dashes), checked
-      # against page sources before the slower build.
-      - name: Check content style
-        run: node .github/scripts/check-content-style.mjs content
+      # Mechanical content rules (no em dashes, no pipeline placeholders,
+      # Landscape counts that match their pages), checked against page sources
+      # before the slower build.
+      - name: Check content
+        run: node .github/scripts/check-content.mjs content
 
       # Quartz exits 0 on some real failures, so the log is kept for the next
       # step to inspect. pipefail makes a non-zero exit from the build itself

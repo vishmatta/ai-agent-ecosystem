@@ -22,6 +22,10 @@ Other page types: `home` (site root, the only first-person page — plan §9),
 simply leaves out that frontmatter key. No placeholder, empty slot, or
 explanatory note (plan §3).
 
+**Placeholders while drafting.** Mark unfinished text `TODO(pipeline): <what
+goes here>`. It's allowed on a branch, and CI fails any PR that still has one,
+so a half-written page can't merge.
+
 ## Where files go
 
 - Stages: `content/build/`, `content/connect/`, `content/run/`, `content/control/`.
@@ -126,7 +130,9 @@ landscapes: # narrative pages; omit for sections with no tooling
 
 In `stats`, a product listed in two buckets (e.g. Zed, commercial and open
 source) counts once in the total and once in each bucket, so the buckets can
-add up to more than the total.
+add up to more than the total. Labels are "… catalogued" (the total),
+`commercial`, `open source`, and `legacy`. CI recounts the Landscape page and
+fails on any mismatch.
 
 List only concept pages that exist, in the taxonomy's own bullet order.
 Position shows relative order, not rank (plan §3).
