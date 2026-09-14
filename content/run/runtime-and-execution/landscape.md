@@ -6,7 +6,7 @@ type: landscape
 ## Commercial / Proprietary
 
 - [Modal](https://modal.com/products/sandboxes)
-  - The same product is also an inference provider, listed under §6 Model Infrastructure's Inference Providers
+  - The same product is also an inference provider, listed in [[connect/model-infrastructure/inference-providers|Inference Providers]]
 - [E2B](https://e2b.dev/)
   - Hosted commercial layer under the same brand as the open-source core (see Open Source)
 - [Daytona](https://www.daytona.io/)

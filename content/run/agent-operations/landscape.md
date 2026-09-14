@@ -21,10 +21,10 @@ type: landscape
   - Formerly Vertex AI Agent Engine, then Agent Engine. The API resource keeps the name `ReasoningEngine`
 - [Cloudflare Agents](https://agents.cloudflare.com/)
   - Stateful agents hosted on Cloudflare's global network. The SDK is open source (MIT) but runs only on Cloudflare, so it isn't listed under Open Source
-  - The same company's edge inference, Workers AI, is listed in §6 Model Infrastructure
+  - The same company's edge inference, Workers AI, is listed in [[connect/model-infrastructure/inference-providers|Inference Providers]]
 - [LangSmith Deployment](https://www.langchain.com/langsmith/deployment) (LangChain)
   - Hosting for long-running, stateful agents. Formerly LangGraph Platform, renamed October 2025
-  - The separately branded commercial deployment layer for [[build/agent-frameworks/code-frameworks|LangGraph]]. LangSmith's observability product is listed in §15 Observability and Evaluation
+  - The separately branded commercial deployment layer for [[build/agent-frameworks/code-frameworks|LangGraph]]. LangSmith's observability product is listed in [[control/observability-and-evaluation/observability-tools|Observability Tools]]
 
 ## Open Source / Provider-agnostic
 

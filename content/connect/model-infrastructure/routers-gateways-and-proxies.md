@@ -14,7 +14,7 @@ type: landscape
   - Hosted commercial layer under the same brand as the open-source core (see Open Source)
 - [Helicone AI Gateway](https://docs.helicone.ai/gateway/overview)
   - Hosted commercial layer under the same brand as the open-source core (see Open Source)
-  - A separate product from Helicone's original observability tool, listed in §15 Observability and Evaluation
+  - A separate product from Helicone's original observability tool, listed in [[control/observability-and-evaluation/observability-tools|Observability Tools]]
   - [Acquired by Mintlify](https://www.helicone.ai/blog/joining-mintlify) with Helicone, March 2026; in maintenance mode, with customers encouraged to migrate
 
 ## Open Source / Provider-agnostic
@@ -25,7 +25,7 @@ type: landscape
   - Self-hostable core, with a commercial layer under the same brand (see Commercial)
 - [Helicone AI Gateway](https://github.com/Helicone/ai-gateway)
   - Self-hostable core, with a commercial layer under the same brand (see Commercial)
-  - A separate product from Helicone's original observability tool, listed in §15 Observability and Evaluation
+  - A separate product from Helicone's original observability tool, listed in [[control/observability-and-evaluation/observability-tools|Observability Tools]]
   - Acquired by Mintlify with Helicone, March 2026; in maintenance mode, with customers encouraged to migrate
 
 ## Legacy / Decommissioned
