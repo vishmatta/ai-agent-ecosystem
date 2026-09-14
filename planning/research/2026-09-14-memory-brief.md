@@ -80,7 +80,10 @@ than by assertion.
 9. How do harnesses and frameworks expose memory to the model: instruction files
    read at startup (the `CLAUDE.md` / `AGENTS.md` pattern), a memory tool the
    model calls, or injection into the system prompt? Cite the harness or
-   framework docs for each pattern named.
+   framework docs for each pattern named. This beat is where memory that is only
+   a feature of a harness, assistant or framework belongs (see the entry test
+   under "Products to check"), so collect it here rather than dropping it: a
+   product that fails the Landscape test still answers this question.
 10. Is there any protocol-level or standard interface for agent memory as of
     2026-09 (an MCP server or reference implementation, an A2A extension, or a
     published spec)? Give its status, maintainer, and date, or state plainly
@@ -146,9 +149,10 @@ than by assertion.
     under the same brand, and any rename, acquisition, relicense, or sunset in
     the past year.
 24. Which further products qualify for the Memory Landscape as of 2026-09?
-    Apply the bucket rules in `planning/research/PROMPT.md`: a
-    single-provider SDK is Commercial even when its license is permissive, and
-    a source-available license is not open source.
+    Apply the entry test under "Products to check", then the bucket rules in
+    `planning/research/PROMPT.md`: a single-provider SDK or service is
+    Commercial even when its license is permissive, and a source-available
+    license is not open source.
 
 ## Products to check
 
@@ -166,17 +170,39 @@ None of the three currently carries an official URL in the taxonomy, and the
 Landscape page needs one per entry (`planning/taxonomy/README.md` → Formatting
 rules), so every entry needs its link found and confirmed.
 
+**The entry test** (owner, 2026-09-14, issue #50). A Landscape entry is
+something adopted as a memory product in its own right: a separately
+installable, callable or billable memory layer, whoever makes it. Who built it
+does not decide this, and neither does what it is bundled with.
+
+- **In:** memory-as-a-service products; memory services from cloud and model
+  vendors; standalone memory libraries, including a framework vendor's own
+  memory library when it is installed and used separately.
+- **Out:** memory that exists only as a feature of a harness, assistant or
+  framework adopted for other reasons. Consumer-assistant memory, instruction
+  files, and a framework's checkpointer are How-beat material (question 9), not
+  entries.
+
+Bucket every entry by `planning/research/PROMPT.md`, which the test does not
+change: a single-provider service is Commercial whatever its license, and an
+open-source core with a hosted layer under the same brand is listed under both.
+
 **Categories to search for new entries.** The section has one flat Landscape
 ("Memory Tools"), so search the category as a whole:
 
 - Memory-as-a-service products and hosted memory APIs for agents.
+- Memory services from cloud and model vendors, where the memory layer is
+  callable or billable on its own. Mostly Commercial, being single-provider.
 - Open-source memory layers and libraries that work across model providers.
-- Memory components shipped inside a framework (for example a framework's own
-  long-term memory store or memory-management library). See open question A.
-- Memory features inside a harness or consumer assistant. See open question A.
+- Separately installable memory libraries published by a framework vendor. The
+  framework's own session state or checkpointer is not one of these.
 - Any product in this space that shut down, was acquired, or was archived in the
   past year: it belongs in Legacy / Decommissioned only if the shutdown has
   completed.
+
+For anything the test excludes, record what it is and where it lives, for
+question 9. The How beat needs those examples, so they are a finding, not a
+rejection.
 
 Unverified leads only, to confirm or reject at a primary source, not entries:
 Graphiti, Cognee, LangMem, Redis Agent Memory Server, Supermemory, Honcho,
@@ -209,15 +235,14 @@ the taxonomy's eight top-level bullets, in the taxonomy's own order.
 
 ## Open questions for the owner
 
-Raised on the section issue; they change what research should collect, so
-answers before stage 2 help most.
-
-- **A. Does the Memory Landscape list memory features that ship inside a
-  harness or a framework, or only standalone memory products?** The three
-  catalogued entries are all standalone. Model-vendor memory tools, consumer
-  assistant memory, and framework memory libraries are the bulk of what stage 2
-  will find, and the answer decides whether they are Landscape entries here,
-  material for the How beat only, or entries belonging to §1 or §2.
-- **B. Concept page filenames.** The checklist names pages by concept title;
-  the filenames are the planner's proposal at stage 4 and the owner's call,
-  since they are permanent URLs.
+- **A. What belongs in the Memory Landscape.** **Answered (owner, 2026-09-14,
+  issue #50):** anything adopted as a memory product in its own right, a
+  separately installable, callable or billable memory layer, whoever makes it;
+  memory that is only a feature of something adopted for other reasons goes in
+  the How beat. Written up as the entry test under "Products to check", and
+  applied to the search categories and to question 24. Nothing here is waiting
+  on it.
+- **B. Concept page filenames.** Open, and not a blocker: the checklist names
+  pages by concept title, and the planner proposes the filenames at stage 4,
+  where the plan-approval gate covers them. They are permanent URLs, so they
+  are the owner's call (owner, 2026-09-14, issue #50).
