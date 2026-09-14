@@ -9,7 +9,7 @@ type: landscape
 - [Together AI](https://www.together.ai/)
 - [Groq](https://groq.com/)
 - [Modal](https://modal.com/products/inference)
-  - The same product also runs sandboxes, listed under §12 Runtime and Execution Infrastructure
+  - The same product also runs sandboxes, listed in the [[run/runtime-and-execution/landscape|Runtime and Execution Infrastructure Landscape]]
 - [Replicate](https://replicate.com/) (Cloudflare)
   - Part of Cloudflare since the [acquisition](https://blog.cloudflare.com/replicate-joins-cloudflare/) announced November 2025. The same company's Workers AI is listed below
 - [DeepInfra](https://deepinfra.com/)
@@ -19,7 +19,7 @@ type: landscape
 - [Scaleway](https://www.scaleway.com/en/generative-apis/)
 - [Baseten](https://www.baseten.co/)
 - [Workers AI](https://developers.cloudflare.com/workers-ai/) (Cloudflare)
-  - Serverless inference on Cloudflare's edge network. The same company's agent hosting, Cloudflare Agents, is listed in §13 Agent Operations and Deployment
+  - Serverless inference on Cloudflare's edge network. The same company's agent hosting, Cloudflare Agents, is listed in the [[run/agent-operations/landscape|Operations and Deployment Landscape]]
 
 ## Open Source / Provider-agnostic
 

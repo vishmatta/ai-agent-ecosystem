@@ -14,7 +14,7 @@ type: landscape
   - Hosted commercial layer under the same brand as the open-source core (see Open Source)
 - [Helicone](https://www.helicone.ai/)
   - Hosted commercial layer under the same brand as the open-source core (see Open Source)
-  - A separate product from Helicone AI Gateway, listed in §6 Model Infrastructure: one company, two product lines under one brand. This entry is the original observability and logging product; the Gateway is a routing and fallback product added later
+  - A separate product from Helicone AI Gateway, listed in [[connect/model-infrastructure/routers-gateways-and-proxies|Model Routers, Gateways and Proxies]]: one company, two product lines under one brand. This entry is the original observability and logging product; the Gateway is a routing and fallback product added later
   - [Acquired by Mintlify](https://www.helicone.ai/blog/joining-mintlify), March 2026; in maintenance mode, with customers encouraged to migrate
 - [Arize AX](https://arize.com/)
   - Commercial platform under a separate brand name, built on Arize Phoenix
@@ -30,7 +30,7 @@ type: landscape
   - Self-hostable core, with a commercial layer under the same brand (see Commercial)
 - [Helicone](https://github.com/Helicone/helicone)
   - Self-hostable core, with a commercial layer under the same brand (see Commercial)
-  - Distinct from Helicone AI Gateway, listed in §6 Model Infrastructure
+  - Distinct from Helicone AI Gateway, listed in [[connect/model-infrastructure/routers-gateways-and-proxies|Model Routers, Gateways and Proxies]]
   - Acquired by Mintlify, March 2026; in maintenance mode, with customers encouraged to migrate
 
 ## Legacy / Decommissioned
