@@ -49,6 +49,7 @@
   - Coined the term "Agentic Development Environment" (ADE) with Warp 2.0, June 2025
   - Now three distinct products under one company: Warp Terminal (the original harness), Warp Agent CLI (a standalone coding agent for any terminal), and Warp Factories (fleet orchestration across the SDLC — a separate product, not an ADE mode of the terminal)
   - → Warp Factories also listed in §13 Agent Operations and Deployment Landscape, since it now fits that category more precisely than a harness ADE-mode
+  - Client open-sourced at [warpdotdev/warp](https://github.com/warpdotdev/warp) (AGPL v3; UI framework crates MIT). Not listed under Open Source: the built-in agent harness runs server-side and stays proprietary, as do the server, the Drive backend, and Oz, and the client can't use other providers' models without Warp's service ([FAQ](https://github.com/warpdotdev/warp/blob/main/FAQ.md))
 - [Zencoder](https://zencoder.ai/)
   - Zenflow is Zencoder's multi-agent orchestration mode — coordinates multiple models through structured Plan → Implement → Test → Review workflows, including cross-model verification (e.g. one model writes, a different model reviews) — has an ADE mode, see How to use an agent harness above
 - [Zed](https://zed.dev/ai)
@@ -84,6 +85,9 @@
 - [Mods](https://github.com/charmbracelet/mods) (Charm) — CLI utility for piping command output through an LLM (stdin → prompt → response), with MCP tool-calling since v1.8.0. Sunset March 9, 2026, and its GitHub repo archived so Charm could focus on Crush; much of its functionality lives on in Crush's non-interactive mode (`crush run`), above. Code remains MIT licensed and forkable. Briefly listed under Open Source / Provider-agnostic (v2.15) before the sunset was caught
 
 ## Changelog
+
+**2026-09-14**
+- Warp's client is now open source (AGPL v3) in `warpdotdev/warp`. Checked it against the Open Source / Provider-agnostic test (#81): its FAQ says the built-in agent harness runs server-side and isn't open, and that Codex or Claude models can't be used with existing subscriptions "today". The client can host other vendors' CLI agents, but the harness itself isn't open or multi-provider, so Warp stays under Commercial only, with a note. Revisit if Warp ships ACP support or opens the harness
 
 **2026-09-13**
 - Linked every Landscape entry to its official page, `[Name](url) (Creator)`; each URL was loaded and its title checked against the product. Legacy entries link to their shutdown or rebrand notice (Windsurf, Cascade, Gemini CLI), the product's own site (Continue), or the archived repository (Mods). Amazon Q Developer's end-of-support date links to AWS's announcement
