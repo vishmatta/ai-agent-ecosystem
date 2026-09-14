@@ -55,23 +55,29 @@ split (plan §3).
 | build | 1 | 1 | Agent Harnesses | `agent-harnesses` (live) | never | 1 |
 | build | 2 | 2 | Agent Frameworks | `agent-frameworks` (live) | never | 2: Code Frameworks, No-code / Low-code Builders |
 | build | 3 | 3 | Orchestration Patterns | `orchestration-patterns` | yes | none — no tooling exists |
-| build | 4 | 4 | Models | TBD | never | 1 |
+| build | 4 | 4 | Models | `models` | never | 1 |
 | build | 5 | 5 | Agent Behavior and Configuration | `agent-behavior` (live) | yes | 1 (Guardrails Tools) |
 | connect | 1 | 6 | Model Infrastructure | `model-infrastructure` | never | 4: Inference Providers, Model Serving, Model Routers/Gateways/Proxies, Local Inference |
-| connect | 1a | — | Cloud AI Platforms hub | TBD | — | cross-links only (plan §8.1) |
-| connect | 2 | 7 | Tools and Environment Interfaces | TBD | yes | 4: MCP Registries, Browser Automation, Voice/Multimodal Tools, Generative UI Tools |
-| connect | 3 | 9 | Context | TBD | yes | none — no tooling exists |
-| connect | 4 | 10 | Memory | TBD | yes | 1 |
+| connect | 1a | — | Cloud AI Platforms hub | `cloud-ai-platforms` | — | cross-links only (plan §8.1) |
+| connect | 2 | 7 | Tools and Environment Interfaces | `tools-and-environments` | yes | 4: MCP Registries, Browser Automation, Voice/Multimodal Tools, Generative UI Tools |
+| connect | 3 | 9 | Context | `context` | yes | none — no tooling exists |
+| connect | 4 | 10 | Memory | `memory` | yes | 1 |
 | connect | 5 | 11 | Knowledge and Retrieval | `knowledge-and-retrieval` | yes | 3: Vector Databases, Knowledge Graphs, Semantic Layer Tools |
-| connect | 6 | 8 | Agent Communication and Interoperability | TBD | yes | 1 |
-| run | 1 | 12 | Runtime and Execution Infrastructure | TBD | yes | 1 (Sandboxes) |
-| run | 2 | 13 | Agent Operations and Deployment | TBD | yes | 1 |
+| connect | 6 | 8 | Agent Communication and Interoperability | `agent-communication` | yes | 1 |
+| run | 1 | 12 | Runtime and Execution Infrastructure | `runtime-and-execution` | yes | 1 (Sandboxes) |
+| run | 2 | 13 | Agent Operations and Deployment | `agent-operations` | yes | 1 |
 | control | — | 14, 15 | _distributed — see the Control mapping below_ |  |  |  |
 
 Build and Run haven't had a reading-order pass yet, so they use taxonomy order
-(plan §10). The TBD slugs are still unsettled (#5). Don't create a TBD
-section until its slug is decided. The Explorer doesn't yet follow this order (see
+(plan §10). The Explorer doesn't yet follow this order (see
 `docs/plugins.md`).
+
+**Slug rule.** Descriptive, never numbered (plan §4). Keep enough words to be
+unambiguous across the site, and drop a trailing generic noun (Configuration,
+Interfaces, Infrastructure) when the rest stays clear: `agent-behavior`, not
+`agent-behavior-and-configuration`. `model-infrastructure` keeps its noun
+because `models` is taken. Slugs are permanent URLs, so a new one is the
+owner's call.
 
 ## Control mapping (§14 and §15)
 
