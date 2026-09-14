@@ -66,6 +66,7 @@
 - Commercial / Proprietary
   - [dbt Semantic Layer](https://www.getdbt.com/product/semantic-layer) (dbt Labs)
     - Hosted commercial layer via dbt Cloud
+    - dbt Labs merged with Fivetran in June 2026; the combined company operates as Fivetran + dbt Labs
   - [AtScale](https://www.atscale.com/)
   - [Cube](https://cube.dev/)
     - Hosted commercial layer under the same brand
@@ -80,6 +81,7 @@
 **2026-09-14**
 - Linked every Landscape entry to its official page, `[Name](url) (Creator)`, for the site's catalog port (#72). A dual-listed product links its hosted service from Commercial and its repository from Open Source. dbt Semantic Layer's open-source listing links MetricFlow, the Apache 2.0 engine behind it. No entries moved
 - Found while linking, left for the owner (#72): Fivetran completed its merger with dbt Labs on June 1, 2026, and the combined company is "initially operating as Fivetran + dbt Labs" ([announcement](https://www.getdbt.com/blog/fivetran-dbt-labs-complete-merger-to-create-the-data-infrastructure-for-trusted-ai-agents)). The "(dbt Labs)" attribution is unchanged pending that call
+- Applied the owner's decision on #72: kept the "(dbt Labs)" attribution and added a note on the Fivetran merger
 - Checked while linking: Weaviate's core stays BSD-3-Clause, but since August 2026 some features live in a separately licensed `wl/` directory, switched on by an environment variable. dbt Core's repository is now `dbt-labs/dbt`, whose main branch is the Apache 2.0 dbt v2.0 rewrite in Rust. Neither changes a placement
 
 **2026-09-13**
