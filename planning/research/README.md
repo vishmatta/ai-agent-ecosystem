@@ -5,10 +5,27 @@ came from. **Nothing here is authoritative.** The taxonomy
 (`planning/ai-agent-ecosystem-v*.md`) is. A research file is input to verify,
 never a source to cite or copy from, even after it's incorporated.
 
-## Adding a file (people and research agents)
+## Running research, with any tool
+
+Research isn't tied to one vendor. [`PROMPT.md`](PROMPT.md) is a
+self-contained brief that works in any tool. Use it either way:
+
+- **A coding agent with repo access** (Claude Code, Codex, Cursor, Gemini CLI,
+  Copilot, or others): ask it to "research <topic> following
+  `planning/research/PROMPT.md`". It reads the taxonomy and writes the file
+  here itself.
+- **A chat research tool** (Perplexity, ChatGPT deep research, Gemini Deep
+  Research, or others): paste `PROMPT.md` with the topic filled in, then save
+  the markdown it returns in this folder.
+
+Running two tools on the same topic, then comparing their output, is a cheap
+way to catch what one of them missed.
+
+## What a file looks like
 
 - One topic per file, named `YYYY-MM-DD-<topic-slug>.md`, dated the day the
-  research was done. Lowercase and hyphens, no spaces.
+  research was done. Lowercase and hyphens, no spaces. When several tools
+  research the same topic, add the tool: `2026-10-01-agent-memory-perplexity.md`.
 - Start with this frontmatter:
 
   ```yaml
@@ -16,23 +33,23 @@ never a source to cite or copy from, even after it's incorporated.
   title: Agent memory tooling landscape
   status: new # new | in-review | incorporated | rejected
   researched: 2026-09-13
-  by: <person, or agent plus model>
+  by: <person, or tool plus model>
   incorporated-in: "" # filled in by the reviewer, e.g. "taxonomy v2.19 (#28)"
   ---
   ```
 
-- For each product or claim, link its primary source: the vendor's own page,
-  docs, or repository. Blogs, reviews, and listicles are leads, not evidence.
-- Propose a placement for each product (taxonomy section and Landscape
-  bucket), using the taxonomy's `## Formatting rules`. Say so when something
-  fits no section, rather than forcing it.
-- Flag anything you couldn't confirm as `(unconfirmed)`.
-- Write only in this folder. Don't edit the taxonomy, the site plan,
-  `content/`, or other research files; review does that.
+- The body follows `PROMPT.md`'s output shape: for each product, a
+  neutral description, a proposed placement, license and status, a primary
+  source, and whether it's confirmed. Blogs, reviews, and listicles are leads,
+  not evidence.
+- A research agent writes only in this folder. It doesn't edit the taxonomy,
+  the site plan, `content/`, or other research files; review does that.
 
 ## Reviewing a file
 
-1. Open an issue for it and set `status: in-review`.
+1. Open an issue for it and set `status: in-review`. Where you can, review with
+   a different vendor's tool than the one that did the research: models from
+   different vendors tend to miss different things.
 2. Verify every item at its primary source: license and archived status on
    GitHub, and the vendor's own announcements for renames and shutdowns.
    Research goes stale fast; expect some of it to be wrong by review time.
