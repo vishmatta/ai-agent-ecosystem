@@ -60,6 +60,8 @@ Control is genuinely cross-cutting — a security policy applies at build time, 
 
 ### Migration mapping (revised)
 
+*Sections within each stage decided 2026-09-13 (#36): Build items go to §5 Agent Behavior and Configuration; all four Connect items to §7 Tools and Environment Interfaces; Run's rate and budget limits to §13 Agent Operations and Deployment.*
+
 **Moves into Build:**
 - Agent and Prompt Governance — specifically Prompt and instruction governance (system instructions, agent instructions, prompt versioning, approval/review, prompt testing) — pairs with existing Agent Behavior and Configuration content. **Not the same taxonomy bullet as Policy instructions below**, despite the similar name: Instruction hierarchy and Provenance/change tracking are Policy instructions' own children, not this bullet's, and stay on the Control hub per the Policies hub split — they don't move to Build.
 - Model/tool policies — moves out of Control to sit as a sibling alongside Policies in Build; see "Policies hub" decision below for why the content/lifecycle split puts both policy types here
@@ -190,6 +192,7 @@ Once the open questions above are settled: (1) build the site's template layer f
 *This file itself is still called v2 — v1 was a full structural rewrite, so it got a superseding filename; the entries below are incremental edits within v2, tracked here instead, following the same convention as the taxonomy doc's own Changelog.*
 
 **2026-09-13**
+- Recorded which section each moved Control item lands in (#36), since this doc had fixed only the stage: prompt and instruction governance → §5; Access and Authorization, Secrets management and credential delegation, Prompt-injection defenses, and the MCP-specific attack surface → §7 (the Connect boundary where tools and untrusted content arrive); Rate limiting and Resource/budget limits → §13, alongside its existing planning-level budget item (the §7 inventory's reciprocal §13/§14 pair now lands in one place, as it anticipated). Consequence: §7 becomes the largest Connect section, gaining the Secrets Management Tools and Prompt-Injection Defense Tools Landscape pages
 - Taxonomy split into one file per section (`planning/taxonomy/`), with no version number in filenames. Replaced the three live version-pointers (header line, §4 Tags note, §8 item 4) with pointers to the new files; they won't need bumping again. Historical version citations are untouched
 - Taxonomy doc v2.18 → v2.19, which folds in a harness/framework landscape research pass and drafts §2. Bumped the three live version-pointers. Agent Frameworks' Landscape now splits into two product categories (Code Frameworks, No-code / Low-code Builders), so §3's category-split examples gain Frameworks and its single-category list loses it; §7's "confirmed safe" list drops Frameworks for the same reason. No existing `→` targets the Frameworks Landscape, so nothing moves to "at risk." Arrow count 79 → 81: §2's drafted beats add two cross-references (→ §1 in What, → §3 in How), both to pages that neither move nor split
 - §8 item 1's "Vertex" example now names Gemini Enterprise Agent Platform, Vertex AI's name since April 22, 2026. §10's narrative backlog: drafted for §1 and §2
