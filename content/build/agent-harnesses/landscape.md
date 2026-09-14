@@ -23,7 +23,7 @@ type: landscape
 - [Warp](https://www.warp.dev/)
   - Its client is [open source](https://github.com/warpdotdev/warp) (AGPL v3), but the built-in agent harness runs server-side and stays proprietary, so Warp isn't listed under Open Source
   - Coined "Agentic Development Environment" (ADE) with Warp 2.0, June 2025
-  - Now three products: Warp Terminal (the original harness), Warp Agent CLI (a standalone coding agent for any terminal), and Warp Factories (fleet orchestration across the SDLC; a separate product, listed under §13 Agent Operations and Deployment)
+  - Now three products: Warp Terminal (the original harness), Warp Agent CLI (a standalone coding agent for any terminal), and Warp Factories (fleet orchestration across the SDLC; a separate product, listed in the [[run/agent-operations/landscape|Operations and Deployment Landscape]])
 - [Zencoder](https://zencoder.ai/)
   - Zenflow is its multi-agent orchestration mode: Plan → Implement → Test → Review workflows, with one model checking another's work. An ADE mode
 - [Zed](https://zed.dev/ai)
