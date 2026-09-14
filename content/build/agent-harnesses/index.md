@@ -40,7 +40,7 @@ Harnesses run as a CLI, embedded in an IDE, or hosted in the cloud, and increasi
 
 A traditional harness runs one agent loop you converse with. An Agentic Development Environment (ADE) is a control plane for supervising multiple agents in parallel across a workflow. Most ADEs are a mode within a product that also functions as a traditional harness, not a separate product. Cursor and Devin Desktop serve both roles depending on mode.
 
-Warp is the notable exception: its ADE capability has spun out into Warp Factories, a standalone product separate from Warp Terminal, which now resembles §13 Agent Operations and Deployment more closely than a terminal-embedded mode.
+Warp is the notable exception: its ADE capability has spun out into Warp Factories, a standalone product separate from Warp Terminal, which now resembles [[run/agent-operations/index|Agent Operations and Deployment]] more closely than a terminal-embedded mode.
 
 ### Where agent harnesses are heading
 

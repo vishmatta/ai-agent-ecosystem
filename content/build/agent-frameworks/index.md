@@ -45,7 +45,7 @@ Choosing among code frameworks usually comes down to four criteria:
 - **Language:** Python, TypeScript, .NET, Java, Go. Few frameworks cover more than two.
 - **Model commitment:** a model vendor's own SDK is thinnest on that vendor's models; provider-agnostic frameworks trade some of that for portability.
 - **How much state the agent keeps:** a simple tool loop, or durable, checkpointed graphs that pause for human input and resume.
-- **Cloud alignment:** each hyperscaler's framework deploys most directly to its own managed runtime (§13 Agent Operations and Deployment).
+- **Cloud alignment:** each hyperscaler's framework deploys most directly to its own managed runtime ([[run/agent-operations/index|Agent Operations and Deployment]]).
 
 No-code / low-code builders fit when the people defining the agent aren't engineers, or when the work is mostly integration glue between existing systems. They run out of room as agent logic grows complex.
 
@@ -53,9 +53,9 @@ Continuity risk applies here too. Microsoft folded AutoGen and Semantic Kernel i
 
 ### How agent frameworks are used
 
-Common shapes are one agent in a tool-calling loop; an explicit graph or state machine with checkpoints between steps; teams of role-based agents with assigned goals; and event-driven workflows that react to typed events. Frameworks are where the §3 Orchestration Patterns get implemented.
+Common shapes are one agent in a tool-calling loop; an explicit graph or state machine with checkpoints between steps; teams of role-based agents with assigned goals; and event-driven workflows that react to typed events. Frameworks are where [[build/orchestration-patterns/index|Orchestration Patterns]] get implemented.
 
-In production, a framework is usually paired with a managed runtime to host the agent (§13), a gateway for model access (§6 Model Infrastructure), and an observability layer (§15 Observability and Evaluation).
+In production, a framework is usually paired with a managed runtime to host the agent ([[run/agent-operations/index|Agent Operations and Deployment]]), a gateway for model access ([[connect/model-infrastructure/index|Model Infrastructure]]), and an observability layer (§15 Observability and Evaluation).
 
 ### Where agent frameworks are heading
 
