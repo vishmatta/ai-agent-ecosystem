@@ -31,7 +31,7 @@ landscapes:
     stats:
       - { value: 3, label: tools catalogued }
       - { value: 3, label: commercial }
-      - { value: 2, label: open source }
+      - { value: 1, label: open source }
   - title: Prompt-Injection Defense Tools
     href: /connect/tools-and-environments/prompt-injection-defense-tools
     stats:

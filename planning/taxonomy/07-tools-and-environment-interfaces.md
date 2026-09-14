@@ -54,7 +54,8 @@
   - [Smithery](https://smithery.ai/)
   - [Glama](https://glama.ai/mcp/servers)
 - Open Source / Provider-agnostic
-  - [MCP Registry](https://registry.modelcontextprotocol.io/) (Anthropic)
+  - [MCP Registry](https://registry.modelcontextprotocol.io/)
+    - An official MCP project, maintained by the registry working group; MCP is part of the Agentic AI Foundation at the Linux Foundation
 
 **Browser Automation**
 - Commercial / Proprietary
@@ -78,7 +79,8 @@
 
 **Generative UI Tools** (newer, less-settled space as a category, though attributions below are confirmed)
 - Commercial / Proprietary
-  - [C1](https://www.thesys.dev/openui-cloud) (Thesys)
+  - [OpenUI Cloud](https://www.thesys.dev/openui-cloud) (Thesys)
+    - Formerly C1
   - [Vercel v0](https://v0.app/)
 - Open Source / Provider-agnostic
   - [assistant-ui](https://www.assistant-ui.com/) (Simon Farshid)
@@ -90,6 +92,7 @@
 - Bucketed MCP Registries per the owner's decision on #67 (D5), entry by entry: the MCP Registry is an open-source project (Open Source / Provider-agnostic); Smithery and Glama are hosted services (Commercial / Proprietary)
 - Flattened the "Whisper-based local tools" group into its one entry, Voxtype, with the group's description as a sub-bullet, so the list names products rather than a group
 - Found while linking, left for the owner (#70): C1 is now OpenUI Cloud ("Formerly C1 API" on thesys.dev); the MCP Registry is "an official MCP project maintained by the registry working group", built by PulseMCP, Block, GitHub and Anthropic, and MCP itself now sits in the Agentic AI Foundation at the Linux Foundation, so "(Anthropic)" is imprecise. Entries unchanged pending those calls
+- Applied the owner's decisions on #70: renamed C1 to OpenUI Cloud, with a "Formerly C1" note; dropped the MCP Registry's "(Anthropic)" attribution, since the name contains MCP, and added a note on who maintains it, as §1 does for Goose
 - Checked while linking: voxtype.io now describes Voxtype as for "Linux and macOS", so the naming-collision note no longer calls it "the Linux tool"; the OpenAI Realtime API is GA, with a beta-to-GA migration guide
 
 **2026-09-13**

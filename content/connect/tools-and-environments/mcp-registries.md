@@ -10,7 +10,8 @@ type: landscape
 
 ## Open Source / Provider-agnostic
 
-- [MCP Registry](https://registry.modelcontextprotocol.io/) (Anthropic)
+- [MCP Registry](https://registry.modelcontextprotocol.io/)
+  - An official MCP project, maintained by the registry working group. MCP is part of the [Agentic AI Foundation](https://aaif.io/) at the Linux Foundation
 
 ## Legacy / Decommissioned
 

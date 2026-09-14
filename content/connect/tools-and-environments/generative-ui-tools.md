@@ -5,7 +5,8 @@ type: landscape
 
 ## Commercial / Proprietary
 
-- [C1](https://www.thesys.dev/openui-cloud) (Thesys)
+- [OpenUI Cloud](https://www.thesys.dev/openui-cloud) (Thesys)
+  - Formerly C1
 - [Vercel v0](https://v0.app/)
 
 ## Open Source / Provider-agnostic
