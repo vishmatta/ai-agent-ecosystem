@@ -1,6 +1,13 @@
 ---
 title: Runtime and Execution Infrastructure
 type: narrative
+landscapes:
+  - title: Runtime and Execution Infrastructure Landscape
+    href: /run/runtime-and-execution/landscape
+    stats:
+      - { value: 5, label: sandboxes catalogued }
+      - { value: 3, label: commercial }
+      - { value: 4, label: open source }
 deckPending: >-
   Narrative (What / Why / When / How / Where) not yet drafted for this section. The five beats below are placeholders.
 ---
