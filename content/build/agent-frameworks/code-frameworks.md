@@ -16,7 +16,7 @@ type: landscape
 - [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/)
 - [LangChain](https://www.langchain.com/langchain)
 - [LangGraph](https://www.langchain.com/langgraph) (LangChain)
-  - Graph orchestration with checkpointed, resumable state. Its commercial deployment layer, LangSmith Deployment, is separately branded (§13 Agent Operations and Deployment)
+  - Graph orchestration with checkpointed, resumable state. Its commercial deployment layer, LangSmith Deployment, is separately branded (see the [[run/agent-operations/landscape|Operations and Deployment Landscape]])
 - [CrewAI](https://crewai.com/)
 - [Google ADK](https://adk.dev/)
 - [Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/)
