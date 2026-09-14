@@ -78,8 +78,8 @@
 
 **Agent Identity Tools**
 - Commercial / Proprietary
-  - WorkOS
-  - Auth0 (Okta)
+  - [WorkOS](https://workos.com/docs/authkit/agent-blueprints)
+  - [Auth0](https://auth0.com/ai) (Okta)
 
 **Secrets Management Tools**
 - Commercial / Proprietary
@@ -100,6 +100,9 @@
   - CalypsoAI
 
 ## Changelog
+
+**2026-09-14**
+- Linked the Agent Identity Tools entries to their official pages, `[Name](url) (Creator)`, for the site's catalog port (#75): WorkOS to its Agent Auth docs (it has no product page for agent identity), Auth0 to Auth0 for AI Agents. No entries moved. Secrets Management Tools and Prompt-Injection Defense Tools are linked by §7's port (#70), since their pages publish under §7
 
 **2026-09-13**
 - Split out of `ai-agent-ecosystem-v2.19.md` unchanged, when the taxonomy became one file per section. Earlier history is in [changelog.md](changelog.md).
