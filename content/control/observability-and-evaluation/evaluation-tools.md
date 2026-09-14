@@ -12,7 +12,8 @@ type: landscape
 
 - [promptfoo](https://www.promptfoo.dev/) (OpenAI)
   - Founded by Ian Webster and Michael D'Angelo. Acquired by OpenAI in 2026; remains open source under continued independent development
-- [Ragas](https://docs.ragas.io/) (ExplodingGradients)
+- [Ragas](https://docs.ragas.io/) (Vibrant Labs)
+  - Formerly ExplodingGradients
 - [DeepEval](https://deepeval.com/) (Confident AI)
 
 ## Legacy / Decommissioned

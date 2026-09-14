@@ -66,23 +66,26 @@
   - [Weights & Biases Weave](https://wandb.ai/site/weave/)
   - [Datadog LLM Observability](https://www.datadoghq.com/product/llm-observability/)
   - [Honeycomb](https://www.honeycomb.io/use-cases/agent-observability)
-  - [Langfuse](https://langfuse.com/)
+  - [Langfuse](https://langfuse.com/) (ClickHouse)
     - Hosted commercial layer under the same brand
   - [Helicone](https://www.helicone.ai/)
     - Hosted commercial layer under the same brand
     - Distinct product from Helicone AI Gateway (§6) — same company, two separate product lines under one brand: this entry is the original observability/logging product; the Gateway is a separate routing/fallback product added later
+    - Acquired by Mintlify, March 2026; in maintenance mode, with customers encouraged to migrate
   - [Arize AX](https://arize.com/)
     - Commercial platform under a separate brand name, built on Arize Phoenix
+  - [Arize Phoenix](https://phoenix.arize.com/)
+    - Self-hostable, but source-available under the Elastic License 2.0, not open source
+    - Commercial platform available under a separate brand, Arize AX
   - [Fiddler AI](https://www.fiddler.ai/)
     - Positions itself as a control plane across agents built on any framework — telemetry, evaluation, monitoring, and policy enforcement in one layer
 - Open Source / Provider-agnostic
-  - [Langfuse](https://github.com/langfuse/langfuse)
+  - [Langfuse](https://github.com/langfuse/langfuse) (ClickHouse)
     - Self-hostable core; commercial layer under the same brand
   - [Helicone](https://github.com/Helicone/helicone)
     - Self-hostable core; commercial layer under the same brand
     - → distinct from Helicone AI Gateway; see §6
-  - [Arize Phoenix](https://phoenix.arize.com/)
-    - Commercial platform available under a separate brand, Arize AX
+    - Acquired by Mintlify, March 2026; in maintenance mode, with customers encouraged to migrate
 
 **Evaluation Tools**
 - Commercial / Proprietary
@@ -91,7 +94,8 @@
 - Open Source / Provider-agnostic
   - [promptfoo](https://www.promptfoo.dev/) (OpenAI)
     - Founded by Ian Webster and Michael D'Angelo; acquired by OpenAI in 2026, remains open source under continued independent development
-  - [Ragas](https://docs.ragas.io/) (ExplodingGradients)
+  - [Ragas](https://docs.ragas.io/) (Vibrant Labs)
+    - Formerly ExplodingGradients
   - [DeepEval](https://deepeval.com/) (Confident AI)
 
 **Code Review Tools**
@@ -113,6 +117,7 @@
 - Linked every Landscape entry to its official page, `[Name](url) (Creator)`, for the site's catalog port (#76). A dual-listed product links its hosted service from Commercial and its repository from Open Source. Benchmarks keep name-only attribution and link to their site, dataset or repository. No entries moved
 - Bucketed the Benchmarks list under Open Source / Provider-agnostic, per the owner's decision on #67 (D5)
 - Found while linking, left for the owner (#76): Mintlify acquired Helicone (March 3, 2026), which now runs in maintenance mode with customers helped to migrate, and no end date; Langfuse has been part of ClickHouse since January 2026; Ragas's maker ExplodingGradients now operates as Vibrant Labs. Entries unchanged pending those calls
+- Applied the owner's decisions: Helicone keeps both listings with a maintenance-mode note, since the wind-down hasn't completed (#76); Langfuse is attributed to ClickHouse and Ragas to Vibrant Labs (#76); Arize Phoenix moved to Commercial only, with its Elastic License 2.0 noted, per the rule on #88
 - Checked while linking: Arize Phoenix is under the Elastic License 2.0 (source-available); Weights & Biases Weave's SDK is Apache 2.0; promptfoo's acquisition by OpenAI was announced March 9, 2026 as pending closing; Terminal-Bench 2.0 runs through the Harbor framework; τ-bench's site covers its successor, τ²-bench. None changes a placement
 
 **2026-09-13**

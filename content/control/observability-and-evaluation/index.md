@@ -6,8 +6,8 @@ landscapes:
     href: /control/observability-and-evaluation/observability-tools
     stats:
       - { value: 10, label: tools catalogued }
-      - { value: 9, label: commercial }
-      - { value: 3, label: open source }
+      - { value: 10, label: commercial }
+      - { value: 2, label: open source }
   - title: Evaluation Tools
     href: /control/observability-and-evaluation/evaluation-tools
     stats:
