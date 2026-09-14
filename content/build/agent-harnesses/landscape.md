@@ -21,6 +21,7 @@ type: landscape
 - [Kiro](https://kiro.dev/) (Amazon)
   - Named successor to Amazon Q Developer's IDE plugins
 - [Warp](https://www.warp.dev/)
+  - Its client is [open source](https://github.com/warpdotdev/warp) (AGPL v3), but the built-in agent harness runs server-side and stays proprietary, so Warp isn't listed under Open Source
   - Coined "Agentic Development Environment" (ADE) with Warp 2.0, June 2025
   - Now three products: Warp Terminal (the original harness), Warp Agent CLI (a standalone coding agent for any terminal), and Warp Factories (fleet orchestration across the SDLC; a separate product, listed under §13 Agent Operations and Deployment)
 - [Zencoder](https://zencoder.ai/)
