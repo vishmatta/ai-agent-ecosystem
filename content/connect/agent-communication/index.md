@@ -1,6 +1,13 @@
 ---
 title: Agent Communication and Interoperability
 type: narrative
+landscapes:
+  - title: Communication and Interoperability Landscape
+    href: /connect/agent-communication/landscape
+    stats:
+      - { value: 3, label: protocols catalogued }
+      - { value: 2, label: open source }
+      - { value: 1, label: legacy }
 deckPending: >-
   Narrative (What / Why / When / How / Where) not yet drafted for this section. The five beats below are placeholders.
 ---
