@@ -83,25 +83,28 @@
 
 **Secrets Management Tools**
 - Commercial / Proprietary
-  - Doppler
-  - HashiCorp Vault
-    - Hosted commercial layer via HCP Vault
-  - Infisical
+  - [Doppler](https://www.doppler.com/)
+  - [HashiCorp Vault](https://www.hashicorp.com/en/products/vault)
+    - Hosted as HCP Vault; self-managed Vault is source-available under the Business Source License 1.1 since version 1.15, not open source
+    - HashiCorp is part of IBM
+  - [Infisical](https://infisical.com/)
     - Hosted commercial layer under the same brand
 - Open Source / Provider-agnostic
-  - HashiCorp Vault
-    - Self-hostable core; commercial layer via HCP Vault
-  - Infisical
+  - [Infisical](https://github.com/Infisical/infisical)
     - Self-hostable core; commercial layer under the same brand
 
 **Prompt-Injection Defense Tools**
 - Commercial / Proprietary
-  - Lakera
-  - CalypsoAI
+  - [Lakera](https://www.lakera.ai/) (Check Point)
+  - [F5 AI Guardrails](https://www.f5.com/products/ai-guardrails)
+    - Formerly CalypsoAI, acquired by F5 in September 2025
 
 ## Changelog
 
 **2026-09-14**
+- Linked the Secrets Management Tools and Prompt-Injection Defense Tools entries to their official pages for §7's catalog port (#70), where both lists publish (#58, D4). No entries moved
+- Applied the owner's decisions: HashiCorp Vault moved to Commercial only, with its Business Source License noted, per the rule on #88; Lakera is attributed to Check Point, and CalypsoAI renamed F5 AI Guardrails with a note (#70)
+- Found while linking, left for the owner (#70): HashiCorp Vault is under the Business Source License since 1.15, with IBM as licensor, so its Open Source listing is source-available; Lakera is "a Check Point company"; F5 completed its acquisition of CalypsoAI on September 26, 2025, and calypsoai.com now redirects to F5 AI Guardrails. Entries unchanged pending those calls
 - Linked the Agent Identity Tools entries to their official pages, `[Name](url) (Creator)`, for the site's catalog port (#75): WorkOS to its Agent Auth docs (it has no product page for agent identity), Auth0 to Auth0 for AI Agents. No entries moved. Secrets Management Tools and Prompt-Injection Defense Tools are linked by §7's port (#70), since their pages publish under §7
 
 **2026-09-13**
