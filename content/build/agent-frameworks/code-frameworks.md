@@ -18,7 +18,8 @@ type: landscape
 - [LangGraph](https://www.langchain.com/langgraph) (LangChain)
   - Graph orchestration with checkpointed, resumable state. Its commercial deployment layer, LangSmith Deployment, is separately branded (see the [[run/agent-operations/landscape|Operations and Deployment Landscape]])
 - [CrewAI](https://crewai.com/)
-- [Google ADK](https://adk.dev/)
+- [Agent Development Kit](https://adk.dev/) (Google)
+  - Abbreviated ADK
 - [Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/)
   - Successor to AutoGen and Semantic Kernel (see Legacy); Python and .NET
 - [LlamaIndex](https://developers.llamaindex.ai/python/framework/)
@@ -27,7 +28,7 @@ type: landscape
 - [smolagents](https://huggingface.co/docs/smolagents) (Hugging Face)
 - [Mastra](https://github.com/mastra-ai/mastra)
   - Self-hostable open-source core; enterprise features and the hosted layer are commercial (see Commercial)
-- [Vercel AI SDK](https://ai-sdk.dev/)
+- [AI SDK](https://ai-sdk.dev/) (Vercel)
 - [DSPy](https://dspy.ai/) (Stanford)
 - [Haystack](https://haystack.deepset.ai/) (deepset)
 - [AG2](https://www.ag2.ai/)

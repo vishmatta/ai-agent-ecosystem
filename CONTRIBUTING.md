@@ -27,7 +27,7 @@ is in `planning/taxonomy/README.md`.
   product's own page over the company homepage; a Legacy entry links to its
   shutdown or rebrand notice, or its archived repository. Creator is
   omitted when its name is already contained in the product name (e.g.
-  "Google ADK," "Pinecone"). For solo or small-team open-source projects,
+  "Microsoft Agent Framework," "Pinecone"). For solo or small-team open-source projects,
   the actual creator's name or handle is used even without a company behind
   it (e.g. "Aider (Paul Gauthier)," "Oh My Pi (can1357)"); `Name (open
   source community)` is reserved for projects with no single identifiable
@@ -41,6 +41,12 @@ is in `planning/taxonomy/README.md`.
   name only, without attribution, since academic benchmarks typically have
   multiple co-authoring institutions rather than a single corporate
   creator.
+- **Lead with the current name.** An entry uses the product's current
+  official name, as the vendor's own product page uses it. A former name
+  goes in a sub-bullet ("Formerly …"), never in the entry's name. Check
+  the name at the product page, not only a changelog or a news story; a
+  brand the vendor has dropped from its product pages is a rename even
+  without an announcement.
 - No inline notes, dates, or explanations next to an entry. Anything beyond
   bare identification is a nested sub-bullet underneath it, including
   cross-references.

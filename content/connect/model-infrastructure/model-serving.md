@@ -17,5 +17,5 @@ type: landscape
 
 ## Legacy / Decommissioned
 
-- [Hugging Face TGI](https://github.com/huggingface/text-generation-inference)
+- [Text Generation Inference](https://github.com/huggingface/text-generation-inference) (Hugging Face)
   - Repository archived after TGI entered maintenance mode. Its maintainers recommend vLLM, SGLang, llama.cpp, or MLX instead

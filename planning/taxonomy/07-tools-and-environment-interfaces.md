@@ -81,11 +81,14 @@
 - Commercial / Proprietary
   - [OpenUI Cloud](https://www.thesys.dev/openui-cloud) (Thesys)
     - Formerly C1
-  - [Vercel v0](https://v0.app/)
+  - [v0](https://v0.app/) (Vercel)
 - Open Source / Provider-agnostic
   - [assistant-ui](https://www.assistant-ui.com/) (Simon Farshid)
 
 ## Changelog
+
+**2026-09-15**
+- Renamed Vercel v0 to "v0 (Vercel)", its official name
 
 **2026-09-14**
 - Linked every Landscape entry to its official page, `[Name](url) (Creator)`, for the site's catalog port (#70). A dual-listed product links its hosted service from Commercial and its repository from Open Source. No entries moved

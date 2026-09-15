@@ -28,7 +28,7 @@
     - Part of Cloudflare since the acquisition announced November 2025; the same company's Workers AI is listed below
   - [DeepInfra](https://deepinfra.com/)
   - [Cerebras](https://www.cerebras.ai/)
-  - [Hugging Face Inference](https://huggingface.co/docs/inference-providers/index)
+  - [Hugging Face Inference Providers](https://huggingface.co/docs/inference-providers/index)
   - [SambaNova](https://sambanova.ai/)
   - [Scaleway](https://www.scaleway.com/en/generative-apis/)
   - [Baseten](https://www.baseten.co/)
@@ -48,24 +48,25 @@
   - [llama.cpp server](https://github.com/ggml-org/llama.cpp/tree/master/tools/server) (Georgi Gerganov)
     - ggml.ai, its company, was acquired by Hugging Face in 2026
 - Legacy / Decommissioned
-  - [Hugging Face TGI](https://github.com/huggingface/text-generation-inference)
+  - [Text Generation Inference](https://github.com/huggingface/text-generation-inference) (Hugging Face)
     - Repository archived after TGI entered maintenance mode; its maintainers recommend vLLM, SGLang, llama.cpp, or MLX instead
 
 **Cloud AI Platforms**
-- [AWS Bedrock](https://aws.amazon.com/bedrock/)
-- [Google Gemini Enterprise Agent Platform](https://cloud.google.com/products/gemini-enterprise-agent-platform)
+- [Amazon Bedrock](https://aws.amazon.com/bedrock/)
+- [Gemini Enterprise Agent Platform](https://cloud.google.com/products/gemini-enterprise-agent-platform) (Google)
   - Formerly Google Vertex AI; rebranded April 22, 2026, with existing Vertex AI services continuing under the new name. Its managed agent runtime, Agent Runtime (formerly Agent Engine), is listed in §13
 - [Microsoft Foundry](https://azure.microsoft.com/en-us/products/ai-foundry)
   - Formerly Azure AI Foundry; renamed November 2025
-- [Oracle AI Agent Studio](https://www.oracle.com/applications/dawn-of-ai-enterprise-agent-workforce/)
-- [Databricks Mosaic AI](https://www.databricks.com/product/artificial-intelligence)
-- [Snowflake Cortex](https://www.snowflake.com/en/product/features/cortex/)
+- [Oracle AI Agent Studio for Fusion Applications](https://www.oracle.com/applications/dawn-of-ai-enterprise-agent-workforce/)
+- [Agent Bricks](https://www.databricks.com/product/artificial-intelligence/agent-bricks) (Databricks)
+  - Formerly Mosaic AI; Databricks' product pages now present Agent Bricks as its platform to build and govern AI agents
+- [Snowflake Cortex AI](https://www.snowflake.com/en/product/features/cortex/)
 - **Resolved:** these platforms span build, run, and governance capabilities, not just connectivity. Canonical content splits by actual capability (model access → §4 Models, deployment infrastructure → §12 Run, governance controls → wherever the Control mapping sends them), plus a lightweight hub page cross-linking the pieces for readers thinking of the platform as one thing. See Open Items and site-content-plan-v2.md §8 item 1.
 
 **Model Routers, Gateways and Proxies**
 - Commercial / Proprietary
   - [OpenRouter](https://openrouter.ai/)
-  - [Vercel AI Gateway](https://vercel.com/ai-gateway)
+  - [AI Gateway](https://vercel.com/ai-gateway) (Vercel)
   - [Nous Portal](https://portal.nousresearch.com/)
   - [LiteLLM](https://www.litellm.ai/) (BerriAI)
     - Hosted commercial layer under the same brand
@@ -96,6 +97,10 @@
   - [Jan](https://www.jan.ai/)
 
 ## Changelog
+
+**2026-09-15**
+- Renamed entries to their current official names: Hugging Face Inference Providers (its docs' name), Text Generation Inference (Hugging Face), and AI Gateway (Vercel)
+- Cloud AI Platforms entries now lead with their current official names, per the owner's rule (#77) and `CONTRIBUTING.md`: Amazon Bedrock (not AWS Bedrock), Gemini Enterprise Agent Platform (Google), Oracle AI Agent Studio for Fusion Applications, Agent Bricks (Databricks; formerly Mosaic AI, whose name Databricks' product pages no longer use), and Snowflake Cortex AI. Agent Bricks links its own product page
 
 **2026-09-14**
 - Linked every Landscape entry to its official page, `[Name](url) (Creator)`, for the site's catalog port (#69), including the Cloud AI Platforms list for the hub (#77), which isn't published as a Landscape page. A dual-listed product links its hosted service from Commercial and its repository from Open Source. No entries moved
