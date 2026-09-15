@@ -4,7 +4,10 @@ about: A unit of work an agent can pick up with no other context
 ---
 
 <!-- If this can't start until another issue is done, make the first line: Blocked by #N
-     If it can't start until a date, make the first line: Not before YYYY-MM-DD -->
+     If it can't start until a date, make the first line: Not before YYYY-MM-DD
+     If it's an item on a tracker, say so under Context: Part of #N
+     Labels: one type and one priority (docs/triage.md) -->
+
 
 ## Goal
 

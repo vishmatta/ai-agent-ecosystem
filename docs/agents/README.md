@@ -7,7 +7,8 @@ through files, so any vendor's agent can run any stage.
 ## Stages
 
 A run covers one section, tracked by one issue (labelled `pipeline`, from the
-Section template) and one branch, `<issue>-<section-slug>`. Every stage commits
+Section template, with the priority of the pipeline tracker #37 per
+`docs/triage.md`) and one branch, `<issue>-<section-slug>`. Every stage commits
 to that branch. Files named `<run>` below are
 `planning/research/YYYY-MM-DD-<section-slug>`, using the date the run started.
 

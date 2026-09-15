@@ -12,7 +12,7 @@ https://vishmatta.github.io/ai-agent-ecosystem/ — every merge to `main` deploy
 | `plugins/agent-ecosystem-*/` | This site's own Quartz plugins: page template, components, graph. |
 | `quartz.config.yaml` | Site config: plugins, layout, theme, Explorer order. |
 | `quartz/styles/custom.scss` | Design tokens and shared template styles. |
-| `planning/` | The spec: site plan, PRD, two HTML mockups. Read on demand — see below. `issue-triage-plan.md` is a proposal, not yet in effect. |
+| `planning/` | The spec: site plan, PRD, two HTML mockups. Read on demand — see below. `issue-triage-plan.md` is the reasoning behind `docs/triage.md`. |
 | `planning/taxonomy/` | The taxonomy, one file per section. Authoritative for structure and entries; the site owns the prose. |
 | `planning/research/` | Research notes awaiting review, or kept as a record. Unverified input, never spec. |
 | `.github/` | `build-check.yml` (required PR check), `deploy.yml` (Pages deploy), `scripts/verify-build.mjs`. |
@@ -34,11 +34,13 @@ gh issue list -R vishmatta/ai-agent-ecosystem
 
 ## Workflow — several agents work in this repo in parallel
 
-1. **Work comes from GitHub Issues.** If you weren't given one, take the
-   lowest-numbered open issue without the `in-progress` or `needs-decision` label,
-   skipping any whose body says `Blocked by #N` while #N is still open, or
-   `Not before YYYY-MM-DD` while that date is still ahead. On a `pipeline`
-   issue, do only its next unchecked stage (`docs/agents/README.md`).
+1. **Work comes from GitHub Issues.** If you weren't given one, pick the next
+   one with `docs/triage.md` → Picking the next issue. It skips issues that
+   are claimed, blocked (`Blocked by #N` while #N is open), scheduled
+   (`Not before YYYY-MM-DD` while that date is ahead), or waiting on the
+   owner, and ranks the rest by priority. Say which issue you picked and
+   why. On a `pipeline` issue, do only its next unchecked stage
+   (`docs/agents/README.md`).
 2. **Claim it** before starting:
    `gh issue edit <n> -R vishmatta/ai-agent-ecosystem --add-label in-progress`.
 3. **Branch from `origin/main`**: `git fetch origin && git switch -c <n>-<short-slug> origin/main`.
@@ -63,8 +65,9 @@ merging to the maintainer.
 Issue templates: `.github/ISSUE_TEMPLATE/task.md` for ordinary work, and
 `section.md` for a section's content-pipeline run (label it `pipeline`).
 `gh issue create --body-file` doesn't apply a template, so copy the
-template's headings, without its front matter, into your body file. Issues
-should be self-contained enough that no other context is needed.
+template's headings, without its front matter, into your body file. Give
+every new issue one type label and one priority label (`docs/triage.md`).
+Issues should be self-contained enough that no other context is needed.
 
 ## Rules that are easy to break
 
@@ -89,6 +92,7 @@ should be self-contained enough that no other context is needed.
 | If your task touches… | Read first |
 |---|---|
 | anything (once per session, before your first commit) | `docs/practices.md` |
+| picking, opening, or triaging an issue | `docs/triage.md` |
 | changing the taxonomy | `docs/practices.md` → Changing the taxonomy |
 | `planning/research/` — adding or reviewing research | `planning/research/README.md` |
 | a `pipeline` issue (a section's content run) | `docs/agents/README.md`, then your stage's file |

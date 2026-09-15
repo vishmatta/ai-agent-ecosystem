@@ -45,8 +45,9 @@ git history and PRs already hold those.
 - If GitHub leaves a PR's mergeability unknown, test it locally:
   `git merge-tree --write-tree origin/main <branch>` exits non-zero on a
   conflict.
-- Track work that spans several PRs in one issue with a checklist. Each PR
-  ticks its items and references the issue without closing it. Remove your
+- Track work that spans several PRs in one issue with a checklist, labelled
+  `tracker`. Each PR ticks its items and references the issue without
+  closing it. Remove your
   `in-progress` label when you stop, so the rest doesn't look claimed.
 
 **Before calling it done**
