@@ -65,14 +65,14 @@ split (plan §3).
 | build | 5 | 5 | Agent Behavior and Configuration | `agent-behavior` (live) | yes | 1: `landscape` (Guardrails Tools) |
 | connect | 1 | 6 | Model Infrastructure | `model-infrastructure` (live) | never | 4: Inference Providers `inference-providers`, Model Serving `model-serving`, Model Routers, Gateways and Proxies `routers-gateways-and-proxies`, Local Inference `local-inference` |
 | connect | 1a | — | Cloud AI Platforms hub | `cloud-ai-platforms` (live) | — | cross-links only (plan §8.1) |
-| connect | 2 | 7 | Tools and Environment Interfaces | `tools-and-environments` (live) | yes | 6: MCP Registries `mcp-registries`, Browser Automation `browser-automation`, Voice / Multimodal Tools `voice-and-multimodal-tools`, Generative UI Tools `generative-ui-tools`, plus two from §14 (#36, #58): Secrets Management Tools `secrets-management-tools`, Prompt-Injection Defense Tools `prompt-injection-defense-tools` |
+| connect | 2 | 7 | Tools and Environment Interfaces | `tools-and-environments` (live) | yes | 7: MCP Registries `mcp-registries`, Tool Gateways `tool-gateways` (#100), Browser Automation `browser-automation`, Voice / Multimodal Tools `voice-and-multimodal-tools`, Generative UI Tools `generative-ui-tools`, plus two from §14 (#36, #58): Secrets Management Tools `secrets-management-tools`, Prompt-Injection Defense Tools `prompt-injection-defense-tools` |
 | connect | 3 | 9 | Context | `context` (live) | yes | none — no tooling exists |
 | connect | 4 | 10 | Memory | `memory` | yes | 1: `landscape` |
-| connect | 5 | 11 | Knowledge and Retrieval | `knowledge-and-retrieval` (live) | yes | 3: Vector Databases `vector-databases`, Knowledge Graphs `knowledge-graphs`, Semantic Layer Tools `semantic-layer-tools` |
+| connect | 5 | 11 | Knowledge and Retrieval | `knowledge-and-retrieval` (live) | yes | 5: Vector Databases `vector-databases`, Managed Retrieval Services `managed-retrieval`, Knowledge Graphs `knowledge-graphs`, Semantic Layer Tools `semantic-layer-tools`, Document Parsing Tools `document-parsing-tools` (#100) |
 | connect | 6 | 8 | Agent Communication and Interoperability | `agent-communication` (live) | yes | 1: `landscape` |
 | run | 1 | 12 | Runtime and Execution Infrastructure | `runtime-and-execution` (live) | yes | 1: `landscape` (Sandboxes) |
 | run | 2 | 13 | Agent Operations and Deployment | `agent-operations` (live) | yes | 1: `landscape` |
-| control | 1 | 14 | Security and Governance | `security-and-governance` (live) | yes | 1: Agent Identity Tools `agent-identity-tools` (§14's other two are §7's) |
+| control | 1 | 14 | Security and Governance | `security-and-governance` (live) | yes | 2: Agent Identity Tools `agent-identity-tools`, Agent Governance Tools `agent-governance-tools` (#100). §14's other two are §7's |
 | control | 2 | 15 | Observability and Evaluation | `observability-and-evaluation` (live) | yes | 4: Observability Tools `observability-tools`, Evaluation Tools `evaluation-tools`, Code Review Tools `code-review-tools`, Benchmarks `benchmarks` |
 
 `(live)` means the section's narrative page exists, drafted or not. §10 Memory's
@@ -112,8 +112,9 @@ them.
 - **Stays on the Control hub**, in two section folders under `control/` (#58,
   D1), with `control/index.md` as the hub that links out:
   - `control/security-and-governance/` (§14): Data Governance, Agent identity
-    (and its tools, `agent-identity-tools`), Audit logs, Human Oversight, and
-    the **Policies hub** (`policies-hub`: Policy instructions and Policy
+    (and its tools, `agent-identity-tools`), Audit logs, Human Oversight,
+    Agent Governance Tools (`agent-governance-tools`, #100), and the
+    **Policies hub** (`policies-hub`: Policy instructions and Policy
     enforcement).
   - `control/observability-and-evaluation/` (§15): all of it, kept together.
 

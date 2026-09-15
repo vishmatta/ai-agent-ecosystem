@@ -52,6 +52,7 @@
   - Policy enforcement
     - Runtime application of a policy once approved — applies generically to any policy regardless of type
     - → runtime application of the Guardrails tooling listed in §5; canonical tool list lives there, not duplicated here
+    - → tools that enforce rules on agents' actions, or govern a fleet of agents, are in the Security and Governance Landscape below (Agent Governance Tools)
 - Prompt-injection defenses
   - Content-level injection: untrusted text (web pages, emails, documents) manipulating model behavior
   - → tool list in Security and Governance Landscape below
@@ -85,6 +86,15 @@
   - [Agent Identity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview) (Google)
     - A SPIFFE-formatted ID for each agent, in place of shared service accounts
 
+**Agent Governance Tools** (rules on what agents may do, and oversight of an organization's agents, enforced outside the model)
+- Commercial / Proprietary
+  - [Amazon Bedrock AgentCore Policy](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/policy.html)
+    - Deterministic rules on agents' tool calls, enforced on all traffic through AgentCore Gateway (§7 Tool Gateways)
+  - [Microsoft Foundry Control Plane](https://learn.microsoft.com/en-us/azure/foundry/control-plane/overview)
+    - Visibility, governance and control for the agents, models and tools across an organization's Foundry resources
+  - [Microsoft Agent 365](https://learn.microsoft.com/en-us/microsoft-agent-365/overview)
+    - Observes, governs and secures the agents in an organization
+
 **Secrets Management Tools**
 - Commercial / Proprietary
   - [Doppler](https://www.doppler.com/)
@@ -110,6 +120,7 @@
 ## Changelog
 
 **2026-09-15**
+- Added an Agent Governance Tools category, per the owner's decision on #100 (V4): Amazon Bedrock AgentCore Policy; Microsoft Foundry Control Plane; Microsoft Agent 365. Each name and description was checked at its documentation page. Policy enforcement now points to it, alongside its existing pointer to §5's Guardrails tooling
 - Added the cloud vendors' agent services that fit this section's existing categories, per the owner's direction after the Cloud AI Platforms hub (#96): Amazon Bedrock AgentCore Identity; Microsoft Entra Agent ID; Agent Identity (Google); Model Armor (Google); Prompt Shields (Microsoft). Each name is the vendor's current one, checked at its product or documentation page, and each links there. New categories these vendors would need (tool gateways, managed retrieval, agent memory, policy planes, payments, document parsing) are a separate decision
 
 **2026-09-14**

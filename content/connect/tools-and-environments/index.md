@@ -8,6 +8,11 @@ landscapes:
       - { value: 5, label: registries catalogued }
       - { value: 4, label: commercial }
       - { value: 1, label: open source }
+  - title: Tool Gateways
+    href: /connect/tools-and-environments/tool-gateways
+    stats:
+      - { value: 3, label: gateways catalogued }
+      - { value: 3, label: commercial }
   - title: Browser Automation
     href: /connect/tools-and-environments/browser-automation
     stats:

@@ -39,6 +39,10 @@ type: landscape
 - [Trigger.dev](https://github.com/triggerdotdev/trigger.dev)
   - Self-hostable core, with a commercial layer under the same brand (see Commercial)
 - [BullMQ](https://bullmq.io/) (Taskforce.sh)
+- [Omnigent](https://omnigent.ai/) (Databricks)
+  - A meta-harness: one layer over Claude Code, Codex, Pi, and your own agents, adding policies (spend caps, model routing, escalation), an OS sandbox, and live sessions teammates can share
+  - Built in the open by Databricks' AI team, Neon, and outside contributors (Apache 2.0). In alpha
+  - Runs above the harnesses in the [[build/agent-harnesses/landscape|Harnesses Landscape]] rather than being one
 
 ## Legacy / Decommissioned
 

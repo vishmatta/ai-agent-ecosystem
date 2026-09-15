@@ -60,6 +60,10 @@
 - [Snowflake CoCo](https://docs.snowflake.com/en/user-guide/cortex-code/cortex-code)
   - Formerly Cortex Code
   - Snowflake's data-native AI coding agent
+- [Snowflake CoWork](https://www.snowflake.com/en/product/snowflake-cowork/)
+  - Formerly Snowflake Intelligence
+  - An agent for business users rather than a coding tool: answers questions over structured and unstructured enterprise data, runs multi-step deep research, and turns reports into recurring automations
+  - → built on Cortex Agents, listed in §13 Agent Operations and Deployment Landscape
 
 **Open Source / Provider-agnostic**
 - [OpenCode](https://opencode.ai/) (Anomaly)
@@ -90,6 +94,7 @@
 ## Changelog
 
 **2026-09-15**
+- Added Snowflake CoWork (Commercial), per the owner's direction on #100, next to Perplexity Computer as another general-purpose agent product. Its product page says "Formerly Snowflake Intelligence", and the old product and documentation URLs redirect to CoWork's
 - Added the cloud vendors' agent services that fit this section's existing categories, per the owner's direction after the Cloud AI Platforms hub (#96): Snowflake CoCo. Each name is the vendor's current one, checked at its product or documentation page, and each links there. New categories these vendors would need (tool gateways, managed retrieval, agent memory, policy planes, payments, document parsing) are a separate decision
 
 **2026-09-14**

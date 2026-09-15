@@ -98,19 +98,22 @@ Landscape.
 
 - **Build:** §1 Agent Harnesses (finished agent products you use, coding or
   general-purpose) · §2 Agent Frameworks (Code Frameworks; No-code / Low-code
-  Builders) · §3 Orchestration Patterns (no tooling) · §4 Models (company →
-  model line) · §5 Agent Behavior and Configuration (Guardrails Tools)
+  Builders) · §3 Orchestration Patterns (no tooling) · §4 Models (model
+  provider → model line) · §5 Agent Behavior and Configuration (Guardrails
+  Tools)
 - **Connect:** §6 Model Infrastructure (Inference Providers; Model Serving;
   Cloud AI Platforms; Model Routers, Gateways and Proxies; Local Inference) ·
-  §7 Tools and Environment Interfaces (MCP Registries; Browser Automation;
-  Voice / Multimodal Tools; Generative UI Tools) · §8 Agent Communication and
-  Interoperability (Protocols) · §9 Context (no tooling) · §10 Memory (Memory
-  Tools) · §11 Knowledge and Retrieval (Vector Databases; Knowledge Graphs;
-  Semantic Layer Tools)
+  §7 Tools and Environment Interfaces (MCP Registries; Tool Gateways; Browser
+  Automation; Voice / Multimodal Tools; Generative UI Tools) · §8 Agent
+  Communication and Interoperability (Protocols) · §9 Context (no tooling) ·
+  §10 Memory (Memory Tools) · §11 Knowledge and Retrieval (Vector Databases;
+  Managed Retrieval Services; Knowledge Graphs; Semantic Layer Tools; Document
+  Parsing Tools)
 - **Run:** §12 Runtime and Execution Infrastructure (Sandboxes) · §13 Agent
   Operations and Deployment
-- **Control:** §14 Security and Governance (Agent Identity Tools; Secrets
-  Management Tools; Prompt-Injection Defense Tools) · §15 Observability and
+- **Control:** §14 Security and Governance (Agent Identity Tools; Agent
+  Governance Tools; Secrets Management Tools; Prompt-Injection Defense Tools)
+  · §15 Observability and
   Evaluation (Observability Tools; Evaluation Tools; Code Review Tools;
   Benchmarks)
 

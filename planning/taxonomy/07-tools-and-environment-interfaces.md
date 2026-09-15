@@ -61,6 +61,16 @@
   - [MCP Registry](https://registry.modelcontextprotocol.io/)
     - An official MCP project, maintained by the registry working group; MCP is part of the Agentic AI Foundation at the Linux Foundation
 
+**Tool Gateways**
+- Commercial / Proprietary
+  - [Amazon Bedrock AgentCore Gateway](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway.html)
+    - One managed entry point for agent traffic: converts APIs, Lambda functions and existing services into MCP tools, fronts other agents (including A2A traffic), and routes model requests across providers
+    - AgentCore Policy enforces its rules at this gateway (§14 Agent Governance Tools)
+  - [Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview) (Google)
+    - Part of Gemini Enterprise Agent Platform: secures and governs traffic between users, agents and tools, and enforces the platform's IAM and semantic governance policies
+  - [Toolbox in Microsoft Foundry](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/toolbox-overview)
+    - Manages and shares the tools, APIs and MCP servers that Foundry agents call, in one place instead of per agent
+
 **Browser Automation**
 - Commercial / Proprietary
   - [Browserbase](https://www.browserbase.com/)
@@ -93,6 +103,7 @@
 ## Changelog
 
 **2026-09-15**
+- Added a Tool Gateways category, per the owner's decision on #100 (V1): Amazon Bedrock AgentCore Gateway; Agent Gateway (Google); Toolbox in Microsoft Foundry. Each name and description was checked at its documentation page. Google's agent policies are enforced through Agent Gateway rather than sold separately, so they're a sub-bullet here, not an entry
 - Added the cloud vendors' agent services that fit this section's existing categories, per the owner's direction after the Cloud AI Platforms hub (#96): AWS Agent Registry; Agent Registry (Google); Amazon Bedrock AgentCore Browser. Each name is the vendor's current one, checked at its product or documentation page, and each links there. New categories these vendors would need (tool gateways, managed retrieval, agent memory, policy planes, payments, document parsing) are a separate decision
 - Renamed Vercel v0 to "v0 (Vercel)", its official name
 
