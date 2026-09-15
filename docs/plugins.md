@@ -10,7 +10,7 @@ runtime as plain ESM. It has no TypeScript or JSX, so components use preact's
 
 | Plugin | Kind | What it does |
 |---|---|---|
-| `agent-ecosystem-page-types` | page type | Claims pages whose `type:` is narrative, concept, landscape, or how-to, and gives them the `taxonomy` layout (configured under `layout.byPageType.taxonomy`). Priority 20 puts it above Quartz's folder page, so a section's `index.md` renders as a taxonomy page instead of a folder listing. `home` keeps the default layout. |
+| `agent-ecosystem-page-types` | page type | Claims pages whose `type:` is narrative, concept, landscape, how-to, or hub, and gives them the `taxonomy` layout (configured under `layout.byPageType.taxonomy`). Priority 20 puts it above Quartz's folder page, so a section's `index.md` renders as a taxonomy page instead of a folder listing. `home` keeps the default layout. |
 | `agent-ecosystem-stage-page` | page type | Claims the four stage pages (priority 15, between the folder page and the taxonomy page type) and renders the folder page's own listing, sorted by the Explorer's `sortFn` read from `quartz.config.yaml`, so sections appear in registry order rather than newest-edited first. |
 | `agent-ecosystem-template` | transformer | Wraps the What/Why/When/How/Where `h3` beats in `<details>` accordions and adds an `ae-page--<type>` class. |
 | `agent-ecosystem-deck` | component, beforeBody | Renders `deck` or `deckPending` under the title. |

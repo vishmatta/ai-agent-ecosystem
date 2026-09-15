@@ -13,6 +13,9 @@ import { ContentBody } from "@quartz-community/content-page"
  * chrome and in which components render, not in how their markdown is
  * rendered, so there is nothing to reimplement.
  *
+ * `hub` is a cross-link page such as Cloud AI Platforms: plain body, no
+ * beats, no Landscape card.
+ *
  * `home` is deliberately excluded — it keeps the default `content` layout
  * until the home page itself is written (site plan §9).
  *
@@ -22,7 +25,7 @@ import { ContentBody } from "@quartz-community/content-page"
  * panel. Stage pages carry no `type:`, so they stay folder listings, claimed
  * by agent-ecosystem-stage-page for their order.
  */
-const TAXONOMY_TYPES = ["narrative", "concept", "landscape", "how-to"]
+const TAXONOMY_TYPES = ["narrative", "concept", "landscape", "how-to", "hub"]
 
 export default () => ({
   name: "AgentEcosystemTaxonomyPage",

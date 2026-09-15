@@ -23,7 +23,7 @@
  */
 
 const BEATS = ["what", "why", "when", "how", "where"]
-const TAXONOMY_TYPES = ["narrative", "concept", "landscape", "home", "how-to"]
+const TAXONOMY_TYPES = ["narrative", "concept", "landscape", "home", "how-to", "hub"]
 
 /** Plain-text content of a HAST node, for beat detection. */
 function textOf(node) {

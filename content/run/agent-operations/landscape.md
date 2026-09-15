@@ -17,7 +17,7 @@ type: landscape
 - [Amazon Bedrock AgentCore](https://aws.amazon.com/bedrock/agentcore/)
   - Managed runtime for deploying and operating agents on AWS, built with any framework
 - [Agent Runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime) (Google)
-  - Managed agent runtime within Gemini Enterprise Agent Platform. See Cloud AI Platforms in §6 Model Infrastructure
+  - Managed agent runtime within Gemini Enterprise Agent Platform. See the [[connect/cloud-ai-platforms/index|Cloud AI Platforms]] hub
   - Formerly Vertex AI Agent Engine, then Agent Engine. The API resource keeps the name `ReasoningEngine`
 - [Cloudflare Agents](https://agents.cloudflare.com/)
   - Stateful agents hosted on Cloudflare's global network. The SDK is open source (MIT) but runs only on Cloudflare, so it isn't listed under Open Source
