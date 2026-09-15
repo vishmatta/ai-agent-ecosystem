@@ -59,10 +59,14 @@
 **Guardrails Tools**
 - Open Source / Provider-agnostic
   - [Guardrails AI](https://guardrailsai.com/)
+    - Acquired by Harvey, announced September 9, 2026; founders and team joined Harvey's product/engineering org. The Hub installer and hosted validator inference were sunset August 25, 2026, with validators moving to standard PyPI packages; the core framework repo remains active and unarchived
   - [NeMo Guardrails](https://developer.nvidia.com/nemo-guardrails) (NVIDIA)
   - [LlamaGuard](https://developer.meta.com/ai/docs/model-cards-and-prompt-formats/llama-guard-4/) (Meta)
 
 ## Changelog
+
+**2026-09-15**
+- Noted Guardrails AI's acquisition by Harvey and the Hub sunset as a sub-bullet; kept it under Open Source since the framework repo is still active and hasn't had an announced end-of-life (see issue #98) — revisit for a Legacy move if that changes
 
 **2026-09-13**
 - Linked the three Guardrails Tools entries to their official pages; each URL was loaded and its title checked against the product
