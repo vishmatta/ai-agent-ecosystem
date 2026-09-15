@@ -5,6 +5,8 @@ and governed — published as a [Quartz](https://quartz.jzhao.xyz) site at
 <https://vishmatta.github.io/ai-agent-ecosystem/>.
 
 Working on the repo (people or coding agents): start with [AGENTS.md](AGENTS.md).
+Claude Code (through `CLAUDE.md`), Codex, Cursor, Antigravity, and Hermes
+Agent load it automatically. Tell any other tool to read it before starting.
 
 ## License
 
