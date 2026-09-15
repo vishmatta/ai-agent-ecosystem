@@ -11,9 +11,9 @@ landscapes:
   - title: Agentic Payments
     href: /connect/agent-communication/agentic-payments
     stats:
-      - { value: 5, label: protocols and services catalogued }
+      - { value: 6, label: protocols and services catalogued }
       - { value: 1, label: commercial }
-      - { value: 4, label: open source }
+      - { value: 5, label: open source }
 deckPending: >-
   Narrative (What / Why / When / How / Where) not yet drafted for this section. The five beats below are placeholders.
 ---

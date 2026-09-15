@@ -23,6 +23,10 @@ type: landscape
 - [Agentic Commerce Protocol (ACP)](https://www.agenticcommerce.dev/) (OpenAI and Stripe)
   - An open standard for checkout between buyers, their AI agents, and businesses, with the business as merchant of record. Maintained by OpenAI and Stripe, in beta (Apache 2.0)
   - Not the same protocol as Zed's Agent Client Protocol or IBM's Agent Communication Protocol (see [[connect/agent-communication/protocols|Protocols]])
+- [Universal Commerce Protocol (UCP)](https://ucp.dev/) (Google and Shopify)
+  - An open standard for commerce between platforms such as AI agents, businesses, and payment providers, from discovery to checkout (Apache 2.0)
+  - Run by a Governing Council whose permanent members are Google and Shopify. Stripe joined April 28, 2026. Technical councils cover shopping, food, lodging, and payments
+  - Supports AP2 as an extension (above)
 
 ## Legacy / Decommissioned
 
