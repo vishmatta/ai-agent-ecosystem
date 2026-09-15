@@ -1,9 +1,12 @@
 # Plan: issue triage and prioritization for ai-agent-ecosystem
 
-> **Status: proposal, not in effect.** The owner approved this plan on
-> 2026-09-15 (#114). Nothing in it applies until the owner answers the open
-> questions in §10 and `docs/triage.md` lands (Phase 1). Until then,
-> `AGENTS.md` step 1 governs how agents pick work.
+> **Status: adopted 2026-09-15 (#116).** The owner accepted every
+> recommendation in §10; the decisions are recorded on #116. The rules now
+> live in `docs/triage.md`, which wins wherever the two differ. This file
+> keeps the reasoning, and the state of the repo it was based on. One change
+> was made during adoption: rule (a) covers only `Blocked by` lines. A
+> tracker's checklist order became a tie-break, so a tracker's priority
+> label stays the owner's lever.
 
 ## Context
 
