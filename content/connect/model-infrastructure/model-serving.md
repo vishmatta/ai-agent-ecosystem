@@ -6,6 +6,8 @@ type: landscape
 ## Commercial / Proprietary
 
 - [NVIDIA NIM](https://www.nvidia.com/en-us/ai-data-science/products/nim-microservices/)
+- [Model Serving](https://www.databricks.com/product/model-serving) (Databricks)
+  - Part of Agent Bricks; deploys agents, generative AI, and classical ML models
 
 ## Open Source / Provider-agnostic
 

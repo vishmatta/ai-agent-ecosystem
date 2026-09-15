@@ -20,6 +20,8 @@ type: landscape
 - [Baseten](https://www.baseten.co/)
 - [Workers AI](https://developers.cloudflare.com/workers-ai/) (Cloudflare)
   - Serverless inference on Cloudflare's edge network. The same company's agent hosting, Cloudflare Agents, is listed in the [[run/agent-operations/landscape|Operations and Deployment Landscape]]
+- [OCI Enterprise AI](https://www.oracle.com/artificial-intelligence/enterprise-ai/) (Oracle)
+  - Oracle's hosted models and agents service; its documentation still calls it OCI Generative AI
 
 ## Open Source / Provider-agnostic
 

@@ -11,6 +11,8 @@ type: landscape
   - Hosted commercial layer under the same brand as the open-source core (see Open Source)
 - [Daytona](https://www.daytona.io/)
   - Hosted commercial service. Its former open-source core is listed under Legacy
+- [Amazon Bedrock AgentCore Code Interpreter](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/code-interpreter-tool.html)
+- [Azure Container Apps dynamic sessions](https://learn.microsoft.com/en-us/azure/container-apps/sessions) (Microsoft)
 
 ## Open Source / Provider-agnostic
 

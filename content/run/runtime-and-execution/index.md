@@ -5,8 +5,8 @@ landscapes:
   - title: Runtime and Execution Infrastructure Landscape
     href: /run/runtime-and-execution/landscape
     stats:
-      - { value: 5, label: sandboxes catalogued }
-      - { value: 3, label: commercial }
+      - { value: 7, label: sandboxes catalogued }
+      - { value: 5, label: commercial }
       - { value: 3, label: open source }
       - { value: 1, label: legacy }
 deckPending: >-

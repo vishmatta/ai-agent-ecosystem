@@ -16,6 +16,10 @@ type: landscape
   - Hosted commercial layer under the same brand as the open-source core (see Open Source)
   - A separate product from Helicone's original observability tool, listed in [[control/observability-and-evaluation/observability-tools|Observability Tools]]
   - [Acquired by Mintlify](https://www.helicone.ai/blog/joining-mintlify) with Helicone, March 2026; in maintenance mode, with customers encouraged to migrate
+- [Unity Gateway](https://docs.databricks.com/aws/en/ai-gateway/) (Databricks)
+  - Governs access, security, and cost across models, agents, MCP servers, and tools
+- [Amazon Bedrock Intelligent Prompt Routing](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-routing.html)
+  - Routes requests between models to cut cost while maintaining quality
 
 ## Open Source / Provider-agnostic
 

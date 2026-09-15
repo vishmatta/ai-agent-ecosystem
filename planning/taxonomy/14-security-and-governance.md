@@ -80,6 +80,10 @@
 - Commercial / Proprietary
   - [WorkOS](https://workos.com/docs/authkit/agent-blueprints)
   - [Auth0](https://auth0.com/ai) (Okta)
+  - [Amazon Bedrock AgentCore Identity](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/identity.html)
+  - [Microsoft Entra Agent ID](https://learn.microsoft.com/en-us/entra/agent-id/what-are-agent-identities)
+  - [Agent Identity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview) (Google)
+    - A SPIFFE-formatted ID for each agent, in place of shared service accounts
 
 **Secrets Management Tools**
 - Commercial / Proprietary
@@ -98,8 +102,15 @@
   - [Lakera](https://www.lakera.ai/) (Check Point)
   - [F5 AI Guardrails](https://www.f5.com/products/ai-guardrails)
     - Formerly CalypsoAI, acquired by F5 in September 2025
+  - [Model Armor](https://docs.cloud.google.com/model-armor/overview) (Google)
+    - Inspects agent tool calls and responses, enforced through Gemini Enterprise Agent Platform's Agent Gateway
+  - [Prompt Shields](https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection) (Microsoft)
+    - Part of Azure AI Content Safety
 
 ## Changelog
+
+**2026-09-15**
+- Added the cloud vendors' agent services that fit this section's existing categories, per the owner's direction after the Cloud AI Platforms hub (#96): Amazon Bedrock AgentCore Identity; Microsoft Entra Agent ID; Agent Identity (Google); Model Armor (Google); Prompt Shields (Microsoft). Each name is the vendor's current one, checked at its product or documentation page, and each links there. New categories these vendors would need (tool gateways, managed retrieval, agent memory, policy planes, payments, document parsing) are a separate decision
 
 **2026-09-14**
 - Linked the Secrets Management Tools and Prompt-Injection Defense Tools entries to their official pages for §7's catalog port (#70), where both lists publish (#58, D4). No entries moved

@@ -14,6 +14,12 @@ type: landscape
   - Hosted commercial layer under the same brand as the open-source core (see Open Source)
 - [Zilliz Cloud](https://zilliz.com/cloud)
   - Hosted layer for Milvus, under a separate brand name (see Open Source)
+- [Vector Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/overview) (Google)
+- [Azure AI Search](https://learn.microsoft.com/en-us/azure/search/search-what-is-azure-search) (Microsoft)
+- [AI Search](https://www.databricks.com/product/artificial-intelligence/ai-search) (Databricks)
+  - Part of Agent Bricks
+- [Oracle AI Vector Search](https://www.oracle.com/database/ai-vector-search/)
+  - Vector search built into Oracle AI Database
 
 ## Open Source / Provider-agnostic
 

@@ -31,6 +31,9 @@ type: landscape
 - [Perplexity Computer](https://www.perplexity.ai/computer)
   - General-purpose agent worker rather than a coding tool: splits a goal into subtasks run by sub-agents on models from several providers
   - Also sold as Personal Computer, which runs on a dedicated local Mac or Windows machine, and Portable Computer, a fully local edition built with NVIDIA
+- [Snowflake CoCo](https://docs.snowflake.com/en/user-guide/cortex-code/cortex-code)
+  - Formerly Cortex Code
+  - Snowflake's data-native AI coding agent
 
 ## Open Source / Provider-agnostic
 

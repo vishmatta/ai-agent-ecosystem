@@ -25,6 +25,12 @@ type: landscape
 - [LangSmith Deployment](https://www.langchain.com/langsmith/deployment) (LangChain)
   - Hosting for long-running, stateful agents. Formerly LangGraph Platform, renamed October 2025
   - The separately branded commercial deployment layer for [[build/agent-frameworks/code-frameworks|LangGraph]]. LangSmith's observability product is listed in [[control/observability-and-evaluation/observability-tools|Observability Tools]]
+- [Microsoft Foundry Agent Service](https://learn.microsoft.com/en-us/azure/foundry/agents/overview)
+  - Hosts declarative prompt agents, and runs your own agent code as hosted agents
+- [Managed Agents API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents) (Google)
+  - Part of Gemini Enterprise Agent Platform: builds autonomous agents inside a managed sandbox
+- [Cortex Agents](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents) (Snowflake)
+  - Orchestrates retrieval across structured and unstructured data
 
 ## Open Source / Provider-agnostic
 

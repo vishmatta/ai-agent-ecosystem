@@ -40,6 +40,8 @@
     - Hosted commercial layer under the same brand
   - [Daytona](https://www.daytona.io/)
     - Hosted commercial service; its former open-source core is listed under Legacy
+  - [Amazon Bedrock AgentCore Code Interpreter](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/code-interpreter-tool.html)
+  - [Azure Container Apps dynamic sessions](https://learn.microsoft.com/en-us/azure/container-apps/sessions) (Microsoft)
 - Open Source / Provider-agnostic
   - [E2B](https://github.com/e2b-dev/runtime)
     - Self-hostable core; commercial layer under the same brand
@@ -50,6 +52,9 @@
     - Open-source repository no longer maintained: in June 2026 core development moved to a private codebase. The code remains available under its last license, as is
 
 ## Changelog
+
+**2026-09-15**
+- Added the cloud vendors' agent services that fit this section's existing categories, per the owner's direction after the Cloud AI Platforms hub (#96): Amazon Bedrock AgentCore Code Interpreter; Azure Container Apps dynamic sessions (Microsoft). Each name is the vendor's current one, checked at its product or documentation page, and each links there. New categories these vendors would need (tool gateways, managed retrieval, agent memory, policy planes, payments, document parsing) are a separate decision
 
 **2026-09-14**
 - Linked every Landscape entry to its official page, `[Name](url) (Creator)`, for the site's catalog port (#73). A dual-listed product links its hosted service from Commercial and its repository from Open Source, as §1 does for Zed. No entries moved

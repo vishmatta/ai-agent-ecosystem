@@ -6,6 +6,8 @@ type: landscape
 ## Commercial / Proprietary
 
 - [LM Studio](https://lmstudio.ai/download)
+- [Foundry Local](https://www.foundrylocal.ai/) (Microsoft)
+  - Runs models on device; its SDK is MIT, and the runtime is under Microsoft's own license terms
 
 ## Open Source / Provider-agnostic
 

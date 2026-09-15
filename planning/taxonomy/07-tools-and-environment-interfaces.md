@@ -53,6 +53,10 @@
 - Commercial / Proprietary
   - [Smithery](https://smithery.ai/)
   - [Glama](https://glama.ai/mcp/servers)
+  - [AWS Agent Registry](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/registry.html)
+    - Part of Amazon Bedrock AgentCore; catalogs agents, MCP servers, tools, and skills
+  - [Agent Registry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-registry) (Google)
+    - Part of Gemini Enterprise Agent Platform; a store for agents and MCP servers
 - Open Source / Provider-agnostic
   - [MCP Registry](https://registry.modelcontextprotocol.io/)
     - An official MCP project, maintained by the registry working group; MCP is part of the Agentic AI Foundation at the Linux Foundation
@@ -62,6 +66,7 @@
   - [Browserbase](https://www.browserbase.com/)
   - [Browser Use](https://browser-use.com/)
     - Hosted commercial layer under the same brand
+  - [Amazon Bedrock AgentCore Browser](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/browser-tool.html)
 - Open Source / Provider-agnostic
   - [Playwright](https://playwright.dev/) (Microsoft)
   - [Browser Use](https://github.com/browser-use/browser-use)
@@ -88,6 +93,7 @@
 ## Changelog
 
 **2026-09-15**
+- Added the cloud vendors' agent services that fit this section's existing categories, per the owner's direction after the Cloud AI Platforms hub (#96): AWS Agent Registry; Agent Registry (Google); Amazon Bedrock AgentCore Browser. Each name is the vendor's current one, checked at its product or documentation page, and each links there. New categories these vendors would need (tool gateways, managed retrieval, agent memory, policy planes, payments, document parsing) are a separate decision
 - Renamed Vercel v0 to "v0 (Vercel)", its official name
 
 **2026-09-14**

@@ -57,6 +57,10 @@
 ### Behavior and Configuration Landscape → (separate page)
 
 **Guardrails Tools**
+- Commercial / Proprietary
+  - [Amazon Bedrock Guardrails](https://aws.amazon.com/bedrock/guardrails/)
+  - [Azure AI Content Safety](https://learn.microsoft.com/en-us/azure/ai-services/content-safety/overview) (Microsoft)
+    - Its Prompt Shields feature is listed under Prompt-Injection Defense Tools
 - Open Source / Provider-agnostic
   - [Guardrails AI](https://guardrailsai.com/)
     - Acquired by Harvey, announced September 9, 2026; founders and team joined Harvey's product/engineering org. The Hub installer and hosted validator inference were sunset August 25, 2026, with validators moving to standard PyPI packages; the core framework repo remains active and unarchived
@@ -67,6 +71,7 @@
 
 **2026-09-15**
 - Noted Guardrails AI's acquisition by Harvey and the Hub sunset as a sub-bullet; kept it under Open Source since the framework repo is still active and hasn't had an announced end-of-life (see issue #98) — revisit for a Legacy move if that changes
+- Added the cloud vendors' agent services that fit this section's existing categories, per the owner's direction after the Cloud AI Platforms hub (#96): Amazon Bedrock Guardrails; Azure AI Content Safety (Microsoft). Each name is the vendor's current one, checked at its product or documentation page, and each links there. New categories these vendors would need (tool gateways, managed retrieval, agent memory, policy planes, payments, document parsing) are a separate decision
 
 **2026-09-13**
 - Linked the three Guardrails Tools entries to their official pages; each URL was loaded and its title checked against the product

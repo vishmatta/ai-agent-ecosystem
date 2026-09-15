@@ -57,6 +57,9 @@
 - [Perplexity Computer](https://www.perplexity.ai/computer)
   - General-purpose agent worker rather than a coding tool: breaks a goal into subtasks and runs them through sub-agents on models from several providers, choosing a model per subtask. Launched February 25, 2026
   - Also sold as Personal Computer, which runs on a dedicated local Mac or Windows machine, and Portable Computer, a fully local edition built with NVIDIA
+- [Snowflake CoCo](https://docs.snowflake.com/en/user-guide/cortex-code/cortex-code)
+  - Formerly Cortex Code
+  - Snowflake's data-native AI coding agent
 
 **Open Source / Provider-agnostic**
 - [OpenCode](https://opencode.ai/) (Anomaly)
@@ -85,6 +88,9 @@
 - [Mods](https://github.com/charmbracelet/mods) (Charm) — CLI utility for piping command output through an LLM (stdin → prompt → response), with MCP tool-calling since v1.8.0. Sunset March 9, 2026, and its GitHub repo archived so Charm could focus on Crush; much of its functionality lives on in Crush's non-interactive mode (`crush run`), above. Code remains MIT licensed and forkable. Briefly listed under Open Source / Provider-agnostic (v2.15) before the sunset was caught
 
 ## Changelog
+
+**2026-09-15**
+- Added the cloud vendors' agent services that fit this section's existing categories, per the owner's direction after the Cloud AI Platforms hub (#96): Snowflake CoCo. Each name is the vendor's current one, checked at its product or documentation page, and each links there. New categories these vendors would need (tool gateways, managed retrieval, agent memory, policy planes, payments, document parsing) are a separate decision
 
 **2026-09-14**
 - Warp's client is now open source (AGPL v3) in `warpdotdev/warp`. Checked it against the Open Source / Provider-agnostic test (#81): its FAQ says the built-in agent harness runs server-side and isn't open, and that Codex or Claude models can't be used with existing subscriptions "today". The client can host other vendors' CLI agents, but the harness itself isn't open or multi-provider, so Warp stays under Commercial only, with a note. Revisit if Warp ships ACP support or opens the harness

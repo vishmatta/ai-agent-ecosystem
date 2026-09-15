@@ -56,6 +56,12 @@
     - Stateful agents hosted on Cloudflare's global network. The SDK is open source (MIT) but runs only on Cloudflare, so it isn't listed under Open Source. The same company's edge inference, Workers AI, is listed in §6
   - [LangSmith Deployment](https://www.langchain.com/langsmith/deployment) (LangChain)
     - Hosting for long-running, stateful agents; formerly LangGraph Platform, renamed October 2025. The separately branded commercial deployment layer for LangGraph (§2); LangSmith's observability product is listed in §15
+  - [Microsoft Foundry Agent Service](https://learn.microsoft.com/en-us/azure/foundry/agents/overview)
+    - Hosts declarative prompt agents, and runs your own agent code as hosted agents
+  - [Managed Agents API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents) (Google)
+    - Part of Gemini Enterprise Agent Platform: builds autonomous agents inside a managed sandbox
+  - [Cortex Agents](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents) (Snowflake)
+    - Orchestrates retrieval across structured and unstructured data
 - Open Source / Provider-agnostic
   - [Temporal](https://github.com/temporalio/temporal)
     - Self-hostable core; commercial layer via Temporal Cloud
@@ -64,6 +70,9 @@
   - [BullMQ](https://bullmq.io/) (Taskforce.sh)
 
 ## Changelog
+
+**2026-09-15**
+- Added the cloud vendors' agent services that fit this section's existing categories, per the owner's direction after the Cloud AI Platforms hub (#96): Microsoft Foundry Agent Service; Managed Agents API (Google); Cortex Agents (Snowflake). Each name is the vendor's current one, checked at its product or documentation page, and each links there. New categories these vendors would need (tool gateways, managed retrieval, agent memory, policy planes, payments, document parsing) are a separate decision
 
 **2026-09-14**
 - Linked every Landscape entry to its official page, `[Name](url) (Creator)`, for the site's catalog port (#74). A dual-listed product links its hosted service from Commercial and its repository from Open Source. No entries moved
