@@ -24,7 +24,11 @@
   - [Google](https://ai.google/) → [Gemini](https://deepmind.google/models/gemini/)
   - [xAI](https://x.ai/) → [Grok](https://x.ai/grok)
     - Current Grok models are API-only; earlier Grok 1 and Grok 2 weights are published (see Open Source)
+  - [Meta](https://ai.meta.com/) → [Muse](https://ai.meta.com/blog/introducing-muse-spark-msl/)
+    - Meta's newest flagship, Muse Spark, announced April 2026; available through Meta AI and a private API preview. Llama is Meta's open-weight line (see Open Source)
   - [Amazon](https://aws.amazon.com/ai/) → [Nova](https://aws.amazon.com/nova/)
+  - [Microsoft](https://www.microsoft.com/en-us/ai) → [MAI](https://microsoft.ai/models/)
+    - Microsoft AI's own model family, launched at Build 2026, with MAI-Thinking-1 as its flagship reasoning model; served through Foundry and third-party providers. Phi is Microsoft's open-weight line (see Open Source)
   - [Alibaba](https://www.alibabacloud.com/) → [Qwen](https://www.alibabacloud.com/help/en/model-studio/models)
     - Its largest models, such as Qwen-Max, are API-only (see Open Source)
   - [Mistral](https://mistral.ai/) → [Mistral](https://mistral.ai/models/)
@@ -35,7 +39,9 @@
   - [xAI](https://x.ai/) → [Grok](https://huggingface.co/xai-org)
     - Grok 1 and Grok 2 weights, published March 2024 and August 2025; current Grok models are API-only (see Commercial)
   - [Meta](https://ai.meta.com/) → [Llama](https://developer.meta.com/ai/models/llama-4/)
+    - Meta's open-weight line; its newest flagship, Muse, is API-only (see Commercial)
   - [Microsoft](https://www.microsoft.com/en-us/ai) → [Phi](https://azure.microsoft.com/en-us/products/phi)
+    - Microsoft's open-weight small-model line; its MAI models are API-only (see Commercial)
   - [Alibaba](https://www.alibabacloud.com/) → [Qwen](https://huggingface.co/Qwen)
     - Most Qwen models are open-weight, under Apache 2.0 (see Commercial)
   - [DeepSeek](https://www.deepseek.com/) → [DeepSeek](https://huggingface.co/deepseek-ai)
@@ -50,6 +56,9 @@
   - [Nous Research](https://nousresearch.com/) → [Hermes](https://huggingface.co/NousResearch)
 
 ## Changelog
+
+**2026-09-15**
+- Added Meta → Muse and Microsoft → MAI under Commercial / Proprietary, per the owner's decision on #94: both are newer closed flagship lines, found while porting this catalog (#68). Meta → Llama and Microsoft → Phi stay under Open Source, with notes pointing between each pair
 
 **2026-09-14**
 - Renamed the notation from `Company → Model line` to `Model provider → Model line`, matching this section's own What heading; linked each provider to its official site and each model line to its model family's page, for the site's catalog port (#68). `CONTRIBUTING.md` records both
