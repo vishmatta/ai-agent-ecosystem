@@ -5,7 +5,8 @@ title: "Section: §N <Title>"
 labels: pipeline
 ---
 
-<!-- If this run can't start until another issue is done, make the first line: Blocked by #N -->
+<!-- If this run can't start until another issue is done, make the first line: Blocked by #N
+     If it can't start until a date, make the first line: Not before YYYY-MM-DD -->
 
 **Agents: do only the next unchecked stage, then tick it and stop.** Read
 `docs/agents/README.md` first, then your stage's instructions.

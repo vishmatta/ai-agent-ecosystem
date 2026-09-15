@@ -73,9 +73,9 @@ git history and PRs already hold those.
 - If an answer's issue number and its option text disagree, go by the text,
   and say which issue you applied it to.
 - Split an issue's work by approval gate. What the owner has decided goes in
-  a PR that merges once CI passes; a rename, a new permanent URL, or a choice
-  the owner hasn't made goes in its own PR for review. The decided part then
-  doesn't wait on the open one.
+  a PR that merges once CI passes; a rename, a new permanent URL, new page
+  prose, or a choice the owner hasn't made goes in its own PR for review. The
+  decided part then doesn't wait on the open one.
 
 **Several agents, several vendors**
 - Keep agent instructions in plain files in the repo, and hand work between

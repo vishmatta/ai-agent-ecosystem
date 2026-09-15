@@ -49,7 +49,8 @@ to that branch. Files named `<run>` below are
 
 ## Stage 7: the pull request
 
-Whoever finished stage 6 opens it: `Closes #<issue>`, a summary per stage
+Whoever finished stage 6 opens it, in the shape of
+`.github/pull_request_template.md`: `Closes #<issue>`, a summary per stage
 (which tools ran, what was corrected, what was escalated), and the review
 file's checklist. Leave it for the owner's review: it sets permanent concept
 and Landscape URLs, and it's copy.

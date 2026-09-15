@@ -45,10 +45,13 @@ gh issue list -R vishmatta/ai-agent-ecosystem
 4. **One issue per PR.** Something else you notice becomes a new issue, not scope
    creep. Rebase on `origin/main` before pushing if you touched a shared file
    (`quartz.config.yaml`, `AGENTS.md`, `docs/`).
-5. **Open a PR** whose body has `Closes #<n>`, a summary, and a test plan.
-   `main` accepts squash merges only, after the required `quartz-build-check`
-   passes and every review thread is resolved. Squash-merge once green unless
-   the issue or the owner says to leave it for review.
+5. **Open a PR** in the shape of `.github/pull_request_template.md`:
+   `Closes #<n>`, a summary, and a test plan. `main` accepts squash merges
+   only, after the required `quartz-build-check` passes and every review
+   thread is resolved. Squash-merge once green, unless the issue says to
+   leave it for review or the PR holds something the owner hasn't approved:
+   a rename, a new permanent URL, new page prose, or an open choice
+   (`docs/practices.md` → Decisions). Say so in the PR body.
 6. **Don't make the owner's calls.** Naming, structure, scope, and anything the
    spec leaves open: comment on the issue with the options and your
    recommendation, add `needs-decision`, and stop.
@@ -58,8 +61,10 @@ commenting on it instead. Open the PR from your fork, and leave labels and
 merging to the maintainer.
 
 Issue templates: `.github/ISSUE_TEMPLATE/task.md` for ordinary work, and
-`section.md` for a section's content-pipeline run. Issues should be
-self-contained enough that no other context is needed.
+`section.md` for a section's content-pipeline run (label it `pipeline`).
+`gh issue create --body-file` doesn't apply a template, so copy the
+template's headings, without its front matter, into your body file. Issues
+should be self-contained enough that no other context is needed.
 
 ## Rules that are easy to break
 
