@@ -19,6 +19,7 @@ priority label**. Status labels are added only when they apply.
 | `process` | type | How people and agents work: `AGENTS.md`, `docs/`, templates, the research inbox. |
 | `pipeline` | type | One section's content-pipeline run (`docs/agents/README.md`). |
 | `tracker` | type | Tracks work spanning several PRs through a checklist. Never worked directly. |
+| `idea` | type | A content idea not yet through intake (`docs/agents/intake.md`). Intake replaces it with one of the types above. |
 | `P1` | priority | Next: picked before any P2. |
 | `P2` | priority | Normal: worked in order. |
 | `P3` | priority | Later: picked only when no P1 or P2 is eligible. |
@@ -130,7 +131,8 @@ The steps:
      vendor rotation excludes you;
    - it needs something you don't have, such as a browser for sites that
      refuse `curl` (`docs/practices.md`).
-4. **Triage** any issue still missing a label.
+4. **Triage** any issue still missing a label. For an `idea` issue, that
+   means running intake (`docs/agents/intake.md`).
 5. **Sort:** P1, then P2, then P3. Within a level, pick first the issue that
    unblocks the most others, then the next unchecked item on a tracker's
    checklist, then the lowest issue number.

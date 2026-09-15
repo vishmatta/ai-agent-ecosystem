@@ -90,6 +90,11 @@ git history and PRs already hold those.
   isn't evidence; a primary source is.
 - A tool that can't see the repo needs a self-contained brief. Paste in what it
   needs rather than pointing at files.
+- A skill only points at a doc in the repo, so it can't drift from the doc.
+  Put it in `.agents/skills/<name>/SKILL.md`, which Codex, Cursor,
+  Antigravity and Hermes Agent all read, and symlink it into
+  `.claude/skills/` for Claude Code. Use only the open standard's
+  frontmatter: `name`, `description` and `metadata`.
 
 **Keeping context lean**
 - Keep always-loaded instructions short. Put detail in docs read on demand, and

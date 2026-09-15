@@ -16,6 +16,7 @@ https://vishmatta.github.io/ai-agent-ecosystem/ — every merge to `main` deploy
 | `planning/taxonomy/` | The taxonomy, one file per section. Authoritative for structure and entries; the site owns the prose. |
 | `planning/research/` | Research notes awaiting review, or kept as a record. Unverified input, never spec. |
 | `.github/` | `build-check.yml` (required PR check), `deploy.yml` (Pages deploy), `scripts/verify-build.mjs`. |
+| `.agents/skills/` | Optional skills that point at the docs, for tools that support skills. `.claude/skills/` holds symlinks to them for Claude Code. |
 | rest of `quartz/`, `quartz.config.default.yaml`, `Dockerfile`, `CODE_OF_CONDUCT.md` | Vendored upstream Quartz. Don't read or edit. |
 
 ## Commands
@@ -62,8 +63,10 @@ Without write access to this repo (working from a fork), claim an issue by
 commenting on it instead. Open the PR from your fork, and leave labels and
 merging to the maintainer.
 
-Issue templates: `.github/ISSUE_TEMPLATE/task.md` for ordinary work, and
-`section.md` for a section's content-pipeline run (label it `pipeline`).
+Issue templates: `.github/ISSUE_TEMPLATE/task.md` for ordinary work,
+`section.md` for a section's content-pipeline run (label it `pipeline`), and
+`idea.md` for a rough content idea, which `docs/agents/intake.md` turns into
+one of the other two.
 `gh issue create --body-file` doesn't apply a template, so copy the
 template's headings, without its front matter, into your body file. Give
 every new issue one type label and one priority label (`docs/triage.md`).
@@ -93,6 +96,7 @@ Issues should be self-contained enough that no other context is needed.
 |---|---|
 | anything (once per session, before your first commit) | `docs/practices.md` |
 | picking, opening, or triaging an issue | `docs/triage.md` |
+| a content idea for the site (new entry, concept, correction, section) | `docs/agents/intake.md` |
 | changing the taxonomy | `docs/practices.md` → Changing the taxonomy |
 | `planning/research/` — adding or reviewing research | `planning/research/README.md` |
 | a `pipeline` issue (a section's content run) | `docs/agents/README.md`, then your stage's file |

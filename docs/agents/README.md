@@ -12,8 +12,14 @@ Section template, with the priority of the pipeline tracker #37 per
 to that branch. Files named `<run>` below are
 `planning/research/YYYY-MM-DD-<section-slug>`, using the date the run started.
 
+Ideas come in before any run. Stage 0, [intake](intake.md), turns a content
+idea into the right issue. It becomes a run only when the idea is a whole
+section's content; smaller ideas become task issues, or input to a run's
+brief.
+
 | # | Stage | Instructions | Writes | Gate before the next stage |
 |---|---|---|---|---|
+| 0 | Intake (before a run) | [intake.md](intake.md) | an issue, or a comment on one | the issue is triaged |
 | 1 | Brief | [brief-writer.md](brief-writer.md) | `<run>-brief.md` | — |
 | 2 | Research, 2–3 tools | [`planning/research/PROMPT.md`](../../planning/research/PROMPT.md) | `<run>-<tool>.md`, one per tool | at least two tools from different vendors |
 | 3 | Consolidate | [consolidator.md](consolidator.md) | `<run>-consolidated.md` | coverage complete, or gaps escalated |
