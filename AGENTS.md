@@ -65,9 +65,11 @@ commenting on it instead. Open the PR from your fork, and leave labels and
 merging to the maintainer.
 
 Issue templates: `.github/ISSUE_TEMPLATE/task.md` for ordinary work,
-`section.md` for a section's content-pipeline run (label it `pipeline`), and
+`section.md` for a section's content-pipeline run (label it `pipeline`),
 `idea.md` for a rough content idea, which `docs/agents/intake.md` turns into
-one of the other two.
+one of the other two, and `feature.md` for a request for a capability the
+project doesn't have, which `docs/features.md` evaluates before the owner
+decides.
 `gh issue create --body-file` doesn't apply a template, so copy the
 template's headings, without its front matter, into your body file. Give
 every new issue one type label and one priority label (`docs/triage.md`).
@@ -98,6 +100,7 @@ Issues should be self-contained enough that no other context is needed.
 | anything (once per session, before your first commit) | `docs/practices.md` |
 | picking, opening, or triaging an issue | `docs/triage.md` |
 | a content idea for the site (new entry, concept, correction, section) | `docs/agents/intake.md` |
+| a feature request for the project itself (an integration, a feed, an API, a new surface) | `docs/features.md` |
 | changing the taxonomy | `docs/practices.md` → Changing the taxonomy |
 | `planning/research/` — adding or reviewing research | `planning/research/README.md` |
 | a `pipeline` issue (a section's content run) | `docs/agents/README.md`, then your stage's file |

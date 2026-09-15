@@ -20,6 +20,7 @@ priority label**. Status labels are added only when they apply.
 | `pipeline` | type | One section's content-pipeline run (`docs/agents/README.md`). |
 | `tracker` | type | Tracks work spanning several PRs through a checklist. Never worked directly. |
 | `idea` | type | A content idea not yet through intake (`docs/agents/intake.md`). Intake replaces it with one of the types above. |
+| `feature` | type | A request for a capability the project doesn't have (`docs/features.md`): the record of the request, its evaluation and the owner's decision. Never worked directly; the work is in its child issues. |
 | `P1` | priority | Next: picked before any P2. |
 | `P2` | priority | Normal: worked in order. |
 | `P3` | priority | Later: picked only when no P1 or P2 is eligible. |
@@ -107,7 +108,9 @@ The steps:
 
    Fill in anything the repo answers, such as the Merge section from
    `AGENTS.md` step 5. If the goal is unclear, or the work may be out of
-   scope or duplicated, comment with options and add `needs-decision`.
+   scope or duplicated, comment with options and add `needs-decision`. A
+   `feature` issue is validated by its evaluation instead
+   (`docs/features.md`), which covers scope, duplicates and cost.
 2. **Type:** one label.
 3. **Priority:** the first rule that applies.
 4. **Comment** one line giving the rule and, where it's close, why it isn't
@@ -122,7 +125,8 @@ The steps:
    and `gh pr list -R vishmatta/ai-agent-ecosystem --state open --json number,title,body`.
 3. **Drop what you can't take.** An issue isn't yours to pick if any of these
    holds:
-   - it's a `tracker`;
+   - it's a `tracker`, or a `feature` issue whose `## Evaluation` is filled
+     in (`docs/features.md`); their work is in their child issues;
    - it has `in-progress` or `needs-decision`;
    - its `Blocked by` names an open issue;
    - its `Not before` date is still ahead;
@@ -132,7 +136,9 @@ The steps:
    - it needs something you don't have, such as a browser for sites that
      refuse `curl` (`docs/practices.md`).
 4. **Triage** any issue still missing a label. For an `idea` issue, that
-   means running intake (`docs/agents/intake.md`).
+   means running intake (`docs/agents/intake.md`); for a `feature` issue with
+   an empty `## Evaluation`, it means evaluating it (`docs/features.md`) and
+   stopping there.
 5. **Sort:** P1, then P2, then P3. Within a level, pick first the issue that
    unblocks the most others, then the next unchecked item on a tracker's
    checklist, then the lowest issue number.
@@ -156,6 +162,9 @@ The steps:
 - Lower a priority the owner set.
 - Close an issue as out of scope or duplicate. It recommends, and adds
   `needs-decision`.
+- Accept or decline a feature request, or skip opening one because the answer
+  looks obvious. It evaluates, recommends, and adds `needs-decision`
+  (`docs/features.md`).
 - Treat a blocker that closed as "not planned" as unblocking the issue. It
   asks instead.
 - Rule out a security exposure without saying why. The owner confirms.
