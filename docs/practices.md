@@ -17,6 +17,12 @@ git history and PRs already hold those.
 - Confirm a suspected rename by loading the old product and docs URLs. A
   redirect to the new name settles it, and the new page often says
   "Formerly …".
+- A docs page that doesn't mention a feature doesn't prove the tool lacks it.
+  Check the vendor's changelog before saying so. Docs pages lag; the
+  changelog records what shipped.
+- When a fact decides something, read the page yourself (download it and
+  search it) rather than trusting a fetch tool's summary. Summaries of the
+  same page can disagree.
 
 **While working**
 - Commit an input unchanged first, then your changes in separate commits, so a
@@ -47,8 +53,10 @@ git history and PRs already hold those.
   conflict.
 - Track work that spans several PRs in one issue with a checklist, labelled
   `tracker`. Each PR ticks its items and references the issue without
-  closing it. Remove your
-  `in-progress` label when you stop, so the rest doesn't look claimed.
+  closing it. Remove your `in-progress` label when you stop, so the rest
+  doesn't look claimed.
+- Create an issue before writing text that cites its number. Other agents
+  open issues in parallel, so the next number isn't yours to assume.
 
 **Before calling it done**
 - Check every commit's contents (`git show --stat`) before pushing. A `cp`
@@ -59,13 +67,17 @@ git history and PRs already hold those.
   match), make CI check it. The next edit won't repeat your manual check.
 - Before trusting a new check, break the thing on purpose and watch the check
   fail. A check that can't fail passes forever.
+- After changing CI's configuration (a runtime version, an action), confirm
+  from the run's log that the change took effect. A green check doesn't say
+  what ran.
 - A 403 from a link checker doesn't prove a link is dead: some sites refuse
   non-browser clients. Open those in a browser.
 - Report failures and your own mistakes plainly, with what you changed.
 
 **Decisions**
 - Investigate first, then ask the owner a few questions at once, each with a
-  recommendation. Where a sensible default exists, pick it and say so.
+  recommendation, so "go with your recommendations" is a complete answer.
+  Where a sensible default exists, pick it and say so.
 - Encode waiting in an issue's first line (`Blocked by #N`,
   `Not before YYYY-MM-DD`) so agents can skip it mechanically.
 - Record the owner's answer on the issue before applying it, so the decision
@@ -111,6 +123,16 @@ git history and PRs already hold those.
 
 - Repository settings (the branch ruleset, the Pages source) belong to the
   owner. Say what to change; don't change them through the API.
+- Build on the Node version in `.node-version`, which CI uses; Quartz 5 needs
+  22 or later. Run `node -v` first. An agent's shell can start on an older
+  default, and then npm stops with `EBADENGINE` before Quartz runs.
+- Delete `public/` before a verification build. `verify-build.mjs` checks
+  whatever is in `public/`, so after a failed build it can pass against the
+  previous build's output (#121).
+- npm 11 warns that the install scripts of esbuild, sharp, @parcel/watcher
+  and fsevents aren't approved. That's expected: the build uses their
+  prebuilt binaries, and skipping the scripts is the safer default. Don't
+  approve them just to silence the warning.
 - Refer to a page that doesn't exist yet in plain text, not a link. A wikilink
   to a missing page ships as a 404.
 - These official sites refuse `curl`, so check their links in a browser:

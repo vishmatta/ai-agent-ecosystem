@@ -21,7 +21,9 @@ Scope.
    (`gh issue list -R vishmatta/ai-agent-ecosystem --state all --search "<keywords>"`).
    If the idea is already covered, or already has an issue, say so and link
    it. On an `idea` issue, comment the link, recommend closing it as a
-   duplicate, add `needs-decision`, and stop.
+   duplicate, add `needs-decision`, and stop. If an open issue covers only
+   part of it, move the overlapping item so exactly one issue owns it, and
+   say so on both issues. Two issues editing the same entry conflict.
 3. **Check scope** against `CONTRIBUTING.md` → Scope and
    `planning/site-prd.md` §3. If it's out of scope, recommend closing it the
    same way, and stop.
