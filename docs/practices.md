@@ -14,6 +14,9 @@ git history and PRs already hold those.
   against the old one. Release notes summarize a change; they aren't the change.
 - Check external facts at the primary source. For a project's status, read its
   repo's archived flag and README, not only its changelog or homepage.
+- Confirm a suspected rename by loading the old product and docs URLs. A
+  redirect to the new name settles it, and the new page often says
+  "Formerly …".
 
 **While working**
 - Commit an input unchanged first, then your changes in separate commits, so a
@@ -35,7 +38,9 @@ git history and PRs already hold those.
   flat.
 - Check that a PR is still open before rebasing or pushing its branch. The
   owner may have squash-merged it; a rebase then drops the merged commit, and
-  new work belongs on a fresh branch from `origin/main`.
+  new work belongs on a fresh branch from `origin/main`. If the owner merged a
+  review PR before answering its questions, apply the answers in a follow-up
+  issue and PR.
 - In a fork, `gh` picks the `upstream` remote. Pass `-R owner/repo`.
 - If GitHub leaves a PR's mergeability unknown, test it locally:
   `git merge-tree --write-tree origin/main <branch>` exits non-zero on a
@@ -67,6 +72,10 @@ git history and PRs already hold those.
   once CI passes.
 - If an answer's issue number and its option text disagree, go by the text,
   and say which issue you applied it to.
+- Split an issue's work by approval gate. What the owner has decided goes in
+  a PR that merges once CI passes; a rename, a new permanent URL, or a choice
+  the owner hasn't made goes in its own PR for review. The decided part then
+  doesn't wait on the open one.
 
 **Several agents, several vendors**
 - Keep agent instructions in plain files in the repo, and hand work between
@@ -103,7 +112,13 @@ git history and PRs already hold those.
   developer.meta.com, atscale.com, hashicorp.com, snowflake.com, x.ai,
   microsoft.com, ai21.com, windsurf.com, aws.amazon.com. For the facts
   behind a link, the vendor's docs site or Hugging Face org usually answers
-  `curl`.
+  `curl`. Many docs sites also publish `/llms.txt` (an index of every page)
+  and a `.md` version of each page, e.g. docs.snowflake.com and
+  docs.databricks.com.
+- When a Landscape category opens, check every vendor on the Cloud AI
+  Platforms hub for a matching service, not only the ones the proposal
+  listed. A per-vendor sweep misses services that sit outside the vendor's
+  agent docs.
 - When porting a catalog (a taxonomy Landscape onto its page), check each
   entry at its primary source. If an entry's status, name, or maker has
   changed since the taxonomy recorded it, leave the entry as the taxonomy has
@@ -128,4 +143,5 @@ The taxonomy is `planning/taxonomy/`, one file per section. For any change:
 5. Check new `→` cross-references against the site plan's §7 inventory.
 6. If sections or Landscape categories were added, renamed, or split, update
    the section map in `planning/taxonomy/README.md` and the list in
-   `planning/research/PROMPT.md`. Chat research tools only see that copy.
+   `planning/research/PROMPT.md`, and bump that list's "as of" date. Chat
+   research tools only see that copy.
