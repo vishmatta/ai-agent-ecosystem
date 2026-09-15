@@ -73,7 +73,7 @@ split (plan §3).
 | connect | 3 | 9 | Context | `context` (live) | yes | none — no tooling exists |
 | connect | 4 | 10 | Memory | `memory` | yes | 1: `landscape` |
 | connect | 5 | 11 | Knowledge and Retrieval | `knowledge-and-retrieval` (live) | yes | 5: Vector Databases `vector-databases`, Managed Retrieval Services `managed-retrieval`, Knowledge Graphs `knowledge-graphs`, Semantic Layer Tools `semantic-layer-tools`, Document Parsing Tools `document-parsing-tools` (#100) |
-| connect | 6 | 8 | Agent Communication and Interoperability | `agent-communication` (live) | yes | 1: `landscape` |
+| connect | 6 | 8 | Agent Communication and Interoperability | `agent-communication` (live) | yes | 2: Protocols `protocols` (formerly `landscape`, which redirects), Agentic Payments `agentic-payments` (#100) |
 | run | 1 | 12 | Runtime and Execution Infrastructure | `runtime-and-execution` (live) | yes | 1: `landscape` (Sandboxes) |
 | run | 2 | 13 | Agent Operations and Deployment | `agent-operations` (live) | yes | 1: `landscape` |
 | control | 1 | 14 | Security and Governance | `security-and-governance` (live) | yes | 2: Agent Identity Tools `agent-identity-tools`, Agent Governance Tools `agent-governance-tools` (#100). §14's other two are §7's |
