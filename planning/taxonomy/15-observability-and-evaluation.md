@@ -43,7 +43,7 @@
   - Deterministic (code-based)
     - → implemented via the Observability tools already listed above
   - LLM-as-a-judge
-    - → also implemented natively by Langfuse, Braintrust, and Arize Phoenix above
+    - → also implemented natively by Langfuse, Braintrust, and Phoenix (Arize) above
     - → tool list in Observability and Evaluation Landscape below
   - Human-in-the-loop
     - → see §14 Human Oversight
@@ -63,8 +63,9 @@
 - Commercial / Proprietary
   - [LangSmith](https://www.langchain.com/langsmith/observability) (LangChain)
   - [Braintrust](https://www.braintrust.dev/)
-  - [Weights & Biases Weave](https://wandb.ai/site/weave/)
-  - [Datadog LLM Observability](https://www.datadoghq.com/product/llm-observability/)
+  - [Weave](https://wandb.ai/site/weave/) (Weights & Biases)
+  - [Datadog Agent Observability](https://www.datadoghq.com/product/llm-observability/)
+    - Formerly Datadog LLM Observability
   - [Honeycomb](https://www.honeycomb.io/use-cases/agent-observability)
   - [Langfuse](https://langfuse.com/) (ClickHouse)
     - Hosted commercial layer under the same brand
@@ -73,8 +74,8 @@
     - Distinct product from Helicone AI Gateway (§6) — same company, two separate product lines under one brand: this entry is the original observability/logging product; the Gateway is a separate routing/fallback product added later
     - Acquired by Mintlify, March 2026; in maintenance mode, with customers encouraged to migrate
   - [Arize AX](https://arize.com/)
-    - Commercial platform under a separate brand name, built on Arize Phoenix
-  - [Arize Phoenix](https://phoenix.arize.com/)
+    - Commercial platform under a separate brand name, built on Phoenix
+  - [Phoenix](https://phoenix.arize.com/) (Arize)
     - Self-hostable, but source-available under the Elastic License 2.0, not open source
     - Commercial platform available under a separate brand, Arize AX
   - [Fiddler AI](https://www.fiddler.ai/)
@@ -112,6 +113,9 @@
   - [τ-bench](https://www.taubench.com/)
 
 ## Changelog
+
+**2026-09-15**
+- Renamed entries to their current official names: Datadog Agent Observability (formerly Datadog LLM Observability; Datadog's page now leads with Agent Observability), Phoenix (Arize), and Weave (Weights & Biases)
 
 **2026-09-14**
 - Linked every Landscape entry to its official page, `[Name](url) (Creator)`, for the site's catalog port (#76). A dual-listed product links its hosted service from Commercial and its repository from Open Source. Benchmarks keep name-only attribution and link to their site, dataset or repository. No entries moved

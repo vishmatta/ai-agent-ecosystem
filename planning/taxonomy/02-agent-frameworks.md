@@ -41,7 +41,8 @@
   - [LangGraph](https://www.langchain.com/langgraph) (LangChain)
     - Graph orchestration with checkpointed, resumable state. Its commercial deployment layer is separately branded — see LangSmith Deployment in §13
   - [CrewAI](https://crewai.com/)
-  - [Google ADK](https://adk.dev/)
+  - [Agent Development Kit](https://adk.dev/) (Google)
+    - Abbreviated ADK
   - [Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/)
     - Successor to AutoGen and Semantic Kernel (see Legacy below); Python and .NET
   - [LlamaIndex](https://developers.llamaindex.ai/python/framework/)
@@ -50,7 +51,7 @@
   - [smolagents](https://huggingface.co/docs/smolagents) (Hugging Face)
   - [Mastra](https://github.com/mastra-ai/mastra)
     - Self-hostable open-source core; enterprise features and the hosted layer are commercial, under the same brand, above
-  - [Vercel AI SDK](https://ai-sdk.dev/)
+  - [AI SDK](https://ai-sdk.dev/) (Vercel)
   - [DSPy](https://dspy.ai/) (Stanford)
   - [Haystack](https://haystack.deepset.ai/) (deepset)
   - [AG2](https://www.ag2.ai/)
@@ -74,6 +75,9 @@
   - [Flowise](https://github.com/FlowiseAI/Flowise/discussions/6727) — visual drag-and-drop builder for LLM apps and agents, wound down in 2026: code freeze July 29, repo archived August 13, end of life August 31. Code remains Apache 2.0 and forkable
 
 ## Changelog
+
+**2026-09-15**
+- Renamed entries to their current official names (`CONTRIBUTING.md` → Lead with the current name): Google ADK is "Agent Development Kit (Google)", as Google's pages name it, noted "Abbreviated ADK"; Vercel AI SDK is "AI SDK (Vercel)"
 
 **2026-09-13**
 - Linked every Landscape entry to its official page, `[Name](url) (Creator)`; each URL was loaded and its title checked against the product. Dual-listed Mastra links to Mastra Platform under Commercial and to its repository under Open Source. Legacy entries link to the archived or maintenance-mode repository (AutoGen, Semantic Kernel) or the end-of-life announcement (Flowise)

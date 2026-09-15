@@ -14,7 +14,7 @@ type: landscape
   - Part of Cloudflare since the [acquisition](https://blog.cloudflare.com/replicate-joins-cloudflare/) announced November 2025. The same company's Workers AI is listed below
 - [DeepInfra](https://deepinfra.com/)
 - [Cerebras](https://www.cerebras.ai/)
-- [Hugging Face Inference](https://huggingface.co/docs/inference-providers/index)
+- [Hugging Face Inference Providers](https://huggingface.co/docs/inference-providers/index)
 - [SambaNova](https://sambanova.ai/)
 - [Scaleway](https://www.scaleway.com/en/generative-apis/)
 - [Baseten](https://www.baseten.co/)

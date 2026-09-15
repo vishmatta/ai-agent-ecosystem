@@ -7,8 +7,9 @@ type: landscape
 
 - [LangSmith](https://www.langchain.com/langsmith/observability) (LangChain)
 - [Braintrust](https://www.braintrust.dev/)
-- [Weights & Biases Weave](https://wandb.ai/site/weave/)
-- [Datadog LLM Observability](https://www.datadoghq.com/product/llm-observability/)
+- [Weave](https://wandb.ai/site/weave/) (Weights & Biases)
+- [Datadog Agent Observability](https://www.datadoghq.com/product/llm-observability/)
+  - Formerly Datadog LLM Observability
 - [Honeycomb](https://www.honeycomb.io/use-cases/agent-observability)
 - [Langfuse](https://langfuse.com/) (ClickHouse)
   - Hosted commercial layer under the same brand as the open-source core (see Open Source)
@@ -17,8 +18,8 @@ type: landscape
   - A separate product from Helicone AI Gateway, listed in [[connect/model-infrastructure/routers-gateways-and-proxies|Model Routers, Gateways and Proxies]]: one company, two product lines under one brand. This entry is the original observability and logging product; the Gateway is a routing and fallback product added later
   - [Acquired by Mintlify](https://www.helicone.ai/blog/joining-mintlify), March 2026; in maintenance mode, with customers encouraged to migrate
 - [Arize AX](https://arize.com/)
-  - Commercial platform under a separate brand name, built on Arize Phoenix
-- [Arize Phoenix](https://phoenix.arize.com/)
+  - Commercial platform under a separate brand name, built on Phoenix
+- [Phoenix](https://phoenix.arize.com/) (Arize)
   - Self-hostable, but source-available under the Elastic License 2.0, not open source
   - Commercial platform available under a separate brand, Arize AX
 - [Fiddler AI](https://www.fiddler.ai/)

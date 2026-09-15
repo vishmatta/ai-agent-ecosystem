@@ -56,11 +56,11 @@
 
 **Knowledge Graphs**
 - Commercial / Proprietary
-  - [Neo4j Aura](https://neo4j.com/product/auradb/)
+  - [Neo4j AuraDB](https://neo4j.com/product/auradb/)
     - Hosted layer for Neo4j, under a separate brand name
 - Open Source / Provider-agnostic
   - [Neo4j](https://github.com/neo4j/neo4j)
-    - Hosted commercially as Neo4j Aura, under a separate brand name
+    - Hosted commercially as Neo4j AuraDB, under a separate brand name
 
 **Semantic Layer Tools**
 - Commercial / Proprietary
@@ -77,6 +77,9 @@
     - Self-hostable core; commercial layer under the same brand
 
 ## Changelog
+
+**2026-09-15**
+- Renamed Neo4j Aura to "Neo4j AuraDB", the name its product page uses
 
 **2026-09-14**
 - Linked every Landscape entry to its official page, `[Name](url) (Creator)`, for the site's catalog port (#72). A dual-listed product links its hosted service from Commercial and its repository from Open Source. dbt Semantic Layer's open-source listing links MetricFlow, the Apache 2.0 engine behind it. No entries moved

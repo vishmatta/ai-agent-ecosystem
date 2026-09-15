@@ -6,7 +6,7 @@ type: landscape
 ## Commercial / Proprietary
 
 - [OpenRouter](https://openrouter.ai/)
-- [Vercel AI Gateway](https://vercel.com/ai-gateway)
+- [AI Gateway](https://vercel.com/ai-gateway) (Vercel)
 - [Nous Portal](https://portal.nousresearch.com/)
 - [LiteLLM](https://www.litellm.ai/) (BerriAI)
   - Hosted commercial layer under the same brand as the open-source core (see Open Source)
