@@ -59,6 +59,14 @@ restart the dev server. Component CSS travels with the component as
 - **Fonts are cached** in `quartz/.quartz-cache/fonts`, and the cache survives
   config changes. Delete it after changing fonts. Fonts are set in the
   `quartz-fonts` plugin's options, not just `theme.typography`.
+- **A new page `type:` goes in three places:** the `TAXONOMY_TYPES` list in
+  `agent-ecosystem-page-types` (which layout it gets), the separate list of
+  the same name in `agent-ecosystem-template` (its `ae-page--<type>` class),
+  and the frontmatter enum in `docs/content.md`. Miss the template's list and
+  the page renders with no class, silently.
+- **Built links don't look like their source.** Quartz rewrites absolute body
+  links to relative paths, and gives external links
+  `class="external external-link"`. Match on those when checking `public/`.
 - **Markdown attribute syntax (`{ .class }`) isn't supported.** It renders as
   literal text.
 - **Restart the dev server after changing plugins or `quartz.config.yaml`.**

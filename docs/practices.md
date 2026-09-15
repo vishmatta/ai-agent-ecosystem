@@ -23,8 +23,19 @@ git history and PRs already hold those.
 - Don't assume bash or GNU tools. Quote variables, pass arguments as arrays,
   and avoid a bare `=word`, which zsh expands as a command lookup. macOS has
   no `timeout`.
+- Don't count on `cd` carrying over between an agent tool's shell calls; some
+  reset the directory each time. Use absolute paths or `git -C <dir>`.
+- A failed step in an `&&` chain quietly skips everything after it, for
+  instance when `git fetch` hits a transient ref-lock error. Check the result
+  before assuming the later steps ran.
 - Pass markdown to a CLI through a file (`gh issue edit --body-file`), not an
   inline argument. The shell expands backticks and `$` inside it.
+- In GitHub markdown, a bullet nested under a numbered item needs three
+  spaces of indent, to line up with the item's text. With two, it renders
+  flat.
+- Check that a PR is still open before rebasing or pushing its branch. The
+  owner may have squash-merged it; a rebase then drops the merged commit, and
+  new work belongs on a fresh branch from `origin/main`.
 - In a fork, `gh` picks the `upstream` remote. Pass `-R owner/repo`.
 - If GitHub leaves a PR's mergeability unknown, test it locally:
   `git merge-tree --write-tree origin/main <branch>` exits non-zero on a
@@ -51,6 +62,11 @@ git history and PRs already hold those.
   recommendation. Where a sensible default exists, pick it and say so.
 - Encode waiting in an issue's first line (`Blocked by #N`,
   `Not before YYYY-MM-DD`) so agents can skip it mechanically.
+- Record the owner's answer on the issue before applying it, so the decision
+  outlives the chat. A PR that only applies a decision already made can merge
+  once CI passes.
+- If an answer's issue number and its option text disagree, go by the text,
+  and say which issue you applied it to.
 
 **Several agents, several vendors**
 - Keep agent instructions in plain files in the repo, and hand work between
@@ -83,8 +99,17 @@ git history and PRs already hold those.
 - Refer to a page that doesn't exist yet in plain text, not a link. A wikilink
   to a missing page ships as a 404.
 - These official sites refuse `curl`, so check their links in a browser:
-  openai.com, devin.ai, perplexity.ai, sema4.ai, developer.meta.com,
-  atscale.com, hashicorp.com, snowflake.com, x.ai, microsoft.com, ai21.com.
+  openai.com, chatgpt.com, devin.ai, perplexity.ai, sema4.ai,
+  developer.meta.com, atscale.com, hashicorp.com, snowflake.com, x.ai,
+  microsoft.com, ai21.com, windsurf.com, aws.amazon.com. For the facts
+  behind a link, the vendor's docs site or Hugging Face org usually answers
+  `curl`.
+- When porting a catalog (a taxonomy Landscape onto its page), check each
+  entry at its primary source. If an entry's status, name, or maker has
+  changed since the taxonomy recorded it, leave the entry as the taxonomy has
+  it, report the finding on the issue, and leave the PR for the owner's
+  review. The taxonomy is the authority, so correcting it is the owner's
+  call. A port with no findings merges once CI passes.
 
 ### Changing the taxonomy
 
