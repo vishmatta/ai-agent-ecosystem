@@ -5,8 +5,8 @@ landscapes:
   - title: Models Landscape
     href: /build/models/landscape
     stats:
-      - { value: 17, label: model lines catalogued }
-      - { value: 7, label: commercial }
+      - { value: 19, label: model lines catalogued }
+      - { value: 9, label: commercial }
       - { value: 14, label: open source }
 deckPending: >-
   Narrative (What / Why / When / How / Where) not yet drafted for this section. The five beats below are placeholders.
