@@ -56,7 +56,13 @@ git history and PRs already hold those.
   closing it. Remove your `in-progress` label when you stop, so the rest
   doesn't look claimed.
 - Create an issue before writing text that cites its number. Other agents
-  open issues in parallel, so the next number isn't yours to assume.
+  open issues in parallel, so the next number isn't yours to assume. An issue
+  that cites its own number can't do that: create it with the number left
+  blank, then edit it in.
+- Adding a label through the issues API creates it when it doesn't exist, in
+  the default grey with no description. List the repo's labels first
+  (`gh label list`, or a GitHub MCP tool), and create a label meant to be
+  permanent deliberately, so it matches the ones beside it.
 
 **Before calling it done**
 - Check every commit's contents (`git show --stat`) before pushing. A `cp`
@@ -65,6 +71,9 @@ git history and PRs already hold those.
   CI itself, then the live deploy.
 - When you check by hand something that can regress (links resolve, counts
   match), make CI check it. The next edit won't repeat your manual check.
+- Read the required workflow to learn what CI checks, rather than inferring it
+  from the repo's scripts. A formatter or type check that no workflow calls
+  still fails for the next person who runs it locally.
 - Before trusting a new check, break the thing on purpose and watch the check
   fail. A check that can't fail passes forever.
 - After changing CI's configuration (a runtime version, an action), confirm
@@ -102,11 +111,16 @@ git history and PRs already hold those.
   isn't evidence; a primary source is.
 - A tool that can't see the repo needs a self-contained brief. Paste in what it
   needs rather than pointing at files.
+- Not every agent has the `gh` CLI; a hosted session may have only GitHub's MCP
+  tools. Write an instruction as the operation — claim the issue, comment,
+  label — with the `gh` command as the example rather than the only route.
 - A skill only points at a doc in the repo, so it can't drift from the doc.
   Put it in `.agents/skills/<name>/SKILL.md`, which Codex, Cursor,
   Antigravity and Hermes Agent all read, and symlink it into
   `.claude/skills/` for Claude Code. Use only the open standard's
-  frontmatter: `name`, `description` and `metadata`.
+  frontmatter: `name`, `description` and `metadata`. A session lists the new
+  skill as soon as the file and its symlink exist; if it doesn't appear, the
+  frontmatter is wrong. It's the cheapest check available.
 
 **Keeping context lean**
 - Keep always-loaded instructions short. Put detail in docs read on demand, and
@@ -125,7 +139,15 @@ git history and PRs already hold those.
   owner. Say what to change; don't change them through the API.
 - Build on the Node version in `.node-version`, which CI uses; Quartz 5 needs
   22 or later. Run `node -v` first. An agent's shell can start on an older
-  default, and then npm stops with `EBADENGINE` before Quartz runs.
+  default, and then npm stops with `EBADENGINE` before Quartz runs. A sandbox
+  may have no way to fetch the pinned version; the build still runs on any
+  Node 22 or later, so run the checks anyway and report which version you used
+  instead of calling the run CI-identical.
+- `quartz-build-check` runs `check-content.mjs` over `content/`, the build, and
+  `verify-build.mjs`. It never runs prettier and never looks at `docs/`,
+  `.github/` or `.agents/`, so `npx prettier --check` the markdown you add
+  there yourself; otherwise it goes green here and fails in `npm run check`
+  for whoever runs it next (#14).
 - Delete `public/` before a verification build. `verify-build.mjs` checks
   whatever is in `public/`, so after a failed build it can pass against the
   previous build's output (#121).
