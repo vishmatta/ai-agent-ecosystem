@@ -234,6 +234,7 @@ tracker's level.
 | Milestones | **Not now** | They would duplicate trackers. Revisit if the owner wants completion tracking per objective. |
 | Projects and custom fields | **Not now** | The token can't read Projects, and they'd duplicate labels for one maintainer. |
 | Assignees | **Not used** | Everyone shares one account, so an assignee can't show who is working. `in-progress` is the claim. |
+| Review requests (`review-requested`) | **Not usable** | They exist only on pull requests, and most `needs-decision` issues have no PR yet. One shared account can't review its own PR either. The `## Merge` gate is the PR-review case; revisit it if agents ever push from a second account or a fork. |
 | Duplicate / won't fix | **GitHub's close reasons** ("not planned", "duplicate") | Retire the matching labels. |
 | Templates | `task.md` and `section.md`, plus a new `config.yml` with `blank_issues_enabled: false` | `task.md` gains a label hint: one type, one priority, `Part of #N` or "Standalone". |
 | Label hygiene | Closing removes status labels; optionally a small Action does it | This would fix #77 and #98. |
