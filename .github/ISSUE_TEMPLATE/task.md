@@ -19,6 +19,12 @@ already made, related issues or PRs. Link, don't paste. -->
 
 <!-- Files or areas expected to change, and anything explicitly out of scope. -->
 
+## Merge
+
+<!-- "Merge once green", or "Leave for the owner's review" and why: a rename,
+a new permanent URL, new page prose, or a choice the owner hasn't made
+(AGENTS.md step 5). -->
+
 ## Done when
 
 - [ ]
