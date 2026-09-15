@@ -32,6 +32,17 @@ is in `planning/taxonomy/README.md`.
   it (e.g. "Aider (Paul Gauthier)," "Oh My Pi (can1357)"); `Name (open
   source community)` is reserved for projects with no single identifiable
   creator or maintainer of record.
+- **A project handed to a foundation keeps its creator.** A protocol or tool
+  contributed to a foundation is still attributed to the company that
+  created it, with the foundation in a sub-bullet, for example
+  `A2A (Google)`, contributed to the Linux Foundation, or `x402 (Coinbase)`,
+  now stewarded by the x402 Foundation.
+- **A project run jointly names its maintainers of record.** When a
+  project's own pages name several companies as its maintainers or
+  permanent governing members, all of them are the creator, for example
+  `Agentic Commerce Protocol (ACP) (OpenAI and Stripe)` or
+  `Universal Commerce Protocol (UCP) (Google and Shopify)`. Members who
+  joined later go in a sub-bullet.
 - Two exceptions to `Name (Creator)`: the Models section uses `Model
   provider → Model line` notation, since it maps model providers to their
   flagship model lines rather than attributing individual products. The
