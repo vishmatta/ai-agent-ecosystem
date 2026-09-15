@@ -91,7 +91,7 @@ anything you couldn't verify (unconfirmed).>
 - **Don't invent.** If you can't find a primary source, mark the item
   (unconfirmed) or leave it out.
 
-## Taxonomy sections (as of 2026-09-13)
+## Taxonomy sections (as of 2026-09-15)
 
 Landscape categories are in parentheses. A section without them has one flat
 Landscape.
@@ -105,10 +105,10 @@ Landscape.
   Cloud AI Platforms; Model Routers, Gateways and Proxies; Local Inference) ·
   §7 Tools and Environment Interfaces (MCP Registries; Tool Gateways; Browser
   Automation; Voice / Multimodal Tools; Generative UI Tools) · §8 Agent
-  Communication and Interoperability (Protocols) · §9 Context (no tooling) ·
-  §10 Memory (Memory Tools) · §11 Knowledge and Retrieval (Vector Databases;
-  Managed Retrieval Services; Knowledge Graphs; Semantic Layer Tools; Document
-  Parsing Tools)
+  Communication and Interoperability (Protocols; Agentic Payments) · §9
+  Context (no tooling) · §10 Memory (Memory Tools) · §11 Knowledge and
+  Retrieval (Vector Databases; Managed Retrieval Services; Knowledge Graphs;
+  Semantic Layer Tools; Document Parsing Tools)
 - **Run:** §12 Runtime and Execution Infrastructure (Sandboxes) · §13 Agent
   Operations and Deployment
 - **Control:** §14 Security and Governance (Agent Identity Tools; Agent

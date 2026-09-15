@@ -16,14 +16,15 @@
  *      A clean build of this site logs none, so any that appear mean
  *      something changed and needs a look.
  *   2. The output is intact: the site root exists, and every page carries the
- *      stage navigation, which the site renders on every page except the 404.
- *      A component that silently stops rendering breaks this even when it
- *      logs nothing.
+ *      stage navigation, which the site renders on every page except the 404
+ *      and the redirects that `aliases:` frontmatter leaves at a renamed
+ *      page's old URL. A component that silently stops rendering breaks this
+ *      even when it logs nothing.
  *   3. No page links to a page that doesn't exist. Every internal <a href>
- *      (body wikilinks and component links alike) must resolve to a built
- *      file, and must be relative: the site is served from a subpath, so an
- *      absolute link 404s. The 404 page is exempt; its links are absolute on
- *      purpose.
+ *      (body wikilinks and component links alike), and every redirect's
+ *      target, must resolve to a built file, and must be relative: the site
+ *      is served from a subpath, so an absolute link 404s. The 404 page is
+ *      exempt; its links are absolute on purpose.
  *   4. Each stage page lists its sections in the order of the registry table
  *      in docs/content.md. The order comes from the Explorer's sortFn, via
  *      plugins/agent-ecosystem-stage-page; if either drifts from the registry,
@@ -77,9 +78,14 @@ const htmlFiles = (dir) =>
     : []
 
 const pages = htmlFiles(outDir)
+// A page's `aliases:` frontmatter emits a bare meta-refresh page at the old
+// URL (alias-redirects), with no site chrome. Check 3 follows its target.
+const REDIRECT = /<meta http-equiv="refresh" content="0; url=([^"]*)">/
+const isRedirect = (file) => REDIRECT.test(fs.readFileSync(file, "utf8"))
 const missingNav = pages.filter(
   (file) =>
     path.relative(outDir, file) !== "404.html" &&
+    !isRedirect(file) &&
     !fs.readFileSync(file, "utf8").includes('class="pipeline"'),
 )
 for (const file of missingNav) {
@@ -99,7 +105,10 @@ for (const file of pages) {
   const page = path.relative(outDir, file)
   if (page === "404.html") continue
   const html = fs.readFileSync(file, "utf8")
-  for (const [, href] of html.matchAll(/<a\b[^>]*\bhref="([^"]*)"/g)) {
+  const hrefs = [...html.matchAll(/<a\b[^>]*\bhref="([^"]*)"/g)].map((m) => m[1])
+  const redirect = html.match(REDIRECT)
+  if (redirect) hrefs.push(redirect[1])
+  for (const href of hrefs) {
     const target = href.split(/[?#]/)[0]
     if (!target || EXTERNAL.test(href)) continue
     linksChecked++

@@ -1,6 +1,8 @@
 ---
-title: Communication and Interoperability Landscape
+title: Protocols
 type: landscape
+aliases:
+  - connect/agent-communication/landscape
 ---
 
 ## Commercial / Proprietary
@@ -11,6 +13,7 @@ No commercial protocols are catalogued in this category.
 
 - [A2A](https://a2a-protocol.org/) (Google)
   - An open source project under the Linux Foundation, contributed by Google (Apache 2.0)
+  - AP2 extends it for agent payments (see [[connect/agent-communication/agentic-payments|Agentic Payments]])
 - [Agent Client Protocol (ACP)](https://agentclientprotocol.com/) (Zed)
   - Lets external agents run as first-class citizens inside a host editor
   - Example integrations: Codex, Claude Agent, OpenCode

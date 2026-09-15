@@ -40,6 +40,10 @@ so a half-written page can't merge.
   file per category, named with the category's slug, e.g.
   `agent-frameworks/code-frameworks.md`.
 - Slugs are descriptive, never numbered (plan §4).
+- Renaming a page changes a permanent URL, so it's the owner's call. Once
+  approved, `git mv` the file and list its old path under `aliases:`
+  (Frontmatter, below). The build leaves a redirect at the old URL, and
+  `verify-build.mjs` checks that the redirect resolves.
 - Links in page bodies: use full-path wikilinks, e.g.
   `[[build/agent-frameworks/index|Agent Frameworks]]` for a section page, or
   `[[build/agent-frameworks/code-frameworks|Code Frameworks]]`. Quartz rewrites every body
@@ -69,7 +73,7 @@ split (plan §3).
 | connect | 3 | 9 | Context | `context` (live) | yes | none — no tooling exists |
 | connect | 4 | 10 | Memory | `memory` | yes | 1: `landscape` |
 | connect | 5 | 11 | Knowledge and Retrieval | `knowledge-and-retrieval` (live) | yes | 5: Vector Databases `vector-databases`, Managed Retrieval Services `managed-retrieval`, Knowledge Graphs `knowledge-graphs`, Semantic Layer Tools `semantic-layer-tools`, Document Parsing Tools `document-parsing-tools` (#100) |
-| connect | 6 | 8 | Agent Communication and Interoperability | `agent-communication` (live) | yes | 1: `landscape` |
+| connect | 6 | 8 | Agent Communication and Interoperability | `agent-communication` (live) | yes | 2: Protocols `protocols` (formerly `landscape`, which redirects), Agentic Payments `agentic-payments` (#100) |
 | run | 1 | 12 | Runtime and Execution Infrastructure | `runtime-and-execution` (live) | yes | 1: `landscape` (Sandboxes) |
 | run | 2 | 13 | Agent Operations and Deployment | `agent-operations` (live) | yes | 1: `landscape` |
 | control | 1 | 14 | Security and Governance | `security-and-governance` (live) | yes | 2: Agent Identity Tools `agent-identity-tools`, Agent Governance Tools `agent-governance-tools` (#100). §14's other two are §7's |
@@ -136,6 +140,8 @@ concepts: # narrative pages; omit until at least one concept page exists
     note: Model routing — implemented in Connect # one line on its children, or "Single concept, no children"
     href: /build/agent-behavior/model-selection # site-root path; components render it relative
 conceptsTotal: 15 # optional "N of M written" footnote; not a settled rule (plan §10)
+aliases: # a renamed page's old path, from the site root; its old URL redirects here
+  - connect/agent-communication/landscape
 landscapes: # narrative pages; omit for sections with no tooling
   - title: Harnesses Landscape # "<Section> Landscape", or the category name when split
     href: /build/agent-harnesses/landscape
