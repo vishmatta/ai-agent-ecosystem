@@ -32,9 +32,12 @@ is in `planning/taxonomy/README.md`.
   it (e.g. "Aider (Paul Gauthier)," "Oh My Pi (can1357)"); `Name (open
   source community)` is reserved for projects with no single identifiable
   creator or maintainer of record.
-- Two exceptions to `Name (Creator)`: the Models section uses `Company →
-  Model line` notation, since it maps companies to their flagship models
-  rather than attributing individual products. Benchmarks are listed by
+- Two exceptions to `Name (Creator)`: the Models section uses `Model
+  provider → Model line` notation, since it maps model providers to their
+  flagship model lines rather than attributing individual products. The
+  provider links to its official site and the model line to its model
+  family's page, for example
+  `[Anthropic](https://www.anthropic.com/) → [Claude](https://claude.com/product/overview)`. Benchmarks are listed by
   name only, without attribution, since academic benchmarks typically have
   multiple co-authoring institutions rather than a single corporate
   creator.
@@ -50,6 +53,11 @@ is in `planning/taxonomy/README.md`.
   genuine multi-provider support.** A tool built specifically for one
   provider's models does not belong in this column even if its code is
   open source; it belongs under Commercial / Proprietary instead.
+- **In Models, Open Source / Provider-agnostic means published weights.**
+  A model line whose weights anyone can download, so any inference provider
+  can serve it, is listed there whatever its model license; an API-only
+  line is Commercial / Proprietary. A line with both kinds (for example
+  Mistral's open Large and API-only Medium) is listed in both, with a note.
 - **Source-available is not open source.** A self-hostable product under a
   source-available license (for example the Business Source License, the
   Server Side Public License, or the Elastic License) is listed under

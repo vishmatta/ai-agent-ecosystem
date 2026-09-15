@@ -40,7 +40,7 @@ type: landscape
 - [Pi](https://github.com/earendil-works/pi) (Mario Zechner)
   - The repository and npm packages now live under the Earendil Works organization on GitHub
 - [Hermes Agent](https://hermes-agent.nousresearch.com/) (Nous Research)
-  - Distinct from the Hermes model line (§4 Models)
+  - Distinct from the Hermes model line (see the [[build/models/landscape|Models Landscape]])
 - [Aider](https://aider.chat/) (Paul Gauthier)
 - [Cline](https://cline.bot/) (Saoud Rizwan)
 - [Oh My Pi](https://omp.sh/) (can1357)
