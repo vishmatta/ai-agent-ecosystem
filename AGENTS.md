@@ -12,7 +12,7 @@ https://vishmatta.github.io/ai-agent-ecosystem/ — every merge to `main` deploy
 | `plugins/agent-ecosystem-*/` | This site's own Quartz plugins: page template, components, graph. |
 | `quartz.config.yaml` | Site config: plugins, layout, theme, Explorer order. |
 | `quartz/styles/custom.scss` | Design tokens and shared template styles. |
-| `planning/` | The spec: site plan, PRD, two HTML mockups. Read on demand — see below. |
+| `planning/` | The spec: site plan, PRD, two HTML mockups. Read on demand — see below. `issue-triage-plan.md` is a proposal, not yet in effect. |
 | `planning/taxonomy/` | The taxonomy, one file per section. Authoritative for structure and entries; the site owns the prose. |
 | `planning/research/` | Research notes awaiting review, or kept as a record. Unverified input, never spec. |
 | `.github/` | `build-check.yml` (required PR check), `deploy.yml` (Pages deploy), `scripts/verify-build.mjs`. |

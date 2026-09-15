@@ -1,5 +1,10 @@
 # Plan: issue triage and prioritization for ai-agent-ecosystem
 
+> **Status: proposal, not in effect.** The owner approved this plan on
+> 2026-09-15 (#114). Nothing in it applies until the owner answers the open
+> questions in §10 and `docs/triage.md` lands (Phase 1). Until then,
+> `AGENTS.md` step 1 governs how agents pick work.
+
 ## Context
 
 Issues are this repo's task queue. Several vendors' agents pick work from it in
@@ -12,8 +17,9 @@ next, and why" the same answer whichever agent or person is asking, and keeps
 the system small enough for one owner to run.
 
 **How to read this plan.** "Observed" means checked in the repo or on GitHub
-on 2026-09-15. "Inferred" is my reading of those observations.
-"Recommended" is the proposal. No files, labels or issues have been changed.
+on 2026-09-15. "Inferred" is a reading of those observations.
+"Recommended" is the proposal. When it was written, no files, labels or
+issues had been changed.
 
 ---
 
@@ -125,10 +131,10 @@ Trackers stay Open until every item on their checklist is done. They are never R
 | Created | Which template? | Goal, Context, Scope, Merge and Done when (task), or the Section fields | The issue body |
 | Validated | Is it actionable? The goal must be testable, the scope named, the facts checked at a primary source, the work in scope (PRD §3 non-goals; `CONTRIBUTING.md` → Scope), and not a duplicate. | Anything missing gets named in a triage comment. | A comment |
 | Triaged | Which type and priority, and does it belong to a tracker? | The rules in §3 and §4 below | Labels, plus a `Part of #N` line |
-| Ready | Can this agent start now? | The eligibility filter in §6 | Derived, no label |
+| Ready | Can this agent start now? | The eligibility filter in §7 | Derived, no label |
 | Blocked / Scheduled | What is it waiting for? | `Blocked by #N` or `Not before` on the first line | The issue body (existing) |
 | Needs decision | Is it the owner's call? | Options and a recommendation (`AGENTS.md` step 6) | `needs-decision` plus a comment |
-| In progress | Claimed | — | `in-progress` (existing) |
+| In progress | Claimed | Nothing further | `in-progress` (existing) |
 | In review | Merge on green, or the owner's review? | The `## Merge` section | The PR (existing, since #112) |
 | Closed | Done, not planned, or duplicate | The PR's `Closes #N`, or GitHub's close reason | GitHub |
 
@@ -221,7 +227,7 @@ tracker's level.
 | Status | **Labels** `in-progress` and `needs-decision` (existing), plus derived states | "Has an open PR" and "Ready" are derived, not labelled. |
 | Blocked / scheduled | **The first line of the body** (existing) | Works with every vendor's tool. Native dependencies aren't mirrored, since keeping both would let them drift. |
 | Objective / grouping | **Tracker issues** plus `Part of #N` (existing), with the tracker's priority label as the objective's priority | Replaces milestones and sub-issues for now. Adopt one of those later, instead of this, only if needed. |
-| Merge gate | The issue's `## Merge` section and the PR body (existing) | — |
+| Merge gate | The issue's `## Merge` section and the PR body (existing) | Unchanged |
 | Milestones | **Not now** | They would duplicate trackers. Revisit if the owner wants completion tracking per objective. |
 | Projects and custom fields | **Not now** | The token can't read Projects, and they'd duplicate labels for one maintainer. |
 | Assignees | **Not used** | Everyone shares one account, so an assignee can't show who is working. `in-progress` is the claim. |
