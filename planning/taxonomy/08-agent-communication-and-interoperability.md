@@ -57,10 +57,15 @@
   - [Agentic Commerce Protocol (ACP)](https://www.agenticcommerce.dev/) (OpenAI and Stripe)
     - An open standard for checkout between buyers, their AI agents and businesses, with the business as merchant of record; maintained by OpenAI and Stripe, in beta (Apache 2.0)
     - Not the same protocol as Zed's Agent Client Protocol or IBM's Agent Communication Protocol (Protocols above)
+  - [Universal Commerce Protocol (UCP)](https://ucp.dev/) (Google and Shopify)
+    - An open standard for commerce between platforms such as AI agents, businesses and payment providers, from discovery to checkout (Apache 2.0)
+    - Run by a Governing Council whose permanent members are Google and Shopify; Stripe joined April 28, 2026. Technical councils cover shopping, food, lodging and payments
+    - Supports AP2 as an extension (above)
 
 ## Changelog
 
 **2026-09-15**
+- Added the Universal Commerce Protocol, per the owner's decision on #100 (#106), reversing its omission below. Attributed to Google and Shopify, the permanent members of its Governing Council per ucp.dev's announcements page; repository active, Apache 2.0
 - Added an Agentic Payments category, per the owner's decision on #100 (V5, the alternative to holding it): Amazon Bedrock AgentCore payments; x402 (Coinbase); Machine Payments Protocol (Tempo and Stripe); Agent Payments Protocol (Google); Agentic Commerce Protocol (OpenAI and Stripe). This settles the payments part of the open-items hold. Each was checked at its site and repository (licenses, maintainers, archived flags). Two governance changes found and recorded as sub-bullets: x402 now sits with the Linux Foundation's x402 Foundation, and Google donated AP2 to the FIDO Alliance. Left out: the Universal Commerce Protocol, a checkout protocol from a multi-company council, with no single creator of record to attribute
 - The site's Landscape page for Protocols is now `protocols.md`, since §8 has two categories
 
