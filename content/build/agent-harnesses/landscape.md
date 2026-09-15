@@ -34,6 +34,10 @@ type: landscape
 - [Snowflake CoCo](https://docs.snowflake.com/en/user-guide/cortex-code/cortex-code)
   - Formerly Cortex Code
   - Snowflake's data-native AI coding agent
+- [Snowflake CoWork](https://www.snowflake.com/en/product/snowflake-cowork/)
+  - Formerly Snowflake Intelligence
+  - An agent for business users rather than a coding tool: answers questions over structured and unstructured enterprise data, runs multi-step deep research, and turns reports into recurring automations
+  - Built on Cortex Agents, listed in the [[run/agent-operations/landscape|Operations and Deployment Landscape]]
 
 ## Open Source / Provider-agnostic
 

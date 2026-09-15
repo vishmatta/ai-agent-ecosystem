@@ -60,6 +60,19 @@
     - Hosted commercially as Zilliz Cloud, under a separate brand name
   - [pgvector](https://github.com/pgvector/pgvector) (Andrew Kane)
 
+**Managed Retrieval Services** (retrieval as a hosted service: ingestion, indexing and search over your data, distinct from the vector databases underneath)
+- Commercial / Proprietary
+  - [Amazon Bedrock Knowledge Bases](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html)
+    - Managed retrieval-augmented generation over your data sources, for agents and applications built on Amazon Bedrock
+  - [RAG Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview) (Google)
+    - Part of Gemini Enterprise Agent Platform: ingests, indexes and retrieves your data, over a managed database or a vector database you choose, such as Vector Search, Pinecone or Weaviate
+  - [Foundry IQ](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/what-is-foundry-iq) (Microsoft)
+    - Agentic retrieval over knowledge bases built from enterprise content, callable from Foundry Agent Service, Microsoft Agent Framework or any application
+    - Runs on Azure AI Search (Vector Databases above)
+  - [Cortex Search](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-search/cortex-search-overview) (Snowflake)
+    - Hybrid vector and keyword search over Snowflake data, with embeddings and index refreshes managed for you
+    - The tool Cortex Agents (§13) use to search unstructured data
+
 **Knowledge Graphs**
 - Commercial / Proprietary
   - [Neo4j AuraDB](https://neo4j.com/product/auradb/)
@@ -84,9 +97,20 @@
   - [Cube](https://github.com/cube-js/cube)
     - Self-hostable core; commercial layer under the same brand
 
+**Document Parsing Tools** (turning documents into text and structured data an agent or retrieval pipeline can use)
+- Commercial / Proprietary
+  - [Document Intelligence](https://www.databricks.com/product/artificial-intelligence/document-intelligence) (Databricks)
+    - Parses, extracts and classifies documents with SQL AI functions, governed in Unity Catalog
+  - [Amazon Bedrock Data Automation](https://docs.aws.amazon.com/bedrock/latest/userguide/bda.html)
+    - Turns documents, images, audio and video into structured output, for document processing workflows and retrieval
+  - [LlamaParse](https://www.llamaindex.ai/llamaparse) (LlamaIndex)
+    - Formerly LlamaCloud; the SDK keeps the `llama-cloud` name
+    - One platform for parsing (agentic OCR), extraction, classification, splitting and indexing, from the makers of the LlamaIndex framework (§2 Code Frameworks)
+
 ## Changelog
 
 **2026-09-15**
+- Added two categories, per the owner's decisions on #100. Managed Retrieval Services (V2): Amazon Bedrock Knowledge Bases; RAG Engine (Google); Foundry IQ (Microsoft); Cortex Search (Snowflake), which the cloud vendor pass had missed and Snowflake's CoWork docs name as Cortex Agents' search tool. Document Parsing Tools (V6): Document Intelligence (Databricks); Amazon Bedrock Data Automation; LlamaParse (LlamaIndex), which settles its open item. LlamaParse leads with its current name: LlamaIndex's LlamaCloud page now carries the LlamaParse name, and its docs call it the LlamaParse Platform. Each name and description was checked at its product or documentation page
 - Added the cloud vendors' agent services that fit this section's existing categories, per the owner's direction after the Cloud AI Platforms hub (#96): Vector Search (Google); Azure AI Search (Microsoft); AI Search (Databricks); Oracle AI Vector Search; Cortex Analyst (Snowflake). Each name is the vendor's current one, checked at its product or documentation page, and each links there. New categories these vendors would need (tool gateways, managed retrieval, agent memory, policy planes, payments, document parsing) are a separate decision
 - Renamed Neo4j Aura to "Neo4j AuraDB", the name its product page uses
 

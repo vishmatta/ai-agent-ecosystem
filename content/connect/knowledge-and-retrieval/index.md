@@ -8,6 +8,11 @@ landscapes:
       - { value: 11, label: databases catalogued }
       - { value: 9, label: commercial }
       - { value: 5, label: open source }
+  - title: Managed Retrieval Services
+    href: /connect/knowledge-and-retrieval/managed-retrieval
+    stats:
+      - { value: 4, label: services catalogued }
+      - { value: 4, label: commercial }
   - title: Knowledge Graphs
     href: /connect/knowledge-and-retrieval/knowledge-graphs
     stats:
@@ -20,6 +25,11 @@ landscapes:
       - { value: 4, label: tools catalogued }
       - { value: 4, label: commercial }
       - { value: 2, label: open source }
+  - title: Document Parsing Tools
+    href: /connect/knowledge-and-retrieval/document-parsing-tools
+    stats:
+      - { value: 3, label: tools catalogued }
+      - { value: 3, label: commercial }
 deckPending: >-
   Narrative (What / Why / When / How / Where) not yet drafted for this section. The five beats below are placeholders.
 ---

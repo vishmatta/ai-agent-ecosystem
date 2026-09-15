@@ -68,10 +68,15 @@
   - [Trigger.dev](https://github.com/triggerdotdev/trigger.dev)
     - Self-hostable core; commercial layer under the same brand
   - [BullMQ](https://bullmq.io/) (Taskforce.sh)
+  - [Omnigent](https://omnigent.ai/) (Databricks)
+    - A meta-harness: one layer over Claude Code, Codex, Pi and your own agents, adding policies (spend caps, model routing, escalation), an OS sandbox, and live sessions teammates can share
+    - Built in the open by Databricks' AI team, Neon and outside contributors (Apache 2.0); in alpha
+    - → runs above the harnesses in §1 Harnesses Landscape rather than being one
 
 ## Changelog
 
 **2026-09-15**
+- Added Omnigent (Databricks) under Open Source / Provider-agnostic, per the owner's direction on #100, linked to omnigent.ai as the owner specified. Checked there and at its repository (omnigent-ai/omnigent: Apache 2.0, active, not archived); it wraps several providers' harnesses, so it meets the multi-provider test
 - Added the cloud vendors' agent services that fit this section's existing categories, per the owner's direction after the Cloud AI Platforms hub (#96): Microsoft Foundry Agent Service; Managed Agents API (Google); Cortex Agents (Snowflake). Each name is the vendor's current one, checked at its product or documentation page, and each links there. New categories these vendors would need (tool gateways, managed retrieval, agent memory, policy planes, payments, document parsing) are a separate decision
 
 **2026-09-14**
