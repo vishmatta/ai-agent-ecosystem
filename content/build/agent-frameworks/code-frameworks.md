@@ -33,6 +33,8 @@ type: landscape
 - [Haystack](https://haystack.deepset.ai/) (deepset)
 - [AG2](https://www.ag2.ai/)
   - Community-driven continuation of the AutoGen codebase; the classic `autogen` classes live on as AG2 Classic
+- [Strands Agents](https://strandsagents.com/) (AWS)
+  - Model-agnostic, defaulting to Amazon Bedrock; Apache 2.0
 
 ## Legacy / Decommissioned
 

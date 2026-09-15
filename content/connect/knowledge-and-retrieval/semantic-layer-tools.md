@@ -11,6 +11,8 @@ type: landscape
 - [AtScale](https://www.atscale.com/)
 - [Cube](https://cube.dev/)
   - Hosted commercial layer under the same brand as the open-source core (see Open Source)
+- [Cortex Analyst](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-analyst) (Snowflake)
+  - Converts natural language to SQL over semantic models
 
 ## Open Source / Provider-agnostic
 

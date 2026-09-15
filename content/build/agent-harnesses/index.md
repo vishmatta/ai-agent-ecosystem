@@ -7,8 +7,8 @@ landscapes:
   - title: Harnesses Landscape
     href: /build/agent-harnesses/landscape
     stats:
-      - { value: 27, label: harnesses catalogued }
-      - { value: 12, label: commercial }
+      - { value: 28, label: harnesses catalogued }
+      - { value: 13, label: commercial }
       - { value: 11, label: open source }
       - { value: 5, label: legacy }
 deck: >-

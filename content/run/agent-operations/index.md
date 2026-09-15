@@ -5,8 +5,8 @@ landscapes:
   - title: Operations and Deployment Landscape
     href: /run/agent-operations/landscape
     stats:
-      - { value: 9, label: tools catalogued }
-      - { value: 8, label: commercial }
+      - { value: 12, label: tools catalogued }
+      - { value: 11, label: commercial }
       - { value: 3, label: open source }
 deckPending: >-
   Narrative (What / Why / When / How / Where) not yet drafted for this section. The five beats below are placeholders.

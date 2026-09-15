@@ -5,7 +5,9 @@ type: landscape
 
 ## Commercial / Proprietary
 
-No commercial guardrails tools are catalogued in this category yet.
+- [Amazon Bedrock Guardrails](https://aws.amazon.com/bedrock/guardrails/)
+- [Azure AI Content Safety](https://learn.microsoft.com/en-us/azure/ai-services/content-safety/overview) (Microsoft)
+  - Its Prompt Shields feature is listed under Prompt-Injection Defense Tools
 
 ## Open Source / Provider-agnostic
 

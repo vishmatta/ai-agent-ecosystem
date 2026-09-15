@@ -34,6 +34,8 @@
   - [Baseten](https://www.baseten.co/)
   - [Workers AI](https://developers.cloudflare.com/workers-ai/) (Cloudflare)
     - Serverless inference on Cloudflare's edge network. The same company's agent hosting, Cloudflare Agents, is listed in §13
+  - [OCI Enterprise AI](https://www.oracle.com/artificial-intelligence/enterprise-ai/) (Oracle)
+    - Oracle's hosted models and agents service; its documentation still calls it OCI Generative AI
 - Legacy / Decommissioned
   - [Lambda](https://lambda.ai/inference)
     - Inference API shut down September 25, 2025; Lambda still rents GPU instances
@@ -41,6 +43,8 @@
 **Model Serving**
 - Commercial / Proprietary
   - [NVIDIA NIM](https://www.nvidia.com/en-us/ai-data-science/products/nim-microservices/)
+  - [Model Serving](https://www.databricks.com/product/model-serving) (Databricks)
+    - Part of Agent Bricks; deploys agents, generative AI, and classical ML models
 - Open Source / Provider-agnostic
   - [vLLM](https://vllm.ai/) (UC Berkeley Sky Computing Lab)
   - [TensorRT-LLM](https://github.com/NVIDIA/TensorRT-LLM) (NVIDIA)
@@ -76,6 +80,10 @@
     - Hosted commercial layer under the same brand
     - → distinct product from Helicone's original observability tool; see §15
     - Acquired by Mintlify with Helicone, March 2026; in maintenance mode, with customers encouraged to migrate
+  - [Unity Gateway](https://docs.databricks.com/aws/en/ai-gateway/) (Databricks)
+    - Governs access, security, and cost across models, agents, MCP servers, and tools
+  - [Amazon Bedrock Intelligent Prompt Routing](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-routing.html)
+    - Routes requests between models to cut cost while maintaining quality
 - Open Source / Provider-agnostic
   - [LiteLLM](https://github.com/BerriAI/litellm) (BerriAI)
     - Self-hostable core; commercial layer under the same brand
@@ -89,6 +97,8 @@
 **Local Inference**
 - Commercial / Proprietary
   - [LM Studio](https://lmstudio.ai/download)
+  - [Foundry Local](https://www.foundrylocal.ai/) (Microsoft)
+    - Runs models on device; its SDK is MIT, and the runtime is under Microsoft's own license terms
 - Open Source / Provider-agnostic
   - [Ollama](https://ollama.com/)
   - [llama.cpp](https://github.com/ggml-org/llama.cpp) (Georgi Gerganov)
@@ -99,6 +109,7 @@
 ## Changelog
 
 **2026-09-15**
+- Added the cloud vendors' agent services that fit this section's existing categories, per the owner's direction after the Cloud AI Platforms hub (#96): OCI Enterprise AI (Oracle); Model Serving (Databricks); Unity Gateway (Databricks); Amazon Bedrock Intelligent Prompt Routing; Foundry Local (Microsoft). Each name is the vendor's current one, checked at its product or documentation page, and each links there. New categories these vendors would need (tool gateways, managed retrieval, agent memory, policy planes, payments, document parsing) are a separate decision
 - Renamed entries to their current official names: Hugging Face Inference Providers (its docs' name), Text Generation Inference (Hugging Face), and AI Gateway (Vercel)
 - Cloud AI Platforms entries now lead with their current official names, per the owner's rule (#77) and `CONTRIBUTING.md`: Amazon Bedrock (not AWS Bedrock), Gemini Enterprise Agent Platform (Google), Oracle AI Agent Studio for Fusion Applications, Agent Bricks (Databricks; formerly Mosaic AI, whose name Databricks' product pages no longer use), and Snowflake Cortex AI. Agent Bricks links its own product page
 

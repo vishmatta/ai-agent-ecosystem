@@ -56,6 +56,8 @@
   - [Haystack](https://haystack.deepset.ai/) (deepset)
   - [AG2](https://www.ag2.ai/)
     - Community-driven continuation of the AutoGen codebase; the classic `autogen` classes now live on as AG2 Classic — see AutoGen in Legacy below
+  - [Strands Agents](https://strandsagents.com/) (AWS)
+    - Model-agnostic, defaulting to Amazon Bedrock; Apache 2.0
 - Legacy / Decommissioned
   - [AutoGen](https://github.com/microsoft/autogen) (Microsoft) — superseded by Microsoft Agent Framework, the direct successor built by the same team; shipped as MAF 1.0, April 3, 2026. The repo is now in maintenance mode and community-managed, and AG2 above continues its codebase
   - [Semantic Kernel](https://github.com/microsoft/semantic-kernel) (Microsoft) — likewise superseded by Microsoft Agent Framework, same team, same April 2026 release; SK continues to receive critical bug/security fixes only, with new feature development happening in MAF
@@ -68,6 +70,13 @@
     - Natural-language "Runbooks" instead of code; prebuilt enterprise-app integrations (SharePoint, SAP, Snowflake) plus MCP
   - [n8n](https://n8n.io/)
     - Visual workflow automation with AI agent steps. Self-hostable, but source-available under its Sustainable Use License rather than open source, so it's listed here only
+  - [Microsoft Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio)
+  - [Agent Studio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio) (Google)
+    - Part of Gemini Enterprise Agent Platform: a visual workspace for building agents without writing code
+  - [Oracle AI Agent Studio for Fusion Applications](https://www.oracle.com/applications/dawn-of-ai-enterprise-agent-workforce/)
+    - Builds agents that work inside Oracle Fusion Applications
+  - [Agent Bricks](https://www.databricks.com/product/artificial-intelligence/agent-bricks) (Databricks)
+    - Formerly Mosaic AI; builds and governs agents grounded in enterprise data
 - Open Source / Provider-agnostic
   - [Langflow](https://www.langflow.org/)
     - Visual builder for agents and LLM workflows; MIT-licensed
@@ -77,6 +86,7 @@
 ## Changelog
 
 **2026-09-15**
+- Added the cloud vendors' agent services that fit this section's existing categories, per the owner's direction after the Cloud AI Platforms hub (#96): Strands Agents (AWS); Microsoft Copilot Studio; Agent Studio (Google); Oracle AI Agent Studio for Fusion Applications; Agent Bricks (Databricks). Each name is the vendor's current one, checked at its product or documentation page, and each links there. New categories these vendors would need (tool gateways, managed retrieval, agent memory, policy planes, payments, document parsing) are a separate decision
 - Renamed entries to their current official names (`CONTRIBUTING.md` → Lead with the current name): Google ADK is "Agent Development Kit (Google)", as Google's pages name it, noted "Abbreviated ADK"; Vercel AI SDK is "AI SDK (Vercel)"
 
 **2026-09-13**

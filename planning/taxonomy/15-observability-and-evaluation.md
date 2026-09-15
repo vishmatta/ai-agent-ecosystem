@@ -80,6 +80,11 @@
     - Commercial platform available under a separate brand, Arize AX
   - [Fiddler AI](https://www.fiddler.ai/)
     - Positions itself as a control plane across agents built on any framework — telemetry, evaluation, monitoring, and policy enforcement in one layer
+  - [Amazon Bedrock AgentCore Observability](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability.html)
+  - [Foundry Observability](https://learn.microsoft.com/en-us/azure/foundry/concepts/observability) (Microsoft)
+    - Tracing, monitoring, and evaluation for agents and models
+  - [MLflow](https://www.databricks.com/product/managed-mlflow) (Databricks)
+    - Hosted as Managed MLflow on Databricks (see Open Source)
 - Open Source / Provider-agnostic
   - [Langfuse](https://github.com/langfuse/langfuse) (ClickHouse)
     - Self-hostable core; commercial layer under the same brand
@@ -87,11 +92,15 @@
     - Self-hostable core; commercial layer under the same brand
     - → distinct from Helicone AI Gateway; see §6
     - Acquired by Mintlify, March 2026; in maintenance mode, with customers encouraged to migrate
+  - [MLflow](https://mlflow.org/) (Databricks)
+    - Self-hostable open-source core; hosted commercially as Managed MLflow (see Commercial)
 
 **Evaluation Tools**
 - Commercial / Proprietary
   - [Confident AI](https://www.confident-ai.com/)
     - Hosted commercial layer under a separate brand name, built on DeepEval
+  - [Amazon Bedrock AgentCore Evaluations](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/evaluations.html)
+  - [GenAI Evaluation Service](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/agent-evaluation) (Google)
 - Open Source / Provider-agnostic
   - [promptfoo](https://www.promptfoo.dev/) (OpenAI)
     - Founded by Ian Webster and Michael D'Angelo; acquired by OpenAI in 2026, remains open source under continued independent development
@@ -115,6 +124,7 @@
 ## Changelog
 
 **2026-09-15**
+- Added the cloud vendors' agent services that fit this section's existing categories, per the owner's direction after the Cloud AI Platforms hub (#96): Amazon Bedrock AgentCore Observability; Foundry Observability (Microsoft); MLflow (Databricks); Amazon Bedrock AgentCore Evaluations; GenAI Evaluation Service (Google). Each name is the vendor's current one, checked at its product or documentation page, and each links there. New categories these vendors would need (tool gateways, managed retrieval, agent memory, policy planes, payments, document parsing) are a separate decision
 - Renamed entries to their current official names: Datadog Agent Observability (formerly Datadog LLM Observability; Datadog's page now leads with Agent Observability), Phoenix (Arize), and Weave (Weights & Biases)
 
 **2026-09-14**

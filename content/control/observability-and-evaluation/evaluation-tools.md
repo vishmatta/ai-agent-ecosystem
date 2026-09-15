@@ -7,6 +7,8 @@ type: landscape
 
 - [Confident AI](https://www.confident-ai.com/)
   - Hosted commercial layer under a separate brand name, built on DeepEval (see Open Source)
+- [Amazon Bedrock AgentCore Evaluations](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/evaluations.html)
+- [GenAI Evaluation Service](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/agent-evaluation) (Google)
 
 ## Open Source / Provider-agnostic
 

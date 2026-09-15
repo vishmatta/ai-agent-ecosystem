@@ -5,8 +5,8 @@ landscapes:
   - title: Vector Databases
     href: /connect/knowledge-and-retrieval/vector-databases
     stats:
-      - { value: 7, label: databases catalogued }
-      - { value: 5, label: commercial }
+      - { value: 11, label: databases catalogued }
+      - { value: 9, label: commercial }
       - { value: 5, label: open source }
   - title: Knowledge Graphs
     href: /connect/knowledge-and-retrieval/knowledge-graphs
@@ -17,8 +17,8 @@ landscapes:
   - title: Semantic Layer Tools
     href: /connect/knowledge-and-retrieval/semantic-layer-tools
     stats:
-      - { value: 3, label: tools catalogued }
-      - { value: 3, label: commercial }
+      - { value: 4, label: tools catalogued }
+      - { value: 4, label: commercial }
       - { value: 2, label: open source }
 deckPending: >-
   Narrative (What / Why / When / How / Where) not yet drafted for this section. The five beats below are placeholders.

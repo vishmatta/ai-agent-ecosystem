@@ -5,7 +5,8 @@ landscapes:
   - title: Behavior and Configuration Landscape
     href: /build/agent-behavior/landscape
     stats:
-      - { value: 3, label: tools catalogued }
+      - { value: 5, label: tools catalogued }
+      - { value: 2, label: commercial }
       - { value: 3, label: open source }
 deckPending: >-
   Narrative (What / Why / When / How / Where) not yet drafted for this section. The five beats below are placeholders.

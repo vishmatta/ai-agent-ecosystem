@@ -7,6 +7,10 @@ type: landscape
 
 - [Smithery](https://smithery.ai/)
 - [Glama](https://glama.ai/mcp/servers)
+- [AWS Agent Registry](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/registry.html)
+  - Part of Amazon Bedrock AgentCore; catalogs agents, MCP servers, tools, and skills
+- [Agent Registry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-registry) (Google)
+  - Part of Gemini Enterprise Agent Platform; a store for agents and MCP servers
 
 ## Open Source / Provider-agnostic
 

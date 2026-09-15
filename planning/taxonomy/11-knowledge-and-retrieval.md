@@ -43,6 +43,12 @@
     - Hosted commercial layer under the same brand
   - [Zilliz Cloud](https://zilliz.com/cloud)
     - Hosted layer for Milvus, under a separate brand name
+  - [Vector Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/overview) (Google)
+  - [Azure AI Search](https://learn.microsoft.com/en-us/azure/search/search-what-is-azure-search) (Microsoft)
+  - [AI Search](https://www.databricks.com/product/artificial-intelligence/ai-search) (Databricks)
+    - Part of Agent Bricks
+  - [Oracle AI Vector Search](https://www.oracle.com/database/ai-vector-search/)
+    - Vector search built into Oracle AI Database
 - Open Source / Provider-agnostic
   - [Weaviate](https://github.com/weaviate/weaviate)
     - Self-hostable core; commercial layer under the same brand
@@ -70,6 +76,8 @@
   - [AtScale](https://www.atscale.com/)
   - [Cube](https://cube.dev/)
     - Hosted commercial layer under the same brand
+  - [Cortex Analyst](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-analyst) (Snowflake)
+    - Converts natural language to SQL over semantic models
 - Open Source / Provider-agnostic
   - [dbt Semantic Layer](https://github.com/dbt-labs/metricflow) (dbt Labs)
     - Self-hostable core via dbt Core and MetricFlow; commercial layer via dbt Cloud
@@ -79,6 +87,7 @@
 ## Changelog
 
 **2026-09-15**
+- Added the cloud vendors' agent services that fit this section's existing categories, per the owner's direction after the Cloud AI Platforms hub (#96): Vector Search (Google); Azure AI Search (Microsoft); AI Search (Databricks); Oracle AI Vector Search; Cortex Analyst (Snowflake). Each name is the vendor's current one, checked at its product or documentation page, and each links there. New categories these vendors would need (tool gateways, managed retrieval, agent memory, policy planes, payments, document parsing) are a separate decision
 - Renamed Neo4j Aura to "Neo4j AuraDB", the name its product page uses
 
 **2026-09-14**

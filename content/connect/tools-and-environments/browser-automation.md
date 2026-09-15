@@ -8,6 +8,7 @@ type: landscape
 - [Browserbase](https://www.browserbase.com/)
 - [Browser Use](https://browser-use.com/)
   - Hosted commercial layer under the same brand as the open-source core (see Open Source)
+- [Amazon Bedrock AgentCore Browser](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/browser-tool.html)
 
 ## Open Source / Provider-agnostic
 

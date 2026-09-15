@@ -24,6 +24,11 @@ type: landscape
   - Commercial platform available under a separate brand, Arize AX
 - [Fiddler AI](https://www.fiddler.ai/)
   - Positions itself as a control plane across agents built on any framework: telemetry, evaluation, monitoring, and policy enforcement in one layer
+- [Amazon Bedrock AgentCore Observability](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability.html)
+- [Foundry Observability](https://learn.microsoft.com/en-us/azure/foundry/concepts/observability) (Microsoft)
+  - Tracing, monitoring, and evaluation for agents and models
+- [MLflow](https://www.databricks.com/product/managed-mlflow) (Databricks)
+  - Hosted as Managed MLflow on Databricks (see Open Source)
 
 ## Open Source / Provider-agnostic
 
@@ -33,6 +38,8 @@ type: landscape
   - Self-hostable core, with a commercial layer under the same brand (see Commercial)
   - Distinct from Helicone AI Gateway, listed in [[connect/model-infrastructure/routers-gateways-and-proxies|Model Routers, Gateways and Proxies]]
   - Acquired by Mintlify, March 2026; in maintenance mode, with customers encouraged to migrate
+- [MLflow](https://mlflow.org/) (Databricks)
+  - Self-hostable open-source core; hosted commercially as Managed MLflow (see Commercial)
 
 ## Legacy / Decommissioned
 

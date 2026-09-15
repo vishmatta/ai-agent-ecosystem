@@ -11,6 +11,13 @@ type: landscape
   - Natural-language "Runbooks" instead of code, with prebuilt enterprise-app integrations (SharePoint, SAP, Snowflake) plus MCP
 - [n8n](https://n8n.io/)
   - Visual workflow automation with AI agent steps. Self-hostable, but source-available under its Sustainable Use License rather than open source
+- [Microsoft Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio)
+- [Agent Studio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio) (Google)
+  - Part of Gemini Enterprise Agent Platform: a visual workspace for building agents without writing code
+- [Oracle AI Agent Studio for Fusion Applications](https://www.oracle.com/applications/dawn-of-ai-enterprise-agent-workforce/)
+  - Builds agents that work inside Oracle Fusion Applications
+- [Agent Bricks](https://www.databricks.com/product/artificial-intelligence/agent-bricks) (Databricks)
+  - Formerly Mosaic AI; builds and governs agents grounded in enterprise data
 
 ## Open Source / Provider-agnostic
 
