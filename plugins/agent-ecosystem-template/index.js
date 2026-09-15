@@ -23,6 +23,7 @@
  */
 
 const BEATS = ["what", "why", "when", "how", "where"]
+// Also in agent-ecosystem-page-types (minus `home`); a new type goes in both.
 const TAXONOMY_TYPES = ["narrative", "concept", "landscape", "home", "how-to", "hub"]
 
 /** Plain-text content of a HAST node, for beat detection. */

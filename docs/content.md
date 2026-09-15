@@ -146,7 +146,10 @@ In `stats`, a product listed in two buckets (e.g. Zed, commercial and open
 source) counts once in the total and once in each bucket, so the buckets can
 add up to more than the total. Labels are "… catalogued" (the total),
 `commercial`, `open source`, and `legacy`. CI recounts the Landscape page and
-fails on any mismatch.
+fails on any mismatch. It counts top-level bullets only, and identifies a
+product by the entry's text with links unwrapped and any trailing
+`(Creator)` dropped. So a dual-listed product needs the same link text in
+both buckets, or the total counts it twice.
 
 List only concept pages that exist, in the taxonomy's own bullet order.
 Position shows relative order, not rank (plan §3).

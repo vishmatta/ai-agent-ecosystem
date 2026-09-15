@@ -24,6 +24,8 @@ import { ContentBody } from "@quartz-community/content-page"
  * page would otherwise claim — adding a child-page listing and a Properties
  * panel. Stage pages carry no `type:`, so they stay folder listings, claimed
  * by agent-ecosystem-stage-page for their order.
+ *
+ * agent-ecosystem-template keeps its own list; a new type goes in both.
  */
 const TAXONOMY_TYPES = ["narrative", "concept", "landscape", "how-to", "hub"]
 
