@@ -40,7 +40,8 @@ Scope.
    | A concept page for a section whose pipeline run is done | A task issue | `content` |
    | A whole section's content, researched and written | A Section issue (`.github/ISSUE_TEMPLATE/section.md`) | `pipeline` |
    | A new Landscape category, a new section, or any change of structure | A task issue giving the options and your recommendation, with `needs-decision` (`AGENTS.md` step 6) | `taxonomy` |
-   | A change to how the site works, not what it says | Not a content idea: a task issue per `docs/triage.md` | `site` or `process` |
+   | A fix or a change to how the site works today, not what it says | Not a content idea: a task issue per `docs/triage.md` | `site` or `process` |
+   | A capability the project doesn't have: an integration, a feed, an API, a surface other tools consume | Not a content idea: a feature request per `docs/features.md` | `feature` |
 
 6. **Write the issue** with the template's headings. Under Context, give the
    primary source, and say where the idea came from. Fill in Merge per
