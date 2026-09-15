@@ -15,7 +15,9 @@ Each taxonomy section (§1–15) becomes up to three tiers of pages (plan §3):
 | Landscape | `landscape` | the attributed product list, no prose | may be stubbed ahead of content |
 
 Other page types: `home` (site root, the only first-person page — plan §9),
-`how-to` (the how-to-use-this-site page), and stage pages
+`how-to` (the how-to-use-this-site page), `hub` (a cross-link page that
+gathers pieces catalogued elsewhere, such as Cloud AI Platforms; a plain
+body with no beats or Landscape card), and stage pages
 (`content/<stage>/index.md`, no `type:`, rendered as Quartz folder pages).
 
 **Silent omission.** A section with no concept pages yet, or no Landscape,
@@ -62,7 +64,7 @@ split (plan §3).
 | build | 4 | 4 | Models | `models` (live) | never | 1: `landscape` |
 | build | 5 | 5 | Agent Behavior and Configuration | `agent-behavior` (live) | yes | 1: `landscape` (Guardrails Tools) |
 | connect | 1 | 6 | Model Infrastructure | `model-infrastructure` (live) | never | 4: Inference Providers `inference-providers`, Model Serving `model-serving`, Model Routers, Gateways and Proxies `routers-gateways-and-proxies`, Local Inference `local-inference` |
-| connect | 1a | — | Cloud AI Platforms hub | `cloud-ai-platforms` | — | cross-links only (plan §8.1) |
+| connect | 1a | — | Cloud AI Platforms hub | `cloud-ai-platforms` (live) | — | cross-links only (plan §8.1) |
 | connect | 2 | 7 | Tools and Environment Interfaces | `tools-and-environments` (live) | yes | 6: MCP Registries `mcp-registries`, Browser Automation `browser-automation`, Voice / Multimodal Tools `voice-and-multimodal-tools`, Generative UI Tools `generative-ui-tools`, plus two from §14 (#36, #58): Secrets Management Tools `secrets-management-tools`, Prompt-Injection Defense Tools `prompt-injection-defense-tools` |
 | connect | 3 | 9 | Context | `context` (live) | yes | none — no tooling exists |
 | connect | 4 | 10 | Memory | `memory` | yes | 1: `landscape` |
@@ -124,7 +126,7 @@ page.
 
 ```yaml
 title: Agent Behavior and Configuration # required
-type: narrative # narrative | concept | landscape | home | how-to (omit on stage pages)
+type: narrative # narrative | concept | landscape | home | how-to | hub (omit on stage pages)
 deck: >- # drafted narrative: one-sentence line under the title
 deckPending: >- # undrafted: status note, rendered visibly differently. Use one or the other.
 tags: [ADE] # only tags from planning/taxonomy/tags.md
