@@ -22,6 +22,7 @@ https://vishmatta.github.io/ai-agent-ecosystem/ — every merge to `main` deploy
 ## Commands
 
 ```bash
+node -v                  # must match .node-version (Quartz 5 needs 22+)
 npm ci                   # once per checkout — each git worktree needs its own
 npx quartz build         # output in public/ (there is no `npm run build`)
 # What CI runs. Run it before every PR — Quartz can exit 0 on a broken build:
