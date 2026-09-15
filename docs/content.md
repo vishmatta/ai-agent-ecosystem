@@ -40,6 +40,10 @@ so a half-written page can't merge.
   file per category, named with the category's slug, e.g.
   `agent-frameworks/code-frameworks.md`.
 - Slugs are descriptive, never numbered (plan §4).
+- Renaming a page changes a permanent URL, so it's the owner's call. Once
+  approved, `git mv` the file and list its old path under `aliases:`
+  (Frontmatter, below). The build leaves a redirect at the old URL, and
+  `verify-build.mjs` checks that the redirect resolves.
 - Links in page bodies: use full-path wikilinks, e.g.
   `[[build/agent-frameworks/index|Agent Frameworks]]` for a section page, or
   `[[build/agent-frameworks/code-frameworks|Code Frameworks]]`. Quartz rewrites every body
@@ -136,6 +140,8 @@ concepts: # narrative pages; omit until at least one concept page exists
     note: Model routing — implemented in Connect # one line on its children, or "Single concept, no children"
     href: /build/agent-behavior/model-selection # site-root path; components render it relative
 conceptsTotal: 15 # optional "N of M written" footnote; not a settled rule (plan §10)
+aliases: # a renamed page's old path, from the site root; its old URL redirects here
+  - connect/agent-communication/landscape
 landscapes: # narrative pages; omit for sections with no tooling
   - title: Harnesses Landscape # "<Section> Landscape", or the category name when split
     href: /build/agent-harnesses/landscape

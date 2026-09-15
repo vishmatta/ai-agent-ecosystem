@@ -57,7 +57,7 @@ type: landscape
   - Now part of the [Agentic AI Foundation (AAIF)](https://aaif.io/) at the Linux Foundation
 - [Zed](https://github.com/zed-industries/zed)
   - GPL-3.0 editor core, with local models via Ollama. Commercial layer under the same brand (see Commercial)
-  - A host editor for the Agent Client Protocol (see the [[connect/agent-communication/landscape|Communication and Interoperability Landscape]]): external agents such as Claude Agent, Codex, and OpenCode dock into it
+  - A host editor for the Agent Client Protocol (see [[connect/agent-communication/protocols|Protocols]]): external agents such as Claude Agent, Codex, and OpenCode dock into it
 
 ## Legacy / Decommissioned
 

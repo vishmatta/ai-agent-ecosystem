@@ -1,6 +1,8 @@
 ---
-title: Communication and Interoperability Landscape
+title: Protocols
 type: landscape
+aliases:
+  - connect/agent-communication/landscape
 ---
 
 ## Commercial / Proprietary

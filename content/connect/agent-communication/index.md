@@ -2,8 +2,8 @@
 title: Agent Communication and Interoperability
 type: narrative
 landscapes:
-  - title: Communication and Interoperability Landscape
-    href: /connect/agent-communication/landscape
+  - title: Protocols
+    href: /connect/agent-communication/protocols
     stats:
       - { value: 3, label: protocols catalogued }
       - { value: 2, label: open source }
