@@ -1,0 +1,54 @@
+# Checks open issues against the label vocabulary and the waiting-marker
+# conventions (docs/triage.md → Where a new piece of state goes).
+#
+# These conventions are what every agent filters on, and nothing else enforces
+# them: an unknown label is created by the API rather than rejected, and a
+# near-miss waiting marker reads fine to a person while gating nothing.
+#
+# It lints every open issue on any issue event rather than only the one that
+# changed — the list is small, and a label applied by hand elsewhere is caught
+# the next time anything happens. It never writes: a failing run is the signal.
+
+name: Issue lint
+
+on:
+  issues:
+    types: [opened, edited, reopened, labeled, unlabeled]
+  schedule:
+    # Weekly, to catch drift in a quiet week.
+    - cron: "17 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: read
+
+concurrency:
+  group: issue-lint
+  cancel-in-progress: true
+
+jobs:
+  check-issues:
+    name: check-issues
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v7
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .node-version
+
+      # No dependencies: the script reads a JSON file and nothing else.
+      - name: Collect open issues
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue list --repo "${{ github.repository }}" --state open --limit 200 \
+            --json number,title,labels,body > issues.json
+
+      - name: Check them
+        run: node .github/scripts/check-issues.mjs issues.json

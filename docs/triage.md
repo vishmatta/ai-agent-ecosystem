@@ -32,13 +32,38 @@ changes. A decision isn't a type: any issue can gain and lose
 `needs-decision`.
 
 **Not labels:**
-- **Waiting:** an issue's first line (`Blocked by #N`, `Not before
-  YYYY-MM-DD`).
+- **Waiting:** an issue's first line (`Blocked by #N`, or several as
+  `Blocked by #70, #75 and #76`; `Not before YYYY-MM-DD`).
 - **Grouping:** a tracker plus a `Part of #N` line in each child issue.
 - **Merge gate:** the issue's `## Merge` section (`AGENTS.md` step 5).
 - **Duplicate or not planned:** GitHub's close reasons.
 - Assignees, milestones and Projects aren't used. Everyone works through one
   account, and some agents' tokens can't read Projects.
+
+**Where a new piece of state goes.** Adding one? Match it to the mechanism, and
+put it in exactly one place: two copies drift.
+
+| The thing | Mechanism | Why |
+|---|---|---|
+| State of one issue, a small closed vocabulary, used to filter | A **label** | It comes back from `gh issue list` without fetching bodies, and the timeline records who set it and when. |
+| State of one issue that carries a parameter, or that someone without write access must be able to set | The **first line of the body** | A label can't hold `#57` or a date, and a contributor working from a fork can't apply one. A date also stops applying on its own. |
+| A judgement about one issue, in prose | A **section of the template** | `## Merge` carries the reason, which no label can. |
+| A rule about every issue | A **file in `docs/`** | Reasoning, exceptions and history belong in git. |
+
+**Whatever a tool depends on needs a check, or it rots silently.** Both failure
+modes are in this repo's history: status labels left on closed issues (#77,
+#98), and a label created by a typo'd API call, since applying an unknown label
+creates it. `.github/workflows/label-hygiene.yml` strips status labels when an
+issue closes, and `.github/scripts/check-issues.mjs` fails on a label outside
+the set above, on a doubled type or priority, and on a waiting marker that
+doesn't parse. `issue-lint.yml` runs it on every issue event; run it yourself
+before triaging a batch:
+
+```bash
+gh issue list -R vishmatta/ai-agent-ecosystem --state open --limit 200 \
+  --json number,title,labels,body > issues.json
+node .github/scripts/check-issues.mjs issues.json
+```
 
 ## Stop the line
 
