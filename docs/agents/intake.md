@@ -42,6 +42,7 @@ Scope.
    | A new Landscape category, a new section, or any change of structure | A task issue giving the options and your recommendation, with `needs-decision` (`AGENTS.md` step 6) | `taxonomy` |
    | A fix or a change to how the site works today, not what it says | Not a content idea: a task issue per `docs/triage.md` | `site` or `process` |
    | A capability the project doesn't have: an integration, a feed, an API, a surface other tools consume | Not a content idea: a feature request per `docs/features.md` | `feature` |
+   | A generalizable lesson from a decision this project made — a recurring choice, its trade-offs, a recommendation — rather than content about the ecosystem | A comment on #134, which collects them until there are enough to show what structure they want. No new issue. | none |
 
 6. **Write the issue** with the template's headings. Under Context, give the
    primary source, and say where the idea came from. Fill in Merge per

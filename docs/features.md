@@ -17,6 +17,7 @@ own history.
 | A Landscape entry, a concept, a correction, a new category or section | A content idea: `docs/agents/intake.md` |
 | A capability the project doesn't have: an integration, a feed, an API, a surface other tools consume, a new way readers or contributors interact with the project | A feature request: this file |
 | A fix to something that already works, or a change to how an existing page renders or builds | An ordinary task issue: `docs/triage.md` |
+| A generalizable lesson from a decision this project made, which the site has no home for yet | A comment on #134, the collection tracker. No new issue until the shape is clear. |
 
 A feature request adds something the project doesn't do today, and the owner has
 to want it before it's worth scoping. A better version of something already
