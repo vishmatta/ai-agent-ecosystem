@@ -89,6 +89,9 @@ git history and PRs already hold those.
   Where a sensible default exists, pick it and say so.
 - Encode waiting in an issue's first line (`Blocked by #N`,
   `Not before YYYY-MM-DD`) so agents can skip it mechanically.
+- When you choose your own mechanism over a platform primitive, record the
+  primitive you rejected and why, beside the one you chose. A table of what was
+  picked can't answer "why not the built-in?" a month later.
 - Record the owner's answer on the issue before applying it, so the decision
   outlives the chat. A PR that only applies a decision already made can merge
   once CI passes.
@@ -137,17 +140,25 @@ git history and PRs already hold those.
 
 - Repository settings (the branch ruleset, the Pages source) belong to the
   owner. Say what to change; don't change them through the API.
+- `needs-decision` and the `## Merge` gate look alike and aren't: the label
+  means the owner's answer is needed before the work is built, on an issue that
+  usually has no PR; the Merge section means a finished PR waits for their
+  review. A GitHub review request can't stand in for either here, since issues
+  have no reviewers and one shared account can't review its own PR
+  (`planning/issue-triage-plan.md` §6).
 - Build on the Node version in `.node-version`, which CI uses; Quartz 5 needs
   22 or later. Run `node -v` first. An agent's shell can start on an older
   default, and then npm stops with `EBADENGINE` before Quartz runs. A sandbox
   may have no way to fetch the pinned version; the build still runs on any
   Node 22 or later, so run the checks anyway and report which version you used
   instead of calling the run CI-identical.
-- `quartz-build-check` runs `check-content.mjs` over `content/`, the build, and
-  `verify-build.mjs`. It never runs prettier and never looks at `docs/`,
-  `.github/` or `.agents/`, so `npx prettier --check` the markdown you add
-  there yourself; otherwise it goes green here and fails in `npm run check`
-  for whoever runs it next (#14).
+- `quartz-build-check` runs `check-content.mjs` over `content/`, the build and
+  `verify-build.mjs`: no formatter, and nothing outside `content/`.
+  `npm run check` does run prettier, but `AGENTS.md`, `CLAUDE.md` and `docs/`
+  are in `.prettierignore` on purpose and `planning/` fails wholesale today
+  (#14). So prettier-check what you add under `.github/`, `plugins/` or
+  `.agents/`, and don't reformat an ignored or already-failing file to make a
+  check pass.
 - Delete `public/` before a verification build. `verify-build.mjs` checks
   whatever is in `public/`, so after a failed build it can pass against the
   previous build's output (#121).

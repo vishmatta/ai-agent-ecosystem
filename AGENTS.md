@@ -15,7 +15,7 @@ https://vishmatta.github.io/ai-agent-ecosystem/ — every merge to `main` deploy
 | `planning/` | The spec: site plan, PRD, two HTML mockups. Read on demand — see below. `issue-triage-plan.md` is the reasoning behind `docs/triage.md`. |
 | `planning/taxonomy/` | The taxonomy, one file per section. Authoritative for structure and entries; the site owns the prose. |
 | `planning/research/` | Research notes awaiting review, or kept as a record. Unverified input, never spec. |
-| `.github/` | `build-check.yml` (required PR check), `deploy.yml` (Pages deploy), `scripts/verify-build.mjs`. |
+| `.github/` | `build-check.yml` (required PR check), `deploy.yml` (Pages deploy), `label-hygiene.yml` and `issue-lint.yml` (issue housekeeping), `scripts/verify-build.mjs`, `scripts/check-issues.mjs`. |
 | `.agents/skills/` | Optional skills that point at the docs, for tools that support skills. `.claude/skills/` holds symlinks to them for Claude Code. |
 | rest of `quartz/`, `quartz.config.default.yaml`, `Dockerfile`, `CODE_OF_CONDUCT.md` | Vendored upstream Quartz. Don't read or edit. |
 

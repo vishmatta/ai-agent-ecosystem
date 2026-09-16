@@ -1,0 +1,67 @@
+# Removes status labels from closed issues.
+#
+# `in-progress` and `needs-decision` describe what is happening now, so on a
+# closed issue they are noise: an agent listing issues sees work that looks
+# claimed, and the owner sees a decision queue that isn't real (#77, #98).
+# Nobody remembers to strip them by hand, so this does it.
+#
+# The dispatch run sweeps every closed issue that still carries one, which is
+# also the only way to exercise this workflow: `on: issues` runs from the
+# default branch, so it can't be tested from a pull request.
+#
+# Status labels live in docs/triage.md. Changing that list means changing
+# STATUS_LABELS below.
+
+name: Label hygiene
+
+on:
+  issues:
+    types: [closed]
+  workflow_dispatch:
+
+# Only what it needs: labels on issues.
+permissions:
+  issues: write
+
+concurrency:
+  group: label-hygiene-${{ github.event.issue.number || 'sweep' }}
+  cancel-in-progress: false
+
+jobs:
+  strip-status-labels:
+    name: strip-status-labels
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      GH_TOKEN: ${{ github.token }}
+      REPO: ${{ github.repository }}
+      STATUS_LABELS: in-progress needs-decision
+
+    steps:
+      # DELETE returns 404 when the label isn't on the issue, which is the
+      # common case and not a failure — hence the `|| true` around each call.
+      - name: Strip the closed issue's status labels
+        if: github.event_name == 'issues'
+        run: |
+          for label in $STATUS_LABELS; do
+            if gh api --silent -X DELETE \
+              "repos/$REPO/issues/${{ github.event.issue.number }}/labels/$label" 2>/dev/null
+            then
+              echo "Removed $label from #${{ github.event.issue.number }}"
+            else
+              echo "#${{ github.event.issue.number }} did not carry $label"
+            fi
+          done
+
+      - name: Sweep every closed issue still carrying one
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          swept=0
+          for label in $STATUS_LABELS; do
+            for number in $(gh issue list --repo "$REPO" --state closed --label "$label" \
+              --limit 200 --json number --jq '.[].number'); do
+              gh api --silent -X DELETE "repos/$REPO/issues/$number/labels/$label" 2>/dev/null \
+                && echo "Removed $label from #$number" && swept=$((swept + 1))
+            done
+          done
+          echo "Swept $swept label(s)." | tee -a "$GITHUB_STEP_SUMMARY"
