@@ -11,7 +11,6 @@
 - Computer Use
 - Multi-agent
 - MCP
-- A2A / ACP
 - Enterprise
 - Production
 - Framework
