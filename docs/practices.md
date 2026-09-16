@@ -14,6 +14,10 @@ git history and PRs already hold those.
   against the old one. Release notes summarize a change; they aren't the change.
 - Check external facts at the primary source. For a project's status, read its
   repo's archived flag and README, not only its changelog or homepage.
+- Take a product's URL from the product, not from a search result. A snippet
+  can name a plausible domain the vendor doesn't own, and a wrong link is the
+  one part of an entry a reader clicks. Load the page and see which host serves
+  it before recording it.
 - Confirm a suspected rename by loading the old product and docs URLs. A
   redirect to the new name settles it, and the new page often says
   "Formerly …".
@@ -176,6 +180,23 @@ git history and PRs already hold those.
   `curl`. Many docs sites also publish `/llms.txt` (an index of every page)
   and a `.md` version of each page, e.g. docs.snowflake.com and
   docs.databricks.com.
+- When a product's own page doesn't name the company behind it, read its Terms
+  of Service or Privacy Policy. They open by naming the legal entity and any
+  "d/b/a", which is what `Name (Creator)` needs; a marketing page often gives
+  only a city and a contact address. That name beats a news story's.
+- When the network blocks a primary source, the owner can paste it, but record
+  on the issue what was read and when. A paste is a dated snapshot, not a link
+  a reviewer can re-open, and an access model or a price moves — re-check
+  before the work starts if the gap has grown.
+- A name in `planning/taxonomy/tags.md` isn't a tag in use. Grep before relying
+  on one or extending the set: most of the list is applied to nothing, and
+  `check-content.mjs` doesn't validate tags, so an unused or misspelled one
+  fails silently. Adding a name to that file and applying it across the
+  Landscapes are separate jobs of very different size.
+- Don't bundle several names into one tag with a slash, and check that an
+  abbreviation isn't already taken. A tag has to mean one thing to filter
+  anything: "ACP" is both Agent Client Protocol, as §1 cites it, and Agentic
+  Commerce Protocol, as `CONTRIBUTING.md` does. Spell each out as its own tag.
 - When a Landscape category opens, check every vendor on the Cloud AI
   Platforms hub for a matching service, not only the ones the proposal
   listed. A per-vendor sweep misses services that sit outside the vendor's
