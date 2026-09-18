@@ -27,6 +27,18 @@ Scope.
 3. **Check scope** against `CONTRIBUTING.md` → Scope and
    `planning/site-prd.md` §3. If it's out of scope, recommend closing it the
    same way, and stop.
+
+   **One exception: a hiring-framed source naming engineering skills.** A job
+   post or job description names skills, wrapped in a hiring angle the site
+   doesn't cover. Don't reject it on the wrapper. The skills are an in-scope
+   **source** for what the market is asking for; hiring, recruiting, job
+   titles, seniority labels, salaries and talent shortages stay out of scope as
+   a **subject** and never reach `content/`. It routes to a research note
+   rather than an issue — see the table below, and
+   `planning/research/README.md` → Skill-demand notes (#147, #153). Step 4
+   doesn't apply to it: a posting is often gone or was supplied as a
+   screenshot, so record it as a dated snapshot instead of hunting a primary
+   source, and don't cite it from the taxonomy.
 4. **Check the facts at a primary source** (`docs/practices.md` → Before
    starting): the product's own page, docs, repository or announcement. Keep
    the link. Mark anything you can't verify `(unconfirmed)` rather than
@@ -43,6 +55,7 @@ Scope.
    | A fix or a change to how the site works today, not what it says | Not a content idea: a task issue per `docs/triage.md` | `site` or `process` |
    | A capability the project doesn't have: an integration, a feed, an API, a surface other tools consume | Not a content idea: a feature request per `docs/features.md` | `feature` |
    | A generalizable lesson from a decision this project made — a recurring choice, its trade-offs, a recommendation — rather than content about the ecosystem | A comment on #134, which collects them until there are enough to show what structure they want. No new issue. | none |
+   | A job post, job description, or other hiring-framed source naming engineering skills | A skill-demand note in `planning/research/` (`planning/research/README.md` → Skill-demand notes). No new issue. | none |
 
 6. **Write the issue** with the template's headings. Under Context, give the
    primary source, and say where the idea came from. Fill in Merge per

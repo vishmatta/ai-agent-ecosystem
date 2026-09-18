@@ -100,6 +100,7 @@ Issues should be self-contained enough that no other context is needed.
 | anything (once per session, before your first commit) | `docs/practices.md` |
 | picking, opening, or triaging an issue | `docs/triage.md` |
 | a content idea for the site (new entry, concept, correction, section) | `docs/agents/intake.md` |
+| a job post, JD or skills map, dropped in for the skills it names | `docs/agents/intake.md` step 3, then `planning/research/README.md` → Skill-demand notes |
 | a feature request for the project itself (an integration, a feed, an API, a new surface) | `docs/features.md` |
 | changing the taxonomy | `docs/practices.md` → Changing the taxonomy |
 | `planning/research/` — adding or reviewing research | `planning/research/README.md` |
