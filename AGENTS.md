@@ -55,7 +55,9 @@ gh issue list -R vishmatta/ai-agent-ecosystem
    thread is resolved. Squash-merge once green, unless the issue says to
    leave it for review or the PR holds something the owner hasn't approved:
    a rename, a new permanent URL, new page prose, or an open choice
-   (`docs/practices.md` → Decisions). Say so in the PR body.
+   (`docs/practices.md` → Decisions). Say so in the PR body. Pass no commit
+   subject or body to the merge itself: an explicit one overrides the repo's
+   default and drops the branch commit's message and its trailers.
 6. **Don't make the owner's calls.** Naming, structure, scope, and anything the
    spec leaves open: comment on the issue with the options and your
    recommendation, add `needs-decision`, and stop.

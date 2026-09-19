@@ -45,6 +45,10 @@ git history and PRs already hold those.
   skips, and re-read the whole procedure as someone following it rather than
   reviewing your diff. An exception that only makes sense where it sits leaves
   the next step contradicting it.
+- Leave the issue number out of a commit subject. GitHub appends the PR
+  number when it squashes, so `Record four practices (#156)` lands on the
+  default branch as `Record four practices (#156) (#157)`. `Closes #N` in the
+  PR body is what links the issue.
 - Pass markdown to a CLI through a file (`gh issue edit --body-file`), not an
   inline argument. The shell expands backticks and `$` inside it.
 - In GitHub markdown, a bullet nested under a numbered item needs three
