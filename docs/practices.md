@@ -41,6 +41,10 @@ git history and PRs already hold those.
 - A failed step in an `&&` chain quietly skips everything after it, for
   instance when `git fetch` hits a transient ref-lock error. Check the result
   before assuming the later steps ran.
+- When you add an exception to a numbered procedure, say which later steps it
+  skips, and re-read the whole procedure as someone following it rather than
+  reviewing your diff. An exception that only makes sense where it sits leaves
+  the next step contradicting it.
 - Pass markdown to a CLI through a file (`gh issue edit --body-file`), not an
   inline argument. The shell expands backticks and `$` inside it.
 - In GitHub markdown, a bullet nested under a numbered item needs three
@@ -93,6 +97,10 @@ git history and PRs already hold those.
   Where a sensible default exists, pick it and say so.
 - Encode waiting in an issue's first line (`Blocked by #N`,
   `Not before YYYY-MM-DD`) so agents can skip it mechanically.
+- Don't point a `needs-decision` issue's `Blocked by` at another
+  `needs-decision` issue. Neither has a date or a scheduled action, so the
+  chain buries the one the owner could have answered. Record the dependency in
+  `## Related`, and say which part of the issue it actually gates.
 - When you choose your own mechanism over a platform primitive, record the
   primitive you rejected and why, beside the one you chose. A table of what was
   picked can't answer "why not the built-in?" a month later.
@@ -128,6 +136,10 @@ git history and PRs already hold those.
   frontmatter: `name`, `description` and `metadata`. A session lists the new
   skill as soon as the file and its symlink exist; if it doesn't appear, the
   frontmatter is wrong. It's the cheapest check available.
+- A skill's `description` is what decides whether it fires, so extend it
+  whenever you extend the doc it points at. Pointing at a doc keeps the
+  procedure from drifting, not the description: a doc that handles a new kind
+  of input is dead code if the description still lists only the old ones.
 
 **Keeping context lean**
 - Keep always-loaded instructions short. Put detail in docs read on demand, and
@@ -188,6 +200,12 @@ git history and PRs already hold those.
   on the issue what was read and when. A paste is a dated snapshot, not a link
   a reviewer can re-open, and an access model or a price moves — re-check
   before the work starts if the gap has grown.
+- A section's title says what it's about; its Landscape says what it lists.
+  Check the Landscape before claiming something belongs to a section, and name
+  the category. While the site is being built the gap is wide — §12 is
+  *Runtime and Execution Infrastructure* and has carried a single category,
+  `Sandboxes` — so inferring from titles overstates how complete the taxonomy
+  is.
 - A name in `planning/taxonomy/tags.md` isn't a tag in use. Grep before relying
   on one or extending the set: most of the list is applied to nothing, and
   `check-content.mjs` doesn't validate tags, so an unused or misspelled one
