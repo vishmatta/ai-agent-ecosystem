@@ -1,0 +1,64 @@
+# Catches a commit that reaches main with no message body.
+#
+# main takes squash merges only, and the repo's squash default is
+# COMMIT_MESSAGES, so a merge should carry the branch commit's message across
+# whole. That default applies only when the merge call supplies no message of
+# its own, and an explicit empty one silently overrides it: 13 of the first 51
+# commits on main landed with a zero-byte body, losing their reasoning and
+# their Co-Authored-By and Claude-Session trailers (#158). AGENTS.md step 5
+# fixed the cause; this catches a relapse.
+#
+# It runs on push, never on pull requests, because the message is decided at
+# merge — after quartz-build-check has already passed. That makes it a
+# detector, not a gate: it reports a merge that already happened, which is the
+# whole point, since the alternative is noticing six days later.
+#
+# For the same reason it must never be added to the protect-main ruleset as a
+# required check. It doesn't run on pull requests, and a required check that
+# never runs blocks every merge forever (see deploy.yml's header).
+#
+# The dispatch input is the only way to exercise this workflow, since `on:
+# push` can't be triggered from a pull request: dispatch it against a known
+# body-less commit (a60f11a) and watch it fail before trusting it.
+
+name: Commit body check
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      sha:
+        description: "Commit to check (default: the branch head)"
+        required: false
+        default: ""
+
+# Read-only: this job inspects a commit message and never writes to the repo.
+permissions:
+  contents: read
+
+concurrency:
+  group: commit-body-check-${{ github.sha }}
+  cancel-in-progress: false
+
+jobs:
+  commit-body-check:
+    name: commit-body-check
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v7
+        with:
+          # Full history so a dispatch can name any commit, not only the head.
+          # The repo is small enough that this costs nothing.
+          fetch-depth: 0
+
+      - name: Check the commit carries a message body
+        env:
+          TARGET: ${{ inputs.sha || github.sha }}
+        # pipefail, or tee's exit status masks the script's and the check
+        # passes while reporting a failure.
+        run: |
+          set -o pipefail
+          node .github/scripts/check-commit-body.mjs "$TARGET" | tee -a "$GITHUB_STEP_SUMMARY"
