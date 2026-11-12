@@ -132,7 +132,7 @@ page.
 ```yaml
 title: Agent Behavior and Configuration # required
 type: narrative # narrative | concept | landscape | home | how-to | hub (omit on stage pages)
-deck: >- # drafted narrative: one-sentence line under the title
+deck: >- # drafted narrative: one-sentence line under the title; also the page's meta description and OG card text (an explicit `description:` wins; an undrafted page falls back to its title)
 deckPending: >- # undrafted: status note, rendered visibly differently. Use one or the other.
 tags: [ADE] # only tags from planning/taxonomy/tags.md
 concepts: # narrative pages; omit until at least one concept page exists

@@ -10,7 +10,7 @@
  *                                           plugin, and ships the site without it
  *   - config pointing at a missing plugin → logs "✗ Failed to install plugin"
  *
- * So after the build this checks four things:
+ * So after the build this checks five things:
  *
  *   1. The build log contains none of Quartz's failure or warning markers.
  *      A clean build of this site logs none, so any that appear mean
@@ -30,6 +30,13 @@
  *      plugins/agent-ecosystem-stage-page; if either drifts from the registry,
  *      or the plugin stops claiming the stage pages, the list falls out of
  *      order.
+ *   5. No page's description is built from template debris. The description
+ *      plugin takes the page's text when the page has no `description:`, and
+ *      on a section page that text starts with a beat key glued to the
+ *      heading ("whatWhat is …") and can hold "(not yet drafted)". Neither
+ *      may appear in <meta name="description">, og:description or
+ *      og:image:alt, which the OG card and link previews also use. A section
+ *      page gets its description from plugins/agent-ecosystem-template.
  *
  * Usage: node .github/scripts/verify-build.mjs <build-log> [output-dir]
  */
@@ -156,6 +163,36 @@ for (const stage of ["build", "connect", "run", "control"]) {
   }
 }
 
+// --- 5. descriptions -------------------------------------------------------
+
+// A beat key (what, why, when, how, where) in lowercase directly followed by a
+// capital is the beat kicker glued onto its heading; a real sentence never
+// starts that way.
+const BEAT_KEY_LEAK = /^(?:what|why|when|how|where)[A-Z]/
+const PLACEHOLDER = "(not yet drafted)"
+const DESCRIPTION_META = [
+  ["meta description", /<meta name="description" content="([^"]*)"/],
+  ["og:description", /<meta property="og:description" content="([^"]*)"/],
+  ["og:image:alt", /<meta property="og:image:alt" content="([^"]*)"/],
+]
+
+let descriptionsChecked = 0
+for (const file of pages) {
+  const page = path.relative(outDir, file)
+  const html = fs.readFileSync(file, "utf8")
+  for (const [label, pattern] of DESCRIPTION_META) {
+    const content = html.match(pattern)?.[1]
+    if (content === undefined) continue
+    descriptionsChecked++
+    if (BEAT_KEY_LEAK.test(content)) {
+      fail(`${page}: ${label} starts with a beat key glued to the heading ("${content.slice(0, 40)}…").`)
+    }
+    if (content.includes(PLACEHOLDER)) {
+      fail(`${page}: ${label} contains "${PLACEHOLDER}".`)
+    }
+  }
+}
+
 // --- report ---------------------------------------------------------------
 
 if (failures.length > 0) {
@@ -167,5 +204,6 @@ if (failures.length > 0) {
 
 console.log(
   `Build verification passed: ${pages.length} pages, stage navigation on every page, ` +
-    `${linksChecked} internal links resolved, ${stagesChecked} stage pages in registry order.`,
+    `${linksChecked} internal links resolved, ${stagesChecked} stage pages in registry order, ` +
+    `${descriptionsChecked} descriptions free of beat keys and placeholders.`,
 )
