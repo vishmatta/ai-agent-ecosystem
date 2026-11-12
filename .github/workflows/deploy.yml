@@ -49,7 +49,7 @@ jobs:
         run: npm ci
 
       - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       # Same build-then-verify sequence as the PR build check, so a broken
       # build (including the exit-0 failures Quartz can produce) never
@@ -63,7 +63,7 @@ jobs:
         run: node .github/scripts/verify-build.mjs quartz-build.log public
 
       - name: Upload build output
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: public
 
@@ -76,4 +76,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
