@@ -15,7 +15,9 @@ Each taxonomy section (§1–15) becomes up to three tiers of pages (plan §3):
 | Landscape | `landscape` | the attributed product list, no prose | may be stubbed ahead of content |
 
 Other page types: `home` (site root, the only first-person page — plan §9),
-`how-to` (the how-to-use-this-site page), `hub` (a cross-link page that
+`how-to` (the how-to-use-this-site page, `content/how-to-use-this-site.md`,
+linked from the footer and `unlisted` like `how-we-classify`; it describes the
+site's own mechanics, so change it with them), `hub` (a cross-link page that
 gathers pieces catalogued elsewhere, such as Cloud AI Platforms; a plain
 body with no beats or Landscape card), and stage pages
 (`content/<stage>/index.md`, no `type:`, rendered as Quartz folder pages).
