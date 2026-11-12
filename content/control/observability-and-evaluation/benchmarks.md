@@ -13,6 +13,7 @@ No commercial benchmarks are catalogued in this category.
 - [GAIA](https://huggingface.co/gaia-benchmark)
 - [AgentBench](https://github.com/THUDM/AgentBench)
 - [Terminal-Bench](https://www.tbench.ai/)
+  - Terminal-Bench 2.0 runs through Harbor, listed in [[control/observability-and-evaluation/evaluation-tools|Evaluation Tools]]
 - [τ-bench](https://www.taubench.com/)
 
 ## Legacy / Decommissioned
