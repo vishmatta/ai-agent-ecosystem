@@ -17,7 +17,6 @@ runtime as plain ESM. It has no TypeScript or JSX, so components use preact's
 | `agent-ecosystem-stage-nav` | component, beforeBody | Build → Connect → Run pipeline, with Control set apart. `verify-build.mjs` fails any page other than 404 without it. |
 | `agent-ecosystem-concept-list` | component, afterBody | Renders the `concepts` list. |
 | `agent-ecosystem-landscape-card` | component, afterBody | Renders the `landscapes` cards. |
-| `agent-ecosystem-footer-links` | component, footer | Low-emphasis relative links to the how-to-use-this-site and how-we-classify pages, which the vendor Footer can't render (its links are not path-resolved). Add a footer link by adding to its `LINKS` list. |
 | `agent-ecosystem-graph` | component, right | Wraps the upstream graph so hierarchy comes from folders and each page shows its own subtree. It works by patching upstream's minified script. |
 
 Each plugin's header comment documents its behavior. Read that before changing
