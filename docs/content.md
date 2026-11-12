@@ -127,7 +127,9 @@ them.
 appears on the hub under its stage, and a new governance Landscape needs only
 the tag. Pick the tag by what the page is about: Security for defending against
 attack and holding credentials or identity, Governance for policy, oversight and
-review, Eval for measuring agent quality.
+review, Eval for measuring agent quality. Spell the tag exactly as in
+`planning/taxonomy/tags.md`: nothing checks it yet (#171), and a misspelled tag
+silently drops the page from the index.
 
 The plan (§5) fixed each item's stage; the owner picked the sections (#36).
 Items move in their target section's pipeline run, not all at once. "Policies
@@ -141,8 +143,7 @@ title: Agent Behavior and Configuration # required
 type: narrative # narrative | concept | landscape | home | how-to | hub (omit on stage pages)
 deck: >- # drafted narrative: one-sentence line under the title
 deckPending: >- # undrafted: status note, rendered visibly differently. Use one or the other.
-tags: [ADE] # only tags from planning/taxonomy/tags.md (CI fails an unknown one)
-concepts: # narrative pages; omit until at least one concept page exists
+tags: [ADE] # only tags from planning/taxonomy/tags.mdconcepts: # narrative pages; omit until at least one concept page exists
   - title: Model selection
     note: Model routing — implemented in Connect # one line on its children, or "Single concept, no children"
     href: /build/agent-behavior/model-selection # site-root path; components render it relative
