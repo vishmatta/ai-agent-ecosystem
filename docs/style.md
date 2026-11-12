@@ -8,11 +8,18 @@ that breaks them can't merge; the rest are for writers and reviewers.
 ## Voice
 
 - Neutral reference style on every page except the home page, which is first
-  person (plan §9).
-- Describe; don't rank or recommend. No "best", "leading", "powerful", or
-  "use this if". Selection criteria are fine; verdicts aren't.
-- Every fact comes from the taxonomy (`planning/taxonomy/`) or from reviewed
-  research. A copywriter adds words, not facts.
+  person (plan §9), and playbooks (below).
+- On the reference tiers (everything except playbooks): describe; don't rank or
+  recommend. No "best", "leading", "powerful", or "use this if". Selection
+  criteria are fine; verdicts aren't.
+- On the reference tiers, every fact comes from the taxonomy
+  (`planning/taxonomy/`) or from reviewed research. A copywriter adds words,
+  not facts.
+- On playbooks, the call is the point: "reach for X over Y when Z" is allowed
+  there and nowhere else. A call is stated with its situation and where it
+  breaks down, never as a general ranking of products, and it is as strong as
+  its `evidence` grade and no stronger. Facts about products inside a playbook
+  follow the reference tiers' rules.
 - Word budgets: stage intros roughly 60 to 80 words, and the Control hub
   framing 200 to 300 (plan §2).
 - *Owner to add: tone, sentence length, and two or three sample paragraphs
@@ -43,8 +50,14 @@ the end of a page.
 - **Narrative and concept pages:** link the specific claim (a release, a
   rename, a license, a shutdown, a date) to the primary source that shows it.
   Plain definitions and explanations need no link.
-- **Primary sources only:** the vendor's own page, docs, repository, or
-  announcement. Not blogs, reviews, or rankings.
+- **Primary sources only** (reference tiers): the vendor's own page, docs,
+  repository, or announcement. Not blogs, reviews, or rankings.
+- **Playbooks:** a claim about a product still takes the rule above. The claim
+  a playbook adds, that an approach worked, is sourced by its grade: `lived`
+  names the project and outcome; `observed` links the talk, video, or
+  post-mortem at that claim, which is the primary source for "this team
+  reported this outcome"; `derived` links the docs or behaviour it was
+  inferred from. Anything else is not a source for the claim.
 - External links are markdown links over `https`, with no tracking
   parameters. Links between pages are full-path wikilinks
   (`docs/content.md`).
