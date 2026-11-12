@@ -143,7 +143,8 @@ title: Agent Behavior and Configuration # required
 type: narrative # narrative | concept | landscape | home | how-to | hub (omit on stage pages)
 deck: >- # drafted narrative: one-sentence line under the title
 deckPending: >- # undrafted: status note, rendered visibly differently. Use one or the other.
-tags: [ADE] # only tags from planning/taxonomy/tags.mdconcepts: # narrative pages; omit until at least one concept page exists
+tags: [ADE] # only tags from planning/taxonomy/tags.md
+concepts: # narrative pages; omit until at least one concept page exists
   - title: Model selection
     note: Model routing — implemented in Connect # one line on its children, or "Single concept, no children"
     href: /build/agent-behavior/model-selection # site-root path; components render it relative
