@@ -2,6 +2,7 @@
 
 ### What is an agent harness
 - The wrapper around a model — the tool-calling loop, context and session management, safety rails, and the interface a person actually touches
+- Defined by that shape, not by its audience: a harness need not be a developer tool, so general-purpose and personal agents belong here alongside coding tools
 - → distinct from an agent framework (§2): a framework is a library/toolkit for building your own harness, not a finished product itself
 
 ### Why use an agent harness
@@ -64,6 +65,12 @@
   - Formerly Snowflake Intelligence
   - An agent for business users rather than a coding tool: answers questions over structured and unstructured enterprise data, runs multi-step deep research, and turns reports into recurring automations
   - → built on Cortex Agents, listed in §13 Agent Operations and Deployment Landscape
+- [Instinct](https://instinct.com/) (Spear Street Technology)
+  - An autonomous personal assistant rather than a developer tool: connects to email, messaging, screen, audio and location, and is reached by text message or phone call rather than through an interface of its own
+  - Operates a phone and a computer directly, signing in to third-party services under the user's own accounts and credentials rather than through an API surface
+  - Acts on its own initiative as well as on request — follows up on dropped threads, and calls or texts the user unprompted
+  - Available to a private access group as of September 2026, with a waitlist; no published pricing
+  - Tagged `Consumer` and `Computer Use` — see Tags for cross-cutting filtering across sections
 
 **Open Source / Provider-agnostic**
 - [OpenCode](https://opencode.ai/) (Anomaly)
@@ -92,6 +99,10 @@
 - [Mods](https://github.com/charmbracelet/mods) (Charm) — CLI utility for piping command output through an LLM (stdin → prompt → response), with MCP tool-calling since v1.8.0. Sunset March 9, 2026, and its GitHub repo archived so Charm could focus on Crush; much of its functionality lives on in Crush's non-interactive mode (`crush run`), above. Code remains MIT licensed and forkable. Briefly listed under Open Source / Provider-agnostic (v2.15) before the sunset was caught
 
 ## Changelog
+
+**2026-11-12**
+- Added Instinct (Commercial), per the owner's decisions on #138: consumer personal agents are in scope, tagged `Consumer` and `Computer Use`, and an invite-only product is listed normally with its access model in a sub-bullet. The name, URL and access model were verified at instinct.com by the owner on 2026-09-16; they were not re-checked at the site on 2026-11-12 (unreachable from the working session), so the access sub-bullet keeps its "as of September 2026" date
+- Added a line to What is an agent harness: a harness is defined by its shape, not its audience, so personal and general-purpose agents belong alongside coding tools. Nothing else is retagged (that is #139)
 
 **2026-09-15**
 - Added Snowflake CoWork (Commercial), per the owner's direction on #100, next to Perplexity Computer as another general-purpose agent product. Its product page says "Formerly Snowflake Intelligence", and the old product and documentation URLs redirect to CoWork's

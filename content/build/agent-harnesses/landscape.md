@@ -38,6 +38,12 @@ type: landscape
   - Formerly Snowflake Intelligence
   - An agent for business users rather than a coding tool: answers questions over structured and unstructured enterprise data, runs multi-step deep research, and turns reports into recurring automations
   - Built on Cortex Agents, listed in the [[run/agent-operations/landscape|Operations and Deployment Landscape]]
+- [Instinct](https://instinct.com/) (Spear Street Technology)
+  - An autonomous personal assistant rather than a developer tool: connects to email, messaging, screen, audio and location, and is reached by text message or phone call rather than through an interface of its own
+  - Operates a phone and a computer directly, signing in to third-party services under the user's own accounts and credentials rather than through an API surface
+  - Acts on its own initiative as well as on request: follows up on dropped threads, and calls or texts the user unprompted
+  - Available to a private access group as of September 2026, with a waitlist; no published pricing
+  - Tagged `Consumer` and `Computer Use`
 
 ## Open Source / Provider-agnostic
 
