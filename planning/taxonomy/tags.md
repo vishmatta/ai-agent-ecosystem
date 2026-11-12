@@ -12,6 +12,7 @@
 - Multi-agent
 - MCP
 - Enterprise
+- Consumer
 - Production
 - Framework
 - Protocol
