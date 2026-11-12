@@ -42,7 +42,7 @@ type: landscape
   - An autonomous personal assistant rather than a developer tool: connects to email, messaging, screen, audio and location, and is reached by text message or phone call rather than through an interface of its own
   - Operates a phone and a computer directly, signing in to third-party services under the user's own accounts and credentials rather than through an API surface
   - Acts on its own initiative as well as on request: follows up on dropped threads, and calls or texts the user unprompted
-  - Available to a private access group as of September 2026, with a waitlist; no published pricing
+  - Public sign-in page and an invite-a-friend link as of November 2026; access terms after sign-in and pricing are not published
   - Tagged `Consumer` and `Computer Use`
 
 ## Open Source / Provider-agnostic

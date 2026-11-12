@@ -69,7 +69,7 @@
   - An autonomous personal assistant rather than a developer tool: connects to email, messaging, screen, audio and location, and is reached by text message or phone call rather than through an interface of its own
   - Operates a phone and a computer directly, signing in to third-party services under the user's own accounts and credentials rather than through an API surface
   - Acts on its own initiative as well as on request — follows up on dropped threads, and calls or texts the user unprompted
-  - Available to a private access group as of September 2026, with a waitlist; no published pricing
+  - Public sign-in page and an invite-a-friend link as of November 2026; access terms after sign-in and pricing are not published
   - Tagged `Consumer` and `Computer Use` — see Tags for cross-cutting filtering across sections
 
 **Open Source / Provider-agnostic**
@@ -101,7 +101,7 @@
 ## Changelog
 
 **2026-11-12**
-- Added Instinct (Commercial), per the owner's decisions on #138: consumer personal agents are in scope, tagged `Consumer` and `Computer Use`, and an invite-only product is listed normally with its access model in a sub-bullet. The name, URL and access model were verified at instinct.com by the owner on 2026-09-16; they were not re-checked at the site on 2026-11-12 (unreachable from the working session), so the access sub-bullet keeps its "as of September 2026" date
+- Added Instinct (Commercial), per the owner's decisions on #138: consumer personal agents are in scope, tagged `Consumer` and `Computer Use`, and the access model is called out in a sub-bullet. The name, URL and access model were checked at instinct.com by the owner on 2026-11-12: the site now links to a public sign-in page and an invite-a-friend link, and no longer says it is limited to a private access group, so the access sub-bullet records only that
 - Added a line to What is an agent harness: a harness is defined by its shape, not its audience, so personal and general-purpose agents belong alongside coding tools. Nothing else is retagged (that is #139)
 
 **2026-09-15**
