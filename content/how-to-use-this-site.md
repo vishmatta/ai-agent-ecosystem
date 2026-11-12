@@ -8,7 +8,7 @@ deck: >-
 
 ## How the site is arranged
 
-Every page below the home page belongs to one of four stages, shown as a bar at the top of the page: [[build/index|Build]], [[connect/index|Connect]], [[run/index|Run]], and [[control/index|Control]]. Build, Connect, and Run are sequential: constructing an agent, connecting it to models, tools, and data, and operating it. Control is drawn apart with a dashed border because it is cross-cutting. Security, governance, observability, and evaluation apply at every stage rather than at one point in the pipeline, so [[control/index|Control]] links out to the pages that cover them.
+Every section belongs to one of four stages, shown as a bar at the top of each page: [[build/index|Build]], [[connect/index|Connect]], [[run/index|Run]], and [[control/index|Control]]. Build, Connect, and Run are sequential: constructing an agent, connecting it to models, tools, and data, and operating it. Control is drawn apart with a dashed border because it is cross-cutting. Security, governance, observability, and evaluation apply at every stage rather than at one point in the pipeline, so [[control/index|Control]] links out to the pages that cover them.
 
 Each stage holds sections, and each section can have up to three kinds of page.
 
@@ -20,7 +20,7 @@ Each stage holds sections, and each section can have up to three kinds of page.
 
 ## Moving between the three kinds of page
 
-A narrative page is the entry point to its section. Its five parts are collapsible sections, with the first open by default: select a heading to open or close one. Below them, a concept list names the section's concept pages when any exist, and a Landscape card links to each catalog with counts of the products in it. Both are drawn from the section's own page settings, so a section that has no concept pages or no catalog shows neither.
+A narrative page is the entry point to its section. Its five parts are collapsible sections, with the first open by default: select a heading to open or close one. Below them, a concept list names the section's concept pages when any exist, and a Landscape card links to each catalog with counts of the products in it. Both are drawn from the section's own page settings, so a section shows only the ones it has.
 
 To go up from a concept or Landscape page, use the breadcrumb above the title (Home, then the stage, then the section) or the section's entry in the Explorer. Section pages also appear in the stage page's list, which follows the same order as the Explorer.
 
@@ -39,4 +39,4 @@ On a device with a pointer, hovering over a link to another page shows a preview
 - **Graph.** The graph at the right shows the current page and every page beneath it in the site's hierarchy, plus the tags those pages carry, so a stage shows its sections and a section shows its concept and Landscape pages. The home page shows the whole site. The icon in the graph's corner expands it to the whole site on any page, and selecting a node opens that page.
 - **Backlinks.** In the right-hand column, a list names the pages that link to the current page. It appears only when at least one page does.
 - **Table of contents.** On pages with headings, the right-hand column lists them and highlights the current one.
-- **Display.** The buttons beside the search box switch between light and dark themes and turn reader mode on and off, which reduces the page to its text.
+- **Display.** The buttons beside the search box switch between light and dark themes and turn reader mode on and off, which hides the side columns until the pointer moves over them.
