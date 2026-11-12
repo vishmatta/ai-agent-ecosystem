@@ -122,6 +122,13 @@ them.
     enforcement).
   - `control/observability-and-evaluation/` (§15): all of it, kept together.
 
+**The hub's at-a-glance index is generated** (#78), not hand-kept. A
+`landscape` page tagged Security, Governance or Eval (frontmatter `tags:`)
+appears on the hub under its stage, and a new governance Landscape needs only
+the tag. Pick the tag by what the page is about: Security for defending against
+attack and holding credentials or identity, Governance for policy, oversight and
+review, Eval for measuring agent quality.
+
 The plan (§5) fixed each item's stage; the owner picked the sections (#36).
 Items move in their target section's pipeline run, not all at once. "Policies
 hub" must keep that exact title so it never collides with Build's "Policies"
@@ -134,7 +141,7 @@ title: Agent Behavior and Configuration # required
 type: narrative # narrative | concept | landscape | home | how-to | hub (omit on stage pages)
 deck: >- # drafted narrative: one-sentence line under the title
 deckPending: >- # undrafted: status note, rendered visibly differently. Use one or the other.
-tags: [ADE] # only tags from planning/taxonomy/tags.md
+tags: [ADE] # only tags from planning/taxonomy/tags.md (CI fails an unknown one)
 concepts: # narrative pages; omit until at least one concept page exists
   - title: Model selection
     note: Model routing — implemented in Connect # one line on its children, or "Single concept, no children"

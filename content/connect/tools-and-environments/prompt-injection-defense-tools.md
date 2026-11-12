@@ -1,6 +1,8 @@
 ---
 title: Prompt-Injection Defense Tools
 type: landscape
+tags:
+  - Security
 ---
 
 ## Commercial / Proprietary

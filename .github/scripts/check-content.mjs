@@ -15,6 +15,7 @@
 //      must match the Landscape page it links to. A product listed in two
 //      buckets counts once in the total ("… catalogued") and once in each
 //      bucket (docs/content.md → Frontmatter).
+//   3. Tags: every frontmatter tag must be a name in planning/taxonomy/tags.md.
 
 import fs from "node:fs"
 import path from "node:path"
@@ -103,6 +104,29 @@ function checkLandscapeCounts(file, fm) {
   }
 }
 
+// The tag vocabulary is planning/taxonomy/tags.md. A misspelled tag drops its
+// page from anything built from tags, such as the Control hub's index, without
+// an error, so every tag in use must be a name on that list.
+const TAGS_FILE = "planning/taxonomy/tags.md"
+const knownTags = new Set(
+  fs.existsSync(TAGS_FILE)
+    ? fs
+        .readFileSync(TAGS_FILE, "utf8")
+        .split("\n")
+        .filter((line) => line.startsWith("- "))
+        .map((line) => line.slice(2).trim())
+    : [],
+)
+
+function checkTags(file, fm) {
+  if (knownTags.size === 0) return
+  for (const tag of fm.tags ?? []) {
+    if (!knownTags.has(String(tag))) {
+      problems.push(`${file}: unknown tag "${tag}"; use a name from ${TAGS_FILE}.`)
+    }
+  }
+}
+
 const files = markdownFiles(root)
 for (const file of files) {
   const text = fs.readFileSync(file, "utf8")
@@ -113,7 +137,9 @@ for (const file of files) {
       }
     }
   })
-  checkLandscapeCounts(file, frontmatter(text))
+  const fm = frontmatter(text)
+  checkLandscapeCounts(file, fm)
+  checkTags(file, fm)
 }
 
 if (problems.length) {
@@ -122,4 +148,6 @@ if (problems.length) {
   console.log(`\nContent check failed: ${problems.length} problem(s).`)
   process.exit(1)
 }
-console.log(`Content check passed: ${files.length} pages, ${RULES.length} line rules, Landscape counts match.`)
+console.log(
+  `Content check passed: ${files.length} pages, ${RULES.length} line rules, Landscape counts match, tags known.`,
+)

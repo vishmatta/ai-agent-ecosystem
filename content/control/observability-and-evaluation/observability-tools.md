@@ -1,6 +1,8 @@
 ---
 title: Observability Tools
 type: landscape
+tags:
+  - Governance
 ---
 
 ## Commercial / Proprietary

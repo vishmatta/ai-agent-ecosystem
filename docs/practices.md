@@ -211,9 +211,11 @@ git history and PRs already hold those.
   `Sandboxes` — so inferring from titles overstates how complete the taxonomy
   is.
 - A name in `planning/taxonomy/tags.md` isn't a tag in use. Grep before relying
-  on one or extending the set: most of the list is applied to nothing, and
-  `check-content.mjs` doesn't validate tags, so an unused or misspelled one
-  fails silently. Adding a name to that file and applying it across the
+  on one or extending the set: most of the list is applied to nothing.
+  `check-content.mjs` fails a tag that isn't on the list, but not a page that
+  lacks a tag it should have. The Control hub's index is built from the
+  Security, Governance and Eval tags, so an untagged Landscape is missing from
+  it without any error. Adding a name to that file and applying it across the
   Landscapes are separate jobs of very different size.
 - Don't bundle several names into one tag with a slash, and check that an
   abbreviation isn't already taken. A tag has to mean one thing to filter
