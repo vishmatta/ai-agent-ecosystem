@@ -107,6 +107,8 @@
   - [Ragas](https://docs.ragas.io/) (Vibrant Labs)
     - Formerly ExplodingGradients
   - [DeepEval](https://deepeval.com/) (Confident AI)
+  - [Harbor](https://harborframework.com/) (unconfirmed)
+    - → official harness for Terminal-Bench 2.0; see Benchmarks below
 
 **Code Review Tools**
 - Commercial / Proprietary
@@ -119,10 +121,15 @@
   - [GAIA](https://huggingface.co/gaia-benchmark)
   - [AgentBench](https://github.com/THUDM/AgentBench)
   - [Terminal-Bench](https://www.tbench.ai/)
+    - → Terminal-Bench 2.0 runs through Harbor; see Evaluation Tools above
   - [τ-bench](https://www.taubench.com/)
 
 ## Changelog
 
+**2026-11-12**
+- Added Harbor to Evaluation Tools, Open Source / Provider-agnostic (#124). Checked 2026-11-12 at its repository (`harbor-framework/harbor`; the old `laude-institute/harbor` URL resolves to the same commit), PyPI record and LICENSE: Apache-2.0; its README calls it a framework "from the creators of Terminal-Bench" for evaluating and optimizing agents and language models, runs agents such as Claude Code, OpenHands and Codex CLI, and runs on sandbox providers such as Daytona and Modal; the README states "Harbor is the official harness for Terminal-Bench-2.0"; latest commit 2026-11-12, latest release 0.25.0 (2026-10-25). The link is the site URL in the repository's CITATION.cff; the site itself was not loaded
+- Creator left `(unconfirmed)`: the LICENSE names no copyright holder, `pyproject.toml` lists one individual author (Alex Shaw), CITATION.cff and the README's BibTeX say "Harbor Framework Team", and the README says "from the creators of Terminal-Bench" without naming an organization. None of these names the Laude Institute or any other organization as Harbor's maker
+- Added a cross-reference between Harbor and Terminal-Bench, which already noted in the 2026-09-14 entry that Terminal-Bench 2.0 runs through Harbor. Both entries are in this section, and the pair is not in the site plan's section 7 inventory
 **2026-09-15**
 - Added the cloud vendors' agent services that fit this section's existing categories, per the owner's direction after the Cloud AI Platforms hub (#96): Amazon Bedrock AgentCore Observability; Foundry Observability (Microsoft); MLflow (Databricks); Amazon Bedrock AgentCore Evaluations; GenAI Evaluation Service (Google). Each name is the vendor's current one, checked at its product or documentation page, and each links there. New categories these vendors would need (tool gateways, managed retrieval, agent memory, policy planes, payments, document parsing) are a separate decision
 - Renamed entries to their current official names: Datadog Agent Observability (formerly Datadog LLM Observability; Datadog's page now leads with Agent Observability), Phoenix (Arize), and Weave (Weights & Biases)
