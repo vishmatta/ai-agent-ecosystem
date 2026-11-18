@@ -77,7 +77,8 @@ if (!fs.existsSync(root) || fs.statSync(root).size === 0) {
 
 const htmlFiles = (dir) =>
   fs.existsSync(dir)
-    ? fs.readdirSync(dir, { withFileTypes: true, recursive: true })
+    ? fs
+        .readdirSync(dir, { withFileTypes: true, recursive: true })
         .filter((d) => d.isFile() && d.name.endsWith(".html"))
         .map((d) => path.join(d.parentPath ?? d.path, d.name))
     : []
@@ -135,8 +136,12 @@ for (const file of pages) {
 // without a built page yet are skipped.
 const REGISTRY = "docs/content.md"
 const registryRows = fs.existsSync(REGISTRY)
-  ? fs.readFileSync(REGISTRY, "utf8").split("\n")
-      .map((line) => line.match(/^\| (build|connect|run|control) \|[^|]*\|[^|]*\|[^|]*\| `([a-z0-9-]+)`/))
+  ? fs
+      .readFileSync(REGISTRY, "utf8")
+      .split("\n")
+      .map((line) =>
+        line.match(/^\| (build|connect|run|control) \|[^|]*\|[^|]*\|[^|]*\| `([a-z0-9-]+)`/),
+      )
       .filter(Boolean)
   : []
 if (registryRows.length === 0) fail(`No section rows found in ${REGISTRY} → Section registry.`)
@@ -146,10 +151,15 @@ for (const stage of ["build", "connect", "run", "control"]) {
   const stagePage = path.join(outDir, stage, "index.html")
   if (!fs.existsSync(stagePage)) continue
   const expected = registryRows
-    .filter(([, rowStage, slug]) => rowStage === stage && fs.existsSync(path.join(outDir, stage, slug, "index.html")))
+    .filter(
+      ([, rowStage, slug]) =>
+        rowStage === stage && fs.existsSync(path.join(outDir, stage, slug, "index.html")),
+    )
     .map(([, , slug]) => slug)
   const html = fs.readFileSync(stagePage, "utf8")
-  const listed = [...html.matchAll(/class="section-li">[\s\S]*?<h3><a href="[^"]*?([a-z0-9-]+)\/"/g)]
+  const listed = [
+    ...html.matchAll(/class="section-li">[\s\S]*?<h3><a href="[^"]*?([a-z0-9-]+)\/"/g),
+  ]
     .map(([, slug]) => slug)
     .filter((slug) => expected.includes(slug))
   stagesChecked++

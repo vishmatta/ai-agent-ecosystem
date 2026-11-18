@@ -87,7 +87,9 @@ function checkLandscapeCounts(file, fm) {
   for (const card of fm.landscapes ?? []) {
     const target = card.href && sourceFor(card.href)
     if (!target) {
-      problems.push(`${file}: Landscape card "${card.title}" links to ${card.href}, which has no page.`)
+      problems.push(
+        `${file}: Landscape card "${card.title}" links to ${card.href}, which has no page.`,
+      )
       continue
     }
     const actual = countEntries(target)
@@ -95,9 +97,13 @@ function checkLandscapeCounts(file, fm) {
       const label = String(stat.label)
       const key = label.endsWith("catalogued") ? "total" : label
       if (!(key in actual)) {
-        problems.push(`${file}: unknown stat label "${label}" on "${card.title}"; use "… catalogued", commercial, open source, or legacy.`)
+        problems.push(
+          `${file}: unknown stat label "${label}" on "${card.title}"; use "… catalogued", commercial, open source, or legacy.`,
+        )
       } else if (Number(stat.value) !== actual[key]) {
-        problems.push(`${file}: "${card.title}" says ${stat.value} ${label}, but ${target} has ${actual[key]}.`)
+        problems.push(
+          `${file}: "${card.title}" says ${stat.value} ${label}, but ${target} has ${actual[key]}.`,
+        )
       }
     }
   }
@@ -122,4 +128,6 @@ if (problems.length) {
   console.log(`\nContent check failed: ${problems.length} problem(s).`)
   process.exit(1)
 }
-console.log(`Content check passed: ${files.length} pages, ${RULES.length} line rules, Landscape counts match.`)
+console.log(
+  `Content check passed: ${files.length} pages, ${RULES.length} line rules, Landscape counts match.`,
+)

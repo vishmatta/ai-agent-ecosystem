@@ -47,10 +47,7 @@ const ConceptList = () => {
         { class: "concept-list" },
         concepts.map((c) =>
           h("a", { class: "concept-row", href: hrefFor(c.href) }, [
-            h("span", { class: "concept-title" }, [
-              c.title,
-              h("span", { class: "arrow" }, "→"),
-            ]),
+            h("span", { class: "concept-title" }, [c.title, h("span", { class: "arrow" }, "→")]),
             c.note ? h("span", { class: "concept-meta" }, c.note) : null,
           ]),
         ),

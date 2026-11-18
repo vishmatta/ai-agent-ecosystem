@@ -7,3 +7,22 @@ node_modules
 AGENTS.md
 CLAUDE.md
 docs/
+
+# Owner-authored spec and research notes: not ours to rewrap or re-pad (#14).
+planning/
+
+# Published prose: prettier would rewrite emphasis markers and pad tables in
+# text readers see, and docs/content.md owns its style (#14).
+content/
+
+# Contributor and issue-template text is hand-formatted prose (#14).
+CONTRIBUTING.md
+.github/ISSUE_TEMPLATE/
+
+# Vendored upstream Quartz: never reformatted. Only the site's own stylesheet
+# under quartz/ is formatted (#14).
+quartz/*
+!quartz/styles/
+quartz/styles/*
+!quartz/styles/custom.scss
+quartz.config.default.yaml

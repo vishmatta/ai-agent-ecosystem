@@ -97,8 +97,12 @@ details.beat summary {
   padding: 1.35rem 0;
   -webkit-tap-highlight-color: transparent;
 }
-details.beat summary::-webkit-details-marker { display: none; }
-details.beat summary::marker { content: ""; }
+details.beat summary::-webkit-details-marker {
+  display: none;
+}
+details.beat summary::marker {
+  content: "";
+}
 
 .beat-label {
   display: flex;
@@ -125,7 +129,9 @@ details.beat summary::marker { content: ""; }
 /* Quartz adds an anchor link to every heading; inside a beat summary the whole
    row is already the click target, so the icon is noise. The anchor stays in
    the DOM — deep links to a beat still resolve. */
-.beat-title a[role="anchor"] { display: none; }
+.beat-title a[role="anchor"] {
+  display: none;
+}
 
 .chev {
   flex-shrink: 0;
@@ -135,18 +141,26 @@ details.beat summary::marker { content: ""; }
   transition: transform 0.2s ease;
   margin-top: 0.3rem;
 }
-details.beat[open] .chev { transform: rotate(45deg); }
+details.beat[open] .chev {
+  transform: rotate(45deg);
+}
 
 .beat-body {
   padding: 0 0 1.75rem;
   max-width: 62ch;
   color: var(--ae-ink-soft);
 }
-.beat-body > :first-child { margin-top: 0; }
-.beat-body > :last-child { margin-bottom: 0; }
+.beat-body > :first-child {
+  margin-top: 0;
+}
+.beat-body > :last-child {
+  margin-bottom: 0;
+}
 
 /* An undrafted beat: italic and faint, so its status is legible at a glance. */
-.beat-body em:only-child { color: var(--ae-ink-faint); }
+.beat-body em:only-child {
+  color: var(--ae-ink-faint);
+}
 
 /* --- Landscape Legacy bucket (emitted by the template transformer) ---- */
 
@@ -165,8 +179,12 @@ details.legacy-bucket summary {
   gap: 1rem;
   -webkit-tap-highlight-color: transparent;
 }
-details.legacy-bucket summary::-webkit-details-marker { display: none; }
-details.legacy-bucket summary::marker { content: ""; }
+details.legacy-bucket summary::-webkit-details-marker {
+  display: none;
+}
+details.legacy-bucket summary::marker {
+  content: "";
+}
 
 .legacy-bucket-title {
   font-family: var(--ae-display);
@@ -174,22 +192,30 @@ details.legacy-bucket summary::marker { content: ""; }
   font-size: 1.05rem;
   color: var(--ae-ink-faint);
 }
-.legacy-bucket-title a[role="anchor"] { display: none; }
+.legacy-bucket-title a[role="anchor"] {
+  display: none;
+}
 
 details.legacy-bucket .chev {
   width: 15px;
   height: 15px;
   margin-top: 0.2rem;
 }
-details.legacy-bucket[open] .chev { transform: rotate(45deg); }
+details.legacy-bucket[open] .chev {
+  transform: rotate(45deg);
+}
 
 .legacy-bucket-body {
   padding-top: 0.9rem;
   color: var(--ae-ink-faint);
   font-size: 0.94rem;
 }
-.legacy-bucket-body > :first-child { margin-top: 0; }
-.legacy-bucket-body > :last-child { margin-bottom: 0; }
+.legacy-bucket-body > :first-child {
+  margin-top: 0;
+}
+.legacy-bucket-body > :last-child {
+  margin-bottom: 0;
+}
 
 /* --- cross-cutting tag chip ------------------------------------------- */
 
@@ -205,6 +231,10 @@ details.legacy-bucket[open] .chev { transform: rotate(45deg); }
 }
 
 @media (max-width: 520px) {
-  .beat-label { gap: 0.6rem; }
-  .beat-kicker { display: none; }
+  .beat-label {
+    gap: 0.6rem;
+  }
+  .beat-kicker {
+    display: none;
+  }
 }

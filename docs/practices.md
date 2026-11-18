@@ -174,11 +174,13 @@ git history and PRs already hold those.
   instead of calling the run CI-identical.
 - `quartz-build-check` runs `check-content.mjs` over `content/`, the build and
   `verify-build.mjs`: no formatter, and nothing outside `content/`.
-  `npm run check` does run prettier, but `AGENTS.md`, `CLAUDE.md` and `docs/`
-  are in `.prettierignore` on purpose and `planning/` fails wholesale today
-  (#14). So prettier-check what you add under `.github/`, `plugins/` or
-  `.agents/`, and don't reformat an ignored or already-failing file to make a
-  check pass.
+  `npm run check` does run prettier, and passes: it checks only the site's own
+  code (`plugins/`, `.github/scripts/`, `quartz/styles/custom.scss`, config
+  files). `.prettierignore` leaves out agent docs (`AGENTS.md`, `CLAUDE.md`,
+  `docs/`), owner-authored text (`planning/`, `content/`, `CONTRIBUTING.md`,
+  issue templates) and vendored Quartz, on purpose (#14). Run
+  `npx prettier --write` on what you add under the checked paths, and don't
+  reformat an ignored file.
 - Delete `public/` before a verification build. `verify-build.mjs` checks
   whatever is in `public/`, so after a failed build it can pass against the
   previous build's output (#121).
