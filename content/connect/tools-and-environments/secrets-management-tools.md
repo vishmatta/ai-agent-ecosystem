@@ -1,6 +1,8 @@
 ---
 title: Secrets Management Tools
 type: landscape
+tags:
+  - Security
 ---
 
 ## Commercial / Proprietary

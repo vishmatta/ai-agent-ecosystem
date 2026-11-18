@@ -1,0 +1,38 @@
+{
+  "name": "agent-ecosystem-governance-index",
+  "version": "1.0.0",
+  "description": "The Control hub's at-a-glance index of governance Landscape pages, generated from tags.",
+  "type": "module",
+  "private": true,
+  "main": "./index.js",
+  "exports": {
+    ".": {
+      "import": "./index.js"
+    },
+    "./components": {
+      "import": "./components/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "quartz": {
+    "name": "agent-ecosystem-governance-index",
+    "displayName": "Governance Index",
+    "description": "Lists Landscape pages tagged Security, Governance or Eval, grouped by stage; renders only on the Control hub.",
+    "version": "1.0.0",
+    "quartzVersion": ">=5.0.0",
+    "category": "component",
+    "dependencies": [],
+    "defaultEnabled": true,
+    "defaultOptions": {},
+    "components": {
+      "GovernanceIndex": {
+        "name": "agent-ecosystem-governance-index",
+        "displayName": "Governance Index",
+        "description": "At-a-glance index of governance Landscape pages.",
+        "version": "1.0.0",
+        "defaultPosition": "afterBody",
+        "defaultPriority": 15
+      }
+    }
+  }
+}

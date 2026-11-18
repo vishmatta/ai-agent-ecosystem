@@ -1,6 +1,8 @@
 ---
 title: Behavior and Configuration Landscape
 type: landscape
+tags:
+  - Governance
 ---
 
 ## Commercial / Proprietary

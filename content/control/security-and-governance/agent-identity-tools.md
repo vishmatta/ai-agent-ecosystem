@@ -1,6 +1,8 @@
 ---
 title: Agent Identity Tools
 type: landscape
+tags:
+  - Security
 ---
 
 ## Commercial / Proprietary

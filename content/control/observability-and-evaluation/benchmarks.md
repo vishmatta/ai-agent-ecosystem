@@ -1,6 +1,8 @@
 ---
 title: Benchmarks
 type: landscape
+tags:
+  - Eval
 ---
 
 ## Commercial / Proprietary
