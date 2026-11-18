@@ -17,6 +17,8 @@ type: landscape
 - [LangChain](https://www.langchain.com/langchain)
 - [LangGraph](https://www.langchain.com/langgraph) (LangChain)
   - Graph orchestration with checkpointed, resumable state. Its commercial deployment layer, LangSmith Deployment, is separately branded (see the [[run/agent-operations/landscape|Operations and Deployment Landscape]])
+- [Deep Agents](https://docs.langchain.com/oss/python/deepagents/overview) (LangChain)
+  - Open source (MIT) agent harness built on LangGraph, used as a library: planning, subagents, a virtual filesystem, and long-term memory. The terminal coding agent built on it, Deep Agents Code, is listed in the [[build/agent-harnesses/landscape|Harnesses Landscape]]
 - [CrewAI](https://crewai.com/)
 - [Agent Development Kit](https://adk.dev/) (Google)
   - Abbreviated ADK

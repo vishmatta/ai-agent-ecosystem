@@ -7,15 +7,15 @@ landscapes:
   - title: Code Frameworks
     href: /build/agent-frameworks/code-frameworks
     stats:
-      - { value: 18, label: frameworks catalogued }
+      - { value: 19, label: frameworks catalogued }
       - { value: 2, label: commercial }
-      - { value: 15, label: open source }
+      - { value: 16, label: open source }
       - { value: 2, label: legacy }
   - title: No-code / Low-code Builders
     href: /build/agent-frameworks/no-code-builders
     stats:
-      - { value: 9, label: builders catalogued }
-      - { value: 7, label: commercial }
+      - { value: 10, label: builders catalogued }
+      - { value: 8, label: commercial }
       - { value: 1, label: open source }
       - { value: 1, label: legacy }
 deck: >-

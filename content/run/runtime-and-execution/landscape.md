@@ -13,6 +13,9 @@ type: landscape
   - Hosted commercial service. Its former open-source core is listed under Legacy
 - [Amazon Bedrock AgentCore Code Interpreter](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/code-interpreter-tool.html)
 - [Azure Container Apps dynamic sessions](https://learn.microsoft.com/en-us/azure/container-apps/sessions) (Microsoft)
+- [LangSmith Sandboxes](https://docs.langchain.com/langsmith/sandboxes) (LangChain)
+  - Managed isolated environments in which agents run code and use a filesystem
+  - Part of LangSmith, with LangSmith Deployment in the [[run/agent-operations/landscape|Operations and Deployment Landscape]] and LangSmith Evaluation in [[control/observability-and-evaluation/evaluation-tools|Evaluation Tools]]
 
 ## Open Source / Provider-agnostic
 

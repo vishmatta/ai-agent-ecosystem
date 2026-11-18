@@ -9,6 +9,8 @@ type: landscape
   - Hosted commercial layer under a separate brand name, built on DeepEval (see Open Source)
 - [Amazon Bedrock AgentCore Evaluations](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/evaluations.html)
 - [GenAI Evaluation Service](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/agent-evaluation) (Google)
+- [LangSmith Evaluation](https://docs.langchain.com/langsmith/evaluation) (LangChain)
+  - Offline and online evaluation of agent outputs against datasets and evaluators. Part of LangSmith, whose observability product is listed in [[control/observability-and-evaluation/observability-tools|Observability Tools]]
 
 ## Open Source / Provider-agnostic
 

@@ -64,6 +64,8 @@ type: landscape
 - [Zed](https://github.com/zed-industries/zed)
   - GPL-3.0 editor core, with local models via Ollama. Commercial layer under the same brand (see Commercial)
   - A host editor for the Agent Client Protocol (see [[connect/agent-communication/protocols|Protocols]]): external agents such as Claude Agent, Codex, and OpenCode dock into it
+- [Deep Agents Code](https://docs.langchain.com/oss/deepagents/code/overview) (LangChain)
+  - Terminal coding agent (`dcode`) built on the Deep Agents SDK. Works with any model and supports switching providers or models. The SDK is listed in [[build/agent-frameworks/code-frameworks|Code Frameworks]]
 
 ## Legacy / Decommissioned
 

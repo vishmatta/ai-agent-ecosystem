@@ -90,6 +90,9 @@
 - [Zed](https://github.com/zed-industries/zed)
   - GPL-3.0 editor core; self-hostable local models via Ollama from the UI. Commercial layer (Zed AI service, collaboration backend) under the same brand, above
   - Supports the Agent Client Protocol (ACP, §8) as a host editor — external agents like Claude Agent, Codex, and OpenCode dock directly in, alongside its own native agent features
+- [Deep Agents Code](https://docs.langchain.com/oss/deepagents/code/overview) (LangChain)
+  - Terminal coding agent (`dcode`) built on the Deep Agents SDK; works with any model and supports switching providers or models; MIT
+  - → built on Deep Agents, listed in §2 Agent Frameworks (Code Frameworks)
 
 **Legacy / Decommissioned**
 - [Windsurf](https://devin.ai/blog/windsurf-is-now-devin-desktop) (Cognition) — rebranded Devin Desktop, June 2, 2026
@@ -101,6 +104,8 @@
 ## Changelog
 
 **2026-11-12**
+- Added Deep Agents Code (LangChain) under Open Source / Provider-agnostic, per #125. Its docs page (`oss/deepagents/code/overview` in the `langchain-ai/docs` source, which also redirects `/dcode` and `/deepagents-code` to it) names it "Deep Agents Code" and says it "works with any large language model and supports switching providers or models"; the package `deepagents-code` on PyPI (0.2.7, published 2026-11-10) is MIT. Linked to that docs page. The page could not be loaded from the session that made the change (network policy); the link comes from the docs source and the package's own metadata
+- Left out Open SWE for now and raised it with the owner on #125: its repository's README now introduces the project as "Robin", "an open-source software factory built on Deep Agents", rather than the asynchronous coding agent the issue quoted, says it is under active development and not accepting issues or contributions, and needs Managed Deep Agents to deploy as is. Whether this is a rename, and whether it is a product or a reference app, is the owner's call
 - Added Instinct (Commercial), per the owner's decisions on #138: consumer personal agents are in scope, tagged `Consumer` and `Computer Use`, and the access model is called out in a sub-bullet. The name, URL and access model were checked at instinct.com by the owner on 2026-11-12: the site now links to a public sign-in page and an invite-a-friend link, and no longer says it is limited to a private access group, so the access sub-bullet records only that
 - Added a line to What is an agent harness: a harness is defined by its shape, not its audience, so personal and general-purpose agents belong alongside coding tools. Nothing else is retagged (that is #139)
 

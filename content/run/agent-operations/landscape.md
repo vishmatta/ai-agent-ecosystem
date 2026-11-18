@@ -25,6 +25,7 @@ type: landscape
 - [LangSmith Deployment](https://www.langchain.com/langsmith/deployment) (LangChain)
   - Hosting for long-running, stateful agents. Formerly LangGraph Platform, renamed October 2025
   - The separately branded commercial deployment layer for [[build/agent-frameworks/code-frameworks|LangGraph]]. LangSmith's observability product is listed in [[control/observability-and-evaluation/observability-tools|Observability Tools]]
+  - LangSmith Sandboxes is listed in the [[run/runtime-and-execution/landscape|Runtime and Execution Landscape]], and LangSmith Fleet in [[build/agent-frameworks/no-code-builders|No-code / Low-code Builders]]
 - [Microsoft Foundry Agent Service](https://learn.microsoft.com/en-us/azure/foundry/agents/overview)
   - Hosts declarative prompt agents, and runs your own agent code as hosted agents
 - [Managed Agents API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents) (Google)

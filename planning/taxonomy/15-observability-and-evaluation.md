@@ -62,6 +62,7 @@
 **Observability Tools**
 - Commercial / Proprietary
   - [LangSmith](https://www.langchain.com/langsmith/observability) (LangChain)
+    - → LangSmith Evaluation is listed under Evaluation Tools below, and LangSmith Deployment in §13
   - [Braintrust](https://www.braintrust.dev/)
   - [Weave](https://wandb.ai/site/weave/) (Weights & Biases)
   - [Datadog Agent Observability](https://www.datadoghq.com/product/llm-observability/)
@@ -101,6 +102,9 @@
     - Hosted commercial layer under a separate brand name, built on DeepEval
   - [Amazon Bedrock AgentCore Evaluations](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/evaluations.html)
   - [GenAI Evaluation Service](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/agent-evaluation) (Google)
+  - [LangSmith Evaluation](https://docs.langchain.com/langsmith/evaluation) (LangChain)
+    - Offline and online evaluation of agent outputs against datasets and evaluators
+    - → part of LangSmith: its observability product is listed under Observability Tools above
 - Open Source / Provider-agnostic
   - [promptfoo](https://www.promptfoo.dev/) (OpenAI)
     - Founded by Ian Webster and Michael D'Angelo; acquired by OpenAI in 2026, remains open source under continued independent development
@@ -122,6 +126,11 @@
   - [τ-bench](https://www.taubench.com/)
 
 ## Changelog
+
+**2026-11-12**
+- Added LangSmith Evaluation (LangChain) under Evaluation Tools, Commercial / Proprietary, per #125. Its docs page (`langsmith/evaluation` in the `langchain-ai/docs` source) is titled "LangSmith Evaluation" and describes offline and online evaluation against datasets. Linked to that docs page, not the marketing page from the issue (`www.langchain.com/langsmith/evaluation`); neither could be loaded from the session that made the change (network policy)
+- Found while checking #125, left for the owner: the docs source titles the observability product "LangSmith Observability" (`langsmith/observability.mdx`), while the Observability Tools entry is named "LangSmith". The entry keeps its name pending that call, which also decides how "LangSmith Evaluation" sits beside it
+- Left out Insights and Chat (prompt optimization) as separate entries: LangChain's docs present them as parts of LangSmith. Raised LangSmith Engine on #125 rather than decide between its own entry and a sub-bullet here
 
 **2026-09-15**
 - Added the cloud vendors' agent services that fit this section's existing categories, per the owner's direction after the Cloud AI Platforms hub (#96): Amazon Bedrock AgentCore Observability; Foundry Observability (Microsoft); MLflow (Databricks); Amazon Bedrock AgentCore Evaluations; GenAI Evaluation Service (Google). Each name is the vendor's current one, checked at its product or documentation page, and each links there. New categories these vendors would need (tool gateways, managed retrieval, agent memory, policy planes, payments, document parsing) are a separate decision

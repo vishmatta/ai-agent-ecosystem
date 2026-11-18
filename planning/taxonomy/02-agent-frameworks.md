@@ -40,6 +40,9 @@
   - [LangChain](https://www.langchain.com/langchain)
   - [LangGraph](https://www.langchain.com/langgraph) (LangChain)
     - Graph orchestration with checkpointed, resumable state. Its commercial deployment layer is separately branded — see LangSmith Deployment in §13
+  - [Deep Agents](https://docs.langchain.com/oss/python/deepagents/overview) (LangChain)
+    - Open source (MIT) agent harness built on LangGraph, used as a library: planning, subagents, a virtual filesystem, and long-term memory
+    - → the terminal coding agent built on it, Deep Agents Code, is listed in §1 Harnesses Landscape
   - [CrewAI](https://crewai.com/)
   - [Agent Development Kit](https://adk.dev/) (Google)
     - Abbreviated ADK
@@ -77,6 +80,10 @@
     - Builds agents that work inside Oracle Fusion Applications
   - [Agent Bricks](https://www.databricks.com/product/artificial-intelligence/agent-bricks) (Databricks)
     - Formerly Mosaic AI; builds and governs agents grounded in enterprise data
+  - [LangSmith Fleet](https://www.langchain.com/langsmith/fleet) (LangChain)
+    - No-code platform for building and running agents from templates, with connected accounts and approvals for important actions
+    - Formerly Agent Builder
+    - → part of LangSmith, with LangSmith Deployment in §13, LangSmith Sandboxes in §12, and LangSmith in §15
 - Open Source / Provider-agnostic
   - [Langflow](https://www.langflow.org/)
     - Visual builder for agents and LLM workflows; MIT-licensed
@@ -84,6 +91,12 @@
   - [Flowise](https://github.com/FlowiseAI/Flowise/discussions/6727) — visual drag-and-drop builder for LLM apps and agents, wound down in 2026: code freeze July 29, repo archived August 13, end of life August 31. Code remains Apache 2.0 and forkable
 
 ## Changelog
+
+**2026-11-12**
+- Added Deep Agents (LangChain) to Code Frameworks under Open Source / Provider-agnostic and LangSmith Fleet (LangChain) to No-code / Low-code Builders under Commercial, per #125. Deep Agents: its README calls it "an open source agent harness" and says it works with any LLM that supports tool calling; the repository and the `deepagents` packages on PyPI and npm are MIT. It sits here beside the Claude Agent SDK, which is also a harness shipped as a library; LangChain's docs file it under "agent harnesses", so the owner may prefer §1 (raised on #125). Linked to the docs overview, which the package's PyPI metadata names as its homepage. LangSmith Fleet: the docs page says "Agent Builder is now LangSmith Fleet" and calls it a no-code platform; linked to LangChain's product page, which LangChain's own `deepagents` examples README links. Neither link could be loaded from the session that made the change (network policy)
+- Left out langchain-mcp-adapters: no MCP-client category exists to hold a library (§7 lists clients only as a concept), and its Python repository's README now says it is no longer actively maintained, with MCP support moved into `langchain` (`langchain.mcp`).
+- Left out Open Agent Platform from Legacy / Decommissioned for now and raised it on #125: its README says the repository "has been deprecated" in favor of Agent Builder (now LangSmith Fleet, listed above), but states no shutdown or end-of-life, and the archived flag couldn't be read from this session, so it doesn't yet meet `CONTRIBUTING.md`'s completed-sunset test
+- Checked, not changed: LangChain and LangGraph are still LangChain's, and Langflow is not a LangChain product
 
 **2026-09-15**
 - Added the cloud vendors' agent services that fit this section's existing categories, per the owner's direction after the Cloud AI Platforms hub (#96): Strands Agents (AWS); Microsoft Copilot Studio; Agent Studio (Google); Oracle AI Agent Studio for Fusion Applications; Agent Bricks (Databricks). Each name is the vendor's current one, checked at its product or documentation page, and each links there. New categories these vendors would need (tool gateways, managed retrieval, agent memory, policy planes, payments, document parsing) are a separate decision
