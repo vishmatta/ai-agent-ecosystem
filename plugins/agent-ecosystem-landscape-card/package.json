@@ -6,8 +6,12 @@
   "private": true,
   "main": "./index.js",
   "exports": {
-    ".": { "import": "./index.js" },
-    "./components": { "import": "./components/index.js" },
+    ".": {
+      "import": "./index.js"
+    },
+    "./components": {
+      "import": "./components/index.js"
+    },
     "./package.json": "./package.json"
   },
   "quartz": {

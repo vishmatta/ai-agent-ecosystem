@@ -27,7 +27,8 @@ function explorerSortFn() {
   const config = parse(fs.readFileSync(path.join(process.cwd(), "quartz.config.yaml"), "utf8"))
   const explorer = config.plugins?.find((p) => p.source === "@quartz-community/explorer")
   const source = explorer?.options?.sortFn
-  if (!source) throw new Error("agent-ecosystem-stage-page: no Explorer sortFn in quartz.config.yaml")
+  if (!source)
+    throw new Error("agent-ecosystem-stage-page: no Explorer sortFn in quartz.config.yaml")
   return new Function("a", "b", `return (${source})(a, b)`)
 }
 

@@ -37,7 +37,10 @@ function textOf(node) {
 /** Returns "what" | "why" | ... if this h3 opens a narrative beat, else null. */
 function beatKicker(node) {
   if (node?.type !== "element" || node.tagName !== "h3") return null
-  const first = textOf(node).trim().toLowerCase().split(/[\s:]+/)[0]
+  const first = textOf(node)
+    .trim()
+    .toLowerCase()
+    .split(/[\s:]+/)[0]
   return BEATS.includes(first) ? first : null
 }
 
@@ -136,7 +139,10 @@ function buildLegacyBucket(heading, body) {
     chevron(),
   ])
 
-  return el("details", properties, [summary, el("div", { className: ["legacy-bucket-body"] }, body)])
+  return el("details", properties, [
+    summary,
+    el("div", { className: ["legacy-bucket-body"] }, body),
+  ])
 }
 
 /**
@@ -180,9 +186,7 @@ export default () => ({
         if (type === "narrative") collapseBeats(tree)
         if (type === "landscape") collapseLegacyBucket(tree)
 
-        tree.children = [
-          el("div", { className: ["ae-page", `ae-page--${type}`] }, tree.children),
-        ]
+        tree.children = [el("div", { className: ["ae-page", `ae-page--${type}`] }, tree.children)]
       },
     ]
   },

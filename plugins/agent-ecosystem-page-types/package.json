@@ -6,7 +6,9 @@
   "private": true,
   "main": "./index.js",
   "exports": {
-    ".": { "import": "./index.js" },
+    ".": {
+      "import": "./index.js"
+    },
     "./package.json": "./package.json"
   },
   "quartz": {
@@ -16,7 +18,9 @@
     "version": "1.0.0",
     "quartzVersion": ">=5.0.0",
     "category": "pageType",
-    "dependencies": ["@quartz-community/content-page"],
+    "dependencies": [
+      "@quartz-community/content-page"
+    ],
     "defaultOrder": 50,
     "defaultEnabled": true,
     "defaultOptions": {}
