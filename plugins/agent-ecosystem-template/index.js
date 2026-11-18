@@ -5,7 +5,7 @@
  * component plugins in this same directory; Quartz resolves one component per
  * plugin entry, so each needs its own package.
  *
- * Three jobs, all driven entirely by frontmatter + body markdown so that
+ * Four jobs, all driven entirely by frontmatter + body markdown so that
  * authoring a new page never requires touching styles or markup:
  *
  *   1. Wraps the five narrative beats (What / Why / When / How / Where) in
@@ -18,6 +18,14 @@
  *      are left as plain headings.
  *   3. Tags the page with `ae-page--<type>` from the `type:` frontmatter field,
  *      giving every page type a CSS hook without per-page restyling.
+ *   4. On a `type: narrative` page with no `description:` of its own, supplies
+ *      one for the `description` plugin (order 70, which runs after this one).
+ *      That plugin otherwise builds the description from the page's text, which
+ *      by then holds the beat kicker ("what") glued to the first heading and
+ *      any "(not yet drafted)" placeholder. It feeds <meta name="description">,
+ *      og:description, og:image:alt and the OG card. The text used is what the
+ *      page already carries: its `deck`, else its title. `deckPending` is a
+ *      status note, never a description. An explicit `description:` wins.
  *
  * Pages with no `type:` are passed through untouched.
  */
@@ -169,13 +177,22 @@ function collapseLegacyBucket(tree) {
   tree.children = out
 }
 
+/** Collapses the whitespace a YAML folded scalar can leave in a string. */
+const oneLine = (value) => (typeof value === "string" ? value.replace(/\s+/g, " ").trim() : "")
+
 export default () => ({
   name: "AgentEcosystemTemplate",
   htmlPlugins() {
     return [
       () => (tree, file) => {
-        const type = file?.data?.frontmatter?.type
+        const frontmatter = file?.data?.frontmatter
+        const type = frontmatter?.type
         if (!type || !TAXONOMY_TYPES.includes(type)) return
+
+        if (type === "narrative" && !frontmatter.description) {
+          const description = oneLine(frontmatter.deck) || oneLine(frontmatter.title)
+          if (description) frontmatter.description = description
+        }
 
         if (type === "narrative") collapseBeats(tree)
         if (type === "landscape") collapseLegacyBucket(tree)
