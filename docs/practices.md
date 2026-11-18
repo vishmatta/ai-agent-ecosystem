@@ -182,8 +182,8 @@ git history and PRs already hold those.
 - Delete `public/` before a verification build. `verify-build.mjs` checks
   whatever is in `public/`, so after a failed build it can pass against the
   previous build's output (#121).
-- npm 11 warns that the install scripts of esbuild, sharp, @parcel/watcher
-  and fsevents aren't approved. That's expected: the build uses their
+- npm 11 warns that the install scripts of esbuild, @parcel/watcher and
+  fsevents (on macOS) aren't approved. That's expected: the build uses their
   prebuilt binaries, and skipping the scripts is the safer default. Don't
   approve them just to silence the warning.
 - Refer to a page that doesn't exist yet in plain text, not a link. A wikilink
