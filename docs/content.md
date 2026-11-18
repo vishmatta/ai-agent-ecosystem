@@ -6,13 +6,15 @@ authority. If this file disagrees with it, the plan wins, and fix this file.
 
 ## Page tiers
 
-Each taxonomy section (§1–15) becomes up to three tiers of pages (plan §3):
+Each taxonomy section (§1–15) becomes up to three tiers of pages (plan §3),
+plus an optional fourth, playbooks (#146):
 
 | Tier | `type:` | Holds | When it exists |
 |---|---|---|---|
 | Narrative | `narrative` | the five What/Why/When/How/Where beats — nothing else | always, one per section |
 | Concept | `concept` | one item from the section's concept list | only once its content is written — never stubbed |
 | Landscape | `landscape` | the attributed product list, no prose | may be stubbed ahead of content |
+| Playbook | `playbook` | one reusable lesson: the situation, the call, when it does not apply, and how well it is evidenced | only once a real playbook exists — the section's `playbooks/` folder appears with its first page, never before |
 
 Other page types: `home` (site root, the only first-person page — plan §9),
 `how-to` (the how-to-use-this-site page), `hub` (a cross-link page that
@@ -20,9 +22,16 @@ gathers pieces catalogued elsewhere, such as Cloud AI Platforms; a plain
 body with no beats or Landscape card), and stage pages
 (`content/<stage>/index.md`, no `type:`, rendered as Quartz folder pages).
 
+**Reference tiers.** Every page type except `playbook`: narrative, concept,
+Landscape, `home`, `how-to`, `hub`, and stage pages. `docs/style.md` uses the
+term in this sense, and its voice and sourcing rules bind these pages exactly
+as before.
+
 **Silent omission.** A section with no concept pages yet, or no Landscape,
 simply leaves out that frontmatter key. No placeholder, empty slot, or
-explanatory note (plan §3).
+explanatory note (plan §3). The same holds for playbooks: a section with none
+has no `playbooks/` folder, entry page, link, or note about it. The shape is
+uniform when present; presence is never uniform.
 
 **Placeholders while drafting.** Mark unfinished text `TODO(pipeline): <what
 goes here>`. It's allowed on a branch, and CI fails any PR that still has one,
@@ -39,6 +48,26 @@ so a half-written page can't merge.
 - A single Landscape is `landscape.md`. A Landscape split by category has one
   file per category, named with the category's slug, e.g.
   `agent-frameworks/code-frameworks.md`.
+- Playbooks: `content/<stage>/<section-slug>/playbooks/`, a nested folder. Its
+  entry page is `index.md` (served at `/<stage>/<section-slug>/playbooks/`; no
+  `type:`, rendered as a Quartz folder page, like a stage page), with one file
+  per playbook beside it, e.g. `playbooks/<descriptive-slug>.md`. Nested, not a
+  flat `playbooks.md` beside `landscape.md`: Quartz derives hierarchy from
+  folders, so a flat page would parent nothing. The folder's first page and
+  every new playbook slug are new permanent URLs, so the owner's call.
+  `index.md` carries a `title`, no `type:`, and no `deck`. Its list of the
+  section's playbooks with their grades is generated from the folder, not kept
+  by hand. Any prose on it is new page prose and waits for the owner.
+  **CI (#150):** a `playbooks/` folder holding only `index.md` fails. An entry
+  page with nothing under it is the placeholder the silent-omission rule
+  forbids.
+- A playbook that concerns two sections lives in one folder only. It belongs to
+  the section whose decision it informs (where a reader would be when they need
+  it); if that is a tie, to the section earlier in the registry below (its row
+  order, which puts Control last). The other section reaches it with a `→` cross-reference to
+  the playbook's full-path wikilink in the beat or concept page where its topic
+  comes up, and never gets a `playbooks/` folder of its own for it. The
+  playbook links back to the other section's page in its Situation.
 - Slugs are descriptive, never numbered (plan §4).
 - Renaming a page changes a permanent URL, so it's the owner's call. Once
   approved, `git mv` the file and list its old path under `aliases:`
@@ -52,6 +81,8 @@ so a half-written page can't merge.
   name; a full path can't.
 
 ## Section registry
+
+The registry has no playbooks column: a section has playbooks only if it has a `playbooks/` folder.
 
 Nav order within a stage follows this table, not taxonomy § order; Connect
 deliberately differs (plan §4). "Never" in the concept column means the
@@ -131,7 +162,7 @@ page.
 
 ```yaml
 title: Agent Behavior and Configuration # required
-type: narrative # narrative | concept | landscape | home | how-to | hub (omit on stage pages)
+type: narrative # narrative | concept | landscape | playbook | home | how-to | hub (omit on stage pages and playbooks/index.md)
 deck: >- # drafted narrative: one-sentence line under the title
 deckPending: >- # undrafted: status note, rendered visibly differently. Use one or the other.
 tags: [ADE] # only tags from planning/taxonomy/tags.md
@@ -161,6 +192,41 @@ both buckets, or the total counts it twice.
 List only concept pages that exist, in the taxonomy's own bullet order.
 Position shows relative order, not rank (plan §3).
 
+### Playbook frontmatter
+
+```yaml
+title: Route by task difficulty before choosing a model # required
+type: playbook # required
+evidence: lived # required: lived | observed | derived. The current grade
+upgrades: # optional; oldest first
+  - from: observed
+    to: lived
+    date: "2026-11-10" # a quoted YYYY-MM-DD string, read as a string
+    note: "Reproduced on <named project>; outcome stated in the body."
+```
+
+`tags` and `aliases` work as on other pages. Do not add `deck`, `concepts`,
+or `landscapes`.
+
+**What a playbook is.** Every page in a `playbooks/` folder except its
+`index.md`. **CI (#150):** each has `type: playbook`, and `type: playbook` is
+valid only there.
+
+`evidence` holds the grade as it stands now. **CI (#150):** it is one of:
+
+- `lived`: done on a named project, with the outcome stated.
+- `observed`: reported by someone else (a talk, video, or post-mortem), cited
+  at the claim it supports.
+- `derived`: inferred from docs or behaviour, untested.
+
+A claim tested later is upgraded: change `evidence`, add an `upgrades` entry,
+and leave the original reasoning in the body, so the page records the call and
+how it aged. **CI (#150):** each entry has `from`, `to`, `date` and `note`.
+`from` and `to` are grades, ordered by strength `derived`, `observed`,
+`lived`, and `to` is stronger than `from`. Entries run oldest first, the last
+entry's `to` equals `evidence`, and `note` is one line. A claim that stops
+holding is the owner's call and `upgrades` does not cover it.
+
 ## Page bodies
 
 **Narrative:** five `###` headings, in order, whose first word is What, Why,
@@ -180,6 +246,16 @@ so ("No commercial tools are catalogued in this category yet"). Entries follow
 entry carries (`docs/style.md` → Links and sources), with notes as nested
 sub-bullets. Read `CONTRIBUTING.md` before writing entries; it covers
 dual-listing, exceptions, and attribution.
+
+**Playbook:** three `##` headings, in this order: `Situation` (when it
+applies), `Call` (what to do and why), `When it does not apply` (where the call
+breaks down). **CI (#150):** each heading is level 2 with exactly that text,
+appears once, comes in that order, and is followed by some content. Frontmatter
+also needs `evidence`. A `lived` playbook names the project and the outcome; an
+`observed` one links the source at the claim it supports (`docs/style.md` →
+Links and sources). Review rules: nothing the reader needs lives outside the
+three sections, and the page makes sense to a reader who knows nothing about
+this repo.
 
 **Voice, punctuation, and links:** `docs/style.md`. Its CI rules (no em dashes)
 fail the build check.
