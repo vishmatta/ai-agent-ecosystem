@@ -11,9 +11,9 @@ landscapes:
   - title: Evaluation Tools
     href: /control/observability-and-evaluation/evaluation-tools
     stats:
-      - { value: 6, label: tools catalogued }
+      - { value: 7, label: tools catalogued }
       - { value: 3, label: commercial }
-      - { value: 3, label: open source }
+      - { value: 4, label: open source }
   - title: Code Review Tools
     href: /control/observability-and-evaluation/code-review-tools
     stats:

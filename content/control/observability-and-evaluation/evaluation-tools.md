@@ -19,6 +19,8 @@ tags:
 - [Ragas](https://docs.ragas.io/) (Vibrant Labs)
   - Formerly ExplodingGradients
 - [DeepEval](https://deepeval.com/) (Confident AI)
+- [Harbor](https://harborframework.com/) (unconfirmed)
+  - Official harness for Terminal-Bench 2.0, listed in [[control/observability-and-evaluation/benchmarks|Benchmarks]]
 
 ## Legacy / Decommissioned
 
