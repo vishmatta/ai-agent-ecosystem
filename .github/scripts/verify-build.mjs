@@ -14,7 +14,9 @@
  *
  *   1. The build log contains none of Quartz's failure or warning markers.
  *      A clean build of this site logs none, so any that appear mean
- *      something changed and needs a look.
+ *      something changed and needs a look. This includes npm's own error
+ *      lines (`npm ERR!` in npm 10 and earlier, `npm error` in npm 11), e.g.
+ *      EBADENGINE on too old a Node, which leave an older public/ behind.
  *   2. The output is intact: the site root exists, and every page carries the
  *      stage navigation, which the site renders on every page except the 404
  *      and the redirects that `aliases:` frontmatter leaves at a renamed
@@ -53,12 +55,15 @@ const log = stripAnsi(fs.readFileSync(logPath, "utf8")).split("\n")
 // Quartz marks failures with ✗ and warnings with ⚠. The words catch errors it
 // prints without a glyph (e.g. "failed to load", "YAMLParseError").
 const FAILURE_MARKERS = /✗|⚠|\bfailed\b|\berror\b/i
+// npm's error lines, anchored to the start of a line (`npm ERR!` up to npm 10,
+// `npm error` from npm 11), so prose that merely mentions npm isn't caught.
+const NPM_ERRORS = /^\s*npm (?:ERR!|error\b)/
 // Benign: files not yet committed. Can't occur in a CI checkout, but keeps the
 // script usable against a local build.
 const BENIGN = /isn't yet tracked by git/
 
 for (const line of log) {
-  if (FAILURE_MARKERS.test(line) && !BENIGN.test(line)) {
+  if ((FAILURE_MARKERS.test(line) || NPM_ERRORS.test(line)) && !BENIGN.test(line)) {
     fail(`Build log reports a problem: ${line.trim()}`)
   }
 }
