@@ -8,10 +8,10 @@ that breaks them can't merge; the rest are for writers and reviewers.
 ## Voice
 
 - Neutral reference style on every page except the home page, which is first
-  person (plan §9), and playbooks (below).
-- On the reference tiers (everything except playbooks): describe; don't rank or
-  recommend. No "best", "leading", "powerful", or "use this if". Selection
-  criteria are fine; verdicts aren't.
+  person (plan §9), and playbooks, which have their own voice (below).
+- On the reference tiers (defined in `docs/content.md` → Page tiers): describe;
+  don't rank or recommend. No "best", "leading", "powerful", or
+  "use this if". Selection criteria are fine; verdicts aren't.
 - On the reference tiers, every fact comes from the taxonomy
   (`planning/taxonomy/`) or from reviewed research. A copywriter adds words,
   not facts.
