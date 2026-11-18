@@ -18,6 +18,9 @@ type: landscape
   - Builds agents that work inside Oracle Fusion Applications
 - [Agent Bricks](https://www.databricks.com/product/artificial-intelligence/agent-bricks) (Databricks)
   - Formerly Mosaic AI; builds and governs agents grounded in enterprise data
+- [LangSmith Fleet](https://www.langchain.com/langsmith/fleet) (LangChain)
+  - No-code platform for building and running agents from templates, with connected accounts and approvals for important actions. Formerly Agent Builder
+  - Part of LangSmith, with LangSmith Deployment in the [[run/agent-operations/landscape|Operations and Deployment Landscape]], LangSmith Sandboxes in the [[run/runtime-and-execution/landscape|Runtime and Execution Landscape]], and LangSmith in [[control/observability-and-evaluation/observability-tools|Observability Tools]]
 
 ## Open Source / Provider-agnostic
 

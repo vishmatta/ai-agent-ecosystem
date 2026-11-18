@@ -7,9 +7,9 @@ landscapes:
   - title: Harnesses Landscape
     href: /build/agent-harnesses/landscape
     stats:
-      - { value: 30, label: harnesses catalogued }
+      - { value: 31, label: harnesses catalogued }
       - { value: 15, label: commercial }
-      - { value: 11, label: open source }
+      - { value: 12, label: open source }
       - { value: 5, label: legacy }
 deck: >-
   The wrapper around a model: the tool-calling loop, context and session management, safety rails, and the interface a person actually touches.

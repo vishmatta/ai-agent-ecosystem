@@ -6,6 +6,7 @@ type: landscape
 ## Commercial / Proprietary
 
 - [LangSmith](https://www.langchain.com/langsmith/observability) (LangChain)
+  - LangSmith Evaluation is listed in [[control/observability-and-evaluation/evaluation-tools|Evaluation Tools]], and LangSmith Deployment in the [[run/agent-operations/landscape|Operations and Deployment Landscape]]
 - [Braintrust](https://www.braintrust.dev/)
 - [Weave](https://wandb.ai/site/weave/) (Weights & Biases)
 - [Datadog Agent Observability](https://www.datadoghq.com/product/llm-observability/)
