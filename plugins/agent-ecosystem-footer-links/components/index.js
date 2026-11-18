@@ -12,10 +12,13 @@ import { resolveRelative } from "@quartz-community/utils"
  * different depth on every page. This is a second, sibling footer
  * component for exactly that case.
  *
- * One entry today (the public classification page, #18). This is also
- * where the how-to-use-this-site page (#9) is meant to land once it exists.
+ * Two entries: the how-to-use-this-site page (#9) and the public
+ * classification page (#18). Targets are slugs from the site root.
  */
-const LINKS = [{ label: "How this is classified", target: "how-we-classify" }]
+const LINKS = [
+  { label: "How to use this site", target: "how-to-use-this-site" },
+  { label: "How this is classified", target: "how-we-classify" },
+]
 
 const FooterLinks = () => {
   const Component = ({ fileData, displayClass }) => {

@@ -1,7 +1,7 @@
 {
   "name": "agent-ecosystem-footer-links",
   "version": "1.0.0",
-  "description": "Low-emphasis internal footer links (how-we-classify, and future how-to page) that the vendor Footer plugin can't render as relative paths.",
+  "description": "Low-emphasis internal footer links (how-to-use-this-site, how-we-classify) that the vendor Footer plugin can't render as relative paths.",
   "type": "module",
   "private": true,
   "main": "./index.js",
