@@ -108,6 +108,9 @@
 
 ## Changelog
 
+**2026-11-12**
+- Not added, raised with the owner on #125: LangSmith's gateway for model calls (Model Routers, Gateways and Proxies, Commercial). LangChain's docs source (`langsmith/llm-gateway.mdx`, and the docs home page's Products list) names it "LLM Gateway", not "LangSmith LLM Gateway" as the issue does, describes it as part of LangSmith, and marks it beta (`snippets/langsmith/llm-gateway-beta-note.mdx`). Which name to list, and whether a beta product belongs yet, is the owner's call. Its marketing page (`www.langchain.com/langsmith/llm-gateway`) couldn't be loaded from the session that checked (network policy)
+
 **2026-09-15**
 - Added the cloud vendors' agent services that fit this section's existing categories, per the owner's direction after the Cloud AI Platforms hub (#96): OCI Enterprise AI (Oracle); Model Serving (Databricks); Unity Gateway (Databricks); Amazon Bedrock Intelligent Prompt Routing; Foundry Local (Microsoft). Each name is the vendor's current one, checked at its product or documentation page, and each links there. New categories these vendors would need (tool gateways, managed retrieval, agent memory, policy planes, payments, document parsing) are a separate decision
 - Renamed entries to their current official names: Hugging Face Inference Providers (its docs' name), Text Generation Inference (Hugging Face), and AI Gateway (Vercel)

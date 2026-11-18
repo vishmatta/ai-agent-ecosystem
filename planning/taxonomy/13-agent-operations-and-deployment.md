@@ -56,6 +56,7 @@
     - Stateful agents hosted on Cloudflare's global network. The SDK is open source (MIT) but runs only on Cloudflare, so it isn't listed under Open Source. The same company's edge inference, Workers AI, is listed in §6
   - [LangSmith Deployment](https://www.langchain.com/langsmith/deployment) (LangChain)
     - Hosting for long-running, stateful agents; formerly LangGraph Platform, renamed October 2025. The separately branded commercial deployment layer for LangGraph (§2); LangSmith's observability product is listed in §15
+    - → LangSmith Sandboxes is listed in §12, and LangSmith Fleet in §2 No-code / Low-code Builders
   - [Microsoft Foundry Agent Service](https://learn.microsoft.com/en-us/azure/foundry/agents/overview)
     - Hosts declarative prompt agents, and runs your own agent code as hosted agents
   - [Managed Agents API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents) (Google)
@@ -74,6 +75,12 @@
     - → runs above the harnesses in §1 Harnesses Landscape rather than being one
 
 ## Changelog
+
+**2026-11-12**
+- Found while checking #125, left for the owner: LangChain's docs source renamed LangSmith Deployment to "LangSmith Agent Server" in a commit dated 2026-11-12 (`docs: rename LangSmith Deployment to LangSmith Agent Server`). `langsmith/deployment.mdx` is now titled "LangSmith Agent Server" and opens with "LangSmith Deployment is now **LangSmith Agent Server**". The entry keeps its name and link pending that call; whether LangChain's marketing page has changed too couldn't be checked (network policy)
+- Added a cross-reference from LangSmith Deployment to the new LangSmith Sandboxes (§12) and LangSmith Fleet (§2) entries
+- Left out LangServe from Legacy / Decommissioned, per #125: its README says the project has been deprecated since November 18, 2024 and recommends LangGraph Platform (now LangSmith Deployment), but community bug fixes are still accepted and no shutdown is announced, so the sunset hasn't completed (`CONTRIBUTING.md` → Legacy). Latest PyPI release 0.3.3, October 2025. The archived flag couldn't be read from the session that checked
+- Left out Studio, Agent Server and Context Hub as separate entries: LangChain's docs present them as parts of LangSmith. Agent Server is the docs' new name for LangSmith Deployment (above). Raised Managed Deep Agents on #125 rather than decide between its own entry and a sub-bullet here
 
 **2026-09-15**
 - Added Omnigent (Databricks) under Open Source / Provider-agnostic, per the owner's direction on #100, linked to omnigent.ai as the owner specified. Checked there and at its repository (omnigent-ai/omnigent: Apache 2.0, active, not archived); it wraps several providers' harnesses, so it meets the multi-provider test
